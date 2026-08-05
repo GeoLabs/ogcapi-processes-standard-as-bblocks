@@ -1,0 +1,14 @@
+# NOTE: the upstream draft's binaryValue.yaml is `{type: string}` (with a commented-out
+# `contentEncoding: base64`); Part 1's already-imported binaryInputValue schema is functionally
+# equivalent (`{type: string, format: byte}`) and is reused here via bblocks:// instead of
+# reproducing a near-duplicate schema locally.
+anyOf:
+  - type: string
+  - type: number
+  - type: integer
+  - type: boolean
+  - type: array
+    items: {}
+  - $ref: bblocks://ogc.api.processes.v1.schemas.binaryInputValue
+  - $ref: bblocks://ogc.api.processes.v1.schemas.bbox
+  - $ref: bblocks://ogc.api.processes.part2.schemas.collectionValue

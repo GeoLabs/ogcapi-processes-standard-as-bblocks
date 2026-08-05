@@ -1,0 +1,13 @@
+type: object
+required:
+  - executionUnit
+properties:
+  processDescription:
+    type: object
+    required:
+      - process
+    properties:
+      process:
+        $ref: bblocks://ogc.api.processes.v1.schemas.process
+  executionUnit:
+    $ref: bblocks://ogc.api.processes.part2.schemas.executionUnit

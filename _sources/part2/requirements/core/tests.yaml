@@ -1,0 +1,17 @@
+# See _sources/part1/requirements/core/tests.yaml for notes on the 'id' and 'method' extensions
+# used here (not present in the current tests.schema.yaml).
+
+- id: deploy-success
+  ref: tests/deploy-success.json
+  method: >
+    Issue an HTTP POST request to the path `/processes` with a formal process description in the
+    request body. Validate that the response has HTTP status code 201 with a `Location` header,
+    and that the response body is a valid JSON document conforming to the processSummary schema
+    (ogc.api.processes.v1.schemas.processSummary).
+
+- id: deploy-response-missing-id-fail
+  ref: tests/deploy-response-missing-id-fail.json
+  require-fail: true
+  method: >
+    Validate that a deploy-response body without the required `id` property fails conformance
+    with the processSummary schema. The validator SHALL report an error.

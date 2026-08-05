@@ -1,13 +1,15 @@
-name: OGC API - Processes - Part 1 (Standard as Building Blocks)
+name: OGC API - Processes (Standard as Building Blocks)
 
 abstract: |
-  OGC API — Processes Part 1: Core, authored as Building Blocks. This is a proof-of-concept
-  demonstrating the "OGC Standards as BBs" methodology, where the standards document is generated
-  from a set of Building Blocks rather than from AsciiDoc source.
+  OGC API — Processes, authored as Building Blocks. This is a proof-of-concept demonstrating the
+  "OGC Standards as BBs" methodology, where the standards document is generated from a set of
+  Building Blocks rather than from AsciiDoc source. Covers Part 1: Core and Part 2: Deploy,
+  Replace, Undeploy (the latter still a DRAFT standard, not yet adopted).
 
 description: |
-  This repository contains the Building Blocks for OGC API — Processes Part 1: Core (OGC 18-062r3).
-  It demonstrates the [OGC Standards as BBs](https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/ogc-standards-as-bblocks.md)
+  This repository contains the Building Blocks for OGC API — Processes Part 1: Core (OGC 18-062r3)
+  and OGC API — Processes Part 2: Deploy, Replace, Undeploy (OGC 20-044, **DRAFT**, not yet
+  adopted). It demonstrates the [OGC Standards as BBs](https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/ogc-standards-as-bblocks.md)
   proposal, where normative requirements, conformance tests, schemas, and prose are all co-located
   in a Building Block, and the standards document is generated from the BB set.
 
@@ -16,6 +18,7 @@ description: |
 
 # Prefix prepended to the path of the building blocks.
 # Path _sources/part1/requirements/core/ → identifier ogc.api.processes.part1.requirements.core
+# Path _sources/part2/requirements/core/ → identifier ogc.api.processes.part2.requirements.core
 identifier-prefix: ogc.api.processes.
 
 imports:

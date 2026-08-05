@@ -1,0 +1,12 @@
+# Light coverage, mirroring the same "PoC scope" approach used elsewhere in this register: only
+# the execution-unit-by-ref requirement is tested here (against the imported `link` schema). The
+# execution-unit-by-val requirement is not covered by a fixture in this checkpoint since a
+# faithful test would require a fully valid CWL v1.2 document to satisfy the external CWL schema
+# referenced from executionUnitBase — left for future work.
+
+- id: cwl-execution-unit-by-ref-success
+  ref: tests/cwl-execution-unit-by-ref-success.json
+  method: >
+    Validate that a link object with `href` and `type: application/cwl` conforms to the `link`
+    schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit
+    by reference.

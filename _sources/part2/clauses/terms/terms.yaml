@@ -1,0 +1,23 @@
+terms:
+  - term: execution unit
+    definition: >
+      A component containing a process that an implementation of the Processes API Part 1 can run.
+
+  - term: deploy
+    definition: >
+      Deploy refers to installing a desired execution unit onto a Processes API server so that
+      client applications can interact with it as a process using the Processes API Part 1
+      Standard.
+
+  - term: replace
+    definition: >
+      Replace refers to upgrading a deployed process from a Processes API implementation.
+
+  - term: undeploy
+    definition: >
+      Undeploy refers to removing a deployed process from a Processes API implementation so that
+      it does not appear as an available process.
+
+abbreviated-terms:
+  CWL: Common Workflow Language
+  DRU: Deploy, Replace, Undeploy

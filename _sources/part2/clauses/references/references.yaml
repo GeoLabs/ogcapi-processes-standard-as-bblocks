@@ -1,0 +1,27 @@
+normative:
+  - title: "OGC API - Processes - Part 1: Core"
+    doc-id: OGC 18-062
+    uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
+
+  - title: "OGC API - Features - Part 1: Core"
+    doc-id: OGC 17-069r3
+    uri: https://docs.ogc.org/is/17-069r3/17-069r3.html
+
+  - title: "OGC API - Features - Part 4: Create, Replace, Update and Delete"
+    doc-id: OGC 20-004r1
+    uri: https://docs.ogc.org/DRAFTS/20-004r1.html
+
+  - title: "RFC 6902: JavaScript Object Notation (JSON) Patch"
+    doc-id: IETF RFC 6902
+    uri: http://tools.ietf.org/rfc/rfc6902.txt
+    date: "2013"
+
+  - title: "RFC 2387: The MIME Multipart/Related Content-type"
+    doc-id: IETF RFC 2387
+    uri: http://tools.ietf.org/rfc/rfc2387.txt
+    date: "1998"
+
+  - title: "RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1"
+    doc-id: IETF RFC 2616
+    uri: https://tools.ietf.org/html/rfc2616
+    date: "1999"
