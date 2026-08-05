@@ -48,7 +48,7 @@ requirements:
       SHALL be `application/cwl+json`. If the CWL value is specified as an embedded YAML string
       then the value of the `mediaType` field SHALL be `application/cwl+yaml`.
     applies-to:
-      bblock: ogc.api.processes.part2.schemas.executionUnitBase
+      bblock: ogc.api.processes.v2.schemas.executionUnitBase
       json-path: $
 
   - id: body

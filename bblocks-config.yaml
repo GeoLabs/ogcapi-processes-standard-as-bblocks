@@ -23,4 +23,5 @@ identifier-prefix: ogc.api.processes.
 
 imports:
   - default
-  - https://ogcincubator.github.io/bblocks-ogcapi-processes/build/register.json
+  - https://geolabs.github.io/bblocks-ogcapi-processes/build/register.json
+  - https://geolabs.github.io/bblock-ogcapi-processes-part2/build/register.json

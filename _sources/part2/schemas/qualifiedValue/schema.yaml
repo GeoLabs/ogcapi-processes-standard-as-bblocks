@@ -1,8 +1,0 @@
-allOf:
-  - $ref: bblocks://ogc.api.processes.part2.schemas.format
-  - type: object
-    required:
-      - value
-    properties:
-      value:
-        $ref: bblocks://ogc.api.processes.part2.schemas.value

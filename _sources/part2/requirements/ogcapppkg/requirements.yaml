@@ -4,7 +4,7 @@
 #
 # All 5 requirements of rc_ogcapppkg are transcribed here. The executionUnit-schema requirement's
 # schema fragment simplifies the Docker/OCI execution-unit branch (see
-# ogc.api.processes.part2.schemas.executionUnitBase for the reason) since the "Docker"
+# ogc.api.processes.v2.schemas.executionUnitBase for the reason) since the "Docker"
 # conformance class itself is not yet built in this register.
 
 standardization-target: Web API
@@ -21,9 +21,9 @@ requirements:
     level: SHALL
     statement: >
       The schema of an OGC Application Package document SHALL be defined by the
-      [ogcapppkg](bblocks://ogc.api.processes.part2.schemas.ogcapppkg) OpenAPI schema.
+      [ogcapppkg](bblocks://ogc.api.processes.v2.schemas.ogcapppkg) OpenAPI schema.
     applies-to:
-      bblock: ogc.api.processes.part2.schemas.ogcapppkg
+      bblock: ogc.api.processes.v2.schemas.ogcapppkg
       json-path: $
 
   - id: process-description
@@ -42,9 +42,9 @@ requirements:
     level: SHALL
     statement: >
       The value of the `executionUnit` property of an OGC Application Package SHALL be defined by
-      the [executionUnit](bblocks://ogc.api.processes.part2.schemas.executionUnit) OpenAPI schema.
+      the [executionUnit](bblocks://ogc.api.processes.v2.schemas.executionUnit) OpenAPI schema.
     applies-to:
-      bblock: ogc.api.processes.part2.schemas.executionUnit
+      bblock: ogc.api.processes.v2.schemas.executionUnit
       json-path: $
 
   - id: body

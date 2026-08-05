@@ -1,3 +1,0 @@
-anyOf:
-  - $ref: bblocks://ogc.api.processes.part2.schemas.valueNoObject
-  - type: object
