@@ -1,0 +1,14 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.schemas.valueNoObject - Value (no object) schema",
+  "bblockName": "Value (no object) schema",
+  "bblockId": "ogc.api.processes.part2.schemas.valueNoObject",
+  "generated": "2026-08-05T12:28:13.723817+00:00",
+  "result": true,
+  "items": [],
+  "globalErrors": {},
+  "counts": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}

@@ -27,25 +27,25 @@
   ],
   "resources": [
     {
-      "ref": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/requirements.yaml",
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/requirements.yaml",
       "role": "requirements",
       "format": "application/yaml"
     }
   ],
   "shaclShapes": {},
   "dateOfLastChange": "2026-05-21",
-  "sourceFiles": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/",
   "testResources": [
     {
       "id": "json-content-type",
       "method": "Issue an HTTP GET request to each of the following paths: `/`, `/conformance`, `/processes`, `/processes/{processID}`, `/jobs/{jobID}`. Validate that each response includes `Content-Type: application/json` (or a subtype thereof) when the request carries `Accept: application/json`.\n",
-      "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/tests/json-content-type.json"
+      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/tests/json-content-type.json"
     }
   ],
   "validationPassed": true,
-  "testOutputs": "https://github.com/ogcincubator/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part1/requirements/json/",
+  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part1/requirements/json/",
   "description": "This requirements class specifies the JSON encoding for OGC API \u2014 Processes responses.\n\nThe JSON encoding is one of two pre-defined encodings (the other being HTML). It applies to all\nstandard API responses: the landing page, conformance declaration, process list, process\ndescription, and job status endpoints. The encoding of process output values is independent of this\nrequirement \u2014 output values can be of any type regardless of whether the server supports the JSON\nrequirements class.\n\nServers supporting multiple encodings must provide encoding-specific URIs for resources (for\nexample, via format-specific path suffixes like `.json` or a query parameter such as `f=json`) so\nthat links to alternate representations can be expressed.\n\n<!-- requirements -->\n",
   "annotatedSchema": null,
-  "gitRepository": "https://github.com/ogcincubator/ogcapi-processes-standard-as-bblocks",
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
   "gitPath": "_sources/part1/requirements/json"
 }

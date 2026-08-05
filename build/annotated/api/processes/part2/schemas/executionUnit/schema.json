@@ -1,0 +1,13 @@
+{
+  "oneOf": [
+    {
+      "$ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.json"
+    },
+    {
+      "type": "array",
+      "items": {
+        "$ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.json"
+      }
+    }
+  ]
+}

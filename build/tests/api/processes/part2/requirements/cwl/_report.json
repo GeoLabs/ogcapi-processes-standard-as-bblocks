@@ -1,0 +1,59 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.requirements.cwl - CWL",
+  "bblockName": "CWL",
+  "bblockId": "ogc.api.processes.part2.requirements.cwl",
+  "generated": "2026-08-05T12:28:13.792924+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+        "language": "json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using cwl-execution-unit-by-ref-success.json from test resources"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+        "language": "json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using cwl-execution-unit-by-ref-success.json from test resources"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

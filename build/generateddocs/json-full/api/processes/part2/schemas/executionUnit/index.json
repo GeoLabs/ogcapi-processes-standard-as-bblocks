@@ -1,0 +1,38 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.schemas.executionUnit",
+  "name": "Execution unit schema",
+  "abstract": "Schema of the 'executionUnit' property of an OGC Application Package (DRAFT): either a single execution unit or an array of execution units.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-04T00:00:00Z",
+  "itemClass": "schema",
+  "version": "1.0.0",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "schema",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.api.processes.part2.schemas.executionUnitBase"
+  ],
+  "dateOfLastChange": "2026-08-04",
+  "schema": {
+    "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.yaml",
+    "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.json"
+  },
+  "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/schema.yaml",
+  "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/resolvedProperties.json",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/",
+  "validationPassed": true,
+  "annotatedSchema": "oneOf:\n- $ref: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.yaml\n- type: array\n  items:\n    $ref: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.yaml\n",
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/schemas/executionUnit"
+}

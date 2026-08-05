@@ -1,0 +1,61 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.requirements.cwl",
+  "name": "CWL",
+  "abstract": "Conformance class for OGC API \u2014 Processes Part 2 (DRAFT). Enables support for the Common Workflow Language (CWL) as a process description encoding, either embedded in an OGC Application Package or sent directly as the deploy/replace request body.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-04T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "1.0.0",
+  "clause-index": 9,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    },
+    {
+      "title": "Common Workflow Language v1.2",
+      "link": "https://www.commonwl.org/v1.2/"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part1.requirements.core",
+    "ogc.api.processes.part2.requirements.core",
+    "ogc.api.processes.part2.requirements.ogcapppkg",
+    "ogc.api.processes.v1.schemas.exception",
+    "ogc.api.processes.part2.schemas.executionUnitBase",
+    "ogc.api.processes.v1.schemas.link"
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-08-04",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/",
+  "testResources": [
+    {
+      "id": "cwl-execution-unit-by-ref-success",
+      "method": "Validate that a link object with `href` and `type: application/cwl` conforms to the `link` schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.\n",
+      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json"
+    }
+  ],
+  "validationPassed": true,
+  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part2/requirements/cwl/",
+  "description": "> **DRAFT.** This requirements class mirrors the current editor's draft of OGC API \u2014 Processes \u2014\n> Part 2: Deploy, Replace, Undeploy (OGC 20-044), available at\n> [docs.ogc.org/DRAFTS/20-044.html](https://docs.ogc.org/DRAFTS/20-044.html). It is not yet an\n> adopted OGC Standard and should be re-checked against the live draft before being treated as\n> final.\n\n## Overview\n\nThis requirements class enables support for the Common Workflow Language (CWL) as a process\ndescription encoding, in two ways:\n\n1. **Embedded in an [OGC Application Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg).**\n   The CWL document is carried as the `executionUnit` property, either by reference (a link to the\n   CWL file) or by value (a qualified value carrying the CWL document inline, as a JSON object or\n   as an embedded JSON/YAML string). When embedded this way, the `processDescription` property of\n   the Application Package does not need to be specified \u2014 the process interface can be inferred\n   from the CWL value.\n2. **Sent directly**, without being embedded in an Application Package: the request body of a\n   [deploy or replace](bblocks://ogc.api.processes.part2.requirements.core) operation is itself a\n   CWL document.\n\n### By reference\n\n```json\n{\n  \"executionUnit\": {\n    \"href\": \"https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl\",\n    \"type\": \"application/cwl\"\n  }\n}\n```\n\n### By value, as a JSON object\n\n```json\n{\n  \"executionUnit\": {\n    \"mediaType\": \"application/cwl\",\n    \"value\": { \"cwlVersion\": \"v1.2\", \"class\": \"CommandLineTool\" }\n  }\n}\n```\n\n### By value, as an embedded string\n\n```json\n{\n  \"executionUnit\": {\n    \"mediaType\": \"application/cwl+yaml\",\n    \"value\": \"cwlVersion: 'v1.2'\\nclass: CommandLineTool\\n...\"\n  }\n}\n```\n\n### The `w` query parameter\n\nWhen a CWL document contains more than one workflow, the `w` query parameter selects which\nworkflow identifier to deploy. If omitted, the first workflow found is deployed. If the value of\n`w` cannot be located in the request body, the server responds with an HTTP `400` and an\n[exception](bblocks://ogc.api.processes.v1.schemas.exception) of type\n`https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found`.\n\n<!-- requirements -->\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/requirements/cwl"
+}

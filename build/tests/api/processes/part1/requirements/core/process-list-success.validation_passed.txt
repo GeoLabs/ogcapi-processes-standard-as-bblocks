@@ -1,5 +1,5 @@
 Validation report for ogc.api.processes.part1.requirements.core - Core
-Generated 2026-05-22T08:51:46.719753+00:00
+Generated 2026-08-05T12:28:13.764920+00:00
 === Files ===
 Using process-list-success.json from test resources
 === End Files ===

@@ -73,6 +73,6 @@ percent-encoded. See Clause 2 of [RFC 3986](https://www.rfc-editor.org/rfc/rfc39
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/ogcapi-processes-standard-as-bblocks](https://github.com/ogcincubator/ogcapi-processes-standard-as-bblocks)
+* URL: [https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks](https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks)
 * Path: `_sources/part1/clauses/conventions`
 

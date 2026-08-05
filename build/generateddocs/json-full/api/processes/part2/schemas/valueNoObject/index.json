@@ -1,0 +1,40 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.schemas.valueNoObject",
+  "name": "Value (no object) schema",
+  "abstract": "Non-object value variants (DRAFT): scalar, array, binary value, bounding box, or OGC API collection-sourced value. Reuses Part 1's imported binaryInputValue and bbox schemas where the shape matches.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-04T00:00:00Z",
+  "itemClass": "schema",
+  "version": "1.0.0",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "schema",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.api.processes.v1.schemas.binaryInputValue",
+    "ogc.api.processes.v1.schemas.bbox",
+    "ogc.api.processes.part2.schemas.collectionValue"
+  ],
+  "dateOfLastChange": "2026-08-04",
+  "schema": {
+    "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/valueNoObject/schema.yaml",
+    "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/valueNoObject/schema.json"
+  },
+  "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/valueNoObject/schema.yaml",
+  "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/valueNoObject/resolvedProperties.json",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/valueNoObject/",
+  "validationPassed": true,
+  "annotatedSchema": "anyOf:\n- type: string\n- type: number\n- type: integer\n- type: boolean\n- type: array\n  items: {}\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/binaryInputValue/schema.yaml\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/bbox/schema.yaml\n- $ref: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/collectionValue/schema.yaml\n",
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/schemas/valueNoObject"
+}

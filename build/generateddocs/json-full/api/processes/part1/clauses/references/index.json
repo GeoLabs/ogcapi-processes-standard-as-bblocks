@@ -17,16 +17,16 @@
   ],
   "resources": [
     {
-      "ref": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/references/references.yaml",
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/references/references.yaml",
       "role": "references",
       "format": "application/yaml"
     }
   ],
   "shaclShapes": {},
   "dateOfLastChange": "2026-05-21",
-  "sourceFiles": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/references/",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/references/",
   "validationPassed": true,
   "annotatedSchema": null,
-  "gitRepository": "https://github.com/ogcincubator/ogcapi-processes-standard-as-bblocks",
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
   "gitPath": "_sources/part1/clauses/references"
 }

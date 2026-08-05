@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
   "bblockName": "Core",
   "bblockId": "ogc.api.processes.part1.requirements.core",
-  "generated": "2026-05-22T08:51:46.721023+00:00",
+  "generated": "2026-08-05T12:28:13.766086+00:00",
   "result": false,
   "items": [
     {
@@ -10,7 +10,7 @@
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
-        "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
         "language": "json"
       },
       "result": false,
@@ -43,7 +43,7 @@
         "type": "TEST_RESOURCE",
         "requireFail": false,
         "filename": "_sources/part1/requirements/core/tests/process-list-success.json",
-        "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
         "language": "json"
       },
       "result": true,
@@ -65,7 +65,7 @@
         "type": "TEST_RESOURCE",
         "requireFail": false,
         "filename": "_sources/part1/requirements/core/tests/process-list-success.json",
-        "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
         "language": "json"
       },
       "result": true,
@@ -87,7 +87,7 @@
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
-        "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
         "language": "json"
       },
       "result": false,
@@ -120,7 +120,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/api/processes/part1/requirements/core/example_1_1.json",
-        "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_1_1.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_1_1.json",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "application/json"
@@ -144,7 +144,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/api/processes/part1/requirements/core/example_2_1.json",
-        "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_2_1.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_2_1.json",
         "exampleIndex": 2,
         "snippetIndex": 1,
         "language": "application/json"

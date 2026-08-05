@@ -1,0 +1,48 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.requirements.ogcapppkg",
+  "name": "OGC Application Package",
+  "abstract": "Conformance class for OGC API \u2014 Processes Part 2 (DRAFT). Defines the schema of an OGC Application Package document \u2014 a formal process description used to dynamically deploy or replace a process \u2014 and the media type (application/ogcapppkg+json) used to carry it in requests and responses.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-04T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "1.0.0",
+  "clause-index": 7,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.v1.schemas.process",
+    "ogc.api.processes.part2.schemas.executionUnit",
+    "ogc.api.processes.part2.requirements.core",
+    "ogc.api.processes.part1.requirements.core",
+    "ogc.api.processes.part2.schemas.ogcapppkg"
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/ogcapppkg/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-08-04",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/ogcapppkg/",
+  "validationPassed": true,
+  "description": "> **DRAFT.** This requirements class mirrors the current editor's draft of OGC API \u2014 Processes \u2014\n> Part 2: Deploy, Replace, Undeploy (OGC 20-044), available at\n> [docs.ogc.org/DRAFTS/20-044.html](https://docs.ogc.org/DRAFTS/20-044.html). It is not yet an\n> adopted OGC Standard and should be re-checked against the live draft before being treated as\n> final.\n\n## Overview\n\nThis requirements class defines the schema of an `OGC Application Package`: a document that\ndescribes a process in sufficient detail so that an implementation of the\n[Core](bblocks://ogc.api.processes.part2.requirements.core) requirements class can dynamically\ndeploy that process and make it accessible via [OGC API \u2014 Processes \u2014 Part 1:\nCore](bblocks://ogc.api.processes.part1.requirements.core).\n\nAn OGC Application Package includes:\n\n- A formal description of the process \u2014 what inputs it takes, what outputs it generates (optional;\n  if absent, the process interface must be inferred from the execution unit).\n- Either an inline or by-reference execution unit describing the code the server needs to execute\n  whenever the process is invoked.\n- Additional resource information the server may require to establish an execution environment for\n  the execution unit.\n\nTwo families of execution unit are anticipated by the draft: units where the executable code is\nencapsulated in a container (e.g. Docker), and units encoded as a workflow executed by some\nworkflow runner (e.g. [CWL](bblocks://ogc.api.processes.part2.requirements.cwl)). The Docker/OCI\ncontainer form is illustrated below for context, but its full schema belongs to a separate\n\"Docker\" conformance class not yet built in this register \u2014 the\n[executionUnitBase](bblocks://ogc.api.processes.part2.schemas.executionUnitBase) schema in this\nregister therefore only constrains that branch loosely (a generic object) pending that future\nwork.\n\n```json\n{\n  \"executionUnit\": {\n    \"type\": \"docker\",\n    \"value\": {\n      \"image\": \"mydocker/ndvi:latest\",\n      \"bindings\": {\n        \"inputBindings\": {\n          \"inputImage\": {\n            \"prefix\": \"inputsImages=\",\n            \"inputSeparator\": \",\"\n          }\n        },\n        \"outputBindings\": {\n          \"outputImage\": {\n            \"glob\": \"$(\\\"/outputs/ndvi_\\\" + inputs.inputImage.basename)\"\n          }\n        }\n      },\n      \"deployment\": \"local\",\n      \"config\": {\n        \"cpuMin\": 2,\n        \"cpuMax\": 5,\n        \"memoryMin\": 1,\n        \"memoryMax\": 3\n      }\n    }\n  }\n}\n```\n\n<!-- requirements -->\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/requirements/ogcapppkg"
+}

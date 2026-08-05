@@ -1,0 +1,33 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.clauses.scope",
+  "name": "Scope",
+  "abstract": "Scope clause for OGC API \u2014 Processes Part 2: Deploy, Replace, Undeploy (DRAFT).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-03T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0.0",
+  "clause-index": 1,
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-08-03",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/clauses/scope/",
+  "validationPassed": true,
+  "description": "> **DRAFT.** OGC API \u2014 Processes \u2014 Part 2: Deploy, Replace, Undeploy (OGC 20-044) is not yet an\n> adopted OGC Standard. This content mirrors the current editor's draft and should be re-checked\n> against [the live draft](https://docs.ogc.org/DRAFTS/20-044.html) before being treated as final.\n\nThe OGC API \u2014 Processes \u2014 Part 2 Standard is an extension to the [OGC API \u2014 Processes \u2014 Part 1:\nCore](bblocks://ogc.api.processes.part1.requirements.core) Standard and defines the behavior of a\nserver that supports the ability to dynamically add, replace and/or undeploy processes via an\nOGC API \u2014 Processes implementation instance.\n\nSpecifically, the Part 2 Standard specifies:\n\n- How to deploy a new process.\n- How to replace an existing process.\n- How to undeploy an existing process.\n- How to retrieve the application package last used to deploy or replace a process.\n\nThe following table crosswalks each of the resource endpoints discussed in this Standard with the\nHTTP methods POST, PUT, DELETE and GET. Each intersecting cell either contains the name of the\noperation for that combination of resource endpoint and HTTP method, or \"n/a\" to indicate that\nthis Standard does not specify any behavior for that combination.\n\n| Resource endpoint | POST | PUT | DELETE | GET |\n|---|---|---|---|---|\n| `/processes` | deploy | n/a | n/a | n/a |\n| `/processes/{processID}` | n/a | replace | undeploy | n/a |\n| `/processes/{processID}/package` | n/a | n/a | n/a | package retrieval |\n\nDeploying or replacing a process requires that a formal description of the new or replacement\nprocess be provided by the client. This Standard does not mandate that a specific process\ndescription language or vocabulary be used, but the draft defines further conformance classes to\npromote interoperability \u2014 including `OGC Application Package` and `CWL` (Common Workflow\nLanguage) \u2014 that are out of scope of this Core requirements class and not yet built in this\nregister.\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/clauses/scope"
+}

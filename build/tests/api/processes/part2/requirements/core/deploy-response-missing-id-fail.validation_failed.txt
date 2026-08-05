@@ -1,0 +1,12 @@
+Validation report for ogc.api.processes.part2.requirements.core - Deploy, Replace, Undeploy
+Generated 2026-08-05T12:28:13.781715+00:00
+=== General ===
+
+** Validation error **
+Test was expected to fail but it did not.
+=== End General ===
+
+=== Files ===
+Using deploy-response-missing-id-fail.json from test resources
+=== End Files ===
+

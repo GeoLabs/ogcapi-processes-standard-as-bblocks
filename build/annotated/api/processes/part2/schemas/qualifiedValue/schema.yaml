@@ -1,0 +1,8 @@
+allOf:
+- $ref: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/format/schema.yaml
+- type: object
+  required:
+  - value
+  properties:
+    value:
+      $ref: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/value/schema.yaml

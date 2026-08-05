@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total": 6,
-    "passed": 5,
-    "failed": 1,
+    "total": 21,
+    "passed": 19,
+    "failed": 2,
     "result": false
   },
   "bblocks": {
@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.conventions - Conventions",
       "bblockName": "Conventions",
       "bblockId": "ogc.api.processes.part1.clauses.conventions",
-      "generated": "2026-05-22T08:51:46.702330+00:00",
+      "generated": "2026-08-05T12:28:13.680349+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part1.clauses.references",
-      "generated": "2026-05-22T08:51:46.705481+00:00",
+      "generated": "2026-08-05T12:28:13.684820+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -38,7 +38,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part1.clauses.scope",
-      "generated": "2026-05-22T08:51:46.708311+00:00",
+      "generated": "2026-08-05T12:28:13.688190+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -52,7 +52,175 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part1.clauses.terms",
-      "generated": "2026-05-22T08:51:46.711315+00:00",
+      "generated": "2026-08-05T12:28:13.691849+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.references": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.references - Normative References",
+      "bblockName": "Normative References",
+      "bblockId": "ogc.api.processes.part2.clauses.references",
+      "generated": "2026-08-05T12:28:13.694998+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.scope": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.scope - Scope",
+      "bblockName": "Scope",
+      "bblockId": "ogc.api.processes.part2.clauses.scope",
+      "generated": "2026-08-05T12:28:13.697388+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.terms": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.terms - Terms and Definitions",
+      "bblockName": "Terms and Definitions",
+      "bblockId": "ogc.api.processes.part2.clauses.terms",
+      "generated": "2026-08-05T12:28:13.700203+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.format": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.format - Format schema",
+      "bblockName": "Format schema",
+      "bblockId": "ogc.api.processes.part2.schemas.format",
+      "generated": "2026-08-05T12:28:13.705047+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.collectionValue": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.collectionValue - Collection value schema",
+      "bblockName": "Collection value schema",
+      "bblockId": "ogc.api.processes.part2.schemas.collectionValue",
+      "generated": "2026-08-05T12:28:13.718049+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.valueNoObject": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.valueNoObject - Value (no object) schema",
+      "bblockName": "Value (no object) schema",
+      "bblockId": "ogc.api.processes.part2.schemas.valueNoObject",
+      "generated": "2026-08-05T12:28:13.723817+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.staticIndicator": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.staticIndicator - Static indicator schema",
+      "bblockName": "Static indicator schema",
+      "bblockId": "ogc.api.processes.part2.schemas.staticIndicator",
+      "generated": "2026-08-05T12:28:13.728482+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.value": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.value - Value schema",
+      "bblockName": "Value schema",
+      "bblockId": "ogc.api.processes.part2.schemas.value",
+      "generated": "2026-08-05T12:28:13.732832+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.qualifiedValue": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.qualifiedValue - Qualified value schema",
+      "bblockName": "Qualified value schema",
+      "bblockId": "ogc.api.processes.part2.schemas.qualifiedValue",
+      "generated": "2026-08-05T12:28:13.737588+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.executionUnitBase": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.executionUnitBase - Execution unit base schema",
+      "bblockName": "Execution unit base schema",
+      "bblockId": "ogc.api.processes.part2.schemas.executionUnitBase",
+      "generated": "2026-08-05T12:28:13.744554+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.executionUnit": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.executionUnit - Execution unit schema",
+      "bblockName": "Execution unit schema",
+      "bblockId": "ogc.api.processes.part2.schemas.executionUnit",
+      "generated": "2026-08-05T12:28:13.749658+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.ogcapppkg": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.ogcapppkg - OGC Application Package schema",
+      "bblockName": "OGC Application Package schema",
+      "bblockId": "ogc.api.processes.part2.schemas.ogcapppkg",
+      "generated": "2026-08-05T12:28:13.754864+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -66,7 +234,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
       "bblockName": "Core",
       "bblockId": "ogc.api.processes.part1.requirements.core",
-      "generated": "2026-05-22T08:51:46.721023+00:00",
+      "generated": "2026-08-05T12:28:13.766086+00:00",
       "result": false,
       "items": [
         {
@@ -74,7 +242,7 @@
             "type": "TEST_RESOURCE",
             "requireFail": true,
             "filename": "_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
             "language": "json"
           },
           "result": false,
@@ -107,7 +275,7 @@
             "type": "TEST_RESOURCE",
             "requireFail": false,
             "filename": "_sources/part1/requirements/core/tests/process-list-success.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
             "language": "json"
           },
           "result": true,
@@ -129,7 +297,7 @@
             "type": "TEST_RESOURCE",
             "requireFail": false,
             "filename": "_sources/part1/requirements/core/tests/process-list-success.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-success.json",
             "language": "json"
           },
           "result": true,
@@ -151,7 +319,7 @@
             "type": "TEST_RESOURCE",
             "requireFail": true,
             "filename": "_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/tests/process-list-no-links-fail.json",
             "language": "json"
           },
           "result": false,
@@ -184,7 +352,7 @@
             "type": "EXAMPLE",
             "requireFail": false,
             "filename": "build/tests/api/processes/part1/requirements/core/example_1_1.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_1_1.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_1_1.json",
             "exampleIndex": 1,
             "snippetIndex": 1,
             "language": "application/json"
@@ -208,7 +376,7 @@
             "type": "EXAMPLE",
             "requireFail": false,
             "filename": "build/tests/api/processes/part1/requirements/core/example_2_1.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_2_1.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_2_1.json",
             "exampleIndex": 2,
             "snippetIndex": 1,
             "language": "application/json"
@@ -242,7 +410,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.json - JSON",
       "bblockName": "JSON",
       "bblockId": "ogc.api.processes.part1.requirements.json",
-      "generated": "2026-05-22T08:51:46.729773+00:00",
+      "generated": "2026-08-05T12:28:13.774081+00:00",
       "result": true,
       "items": [
         {
@@ -250,7 +418,7 @@
             "type": "TEST_RESOURCE",
             "requireFail": false,
             "filename": "_sources/part1/requirements/json/tests/json-content-type.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/tests/json-content-type.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/tests/json-content-type.json",
             "language": "json"
           },
           "result": true,
@@ -272,7 +440,7 @@
             "type": "TEST_RESOURCE",
             "requireFail": false,
             "filename": "_sources/part1/requirements/json/tests/json-content-type.json",
-            "url": "https://ogcincubator.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/tests/json-content-type.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/json/tests/json-content-type.json",
             "language": "json"
           },
           "result": true,
@@ -284,6 +452,204 @@
                 {
                   "isError": false,
                   "message": "Using json-content-type.json from test resources"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.requirements.core": {
+      "title": "Validation report for ogc.api.processes.part2.requirements.core - Deploy, Replace, Undeploy",
+      "bblockName": "Deploy, Replace, Undeploy",
+      "bblockId": "ogc.api.processes.part2.requirements.core",
+      "generated": "2026-08-05T12:28:13.781769+00:00",
+      "result": false,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+            "language": "json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": true,
+                  "message": "Test was expected to fail but it did not."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using deploy-response-missing-id-fail.json from test resources"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/requirements/core/tests/deploy-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json",
+            "language": "json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using deploy-success.json from test resources"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/requirements/core/tests/deploy-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json",
+            "language": "json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using deploy-success.json from test resources"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+            "language": "json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": true,
+                  "message": "Test was expected to fail but it did not."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using deploy-response-missing-id-fail.json from test resources"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 4,
+        "passed": 2,
+        "failed": 2
+      }
+    },
+    "ogc.api.processes.part2.requirements.ogcapppkg": {
+      "title": "Validation report for ogc.api.processes.part2.requirements.ogcapppkg - OGC Application Package",
+      "bblockName": "OGC Application Package",
+      "bblockId": "ogc.api.processes.part2.requirements.ogcapppkg",
+      "generated": "2026-08-05T12:28:13.785380+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.requirements.cwl": {
+      "title": "Validation report for ogc.api.processes.part2.requirements.cwl - CWL",
+      "bblockName": "CWL",
+      "bblockId": "ogc.api.processes.part2.requirements.cwl",
+      "generated": "2026-08-05T12:28:13.792924+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+            "language": "json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using cwl-execution-unit-by-ref-success.json from test resources"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json",
+            "language": "json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using cwl-execution-unit-by-ref-success.json from test resources"
                 }
               ]
             }

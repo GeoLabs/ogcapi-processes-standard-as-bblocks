@@ -1,0 +1,14 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.schemas.collectionValue - Collection value schema",
+  "bblockName": "Collection value schema",
+  "bblockId": "ogc.api.processes.part2.schemas.collectionValue",
+  "generated": "2026-08-05T12:28:13.718049+00:00",
+  "result": true,
+  "items": [],
+  "globalErrors": {},
+  "counts": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}
