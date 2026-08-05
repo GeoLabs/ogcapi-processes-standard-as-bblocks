@@ -2,8 +2,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <http://www.w3.org/ns/oa#> .
+@prefix ns1: <http://www.w3.org/ns/oa#> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -19,10 +19,10 @@
     rdfs:label "Conventions" ;
     dct:abstract "Conventions used throughout OGC API — Processes Part 1: Core."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-05-21T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.conventions> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/conventions/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.conventions> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/conventions/index.json> ] ;
     dct:hasVersion "2.0.0" ;
@@ -43,10 +43,10 @@
     rdfs:label "Normative References" ;
     dct:abstract "Normative references for OGC API — Processes Part 1: Core."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-05-21T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.references> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/references/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.references> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/references/index.md> ] ;
     dct:hasVersion "2.0.0" ;
@@ -96,10 +96,10 @@
     dct:created "2026-05-21T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.terms> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/terms/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/terms/index.json> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/terms/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/terms/index.md> ] ;
     dct:hasVersion "2.0.0" ;
     dct:modified "2026-05-21"^^xsd:date ;
     skos:inScheme <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/> ;
@@ -123,10 +123,10 @@
     dct:created "2026-05-21T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.json> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/json/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/json/index.json> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/json/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/json/index.md> ] ;
     dct:hasVersion "2.0.0" ;
     dct:modified "2026-05-21"^^xsd:date ;
     dct:source <https://docs.ogc.org/is/18-062r2/18-062r2.html> ;
@@ -152,10 +152,10 @@
     dct:created "2026-08-03T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/clauses/references/index.json> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/clauses/references/index.md> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.clauses.references> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.clauses.references> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/clauses/references/index.md> ] ;
     dct:hasVersion "1.0.0" ;
     dct:modified "2026-08-03"^^xsd:date ;
     dct:source <https://docs.ogc.org/DRAFTS/20-044.html> ;
@@ -179,10 +179,10 @@
     rdfs:label "Scope" ;
     dct:abstract "Scope clause for OGC API — Processes Part 2: Deploy, Replace, Undeploy (DRAFT)."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-08-03T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/clauses/scope/index.md> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/clauses/scope/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/clauses/scope/index.md> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.clauses.scope> ] ;
     dct:hasVersion "1.0.0" ;
@@ -205,12 +205,12 @@
     rdfs:label "Terms and Definitions" ;
     dct:abstract "Terms, definitions and abbreviated terms for OGC API — Processes Part 2: Deploy, Replace, Undeploy (DRAFT)."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-08-03T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/clauses/terms/index.md> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.clauses.terms> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/clauses/terms/index.json> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/clauses/terms/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/clauses/terms/index.md> ] ;
     dct:hasVersion "1.0.0" ;
     dct:modified "2026-08-03"^^xsd:date ;
     dct:source <https://docs.ogc.org/DRAFTS/20-044.html> ;
@@ -236,10 +236,10 @@
     dct:created "2026-08-04T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.requirements.cwl> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/requirements/cwl/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/requirements/cwl/index.json> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/requirements/cwl/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/requirements/cwl/index.md> ] ;
     dct:hasVersion "1.0.0" ;
     dct:modified "2026-08-04"^^xsd:date ;
     dct:source <https://docs.ogc.org/DRAFTS/20-044.html>,
@@ -265,18 +265,18 @@
 
 <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N5fd705d091c3459793c8e58754c79af3 ;
+    prov:wasAttributedTo _:Ncd2454de26e8474fa5a2ff4365a726ed ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2026-08-05T21:14:02.336420"^^xsd:dateTime ;
-            prov:startedAtTime "2026-08-05T21:14:02.210085"^^xsd:dateTime ;
+            prov:endedAtTime "2026-08-05T21:29:46.574764"^^xsd:dateTime ;
+            prov:startedAtTime "2026-08-05T21:29:46.416339"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:14b7c5dae5f32581bded8b7ebf5a0ba96880299c" ;
+                    dct:hasVersion "git:df44ff1882d5d9555b18d5931cf76ce46c945da8" ;
                     rdfs:seeAlso <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json> ],
                 [ a prov:Entity ;
                     dct:format "application/yaml" ;
                     rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
-            prov:wasAssociatedWith _:N5fd705d091c3459793c8e58754c79af3 ] .
+            prov:wasAssociatedWith _:Ncd2454de26e8474fa5a2ff4365a726ed ] .
 
 <https://www.commonwl.org/v1.2/> rdfs:label "Common Workflow Language v1.2" .
 
@@ -289,10 +289,10 @@
     dct:created "2026-08-04T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.requirements.ogcapppkg> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/requirements/ogcapppkg/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/requirements/ogcapppkg/index.md> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/requirements/ogcapppkg/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/requirements/ogcapppkg/index.json> ] ;
     dct:hasVersion "1.0.0" ;
     dct:modified "2026-08-04"^^xsd:date ;
     dct:source <https://docs.ogc.org/DRAFTS/20-044.html> ;
@@ -357,10 +357,10 @@
     dct:created "2026-05-21T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/core/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/core/index.json> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.core> ] ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.core> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/core/index.json> ] ;
     dct:hasVersion "2.0.0" ;
     dct:modified "2026-05-21"^^xsd:date ;
     dct:source <https://docs.ogc.org/is/18-062r2/18-062r2.html> ;
@@ -405,7 +405,7 @@ in a Building Block, and the standards document is generated from the BB set.
 New BB types introduced: `requirements-class`, `clause`, `terms`, `references`.
 New `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:modified "2026-08-05T21:14:01.638973"^^xsd:dateTime ;
+    dct:modified "2026-08-05T21:29:45.647976"^^xsd:dateTime ;
     owl:imports <https://geolabs.github.io/bblock-ogcapi-processes-part2/build/register.json>,
         <https://geolabs.github.io/bblocks-ogcapi-processes/build/register.json>,
         <https://opengeospatial.github.io/bblocks/register.json> ;
@@ -422,22 +422,22 @@ New `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.
         <bblocks://ogc.api.processes.part2.requirements.dru>,
         <bblocks://ogc.api.processes.part2.requirements.ogcapppkg> ;
     skos:prefLabel "Building Blocks - OGC API - Processes (Standard as Building Blocks)" ;
-    prof:hasResource [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
-            dct:type "application/ld+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/bblocks.jsonld> ],
-        [ rdfs:label "This Building Blocks Register in JSON format" ;
+    prof:hasResource [ rdfs:label "This Building Blocks Register in JSON format" ;
             dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json> ],
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json> ],
+        [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
+            dct:type "application/ld+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/bblocks.jsonld> ],
         [ rdfs:label "This Building Blocks Register in RDF Turtle format" ;
             dct:type "text/turtle" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/bblocks.ttl> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/bblocks.ttl> ] ;
     foaf:homepage <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/> ;
     bblocks:hasValidationReport <https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/report.html> .
 
-_:N5fd705d091c3459793c8e58754c79af3 a prov:Agent,
+_:Ncd2454de26e8474fa5a2ff4365a726ed a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.5.31" ;
