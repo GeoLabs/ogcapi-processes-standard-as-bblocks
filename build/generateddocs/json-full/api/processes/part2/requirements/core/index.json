@@ -18,8 +18,8 @@
     }
   ],
   "dependsOn": [
-    "ogc.api.processes.v1.schemas.exception",
     "ogc.api.processes.part1.requirements.core",
+    "ogc.api.processes.v1.schemas.exception",
     "ogc.api.processes.v1.schemas.processSummary"
   ],
   "tags": [

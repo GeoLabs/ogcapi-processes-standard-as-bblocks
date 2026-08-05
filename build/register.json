@@ -65,7 +65,7 @@
       }
     }
   ],
-  "modified": "2026-08-05T12:28:07.781056",
+  "modified": "2026-08-05T20:41:57.197613",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"f9abb8c209d98a9868e50eabafe4915396673a37",
@@ -81,7 +81,8 @@
   "validationReportJson": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/report.json",
   "imports": [
     "https://opengeospatial.github.io/bblocks/register.json",
-    "https://ogcincubator.github.io/bblocks-ogcapi-processes/build/register.json"
+    "https://geolabs.github.io/bblocks-ogcapi-processes/build/register.json",
+    "https://geolabs.github.io/bblock-ogcapi-processes-part2/build/register.json"
   ],
   "bblocks": [
     {
@@ -372,432 +373,6 @@
       }
     },
     {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.format",
-      "name": "Format schema",
-      "abstract": "Media type, encoding and schema of a value (DRAFT). Base fragment of the qualifiedValue schema used by the executionUnit schema.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/format/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/format/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/format/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/format/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/format/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/format/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/format/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.format"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.collectionValue",
-      "name": "Collection value schema",
-      "abstract": "A value sourced from an OGC API collection (DRAFT), reached via the qualifiedValue/value/valueNoObject schema chain used by the executionUnit schema. Tangential to Application Package/CWL proper \u2014 reproduced for schema-chain fidelity.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.part2.schemas.format"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/collectionValue/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/collectionValue/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/collectionValue/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/collectionValue/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/collectionValue/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/collectionValue/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/collectionValue/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.collectionValue"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.valueNoObject",
-      "name": "Value (no object) schema",
-      "abstract": "Non-object value variants (DRAFT): scalar, array, binary value, bounding box, or OGC API collection-sourced value. Reuses Part 1's imported binaryInputValue and bbox schemas where the shape matches.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.binaryInputValue",
-        "bblocks://ogc.api.processes.v1.schemas.bbox",
-        "bblocks://ogc.api.processes.part2.schemas.collectionValue"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/valueNoObject/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/valueNoObject/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/valueNoObject/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/valueNoObject/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/valueNoObject/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/valueNoObject/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/valueNoObject/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.valueNoObject"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.staticIndicator",
-      "name": "Static indicator schema",
-      "abstract": "Extends the Part 1 processSummary schema with the optional 'mutable' property (DRAFT), indicating whether a process is a static/built-in immutable process or a dynamically deployed mutable one.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.processSummary"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/staticIndicator/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/staticIndicator/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/staticIndicator/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/staticIndicator/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/staticIndicator/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/staticIndicator/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/staticIndicator/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.staticIndicator"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.value",
-      "name": "Value schema",
-      "abstract": "The 'value' property of a qualified value (DRAFT): any non-object value, or a JSON object (e.g. an inline CWL document).",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.part2.schemas.valueNoObject"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/value/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/value/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/value/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/value/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/value/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/value/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/value/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.value"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.qualifiedValue",
-      "name": "Qualified value schema",
-      "abstract": "A value qualified by a media type / encoding / schema (DRAFT), used to describe execution units inline within an OGC Application Package. Not part of the imported Part 1 payload register; authored locally since Part 2 needs it for the executionUnit schema.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.part2.schemas.format",
-        "bblocks://ogc.api.processes.part2.schemas.value"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/qualifiedValue/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/qualifiedValue/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/qualifiedValue/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/qualifiedValue/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/qualifiedValue/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/qualifiedValue/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/qualifiedValue/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.qualifiedValue"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.executionUnitBase",
-      "name": "Execution unit base schema",
-      "abstract": "Base schema of a single execution unit (DRAFT): either a link to the execution unit, or an inline qualified value describing a container image, a CWL script, or another custom encoding.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.part2.schemas.qualifiedValue",
-        "bblocks://ogc.api.processes.v1.schemas.link"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/executionUnitBase/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/executionUnitBase/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.executionUnitBase"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.executionUnit",
-      "name": "Execution unit schema",
-      "abstract": "Schema of the 'executionUnit' property of an OGC Application Package (DRAFT): either a single execution unit or an array of execution units.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.part2.schemas.executionUnitBase"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/schema.yaml",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/executionUnit/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/executionUnit/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.executionUnit"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.processes.part2.schemas.ogcapppkg",
-      "name": "OGC Application Package schema",
-      "abstract": "Schema of an OGC Application Package document (DRAFT): a formal description of a process to be dynamically deployed, made of an optional process description and a required execution unit.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-04T00:00:00Z",
-      "itemClass": "schema",
-      "version": "1.0.0",
-      "sources": [
-        {
-          "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
-          "link": "https://docs.ogc.org/DRAFTS/20-044.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-processes",
-        "schema",
-        "draft"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.part2.schemas.executionUnit",
-        "bblocks://ogc.api.processes.v1.schemas.process"
-      ],
-      "dateOfLastChange": "2026-08-04",
-      "schema": {
-        "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/ogcapppkg/schema.yaml",
-        "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/ogcapppkg/schema.json"
-      },
-      "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/ogcapppkg/schema.yaml",
-      "ldContext": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/ogcapppkg/context.jsonld",
-      "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/ogcapppkg/resolvedProperties.json",
-      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/ogcapppkg/",
-      "validationPassed": true,
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part2/schemas/ogcapppkg/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part2/schemas/ogcapppkg/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part2.schemas.ogcapppkg"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.api.processes.part1.requirements.core",
       "name": "Core",
       "abstract": "Core requirements class for OGC API \u2014 Processes Part 1. Specifies the fundamental operations a server must support: landing page, conformance declaration, process list, process description, process execution, job status, and job results.",
@@ -815,15 +390,15 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.paths.Job",
-        "bblocks://ogc.api.processes.v1.paths.ProcessList",
         "bblocks://ogc.api.processes.v1.schemas.processList",
-        "bblocks://ogc.api.processes.v1.paths.Conformance",
-        "bblocks://ogc.api.processes.v1.paths.Execution",
-        "bblocks://ogc.api.processes.v1.schemas.processSummary",
+        "bblocks://ogc.api.processes.v1.paths.ProcessList",
         "bblocks://ogc.api.processes.v1.paths.JobResult",
+        "bblocks://ogc.api.processes.v1.paths.Execution",
+        "bblocks://ogc.api.processes.v1.paths.Job",
         "bblocks://ogc.api.processes.v1.paths.ProcessDescription",
-        "bblocks://ogc.api.processes.v1.paths.LandingPage"
+        "bblocks://ogc.api.processes.v1.paths.LandingPage",
+        "bblocks://ogc.api.processes.v1.schemas.processSummary",
+        "bblocks://ogc.api.processes.v1.paths.Conformance"
       ],
       "tags": [
         "ogcapi-processes",
@@ -947,8 +522,8 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.exception",
         "bblocks://ogc.api.processes.part1.requirements.core",
+        "bblocks://ogc.api.processes.v1.schemas.exception",
         "bblocks://ogc.api.processes.v1.schemas.processSummary"
       ],
       "tags": [
@@ -1015,11 +590,11 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.process",
-        "bblocks://ogc.api.processes.part2.schemas.executionUnit",
-        "bblocks://ogc.api.processes.part2.requirements.core",
+        "bblocks://ogc.api.processes.v2.schemas.ogcapppkg",
         "bblocks://ogc.api.processes.part1.requirements.core",
-        "bblocks://ogc.api.processes.part2.schemas.ogcapppkg"
+        "bblocks://ogc.api.processes.v2.schemas.executionUnit",
+        "bblocks://ogc.api.processes.part2.requirements.core",
+        "bblocks://ogc.api.processes.v1.schemas.process"
       ],
       "tags": [
         "ogcapi-processes",
@@ -1075,12 +650,12 @@
         }
       ],
       "dependsOn": [
+        "bblocks://ogc.api.processes.v2.schemas.executionUnitBase",
         "bblocks://ogc.api.processes.part1.requirements.core",
-        "bblocks://ogc.api.processes.part2.requirements.core",
-        "bblocks://ogc.api.processes.part2.requirements.ogcapppkg",
         "bblocks://ogc.api.processes.v1.schemas.exception",
-        "bblocks://ogc.api.processes.part2.schemas.executionUnitBase",
-        "bblocks://ogc.api.processes.v1.schemas.link"
+        "bblocks://ogc.api.processes.part2.requirements.core",
+        "bblocks://ogc.api.processes.v1.schemas.link",
+        "bblocks://ogc.api.processes.part2.requirements.ogcapppkg"
       ],
       "tags": [
         "ogcapi-processes",

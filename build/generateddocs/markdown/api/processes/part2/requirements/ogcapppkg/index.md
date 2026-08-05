@@ -37,7 +37,7 @@ encapsulated in a container (e.g. Docker), and units encoded as a workflow execu
 workflow runner (e.g. [CWL](bblocks://ogc.api.processes.part2.requirements.cwl)). The Docker/OCI
 container form is illustrated below for context, but its full schema belongs to a separate
 "Docker" conformance class not yet built in this register — the
-[executionUnitBase](bblocks://ogc.api.processes.part2.schemas.executionUnitBase) schema in this
+[executionUnitBase](bblocks://ogc.api.processes.v2.schemas.executionUnitBase) schema in this
 register therefore only constrains that branch loosely (a generic object) pending that future
 work.
 
