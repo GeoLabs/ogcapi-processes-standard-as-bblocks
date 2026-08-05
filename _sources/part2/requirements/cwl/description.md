@@ -16,7 +16,7 @@ description encoding, in two ways:
    the Application Package does not need to be specified — the process interface can be inferred
    from the CWL value.
 2. **Sent directly**, without being embedded in an Application Package: the request body of a
-   [deploy or replace](bblocks://ogc.api.processes.part2.requirements.core) operation is itself a
+   [deploy or replace](bblocks://ogc.api.processes.part2.requirements.dru) operation is itself a
    CWL document.
 
 ### By reference

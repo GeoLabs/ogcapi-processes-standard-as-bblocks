@@ -18,7 +18,7 @@ description: |
 
 # Prefix prepended to the path of the building blocks.
 # Path _sources/part1/requirements/core/ → identifier ogc.api.processes.part1.requirements.core
-# Path _sources/part2/requirements/core/ → identifier ogc.api.processes.part2.requirements.core
+# Path _sources/part2/requirements/dru/ → identifier ogc.api.processes.part2.requirements.dru
 identifier-prefix: ogc.api.processes.
 
 imports:

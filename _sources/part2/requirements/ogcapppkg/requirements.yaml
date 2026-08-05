@@ -12,7 +12,7 @@ standardization-target: Web API
 depends-on:
   - uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
     title: "OGC API — Processes — Part 1: Core"
-  - bblock: ogc.api.processes.part2.requirements.core
+  - bblock: ogc.api.processes.part2.requirements.dru
 
 requirements:
 
@@ -55,7 +55,7 @@ requirements:
       `application/ogcapppkg+json` SHALL be used to indicate that the request body contains an
       OGC Application Package.
     applies-to:
-      bblock: ogc.api.processes.part2.requirements.core
+      bblock: ogc.api.processes.part2.requirements.dru
 
   - id: package-response-body
     level: SHALL
@@ -64,4 +64,4 @@ requirements:
       `application/ogcapppkg+json` SHALL be used to indicate that the response body contains an
       OGC Application Package.
     applies-to:
-      bblock: ogc.api.processes.part2.requirements.core
+      bblock: ogc.api.processes.part2.requirements.dru

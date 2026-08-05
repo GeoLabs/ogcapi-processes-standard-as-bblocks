@@ -20,7 +20,7 @@
   ],
   "dependsOn": [
     "ogc.api.processes.part1.requirements.core",
-    "ogc.api.processes.part2.requirements.core",
+    "ogc.api.processes.part2.requirements.dru",
     "ogc.api.processes.part2.requirements.ogcapppkg",
     "ogc.api.processes.v2.schemas.executionUnitBase",
     "ogc.api.processes.v1.schemas.exception",

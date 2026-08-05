@@ -159,7 +159,7 @@
       "dataAccessApis": [
         "ogc-api-coverage",
         "stac-api"
-      }
+        ]
     },
     "featureCollectionInput": {
       "title": "Feature Collection Input Example.",

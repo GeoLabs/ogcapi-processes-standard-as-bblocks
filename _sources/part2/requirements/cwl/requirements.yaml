@@ -12,7 +12,7 @@ standardization-target: Web API
 depends-on:
   - uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
     title: "OGC API — Processes — Part 1: Core"
-  - bblock: ogc.api.processes.part2.requirements.core
+  - bblock: ogc.api.processes.part2.requirements.dru
   - bblock: ogc.api.processes.part2.requirements.ogcapppkg
   - uri: https://www.commonwl.org/v1.2/
     title: "Common Workflow Language v1.2"
@@ -58,7 +58,7 @@ requirements:
       (when the CWL document is sent directly, without being embedded in an OGC Application
       Package).
     applies-to:
-      bblock: ogc.api.processes.part2.requirements.core
+      bblock: ogc.api.processes.part2.requirements.dru
 
   - id: media-type-request
     level: SHALL
@@ -70,7 +70,7 @@ requirements:
       to be a YAML document, the request MAY employ `application/cwl+yaml` instead of
       `application/cwl` to advertise it more explicitly.
     applies-to:
-      bblock: ogc.api.processes.part2.requirements.core
+      bblock: ogc.api.processes.part2.requirements.dru
 
   - id: deploy-w-param
     level: SHALL
