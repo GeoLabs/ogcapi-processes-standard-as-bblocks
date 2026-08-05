@@ -46,3 +46,46 @@ standards:
       patent-policy: OGC RF
       copyright-year: 2026
       license: OGC Document Notice
+
+  - prefix: ogc.api.processes.part2
+    title: "OGC API - Processes - Part 2: Deploy, Replace, Undeploy"
+    doc-number: OGC 20-044
+    type: Standard
+    status: Draft
+    version: "1.0.0"
+    pub-date: null
+    base-uri: http://www.opengis.net/spec/ogcapi-processes-2/1.0
+
+    req-uri-template:  "{base-uri}/{status}req/{id}"
+    conf-uri-template: "{base-uri}/{status}conf/{id}"
+
+    editors:
+      - name: Panagiotis (Peter) A. Vretanos
+        affiliation: CubeWerx Inc.
+
+    wg: WPS SWG
+    keywords:
+      - OGC API
+      - processes
+      - deployment
+      - web processing
+
+    abstract: |
+      OGC API — Processes — Part 2 extends Part 1 with deployment capabilities,
+      including deploy, replace and undeploy operations for process descriptions,
+      as well as support for OGC Application Packages and optional CWL integration.
+
+    clauses:
+      - bblock: ogc.api.processes.part2.clauses.scope
+      - auto: conformance
+      - bblock: ogc.api.processes.part2.clauses.references
+      - bblock: ogc.api.processes.part2.clauses.terms
+      - bblock: ogc.api.processes.part2.requirements.dru
+      - bblock: ogc.api.processes.part2.requirements.ogcapppkg
+      - bblock: ogc.api.processes.part2.requirements.cwl
+      - auto: annex-a
+
+    boilerplate:
+      patent-policy: OGC RF
+      copyright-year: 2026
+      license: OGC Document Notice
