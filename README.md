@@ -13,5 +13,3 @@ Please replace the contents of this README with information about your Building 
 # How to use this template
 
 [More information on design and usage](https://github.com/opengeospatial/bblock-template/blob/master/USAGE.md)
-
-
