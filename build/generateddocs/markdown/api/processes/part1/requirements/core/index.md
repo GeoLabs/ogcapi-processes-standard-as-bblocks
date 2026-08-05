@@ -261,7 +261,7 @@ conforming to the `process` schema, including full input/output definitions.
       "dataAccessApis": [
         "ogc-api-coverage",
         "stac-api"
-      }
+        ]
     },
     "featureCollectionInput": {
       "title": "Feature Collection Input Example.",

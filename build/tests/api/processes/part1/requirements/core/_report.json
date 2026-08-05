@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
   "bblockName": "Core",
   "bblockId": "ogc.api.processes.part1.requirements.core",
-  "generated": "2026-08-05T20:41:57.918878+00:00",
+  "generated": "2026-08-05T21:14:02.154617+00:00",
   "result": false,
   "items": [
     {
@@ -149,18 +149,15 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
-          "name": "JSON_SCHEMA",
-          "title": "JSON Schema",
+          "name": "FILES",
+          "title": "Files",
           "entries": [
             {
-              "exception": "JSONDecodeError",
-              "line": 162,
-              "col": 7,
-              "isError": true,
-              "message": "Error parsing JSON example: Expecting ',' delimiter: line 162 column 7 (char 4876) on or near line 162 column 7"
+              "isError": false,
+              "message": "Using examples/ProcessDescription.json from examples"
             }
           ]
         }
@@ -170,7 +167,7 @@
   "globalErrors": {},
   "counts": {
     "total": 6,
-    "passed": 3,
-    "failed": 3
+    "passed": 4,
+    "failed": 2
   }
 }

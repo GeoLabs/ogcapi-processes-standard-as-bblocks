@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.conventions - Conventions",
       "bblockName": "Conventions",
       "bblockId": "ogc.api.processes.part1.clauses.conventions",
-      "generated": "2026-08-05T20:41:57.889980+00:00",
+      "generated": "2026-08-05T21:14:02.125731+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part1.clauses.references",
-      "generated": "2026-08-05T20:41:57.893315+00:00",
+      "generated": "2026-08-05T21:14:02.129004+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -38,7 +38,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part1.clauses.scope",
-      "generated": "2026-08-05T20:41:57.896272+00:00",
+      "generated": "2026-08-05T21:14:02.131988+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -52,7 +52,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part1.clauses.terms",
-      "generated": "2026-08-05T20:41:57.899417+00:00",
+      "generated": "2026-08-05T21:14:02.135179+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -66,7 +66,7 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part2.clauses.references",
-      "generated": "2026-08-05T20:41:57.902790+00:00",
+      "generated": "2026-08-05T21:14:02.138446+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -80,7 +80,7 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part2.clauses.scope",
-      "generated": "2026-08-05T20:41:57.905862+00:00",
+      "generated": "2026-08-05T21:14:02.141350+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -94,7 +94,7 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part2.clauses.terms",
-      "generated": "2026-08-05T20:41:57.909182+00:00",
+      "generated": "2026-08-05T21:14:02.144540+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -108,7 +108,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
       "bblockName": "Core",
       "bblockId": "ogc.api.processes.part1.requirements.core",
-      "generated": "2026-08-05T20:41:57.918878+00:00",
+      "generated": "2026-08-05T21:14:02.154617+00:00",
       "result": false,
       "items": [
         {
@@ -255,18 +255,15 @@
             "snippetIndex": 1,
             "language": "application/json"
           },
-          "result": false,
+          "result": true,
           "sections": [
             {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
+              "name": "FILES",
+              "title": "Files",
               "entries": [
                 {
-                  "exception": "JSONDecodeError",
-                  "line": 162,
-                  "col": 7,
-                  "isError": true,
-                  "message": "Error parsing JSON example: Expecting ',' delimiter: line 162 column 7 (char 4876) on or near line 162 column 7"
+                  "isError": false,
+                  "message": "Using examples/ProcessDescription.json from examples"
                 }
               ]
             }
@@ -276,15 +273,15 @@
       "globalErrors": {},
       "counts": {
         "total": 6,
-        "passed": 3,
-        "failed": 3
+        "passed": 4,
+        "failed": 2
       }
     },
     "ogc.api.processes.part1.requirements.json": {
       "title": "Validation report for ogc.api.processes.part1.requirements.json - JSON",
       "bblockName": "JSON",
       "bblockId": "ogc.api.processes.part1.requirements.json",
-      "generated": "2026-08-05T20:41:57.927562+00:00",
+      "generated": "2026-08-05T21:14:02.163109+00:00",
       "result": true,
       "items": [
         {
@@ -339,19 +336,19 @@
         "failed": 0
       }
     },
-    "ogc.api.processes.part2.requirements.core": {
-      "title": "Validation report for ogc.api.processes.part2.requirements.core - Deploy, Replace, Undeploy",
+    "ogc.api.processes.part2.requirements.dru": {
+      "title": "Validation report for ogc.api.processes.part2.requirements.dru - Deploy, Replace, Undeploy",
       "bblockName": "Deploy, Replace, Undeploy",
-      "bblockId": "ogc.api.processes.part2.requirements.core",
-      "generated": "2026-08-05T20:41:57.936136+00:00",
+      "bblockId": "ogc.api.processes.part2.requirements.dru",
+      "generated": "2026-08-05T21:14:02.171174+00:00",
       "result": false,
       "items": [
         {
           "source": {
             "type": "TEST_RESOURCE",
             "requireFail": true,
-            "filename": "_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+            "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
             "language": "json"
           },
           "result": false,
@@ -383,8 +380,8 @@
           "source": {
             "type": "TEST_RESOURCE",
             "requireFail": false,
-            "filename": "_sources/part2/requirements/core/tests/deploy-success.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json",
+            "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
             "language": "json"
           },
           "result": true,
@@ -405,8 +402,8 @@
           "source": {
             "type": "TEST_RESOURCE",
             "requireFail": false,
-            "filename": "_sources/part2/requirements/core/tests/deploy-success.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json",
+            "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
             "language": "json"
           },
           "result": true,
@@ -427,8 +424,8 @@
           "source": {
             "type": "TEST_RESOURCE",
             "requireFail": true,
-            "filename": "_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+            "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
             "language": "json"
           },
           "result": false,
@@ -468,7 +465,7 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.ogcapppkg - OGC Application Package",
       "bblockName": "OGC Application Package",
       "bblockId": "ogc.api.processes.part2.requirements.ogcapppkg",
-      "generated": "2026-08-05T20:41:57.940780+00:00",
+      "generated": "2026-08-05T21:14:02.175431+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -482,7 +479,7 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.cwl - CWL",
       "bblockName": "CWL",
       "bblockId": "ogc.api.processes.part2.requirements.cwl",
-      "generated": "2026-08-05T20:41:57.948824+00:00",
+      "generated": "2026-08-05T21:14:02.183039+00:00",
       "result": true,
       "items": [
         {

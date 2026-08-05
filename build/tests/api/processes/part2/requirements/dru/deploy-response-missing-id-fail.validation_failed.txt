@@ -1,5 +1,5 @@
-Validation report for ogc.api.processes.part2.requirements.core - Deploy, Replace, Undeploy
-Generated 2026-08-05T20:41:57.936072+00:00
+Validation report for ogc.api.processes.part2.requirements.dru - Deploy, Replace, Undeploy
+Generated 2026-08-05T21:14:02.171110+00:00
 === General ===
 
 ** Validation error **

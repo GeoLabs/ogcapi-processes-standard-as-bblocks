@@ -1,7 +1,7 @@
 
 
 {
-  "itemIdentifier": "ogc.api.processes.part2.requirements.core",
+  "itemIdentifier": "ogc.api.processes.part2.requirements.dru",
   "name": "Deploy, Replace, Undeploy",
   "abstract": "Core requirements class for OGC API \u2014 Processes Part 2 (DRAFT). Specifies the fundamental operations a server must support to dynamically deploy, replace, undeploy processes, and retrieve the last application package used to deploy or replace a process: POST /processes, PUT /processes/{processID}, DELETE /processes/{processID}, and GET /processes/{processID}/package.",
   "status": "under-development",
@@ -18,9 +18,9 @@
     }
   ],
   "dependsOn": [
-    "ogc.api.processes.part1.requirements.core",
+    "ogc.api.processes.v1.schemas.processSummary",
     "ogc.api.processes.v1.schemas.exception",
-    "ogc.api.processes.v1.schemas.processSummary"
+    "ogc.api.processes.part1.requirements.core"
   ],
   "tags": [
     "ogcapi-processes",
@@ -30,31 +30,31 @@
   ],
   "resources": [
     {
-      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/requirements.yaml",
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/requirements.yaml",
       "role": "requirements",
       "format": "application/yaml"
     }
   ],
   "shaclShapes": {},
   "dateOfLastChange": "2026-08-03",
-  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/",
   "testResources": [
     {
       "id": "deploy-success",
       "method": "Issue an HTTP POST request to the path `/processes` with a formal process description in the request body. Validate that the response has HTTP status code 201 with a `Location` header, and that the response body is a valid JSON document conforming to the processSummary schema (ogc.api.processes.v1.schemas.processSummary).\n",
-      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json"
+      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json"
     },
     {
       "id": "deploy-response-missing-id-fail",
       "method": "Validate that a deploy-response body without the required `id` property fails conformance with the processSummary schema. The validator SHALL report an error.\n",
       "require-fail": true,
-      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json"
+      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json"
     }
   ],
   "validationPassed": false,
-  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part2/requirements/core/",
+  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part2/requirements/dru/",
   "description": "> **DRAFT.** This requirements class mirrors the current editor's draft of OGC API \u2014 Processes \u2014\n> Part 2: Deploy, Replace, Undeploy (OGC 20-044), available at\n> [docs.ogc.org/DRAFTS/20-044.html](https://docs.ogc.org/DRAFTS/20-044.html). It is not yet an\n> adopted OGC Standard and should be re-checked against the live draft before being treated as\n> final.\n\n## Overview\n\nA server that implements the `Deploy, Replace, Undeploy` requirements class provides the ability\nto dynamically deploy, replace and undeploy processes on top of an [OGC API \u2014 Processes \u2014 Part 1:\nCore](bblocks://ogc.api.processes.part1.requirements.core) implementation.\n\n- The HTTP POST method is used to deploy a new process to the API.\n- The HTTP PUT method is used to replace the definition of a previously deployed process.\n- The HTTP DELETE method is used to undeploy a previously deployed process.\n- The HTTP GET method, at a dedicated `/package` sub-resource, is used to retrieve the last\n  application package used to deploy or replace a process.\n\nDeploying or replacing a process requires that a formal description of the new or replacement\nprocess be provided by the client. This requirements class does not mandate a specific process\ndescription language or vocabulary; the draft standard defines further conformance classes (`OGC\nApplication Package`, `Docker`, `CWL`) to promote interoperability around specific encodings \u2014\nnone of those are in scope of this Core requirements class.\n\nThe draft also recognizes that a server may be deployed with a set of static, built-in processes\nthat are immutable and cannot be removed or modified through this requirements class's\noperations. The optional `mutable` property on a process summary indicates whether a given\nprocess can be replaced or undeployed.\n\n## API Resources\n\n| Resource | Path | HTTP method |\n|---|---|---|\n| Deploy a process | `/processes` | POST |\n| Replace a process | `/processes/{processID}` | PUT |\n| Undeploy a process | `/processes/{processID}` | DELETE |\n| Application package retrieval | `/processes/{processID}/package` | GET |\n\n<!-- requirements -->\n\nThe following section covers all 22 requirements of the `Deploy, Replace, Undeploy` requirements\nclass as currently drafted. Test coverage in this checkpoint is intentionally partial (a couple of\nrepresentative fixtures), mirroring the same \"PoC scope\" approach used for Part 1's own Core\nrequirements class in this register.\n",
   "annotatedSchema": null,
   "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
-  "gitPath": "_sources/part2/requirements/core"
+  "gitPath": "_sources/part2/requirements/dru"
 }

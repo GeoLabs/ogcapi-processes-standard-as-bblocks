@@ -1,7 +1,7 @@
 
 # Deploy, Replace, Undeploy (Requirements-class)
 
-`ogc.api.processes.part2.requirements.core` *v1.0.0*
+`ogc.api.processes.part2.requirements.dru` *v1.0.0*
 
 Core requirements class for OGC API — Processes Part 2 (DRAFT). Specifies the fundamental operations a server must support to dynamically deploy, replace, undeploy processes, and retrieve the last application package used to deploy or replace a process: POST /processes, PUT /processes/{processID}, DELETE /processes/{processID}, and GET /processes/{processID}/package.
 
@@ -63,5 +63,5 @@ requirements class in this register.
 The source code for this Building Block can be found in the following repository:
 
 * URL: [https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks](https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks)
-* Path: `_sources/part2/requirements/core`
+* Path: `_sources/part2/requirements/dru`
 

@@ -19,7 +19,7 @@ Conformance class for OGC API — Processes Part 2 (DRAFT). Defines the schema o
 
 This requirements class defines the schema of an `OGC Application Package`: a document that
 describes a process in sufficient detail so that an implementation of the
-[Core](bblocks://ogc.api.processes.part2.requirements.core) requirements class can dynamically
+[Core](bblocks://ogc.api.processes.part2.requirements.dru) requirements class can dynamically
 deploy that process and make it accessible via [OGC API — Processes — Part 1:
 Core](bblocks://ogc.api.processes.part1.requirements.core).
 

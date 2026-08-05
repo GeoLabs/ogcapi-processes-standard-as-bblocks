@@ -1,16 +1,16 @@
 {
-  "title": "Validation report for ogc.api.processes.part2.requirements.core - Deploy, Replace, Undeploy",
+  "title": "Validation report for ogc.api.processes.part2.requirements.dru - Deploy, Replace, Undeploy",
   "bblockName": "Deploy, Replace, Undeploy",
-  "bblockId": "ogc.api.processes.part2.requirements.core",
-  "generated": "2026-08-05T20:41:57.936136+00:00",
+  "bblockId": "ogc.api.processes.part2.requirements.dru",
+  "generated": "2026-08-05T21:14:02.171174+00:00",
   "result": false,
   "items": [
     {
       "source": {
         "type": "TEST_RESOURCE",
         "requireFail": true,
-        "filename": "_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+        "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
         "language": "json"
       },
       "result": false,
@@ -42,8 +42,8 @@
       "source": {
         "type": "TEST_RESOURCE",
         "requireFail": false,
-        "filename": "_sources/part2/requirements/core/tests/deploy-success.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json",
+        "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
         "language": "json"
       },
       "result": true,
@@ -64,8 +64,8 @@
       "source": {
         "type": "TEST_RESOURCE",
         "requireFail": false,
-        "filename": "_sources/part2/requirements/core/tests/deploy-success.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-success.json",
+        "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
         "language": "json"
       },
       "result": true,
@@ -86,8 +86,8 @@
       "source": {
         "type": "TEST_RESOURCE",
         "requireFail": true,
-        "filename": "_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/core/tests/deploy-response-missing-id-fail.json",
+        "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
         "language": "json"
       },
       "result": false,

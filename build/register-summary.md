@@ -72,7 +72,7 @@ Core requirements class for OGC API — Processes Part 1. Specifies the fundamen
 
 Requirements class for JSON encoding. Requires that all supported API endpoints respond with application/json when requested.
 
-### `ogc.api.processes.part2.requirements.core` — Deploy, Replace, Undeploy
+### `ogc.api.processes.part2.requirements.dru` — Deploy, Replace, Undeploy
 
 **Type:** requirements-class
 
