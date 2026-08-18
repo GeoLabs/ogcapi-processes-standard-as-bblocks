@@ -1,0 +1,46 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.requirements.docker",
+  "name": "Docker",
+  "abstract": "Conformance class for OGC API - Processes Part 2 (DRAFT). Defines requirements for Docker-based execution units in OGC Application Packages.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-18T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "1.0.0",
+  "clause-index": 8,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part2.requirements.ogcapppkg",
+    "ogc.api.processes.part2.requirements.dru",
+    "ogc.api.processes.part1.requirements.core"
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/docker/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-08-18",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/docker/",
+  "validationPassed": true,
+  "description": "> **DRAFT.** This requirements class mirrors the current editor's draft of OGC API - Processes -\n> Part 2: Deploy, Replace, Undeploy (OGC 20-044), available at\n> [docs.ogc.org/DRAFTS/20-044.html](https://docs.ogc.org/DRAFTS/20-044.html). It is not yet an\n> adopted OGC Standard and should be re-checked against the live draft before being treated as\n> final.\n\n## Overview\n\nThis requirements class defines how a server can describe Docker-based execution units in an\nOGC Application Package. It covers:\n\n- the Docker execution unit schema;\n- the required execution unit `type` and `image` properties;\n- deployment-location semantics;\n- execution configuration parameters;\n- input/output bindings and expression usage.\n\nThis class depends on:\n\n- [Deploy, Replace, Undeploy](bblocks://ogc.api.processes.part2.requirements.dru), and\n- [OGC Application Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg).\n\n<!-- requirements -->\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/requirements/docker"
+}

@@ -90,3 +90,9 @@ Conformance class for OGC API — Processes Part 2 (DRAFT). Defines the schema o
 
 Conformance class for OGC API — Processes Part 2 (DRAFT). Enables support for the Common Workflow Language (CWL) as a process description encoding, either embedded in an OGC Application Package or sent directly as the deploy/replace request body.
 
+### `ogc.api.processes.part2.requirements.docker` — Docker
+
+**Type:** requirements-class
+
+Conformance class for OGC API - Processes Part 2 (DRAFT). Defines requirements for Docker-based execution units in OGC Application Packages.
+

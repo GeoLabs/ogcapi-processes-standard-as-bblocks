@@ -1,7 +1,7 @@
 {
   "summary": {
-    "total": 12,
-    "passed": 10,
+    "total": 13,
+    "passed": 11,
     "failed": 2,
     "result": false
   },
@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.conventions - Conventions",
       "bblockName": "Conventions",
       "bblockId": "ogc.api.processes.part1.clauses.conventions",
-      "generated": "2026-08-05T21:29:46.322812+00:00",
+      "generated": "2026-08-18T09:13:26.053144+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part1.clauses.references",
-      "generated": "2026-08-05T21:29:46.326381+00:00",
+      "generated": "2026-08-18T09:13:26.055771+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -38,7 +38,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part1.clauses.scope",
-      "generated": "2026-08-05T21:29:46.329635+00:00",
+      "generated": "2026-08-18T09:13:26.058083+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -52,7 +52,7 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part1.clauses.terms",
-      "generated": "2026-08-05T21:29:46.332979+00:00",
+      "generated": "2026-08-18T09:13:26.060609+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -66,7 +66,7 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part2.clauses.references",
-      "generated": "2026-08-05T21:29:46.336400+00:00",
+      "generated": "2026-08-18T09:13:26.063259+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -80,7 +80,7 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part2.clauses.scope",
-      "generated": "2026-08-05T21:29:46.339593+00:00",
+      "generated": "2026-08-18T09:13:26.065597+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -94,7 +94,7 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part2.clauses.terms",
-      "generated": "2026-08-05T21:29:46.342810+00:00",
+      "generated": "2026-08-18T09:13:26.068131+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -108,7 +108,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
       "bblockName": "Core",
       "bblockId": "ogc.api.processes.part1.requirements.core",
-      "generated": "2026-08-05T21:29:46.354834+00:00",
+      "generated": "2026-08-18T09:13:26.076196+00:00",
       "result": false,
       "items": [
         {
@@ -281,7 +281,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.json - JSON",
       "bblockName": "JSON",
       "bblockId": "ogc.api.processes.part1.requirements.json",
-      "generated": "2026-08-05T21:29:46.364669+00:00",
+      "generated": "2026-08-18T09:13:26.082770+00:00",
       "result": true,
       "items": [
         {
@@ -340,7 +340,7 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.dru - Deploy, Replace, Undeploy",
       "bblockName": "Deploy, Replace, Undeploy",
       "bblockId": "ogc.api.processes.part2.requirements.dru",
-      "generated": "2026-08-05T21:29:46.373754+00:00",
+      "generated": "2026-08-18T09:13:26.089090+00:00",
       "result": false,
       "items": [
         {
@@ -465,7 +465,7 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.ogcapppkg - OGC Application Package",
       "bblockName": "OGC Application Package",
       "bblockId": "ogc.api.processes.part2.requirements.ogcapppkg",
-      "generated": "2026-08-05T21:29:46.377866+00:00",
+      "generated": "2026-08-18T09:13:26.092439+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -479,7 +479,7 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.cwl - CWL",
       "bblockName": "CWL",
       "bblockId": "ogc.api.processes.part2.requirements.cwl",
-      "generated": "2026-08-05T21:29:46.386032+00:00",
+      "generated": "2026-08-18T09:13:26.098423+00:00",
       "result": true,
       "items": [
         {
@@ -531,6 +531,20 @@
       "counts": {
         "total": 2,
         "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.requirements.docker": {
+      "title": "Validation report for ogc.api.processes.part2.requirements.docker - Docker",
+      "bblockName": "Docker",
+      "bblockId": "ogc.api.processes.part2.requirements.docker",
+      "generated": "2026-08-18T09:13:26.101779+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
         "failed": 0
       }
     }
