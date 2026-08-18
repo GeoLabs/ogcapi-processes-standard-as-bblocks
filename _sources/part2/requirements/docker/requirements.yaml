@@ -1,0 +1,69 @@
+# Requirements class: Docker - DRAFT
+# Class URI: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker
+# Source (draft, re-check before treating as final): https://docs.ogc.org/DRAFTS/20-044.html
+#
+# This file mirrors the current 8 requirements listed for the Docker requirements class.
+
+standardization-target: Web API
+
+depends-on:
+  # Normative document dependencies (external standards, not local/imported BB dependencies)
+  - uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
+    title: "OGC API - Processes - Part 1: Core"
+  - uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy
+    title: "OGC API - Processes - Part 2: Deploy, Replace, Undeploy (DRU)"
+  - uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
+    title: "OGC API - Processes - Part 2: OGC Application Package"
+
+requirements:
+
+  - id: schema
+    level: SHALL
+    statement: >
+      The value of the `value` field of the `executionUnit` property of an OGC Application
+      Package SHALL be defined by the Docker execution-unit schema described in the draft.
+
+  - id: execution-unit
+    level: SHALL
+    statement: >
+      The value of the `type` field of the `executionUnit` property SHALL be `docker`, and the
+      value of the `image` field SHALL be a reference to the Docker image to execute.
+
+  - id: deployment
+    level: SHALL
+    statement: >
+      The `deployment` field of the `executionUnit` property SHALL be used to indicate where the
+      Docker image should be executed. Valid deployment values SHALL include `local`, `remote`,
+      `hpc`, and `cloud`.
+
+  - id: config
+    level: SHALL
+    statement: >
+      The `config` field of the `executionUnit` property SHALL be used to convey hardware and
+      execution-configuration requirements, such as CPU, memory, storage, and timeout parameters.
+
+  - id: bindings
+    level: SHALL
+    statement: >
+      The `bindings` field of the `executionUnit` property SHALL be used to map process inputs and
+      outputs to execution-unit invocation arguments. `inputBindings` SHALL define input mapping and
+      `outputBindings` SHALL define output mapping.
+
+  - id: input-binding
+    level: SHALL
+    statement: >
+      The schema of an input binding SHALL follow the input-binding structure defined by the draft,
+      including support for properties such as `prefix`, `position`, `valueFrom`, `itemSeparator`,
+      and `shellQuote`.
+
+  - id: expression-lang
+    level: SHALL
+    statement: >
+      The language used for expressions in binding parameters SHALL follow the expression-language
+      requirement defined by the draft, including macro substitution semantics.
+
+  - id: output-binding
+    level: SHALL
+    statement: >
+      The schema of an output binding SHALL follow the output-binding structure defined by the
+      draft. The `glob` parameter SHALL be used to identify output artifacts.

@@ -73,7 +73,8 @@ standards:
     abstract: |
       OGC API — Processes — Part 2 extends Part 1 with deployment capabilities,
       including deploy, replace and undeploy operations for process descriptions,
-      as well as support for OGC Application Packages and optional CWL integration.
+      as well as support for OGC Application Packages, Docker execution units,
+      and optional CWL integration.
 
     clauses:
       - bblock: ogc.api.processes.part2.clauses.scope
@@ -82,6 +83,7 @@ standards:
       - bblock: ogc.api.processes.part2.clauses.terms
       - bblock: ogc.api.processes.part2.requirements.dru
       - bblock: ogc.api.processes.part2.requirements.ogcapppkg
+      - bblock: ogc.api.processes.part2.requirements.docker
       - bblock: ogc.api.processes.part2.requirements.cwl
       - auto: annex-a
 
