@@ -1,27 +1,30 @@
+# Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05).
+# Text transcribed verbatim from the draft; regenerate the document with bblocks-specgen.
+
+sort: false
 normative:
-  - title: "OGC API - Processes - Part 1: Core"
-    doc-id: OGC 18-062
-    uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
-
-  - title: "OGC API - Features - Part 1: Core"
-    doc-id: OGC 17-069r3
-    uri: https://docs.ogc.org/is/17-069r3/17-069r3.html
-
-  - title: "OGC API - Features - Part 4: Create, Replace, Update and Delete"
-    doc-id: OGC 20-004r1
-    uri: https://docs.ogc.org/DRAFTS/20-004r1.html
-
-  - title: "RFC 6902: JavaScript Object Notation (JSON) Patch"
-    doc-id: IETF RFC 6902
-    uri: http://tools.ietf.org/rfc/rfc6902.txt
-    date: "2013"
-
-  - title: "RFC 2387: The MIME Multipart/Related Content-type"
-    doc-id: IETF RFC 2387
-    uri: http://tools.ietf.org/rfc/rfc2387.txt
-    date: "1998"
-
-  - title: "RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1"
-    doc-id: IETF RFC 2616
-    uri: https://tools.ietf.org/html/rfc2616
-    date: "1999"
+- doc-id: OGC 18-062r2
+  title: 'OGC API — Processes — Part 1: Core'
+  uri: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0
+  citation: 'Benjamin Pross, Panagiotis (Peter) A. Vretanos: OGC 18-062r2, *OGC API — Processes — Part
+    1: Core*. Open Geospatial Consortium (2021). [http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0](http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0).'
+- doc-id: OGC 17-069r3
+  title: 'OGC API — Features — Part 1: Core'
+  uri: http://www.opengis.net/doc/IS/ogcapi-features-1/1.0.0
+  citation: 'Clemens Portele, Panagiotis (Peter) A. Vretanos, Charles Heazel: OGC 17-069r3, *OGC API —
+    Features — Part 1: Core*. Open Geospatial Consortium (2019). [http://www.opengis.net/doc/IS/ogcapi-features-1/1.0.0](http://www.opengis.net/doc/IS/ogcapi-features-1/1.0.0).'
+- doc-id: OGC 20-004r1
+  title: 'OGC API — Records — Part 1: Core'
+  uri: http://www.opengis.net/doc/IS/ogcapi-records-1/1.0
+  citation: 'Panagiotis (Peter) A. Vretanos, Tom Kralidis, Angelos Tzotsos, Charles Heazel: OGC 20-004r1,
+    *OGC API — Records — Part 1: Core*. Open Geospatial Consortium (2025). [http://www.opengis.net/doc/IS/ogcapi-records-1/1.0](http://www.opengis.net/doc/IS/ogcapi-records-1/1.0).'
+- doc-id: IETF RFC 6902
+  title: JavaScript Object Notation (JSON) Patch
+  uri: https://www.rfc-editor.org/info/rfc6902
+  citation: 'P. Bryan, M. Nottingham (eds.): IETF RFC 6902, *JavaScript Object Notation (JSON) Patch*.
+    RFC Publisher (2013). [https://www.rfc-editor.org/info/rfc6902](https://www.rfc-editor.org/info/rfc6902).'
+- doc-id: IETF RFC 2387
+  title: The MIME Multipart/Related Content-type
+  uri: https://www.rfc-editor.org/info/rfc2387
+  citation: 'E. Levinson: IETF RFC 2387, *The MIME Multipart/Related Content-type*. RFC Publisher (1998).
+    [https://www.rfc-editor.org/info/rfc2387](https://www.rfc-editor.org/info/rfc2387).'

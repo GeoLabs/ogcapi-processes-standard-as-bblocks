@@ -1,33 +1,13 @@
-> **DRAFT.** OGC API — Processes — Part 2: Deploy, Replace, Undeploy (OGC 20-044) is not yet an
-> adopted OGC Standard. This content mirrors the current editor's draft and should be re-checked
-> against [the live draft](https://docs.ogc.org/DRAFTS/20-044.html) before being treated as final.
+The OGC API — Processes — Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard \[OGC 18-062r2\] and defines the behavior of a server that supports the ability to dynamically add, replace and/or undeploy processes via an OGC API — Processes implementation instance.
 
-The OGC API — Processes — Part 2 Standard is an extension to the [OGC API — Processes — Part 1:
-Core](bblocks://ogc.api.processes.part1.requirements.core) Standard and defines the behavior of a
-server that supports the ability to dynamically add, replace and/or undeploy processes via an
-OGC API — Processes implementation instance.
-
-Specifically, the Part 2 Standard specifies:
+Specifically, the Processes Part 2 Standard specifies:
 
 - How to deploy a new process.
 - How to replace an existing process.
 - How to undeploy an existing process.
-- How to retrieve the application package last used to deploy or replace a process.
 
-The following table crosswalks each of the resource endpoints discussed in this Standard with the
-HTTP methods POST, PUT, DELETE and GET. Each intersecting cell either contains the name of the
-operation for that combination of resource endpoint and HTTP method, or "n/a" to indicate that
-this Standard does not specify any behavior for that combination.
+The following table crosswalks each of the resource endpoints discussed in this Standard with the HTTP methods POST, PUT and DELETE. Each intersecting cell in the table either contains the name of the operation for that combination of resource endpoint and HTTP method, or it contains the phrase “n/a” which is used to indicate that this Standard does not specify any behavior for that combination of resource endpoints and the HTTP method.
 
-| Resource endpoint | POST | PUT | DELETE | GET |
-|---|---|---|---|---|
-| `/processes` | deploy | n/a | n/a | n/a |
-| `/processes/{processID}` | n/a | replace | undeploy | n/a |
-| `/processes/{processID}/package` | n/a | n/a | n/a | package retrieval |
+**Table 1 — Supported HTTP methods by resource**
 
-Deploying or replacing a process requires that a formal description of the new or replacement
-process be provided by the client. This Standard does not mandate that a specific process
-description language or vocabulary be used, but the draft defines further conformance classes to
-promote interoperability — including `OGC Application Package` and `CWL` (Common Workflow
-Language) — that are out of scope of this Core requirements class and not yet built in this
-register.
+<table><colgroup><col><col><col><col><col></colgroup><thead><tr><th>Resource endpoint</th><th colspan="4">HTTP method</th></tr></thead><tbody><tr><td></td><td><b>GET</b></td><td><b>POST</b></td><td><b>PUT</b></td><td><b>DELETE</b></td></tr><tr><td><tt>/processes</tt></td><td>n/a</td><td><a href="#sec-6.6">deploy</a></td><td>n/a</td><td>n/a</td></tr><tr><td><tt>/processes/{processID}</tt></td><td>n/a</td><td>n/a</td><td><a href="#sec-6.7">replace</a></td><td><a href="#sec-6.8">undeploy</a></td></tr><tr><td><tt>/processes/{processID}/package</tt></td><td><a href="#sec-6.9">package</a></td><td>n/a</td><td>n/a</td><td>n/a</td></tr></tbody></table>

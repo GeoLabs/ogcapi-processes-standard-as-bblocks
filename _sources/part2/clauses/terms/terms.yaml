@@ -1,23 +1,19 @@
+# Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05).
+# Text transcribed verbatim from the draft; regenerate the document with bblocks-specgen.
+
+sort: false
 terms:
-  - term: execution unit
-    definition: >
-      A component containing a process that an implementation of the Processes API Part 1 can run.
-
-  - term: deploy
-    definition: >
-      Deploy refers to installing a desired execution unit onto a Processes API server so that
-      client applications can interact with it as a process using the Processes API Part 1
-      Standard.
-
-  - term: replace
-    definition: >
-      Replace refers to upgrading a deployed process from a Processes API implementation.
-
-  - term: undeploy
-    definition: >
-      Undeploy refers to removing a deployed process from a Processes API implementation so that
-      it does not appear as an available process.
-
+- term: Execution unit
+  definition: A component containing a process that an implementation of the Processes API Part 1 can
+    run.
+- term: Deploy
+  definition: Deploy refers to installing a desired execution unit onto a Processes API server so that
+    client applications can interact with it as a process using the Processes API Part 1 Standard.
+- term: Replace
+  definition: Replace refers to upgrading a deployed process from a Processes API implementation.
+- term: Undeploy
+  definition: Undeploy refers to removing a deployed process from a Processes API implementation so that
+    it does not appear as an available process.
 abbreviated-terms:
   CWL: Common Workflow Language
   DRU: Deploy, Replace, Undeploy

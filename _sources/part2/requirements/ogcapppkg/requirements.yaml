@@ -1,67 +1,139 @@
-# Requirements class: OGC Application Package — DRAFT
-# Class URI: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
-# Source (draft, re-check before treating as final): https://docs.ogc.org/DRAFTS/20-044.html
+# Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05).
+# Text transcribed verbatim from the draft; regenerate the document with bblocks-specgen.
 #
-# All 5 requirements of rc_ogcapppkg are transcribed here. The executionUnit-schema requirement's
-# schema fragment simplifies the Docker/OCI execution-unit branch (see
-# ogc.api.processes.v2.schemas.executionUnitBase for the reason) since the "Docker"
-# conformance class itself is not yet built in this register.
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
+# Statements are placed in description.md with <!-- requirement|recommendation|permission: <id> -->
+# markers; abstract tests are laid out by the Annex A block (part2/annexes/ats).
 
+class-id: ogcapppkg
+title: Requirements Class ‘OGC Application Package’
 standardization-target: Web API
-
+obligation: requirement
 depends-on:
-  - uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
-    title: "OGC API — Processes — Part 1: Core"
-  - bblock: ogc.api.processes.part2.requirements.dru
-
+- uri: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0
+  title: 'OGC API — Processes — Part 1: Core'
+- uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy
+conformance-class:
+  title: OGC Application Package
 requirements:
+- id: ogcapppkg/schema
+  statement: |
+    The schema of an [OGC Application Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg) document SHALL be defined by the following OpenAPI schema fragment:
 
-  - id: schema
-    # Full URI: .../req/ogcapppkg/schema
-    level: SHALL
-    statement: >
-      The schema of an OGC Application Package document SHALL be defined by the
-      [ogcapppkg](bblocks://ogc.api.processes.v2.schemas.ogcapppkg) OpenAPI schema.
-    applies-to:
-      bblock: ogc.api.processes.v2.schemas.ogcapppkg
-      json-path: $
+    ogcapppkg.yaml
 
-  - id: process-description
-    level: SHALL
-    statement: >
-      The value of the `process` member of the `processDescription` property SHALL be defined by
-      the [process](bblocks://ogc.api.processes.v1.schemas.process) schema.
-    note: >
-      The `processDescription` property is optional. If it is not included in the application
-      package, the process interface must be inferred from the information in the execution unit.
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.process
-      json-path: $
+    ```yaml
+    type: object
+    required:
+      - executionUnit
+    properties:
+      processDescription:
+        type: object
+        required:
+        - process
+        properties:
+          process:
+            $ref: "../processes-core/process.yaml"
+      executionUnit:
+        $ref: "executionUnit.yaml"
+    ```
+  applies-to:
+    bblock: ogc.api.processes.v2.schemas.ogcapppkg
+    table: false
+- id: ogcapppkg/process-description
+  statement: |
+    The value of the `process` member of the `processDescription` property SHALL be defined by the following OpenAPI schema:
 
-  - id: executionUnit-schema
-    level: SHALL
-    statement: >
-      The value of the `executionUnit` property of an OGC Application Package SHALL be defined by
-      the [executionUnit](bblocks://ogc.api.processes.v2.schemas.executionUnit) OpenAPI schema.
-    applies-to:
-      bblock: ogc.api.processes.v2.schemas.executionUnit
-      json-path: $
+    process.yaml:
 
-  - id: body
-    # Full URI: .../req/ogcapppkg/body (anchor in source is misspelled "req_ogcappkg_body")
-    level: SHALL
-    statement: >
-      For the Deploy operation and the Replace operation, the media type
-      `application/ogcapppkg+json` SHALL be used to indicate that the request body contains an
-      OGC Application Package.
-    applies-to:
-      bblock: ogc.api.processes.part2.requirements.dru
-
-  - id: package-response-body
-    level: SHALL
-    statement: >
-      For the Application Package retrieval operation, the media type
-      `application/ogcapppkg+json` SHALL be used to indicate that the response body contains an
-      OGC Application Package.
-    applies-to:
-      bblock: ogc.api.processes.part2.requirements.dru
+    ```yaml
+    allOf:
+      - $ref: "processSummary.yaml"
+      - type: object
+        properties:
+          inputs:
+            additionalProperties:
+              $ref: "inputDescription.yaml"
+          outputs:
+            additionalProperties:
+              $ref: "outputDescription.yaml"
+    ```
+  applies-to:
+    bblock: ogc.api.processes.v1.schemas.process
+    table: false
+- id: ogcapppkg/executionUnit-schema
+  statement: "The value of the `executionUnit` property of an [OGC Application Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg)\
+    \ SHALL be defined by the following OpenAPI schema fragments:\n\nexecutionUnit.yaml\n\n```yaml\noneOf:\n\
+      - $ref: \"executionUnitBase.yaml\"\n  - type: array\n    items:\n      - $ref: \"executionUnitBase.yaml\"\
+    \n```\n\nexecutionUnitBase.yaml\n\n```yaml\noneOf:\n  - $ref: \"../common-core/link.yaml\"\n  - allOf:\n\
+        - $ref: \"../processes-core/qualifiedValue.yaml\"\n    - anyOf:\n      - description: |-\n         \
+    \ The execute unit is a container image.\n        type: object\n        required:\n          - type\n\
+            properties:\n          type:\n            type: string\n            enum:\n              -\
+    \ docker\n              - oci\n          value:\n            $ref: \"executionUnitContainer.yaml\"\
+    \n      - description: |-\n          The execution unit is CWL script.\n        type: object\n       \
+    \ required:\n          - mediaType\n        properties:\n          mediaType:\n            type: string\n\
+                enum:\n              - application/cwl\n          value:\n            #$ref: \"https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml\"\
+    \n            #$ref: \"../cwl/cwl-json-schema.yaml#/$defs/CWL\"\n            $ref: \"../cwl/cwl.yaml\"\
+    \n      - description: |-\n          The execution unit is not Docker/OCI or CWL and cannot be properly\n\
+              described via the \"mediaType\" property of a qualified value \n          using an RFC 2046\
+    \ media type (e.g. an \"R\" or \"Python\" script).\n          In this case a community-defined or\
+    \ custom token may be used\n          with the \"type\" property.\n        type: object\n        required:\n\
+              - type\n        properties:\n          type:\n            type: string\n```\n"
+  applies-to:
+    bblock: ogc.api.processes.v2.schemas.executionUnit
+    table: false
+- id: ogcapppkg/execution-unit-docker
+  type: recommendation
+  statement: If the execution unit is a Docker image, implementations SHOULD consider supporting the [Docker
+    Requirements Class](#sec-8).
+- id: ogcapppkg/other-execution-units
+  type: permission
+  statement: Servers MAY support other execution unit types but those types are not described in this
+    Standard.
+- id: ogcapppkg/body
+  statement: For the Deploy operation and the Replace operation, the media type `application/ogcapppkg+json`
+    SHALL be used to indicate that the request body contains an [OGC Application Package](#sec-7).
+- id: ogcapppkg/package-response-body
+  statement: For the [Application Package retrieval operation](#sec-6.9) the media type `application/ogcapppkg+json`
+    SHALL be used to indicate that the response body contains an [OGC Application Package](#sec-7).
+abstract-tests:
+- id: ogcapppkg/deploy-body
+  requirement: /req/ogcapppkg/deploy-body
+  purpose: Validate that the server supports OGC Application Package encoding
+  method: |
+    1. Retrieve all links from the landing page with “rel=https://www.opengis.net/def/rel/ogc/1.0/processes” and /processes
+    2. Issue an HTTP POST request using the content type “application/ogcapppkg+json” with as body a default OGC Application Package or the application package as reference, if any, on one path
+    3. Validate the response with [/conf/ogcapppkg/deploy/response](#ats-ogcapppkg-deploy-response)
+    4. Send the same POST request again
+    5. Validate the response with [/conf/ogcapppkg/deploy/response-duplicate](#ats-ogcapppkg-deploy-response-duplicate)
+- id: ogcapppkg/deploy-response
+  requirement: deploy-replace-undeploy/deploy-response-success
+  purpose: Validate that the server returns HTTP Status code 201 or 202
+  method: |
+    1. Validate that a document is returned and the status code is 201 or 202
+    2. If status code was 201, validate the document using [/conf/ogcapppkg/deploy/response-success](#ats-ogcapppkg-deploy-response-success)
+- id: ogcapppkg/deploy-response-success
+  requirement: deploy-replace-undeploy/deploy-response-success
+  purpose: Validate that the server returns a Location header and a process summary
+  method: |
+    1. Validate the Location header contains a URI of the deployed process.
+    2. Validate the document conforms to the [processSummary.yaml](https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processSummary.yaml) schema.
+- id: ogcapppkg/deploy-response-duplicate
+  requirement: deploy-replace-undeploy/deploy-response-duplicate
+  purpose: Validate that the server return HTTP Status code 409
+  method: |
+    1. Validate that the response contains a document content was returned with an HTTP status code of 409
+    2. Validate that the document is conform to the JSON Schema: [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml)
+    3. Validate that the type of the exception is “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
+- id: ogcapppkg/replace-body
+  requirement: /req/ogcapppkg/replace-body
+  purpose: Validate that the server supports OGC Application Package encoding
+  method: |
+    1. Construct a path for each “rel=https://www.opengis.net/def/rel/ogc/1.0/processes” link on the landing page as well as for the {root}/processes path.
+    2. Append `/{processID}` to each path, where `{processID}` is the process id retrieved from [/conf/ogcapppkg/deploy/response-success](#ats-ogcapppkg-deploy-response-success).
+    3. Issue an HTTP PUT request using the media type “application/ogcapppkg+json” with as body a default OGC Application Package or the application package URL, if any, for each path
+    4. Validate the response with [/conf/ogcapppkg/replace/response](#ats-ogcapppkg-replace-response)
+- id: ogcapppkg/replace-response
+  requirement: /req/deploy-replace-undeploy-response-success
+  purpose: Validate that the server returns HTTP Status code 200, 202 or 204
+  method: 1. Validate that the status code is 200, 202 or 204.
