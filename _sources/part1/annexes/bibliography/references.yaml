@@ -1,0 +1,40 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+
+sort: false
+informative:
+- title: "[1] Andreas Matheus: OGC 15-022, OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards. Open Geospatial Consortium (2015). http://www.opengis.net/doc/PER/t11-common-security."
+  anchor: "ogc15-022"
+  uri: "http://www.opengis.net/doc/PER/t11-common-security"
+  citation: |-
+    [1] Andreas Matheus: OGC 15-022, *OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards*. Open Geospatial Consortium (2015). [http://www.opengis.net/doc/PER/t11-common-security](http://www.opengis.net/doc/PER/t11-common-security).
+- title: "[2] Panagiotis (Peter) A. Vretanos: OGC 09-025r2, OGC® Web Feature Service 2.0 Interface Standard — With Corrigendum. Open Geospatial Consortium (2014). http://www.opengis.net/doc/IS/wfs/2.0.2."
+  anchor: "WFS20"
+  uri: "http://www.opengis.net/doc/IS/wfs/2.0.2"
+  citation: |-
+    [2] Panagiotis (Peter) A. Vretanos: OGC 09-025r2, *OGC® Web Feature Service 2.0 Interface Standard — With Corrigendum*. Open Geospatial Consortium (2014). [http://www.opengis.net/doc/IS/wfs/2.0.2](http://www.opengis.net/doc/IS/wfs/2.0.2).
+- title: "[3] https://www.w3.org/TR/html5/"
+  anchor: "w3c-html5"
+  uri: "https://www.w3.org/TR/html5/"
+  citation: "[3] [https://www.w3.org/TR/html5/](https://www.w3.org/TR/html5/)"
+- title: "[4] Hutton, B.: JSON Schema: A Media Type for Describing JSON Documents, https://json-schema.org/draft/2020-12/json-schema-core.html"
+  anchor: "jsonschema-core"
+  uri: "https://json-schema.org/draft/2020-12/json-schema-core.html"
+  citation: |-
+    [4] Hutton, B.: JSON Schema: A Media Type for Describing JSON Documents, [https://json-schema.org/draft/2020-12/json-schema-core.html](https://json-schema.org/draft/2020-12/json-schema-core.html)
+- title: "[5] Hutton, B.: JSON Schema Validation: A Vocabulary for Structural Validation of JSON, https://json-schema.org/draft/2020-12/json-schema-validation.html"
+  anchor: "jsonschema-validation"
+  uri: "https://json-schema.org/draft/2020-12/json-schema-validation.html"
+  citation: |-
+    [5] Hutton, B.: JSON Schema Validation: A Vocabulary for Structural Validation of JSON, [https://json-schema.org/draft/2020-12/json-schema-validation.html](https://json-schema.org/draft/2020-12/json-schema-validation.html)
+- title: "[6] Hutton, B.: Relative JSON Pointers, https://json-schema.org/draft/2020-12/relative-json-pointer.html"
+  anchor: "jsonschema-pointers"
+  uri: "https://json-schema.org/draft/2020-12/relative-json-pointer.html"
+  citation: |-
+    [6] Hutton, B.: Relative JSON Pointers, [https://json-schema.org/draft/2020-12/relative-json-pointer.html](https://json-schema.org/draft/2020-12/relative-json-pointer.html)
+- title: "[7] OGC 06-121r9, OGC Web Service Common Specification, version 2.0"
+  anchor: "OGC_06-121r9"
+  citation: "[7] OGC 06-121r9, OGC Web Service Common Specification, version 2.0"
+- title: "[8] OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2"
+  anchor: "OGC_14-065"
+  citation: "[8] OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2"

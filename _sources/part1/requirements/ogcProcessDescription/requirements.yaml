@@ -1,0 +1,222 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/ogc-process-description
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: ogc-process-description
+title: "Requirements Class ‘OGC Process Description’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#rfc8259"
+  title: "JSON"
+- uri: "#bb-ogc-api-processes-part1-requirements-core"
+  title: "/req/core"
+conformance-class:
+  title: "Process Description"
+requirements:
+- id: "ogc-process-description/json-encoding"
+  parts:
+  - |-
+      A JSON-encoded OGC process description SHALL validate against the JSON Schema: [process.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/process.yaml).
+  - |-
+      The JSON-encoded OGC process description SHALL include, in the `links` section, a profile link (href: [`https://www.opengis.net/def/profile/OGC/0/ogc-process-description`](https://www.opengis.net/def/profile/OGC/0/ogc-process-description), relation: `profile`);
+- id: "ogc-process-description/links"
+  parts:
+  - "Each process description SHALL include a link (relation: `self`) that points to itself."
+  - |-
+      Each process description SHALL include one or more links (relation: `alternate`) that points to each alternative representation of this process description.
+- id: "ogc-process-description/process-links"
+  type: "recommendation"
+  parts:
+  - |-
+      Each process description SHOULD include a link (`rel="service"`) pointing to the landing page of the service offering this process.
+  - "All links SHOULD include the `rel` and `type` link parameters."
+- id: "ogc-process-description/inputs-def"
+  parts:
+  - |-
+      Each process [input definition](#process-input-schema) SHALL be listed in the `inputs` section according to the JSON Schema: [inputDescription.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml).
+  - |-
+      The key for each process input in the `inputs` section of the process definition SHALL be the identifier for that input.
+- id: "ogc-process-description/data-classes"
+  parts:
+  - "The `dataClasses` parameter SHALL be an array of zero or more items."
+  - |-
+      Each item in the `dataClasses` array SHALL be one of the following:
+
+      1. The identifier of a data class in the OGC Data Classes Register (the `dataClassId` value in the URI template [https://www.opengis.net/def/dataClass/OGC/0/{dataClassId});](https://www.opengis.net/def/dataClass/OGC/0/{dataClassId});)
+      2. A Safe CURIE representing the data class such as `[ogc-dataClass:{dataClassId}]` or `[ogc-bblocks:{some-data-class}]`.
+      3. A HTTP(S) URI of a data class in another normative register.
+      4. Another form of register reference with a valid URI schema (e.g., `bblocks://ogc.some.data.class`).
+- id: "ogc-process-description/data-access-apis"
+  parts:
+  - |-
+      The list of possible [OGC API data access mechanisms](#sec-4.1.10) that can be used to retrieve process input or output values from an OGC collection shall be indicated by the `dataAccessApis` parameter in the [process’ description](#sec-9).
+  - |-
+      The `dataAccessApis` parameter SHALL list all the OGC standard based APIs that the server can use to retrieve values for the corresponding process input or output.
+  - |-
+      The non-exhaustive list of values for the `dataAccessApis` parameter SHALL include:
+
+      - ogc-api-features
+      - ogc-api-coverages
+      - ogc-api-edr
+      - ogc-api-tiles
+      - ogc-api-moving-features
+      - ogc-api-sensor-things
+      - ogc-api-records
+      - ogc-api-dggs
+      - stac-api
+  - |-
+      An empty value (i.e., `[]`) for the `dataAccessApis` parameter SHALL indicate that any of the API endpoints that the server claims to support in its [conformance document](#sec-7.4) can be used to retrieve values for the corresponding process input or output.
+  - |-
+      The absence of the `dataAccessApis` parameter SHALL, for the corresponding process input or output, indicate that [collection input](#sec-8.1) is not supported.
+- id: "ogc-process-description/extend-data-access-apis-values"
+  type: "permission"
+  statement: |-
+    The list of values for the `dataAccessApi` paramater MAY be extended as necessary to accommodate other, perhaps even non_OGC, data access APIs.
+- id: "ogc-process-description/input-def"
+  parts:
+  - |-
+      The schema of each [process **input** value](#input-value-schema) SHALL be specified using the `schema` parameter.
+  - |-
+      The `schema` parameter SHALL define the schema of a **single instance** of an input value.
+  - |-
+      The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema.yaml).
+  - |-
+      Servers SHALL use this schema fragment to validate the components of a [process input](#sec-7.12.2.3) in an [execute request](#execute-request-body) that is an instance of [inputValue.yaml](#input-value-schema).
+- id: "ogc-process-description/input-multiple-types"
+  parts:
+  - |-
+      An input that can be of multiple types SHALL be defined using the [`oneOf`](https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3) JSON Schema keyword.
+  - |-
+      Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema.yaml).
+  - |-
+      The first sub-schema in the [`oneOf`](https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3) array SHALL be considered the default format.
+- id: "ogc-process-description/format-key"
+  type: "recommendation"
+  statement: |-
+    Servers SHOULD use the `format` key in the schema description of a process input or output (i.e., within their `schema`) to provide additional semantic context that can aid in the interpretation and validation of process input or output values in an [execute](#sec-7.12) request.
+- id: "ogc-process-description/format-short-code"
+  type: "recommendation"
+  statement: |-
+    In addition to the key values listed in [Table 11](#format-key-values), servers SHOULD also accept the short codes.
+- id: "ogc-process-description/format-value-registration"
+  type: "recommendation"
+  statement: |-
+    Servers wishing to extend this list of `format` key values, SHOULD officially register such values with the [OGC Naming Authority](https://www.ogc.org/ogcna).
+- id: "ogc-process-description/value-passing"
+  parts:
+  - |-
+      How process input values can be specified in an [execute request](#execute-request-body) (by-value, by-reference or both) SHALL be controlled by the [`valuePassing`](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml) parameter.
+  - |-
+      The default value of the [`valuePassing`](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml) parameter shall be `["byValue","byReference"]`.
+  - |-
+      If an input value can be passed by value ([`"byValue"`](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml)), process input values SHALL be specified in-line in an [execute request](#execute-request-body).
+  - |-
+      If an input value can be passed by reference ([`"byReference"`](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml)), then input values shall be referenced in an [execute request](#execute-request-body) using a [link](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/link.yaml).
+- id: "ogc-process-description/value-passing"
+  type: "permission"
+  statement: |-
+    The [`valuePassing`](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml) parameter MAY be specified per input in the [process description](#sec-7.11).
+- id: "ogc-process-description/execution-unit-requirements"
+  parts:
+  - |-
+      The `executionUnitRequirements` parameter SHALL be used to specify runtime requirements for the corresponding input.
+  - |-
+      The `remote-access` parameter SHALL indicate whether referenced input data can be retrieved from outside the access domain of the server (e.g. via network access).
+
+      - A value of `true` indicates that the execution unit has network access and can thus retrieve input data from outside the server’s access domain (e.g. via a remote OGC API or a remote file reference).
+      - A value of `false` indicates that the execution unit does not have network access and input data retrieval is restricted to the server’s access domain (e.g. local file system).
+  - |-
+      The `staging` parameter SHALL indicate how referenced input data should be prepared for the execution unit.
+
+      - A value of `local-file` indicates that referenced input data SHALL be locally staged for the process’ execution unit.
+      - A value of `remote-access` indicates that a reference to input data SHALL be passed to the execution unit as-is since the process’ execution unit itself “knows” how to dereference the input data.
+- id: "ogc-process-description/outputs-def"
+  parts:
+  - |-
+      Each process output definition SHALL be listed in the `outputs` section according to the JSON Schema: [outputDescription.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/outputDescription.yaml).
+  - |-
+      The key for each process output in the `output` section of the process definition SHALL be the identifier for that output.
+- id: "ogc-process-description/output-def"
+  parts:
+  - |-
+      The schema of each [process **output**](#sec-7.12.2.4) SHALL be specified using the `schema` parameter.
+  - |-
+      The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema.yaml).
+- id: "ogc-process-description/output-multiple-types"
+  parts:
+  - |-
+      An output that can be of multiple types SHALL be defined using the [`oneOf`](https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3) JSON Schema keyword.
+  - |-
+      Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/schema.yaml).
+  - |-
+      The first sub-schema in the [`oneOf`](https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3) array SHALL be considered the default format.
+abstract-tests:
+- id: "ogc-process-description/json-encoding"
+  requirement: "/req/ogc-process-description/json-encoding"
+  purpose: |-
+    Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.
+  method: |-
+    1. Retrieve a description of each process according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. For each process, verify the contents of the response body validate against the JSON Schema: [process.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml).
+- id: "ogc-process-description/links"
+  requirement: "/req/ogc-process-description/links"
+  purpose: "Verify that an OGC Process Description includes the required links."
+  method: |-
+    1. Retrieve a description of each process according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. For each process, verify that the description includes a link (relation: `self`) pointing to itself.
+    3. If the server indicates that it supports other representations of the process description, verify that the description includes a link (relation: `alternate`) for each alternative representation of the process description.
+- id: "ogc-process-description/inputs-def"
+  requirement: "/req/ogc-process-description/inputs-def"
+  purpose: |-
+    Verify that the definition of `inputs` for each process complies with the required structure and contents.
+  method: |-
+    1. Retrieve a description of each process according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. For each process, verify that the definition of the inputs conforms to the JSON Schema: [inputDescription.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml).
+- id: "ogc-process-description/input-def"
+  requirement: "/req/ogc-process-description/input-def"
+  purpose: |-
+    Verify that the definition of each input for each process complies with the required structure and contents.
+  method: |-
+    For each input identified according to the test [/conf/ogc-process-description/inputs-def](#ats-ogc-process-description-inputs-def) verify that the value of the `schema` key, that defines the input, validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml).
+- id: "ogc-process-description/input-multiple-types"
+  requirement: "/req/ogc-process-description/input-multiple-types"
+  purpose: |-
+    Validate that each input of multiple type complies with the required structure and contents.
+  method: |-
+    1. Retrieve a description of each process according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. For each process identify if the process has one or more inputs of multiple types.
+    3. For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml).
+- id: "ogc-process-description/data-access-apis"
+  requirement: "/req/ogc-process-description/data-access-apis"
+  purpose: |-
+    Verify that each process input that supports collection inputs properly declares which data access APIs it supports.
+  method: |-
+    1. Retrieve the description of each process the server offers according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect each input of each process and determine if the `dataAccessApi` parameter is present.
+    3. If it is present then verify that the value of the parameter is either empty or contains a list of data access APIs (e.g. ogc-api-features, ogc-api-coverages, etc.).
+    4. If the parameter value is not empty, verify that the server declares support, in its conformance document (i.e. `GET /conformance`), for each of the listed data access APIs.
+- id: "ogc-process-description/outputs-def"
+  requirement: "/req/ogc-process-description/outputs-def"
+  purpose: |-
+    Verify that the definition of `outputs` for each process complies with the required structure and contents.
+  method: |-
+    1. Retrieve a description of each process according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. For each process, verify that the definition of the outputs conforms to the JSON Schema: [outputDescription.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml).
+- id: "ogc-process-description/output-def"
+  requirement: "/req/ogc-process-description/output-def"
+  purpose: |-
+    Verify that the definition of each output for each process complies with the required structure and contents.
+  method: |-
+    For each output identified according to the test [/conf/ogc-process-description/outputs-def](#ats-ogc-process-description-outputs-def) verify that the value of the `schema` key, that defines the output, validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml).
+- id: "ogc-process-description/output-multiple-types"
+  requirement: "/req/ogc-process-description/output-multiple-types"
+  purpose: |-
+    Validate that each output of multiple types complies with the required structure and contents.
+  method: |-
+    1. Retrieve a description of each process according to test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. For each process identify if the process has one or more output of multiple types denoted by using the `oneOf` JSON Schema keyword.
+    3. For each sub-schema or each identified output, verify that the definition validates according to the JSON Schema: [schema.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml).

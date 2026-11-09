@@ -1,0 +1,21 @@
+{
+  "name": "Abstract Test Suite",
+  "abstract": "Annex A (normative) of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): introduction and layout of the conformance classes and abstract tests.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "clause",
+  "version": "2.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ]
+}

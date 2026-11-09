@@ -1,0 +1,82 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/query-param-profile
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: query-param-profile
+title: "Requirements Class ‘Profile Query Parameter’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-requirements-core"
+  title: "/req/core"
+conformance-class:
+  title: "Query Profile Parameter"
+requirements:
+- id: "query-param-profile/definition"
+  parts:
+  - |-
+      A server implementation SHALL support the Profile (`profile`) parameter for the GET operation.
+  - |-
+      The following OpenAPI 3.0 schema fragment SHALL define the characteristics of the `profile` parameter:
+
+      ```yaml
+      name: profile
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      explode: false
+      style: form
+      ```
+  - |-
+      Each item SHALL be one of the following:
+
+      - A HTTP(S) URI of a profile, e.g., in the OGC Profile Register (https://www.opengis.net/def/profile);
+      - A Safe CURIE of a profile in the OGC Profile Register (e.g., `[ogc-profile:my-profile]`);
+      - A profile identifier (the `profileId` value in the URI template `https://www.opengis.net/def/profile/OGC/0/{profileId}`)
+- id: "query-param-profile/default"
+  type: "permission"
+  statement: "The server MAY specify a default value for the query parameter “profile”."
+- id: "query-param-profile/profiles-of-media-type"
+  type: "permission"
+  parts:
+  - |-
+      For any media type that can represent a resource, the server MAY support only a subset of the profiles offered for the resource.
+  - "The subset of supported profiles for a media type MAY be empty, too."
+- id: "query-param-profile/negotiation"
+  type: "recommendation"
+  parts:
+  - |-
+      If the server supports one or more of the requested profile(s) for the media type and resource, these profiles SHOULD be used for the response.
+  - |-
+      The profile negotiation SHOULD NOT result in an error, e.g., because a requested profile cannot be provided.
+- id: "query-param-profile/response"
+  parts:
+  - |-
+      The query parameter is not required, that is, omitting the parameter in a request SHALL not result in an error.
+  - |-
+      If the media type of the response supports web links in accordance with [RFC 8288 Web Linking](#rfc8288), the response SHALL include links to the selected profile(s) with the link relation type “profile”.
+- id: "query-param-profile/link-header"
+  type: "recommendation"
+  statement: |-
+    The response SHOULD include links to the selected profile(s) in the HTTP response headers.
+abstract-tests:
+- id: "query-param-profile/definition"
+  requirement: "/req/query-param-profile/definition"
+  purpose: "Validate that the `profile` query parameter is constructed correctly."
+  method: |-
+    1. Verify that the `profile` query parameter complies with its schema definition in requirement [/req/query-param-profile/definition](#req-query-param-profile-definition).
+    2. Verify that each element in the profile list is either a HTTP(S) URI or a profile identifier (i.e. `{profileId}`) in the URI template `https://www.opengis.net/def/profile/OGC/0/{profileId}`.
+- id: "query-param-profile/response"
+  requirement: "/req/query-param-profile/response"
+  purpose: |-
+    Validate that the response body includes links (`rel="profile"`) identifying the profiles applied to payload.
+  method: |-
+    1. Execute one or more requests that include the `profile` parameter.
+    2. Ensure that the value of the `profile` parameter is a list of one or more HTTP(S) URIs OR profile identifiers (i.e. `{profileId}`) from the URI template `https://www.opengis.net/def/profile/OGC/0/{profileId}`.
+    3. Assuming that the requested response format supports web links in accordance with [RFC 8288 Web Linking](#rfc8288), verify that the response document includes at least one link with `rel="profile"`.

@@ -1,98 +1,1297 @@
-# Requirements class: Core
-# Class URI: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
-# (derived from standard.yaml base-uri + req-uri-template with id=core)
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
 #
-# This file covers the process-list requirement group only (PoC scope).
-# The full core class has 55 requirements; remaining requirements TBD.
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
 
-standardization-target: Web API
-
+class-id: core
+title: "Requirements Class ‘Core’"
+standardization-target: "Web API"
 depends-on:
-  # Normative document dependencies (RFC/OGC standard references, not BB dependencies)
-  - uri: http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
-    title: "OGC API — Common — Part 1: Core"
-
+- uri: "https://www.opengis.net/spec/ogcapi_common-1/1.0/req/core"
+  title: "https://www.opengis.net/spec/ogcapi_common-1/1.0/req/core"
+- uri: "#rfc2616"
+  title: "RFC 2616 (HTTP/1.1)"
+- uri: "#rfc2818"
+  title: "RFC 2818 (HTTP over TLS)"
+- uri: "#rfc8288"
+  title: "RFC 8288 (Web Linking)"
+conformance-class:
+  title: "Core"
 requirements:
+- id: "core/landingpage-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/`."
+- id: "core/landingpage-success"
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [landingPage.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/landingPage.yaml) and include at least links to the following resources:
 
-  - id: core/process-list-op
-    # Full URI: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core/process-list-op
-    level: SHALL
-    statement: >
-      The server SHALL support the HTTP GET operation at the path `/processes`.
-    applies-to:
-      bblock: ogc.api.processes.v1.paths.ProcessList
-    # tested-by using filename reference (current tests.yaml schema style)
-    tested-by:
-      - process-list-success.json
+      - the API definition (relation type ‘service-desc’ or ‘service-doc’)
+      - `/conformance` (relation type ‘[https://www.opengis.net/def/rel/ogc/1.0/conformance](https://www.opengis.net/def/rel/ogc/1.0/conformance)‘)
+      - `/processes` (relation type ‘[https://www.opengis.net/def/rel/ogc/1.0/processes](https://www.opengis.net/def/rel/ogc/1.0/processes)‘)
+- id: "core/api-definition-op"
+  statement: |-
+    The URIs of all API definitions referenced from the landing page SHALL support the HTTP GET method.
+- id: "core/api-definition-uri"
+  type: "permission"
+  statement: |-
+    The API definition is metadata about the capabilities provided by an API implementation instance and strictly speaking is not part of the API itself, but the definition MAY be hosted as a sub-resource to the base path of the API, for example, at path `/api`. There is no need to include the path of the API definition in the API definition itself.
+- id: "core/api-definition-success"
+  parts:
+  - |-
+      A successful execution of the operation to get the API definition document SHALL be reported as a response with a HTTP status code `200`.
+  - "The server SHALL return an API definition document."
+- id: "core/api-definition-oas"
+  type: "recommendation"
+  parts:
+  - |-
+      If the API definition document is defined using the OpenAPI Specification 3.0, the document SHOULD conform to the [OpenAPI Specification 3.0 requirements class](#bb-ogc-api-processes-part1-requirements-oas30).
+  - |-
+      If the API definition document is defined using the OpenAPI Specification 3.1, the document SHOULD conform to the [OpenAPI Specification 3.1 requirements class](#bb-ogc-api-processes-part1-requirements-oas31).
+- id: "core/conformance-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/conformance`."
+- id: "core/conformance-success"
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [req-classes.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/confClasses.yaml) and list all OGC API — Processes conformance classes that an implementation of the Processes API conforms to.
+- id: "core/http"
+  parts:
+  - "The server SHALL conform to [HTTP 1.1](#rfc2616)."
+  - "If the server supports HTTPS, the server SHALL also conform to [HTTP over TLS](#rfc2818)."
+- id: "core/http-head"
+  type: "recommendation"
+  statement: |-
+    The server SHOULD support the HTTP 1.1 HEAD method for all resources that support the GET method.
+- id: "core/content-length"
+  type: "recommendation"
+  statement: "The server SHOULD include the HTTP 1.1 `Content-Length` header in all responses."
+- id: "core/additional-status-codes"
+  type: "permission"
+  statement: |-
+    Servers MAY support other HTTP protocol capabilities and, therefore, MAY return other status codes than those listed in [Table 8](#status_codes), too.
+- id: "core/problem-details"
+  type: "recommendation"
+  parts:
+  - |-
+      A server SHOULD include a “Problem Details” report in an error response in accordance with [RFC 9457](https://datatracker.ietf.org/doc/html/rfc9457).
+  - |-
+      A server SHOULD employ the `application/problem+json` media-type by default for the “Problem Details” report in an error response, unless negotiated otherwise.
+  - |-
+      A server SHOULD provide additional `detail` to help disambiguate the cause of the problem.
+- id: "core/cross-origin"
+  type: "recommendation"
+  statement: |-
+    If the server is intended to be accessed from the browser, cross-origin requests SHOULD be supported. Note that support can also be added in a proxy layer on top of the server.
+- id: "core/access-control-expose-headers"
+  type: "recommendation"
+  statement: |-
+    If the server is intended to be accessed from the browser and if Cross-origin resource sharing is supported, the `Access-Control-Expose-Headers` header SHOULD be used and the header SHOULD contain the value `location` to enable the browser to access the `location` header of the response.
+- id: "core/html"
+  type: "recommendation"
+  statement: |-
+    To support browsing, an implementation of OGC API — Processes with a web browser and to enable search engines to crawl and index a process, implementations SHOULD consider supporting an HTML encoding.
+- id: "core/link-header"
+  type: "recommendation"
+  parts:
+  - |-
+      Links included in payload of responses SHOULD also be included as `Link` headers in the HTTP response according to [RFC 8288, Clause 3](#rfc8288).
+  - |-
+      This recommendation does not apply if there are a large number of links included in a response or the details of a link are not known when the HTTP headers of the response are created.
+- id: "core/process-list-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/processes`."
+- id: "core/pl-limit-definition"
+  statement: |-
+    The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification fragment):
 
-  - id: core/process-list-success
-    level: SHALL
-    statement: >
-      A successful execution of the operation at path `/processes` SHALL be reported as a
-      response with HTTP status code `200`. The content of that response SHALL conform to the
-      [processList](bblocks://ogc.api.processes.v1.schemas.processList) schema.
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.processList
-      json-path: $
-    # tested-by using id references (proposed extension — matches 'id' field in tests.yaml).
-    # The generator resolves these by looking up the id in tests.yaml first; if not found,
-    # it falls back to treating the value as a filename (with or without extension).
-    tested-by:
-      - process-list-success
-      - process-list-no-links-fail
+    ```yaml
+    name: limit
+    in: query
+    required: false
+    schema:
+      type: integer
+      minimum: 1
+      maximum: 10000
+      default: 10
+    style: form
+    explode: false
+    ```
+- id: "core/limit-default-minimum-maximum"
+  type: "permission"
+  statement: |-
+    The values for `minimum`, `maximum` and `default` in requirement `/req/core/limit-definition` are only examples and MAY be changed.
+- id: "core/pl-limit-response"
+  parts:
+  - |-
+      The response SHALL not contain more process summaries than specified by the optional `limit` parameter.
+  - |-
+      If the API definition specifies a maximum value for `limit` parameter, the response SHALL not contain more process summaries than this maximum value.
+- id: "core/limit-response"
+  type: "permission"
+  statement: "The server MAY return fewer process summaries than requested (but not more)."
+- id: "core/process-list-success"
+  parts:
+  - |-
+      A successful execution of the *process* operation SHALL be reported as a response with a HTTP status code 200.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [processList.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/processList.yaml).
+- id: "core/pl-links"
+  statement: |-
+    A `200`-response SHALL include the following links:
 
-  - id: core/pl-links
-    level: SHALL
-    statement: >
-      A `200`-response to the operation at path `/processes` SHALL include the following links:
-      a link to this response document (relation: `self`), and a link to the response document
-      in every other media type supported by the server (relation: `alternate`).
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.processList
-      json-path: $.links
-    tested-by:
-      - process-list-success
-      - process-list-no-links-fail
+    - A link to this response document (relation: `self`),
+    - A link to the response document in every other media type supported by the service (relation: `alternate`).
+- id: "core/process-summary-links"
+  parts:
+  - |-
+      Each process summary SHALL include a link (relation: `self`) that points to the full description of the process (path: `/processes/{processID}`).
+  - |-
+      Each process summary SHALL include one or more links (relation: `alternate`) that points to each alternative representation of the full description of the process (path: `/processes/{processID}`).
+- id: "core/next-1"
+  type: "recommendation"
+  statement: |-
+    If more processes summaries have been selected than returned in the response, a `200`-response SHOULD include a link to the next page (relation: `next`) of process summaries.
+- id: "core/next-2"
+  type: "recommendation"
+  statement: |-
+    Dereferencing a next page link (relation: `next`) SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
+- id: "core/next-3"
+  type: "recommendation"
+  statement: |-
+    The number of process summaries in a response to dereferencing a next page link (relation: `next`) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: `next`), if there are more process summaries in the selection that have not yet been returned.
+- id: "core/prev"
+  type: "permission"
+  statement: |-
+    A response to dereferencing a next page link (relation: `next`) MAY include a *prev* page link (relation: `prev`) to the resource that included the next page link (relation: `next`).
+- id: "core/process-description-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/processes/{processID}`."
+- id: "core/process-description-success"
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+  - "The content of the response SHALL be a process description."
+- id: "core/ogc-process-description"
+  type: "recommendation"
+  statement: "Implementations SHOULD consider supporting the [OGC process description](#sec-9)."
+- id: "core/header-profile-link"
+  type: "recommendation"
+  conditions: "An [OGC process description](#sec-9) is requested."
+  parts:
+  - |-
+      The server SHOULD include a profile link (href: [`https://www.opengis.net/def/profile/OGC/0/ogc-process-description`](https://www.opengis.net/def/profile/OGC/0/ogc-process-description), relation: `profile`) in the response [HTTP headers](https://datatracker.ietf.org/doc/html/rfc8288#section-3) (see [RFC 6906, The ‘profile’ Link Relation Type](https://datatracker.ietf.org/doc/html/rfc6906)).
+- id: "core/process-exception-no-such-process"
+  parts:
+  - |-
+      If the operation is executed using an invalid process identifier, the response SHALL be HTTP status code 404.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process"`.
+- id: "core/process-exception-process-gone"
+  type: "permission"
+  statement: |-
+    If the operation is executed using a process identifier that once existed, the server MAY respond with a HTTP status code 410.
+- id: "core/process-execute-op"
+  statement: |-
+    The server SHALL support the HTTP POST operation at the path `/processes/{processID}/execution`.
+- id: "core/process-execute-request"
+  statement: |-
+    The content of a request the request body SHALL be based upon the OpenAPI 3.0 schema [execute.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/execute.yaml).
+- id: "core/process-execute-default-execution-mode"
+  conditions: |-
+    The [execute request](#execute-request-body) **is not** accompanied with the HTTP [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) header.
+  parts:
+  - |-
+      The server SHALL respond asynchronously if, according to the job control options in the [process description](#sec-7.11), the process can only be executed asynchronously.
+  - |-
+      The server SHALL respond synchronously if, according to the job control options in the [process description](#sec-7.11), the process can only be executed synchronously.
+  - |-
+      The server SHALL respond synchronously if, according to the job control options in the [process description](#sec-7.11), the process can be executed in either mode.
+- id: "core/process-execute-auto-execution-mode"
+  conditions: |-
+    The [execute request](#execute-request-body) **is** accompanied with the HTTP [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) header asserting a [`respond-async`](https://tools.ietf.org/html/rfc7240#section-4.1) preference.
+  parts:
+  - |-
+      The server SHALL respond asynchronously if, according to the job control options in the [process description](#sec-7.11), the process can only be executed asynchronously.
+  - |-
+      The server SHALL respond synchronously if, according to the job control options in the [process description](#sec-7.11), the process can only be executed synchronously.
+  - |-
+      The server SHALL respond, at its discretion, either synchronously or asynchronously if, according to the job control options in the [process description](#sec-7.11), the process can be executed in either mode.
+- id: "core/process-execute-honor-prefer"
+  type: "recommendation"
+  conditions: |-
+    The job control options (parameter `jobControlOptions`) in the [process description](#sec-7.11) indicate that the process can be executed asynchronously (value `async-execute`).
+  parts:
+  - |-
+      If an [execute request](#execute-request-body) is accompanied with the HTTP [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) header asserting a [`respond-async`](https://tools.ietf.org/html/rfc7240#section-4.1) preference, then the server SHOULD honor that preference and respond asynchronously.
+  - |-
+      If an [execute request](#execute-request-body) is accompanied with the HTTP [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) header asserting a [`wait`](https://tools.ietf.org/html/rfc7240#section-4.3) preference, then the server SHOULD honor that preference in the decision to execute the process asynchronously.
+- id: "core/process-execute-preference-applied"
+  type: "recommendation"
+  statement: |-
+    If an [execute request](#execute-request-body) is accompanied with the HTTP [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) header then, in the [response](#sec-7.12.4), servers SHOULD include the HTTP [`Preference-Applied`](https://datatracker.ietf.org/doc/html/rfc7240#section-3) response header as an indication as to which [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) tokens were honored by the server.
+- id: "core/process-execute-input-array"
+  conditions: |-
+    The process input is defined in the [process description](#sec-7.11) as having a maximum cardinality of greater than one (maxOccurs>1).
+  parts:
+  - "The server SHALL support process input values encoded as an array."
+  - "This SHALL be true even if the input consists of a single value."
+- id: "core/process-execute-input-inline-object"
+  conditions: |-
+    1. The process input value is specified in-line in an [execute request](#execute-request-body).
+    2. The process input is defined as an object according to its schema from the [process description](#sec-7.11).
+  parts:
+  - |-
+      The server SHALL support process input values encoded as qualified values ([qualifiedValue.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml)).
+  - |-
+      The value of the `value` key SHALL be an *object* instance of [inputValue.yaml](#input-value-schema).
+- id: "core/process-execute-input-multiple-types"
+  conditions: |-
+    1. The process input value is specified in-line in an [execute request](#execute-request-body).
+    2. The schema of the process input from the [process description](#sec-7.11) indicates that a value instance can be one of multiple input media types.<br> In JSON Schema this is denoted by the use of the `oneOf` construct.
+  parts:
+  - |-
+      The server SHALL support process input values encoded as qualified values ([qualifiedValue.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml)).
+  - |-
+      The value of the `value` key SHALL be an instance of [inputValue.yaml](#input-value-schema).
+  - |-
+      The `format` parameter of the qualified value ([qualifiedValue.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml)) SHALL be used to indicate, for this value instance, the specific input type selected from the list of type choices defined by the input value’s schema from the [process description](#sec-7.11).
+- id: "core/process-execute-input-inline-binary"
+  conditions: |-
+    1. The process input value is specified in-line in an [execute request](#execute-request-body).
+    2. The process input value is binary.
+  parts:
+  - "The service SHALL support binary values encoded as base64-encoded strings."
+- id: "core/process-execute-input-inline-bbox"
+  statement: |-
+    Servers SHALL support process input values that conform to the [bbox.yaml](#bbox-schema) schema.
+- id: "core/process-execute-input-inline-bbox"
+  type: "permission"
+  statement: |-
+    Servers MAY copy the contents of [bbox.yaml](#bbox-schema) into another file and adjust the `default` and `enum` values as required.
+- id: "core/process-execute-input-validation"
+  parts:
+  - |-
+      For process input values specified in-line in an [execute request](#execute-request-body), the server SHALL validate each component of a process input value that is an instance of [inputValue.yaml](#input-value-schema) using the definition of the corresponding input from the [process description](#sec-7.11).
+  - |-
+      For process input values specified by reference in an [execute request](#execute-request-body), the server SHALL resolve the value and then validate it as if the value had been specified in-line in the [execute request](#execute-request-body) (i.e. as per requirement ***A***).
+- id: "core/process-execute-omitted-outputs"
+  conditions: |-
+    1. The [process description](#sec-7.11) defines one or more outputs.
+    2. The “outputs” parameter is omitted from the [execute request](#execute-request-body).
+  parts:
+  - |-
+      Omitting the “outputs” parameter in the [execute request](#execute-request-body) SHALL be equivalent to explicitly requesting all of the defined outputs of the process.
+- id: "core/process-execute-empty-outputs"
+  conditions: |-
+    1. The “outputs” parameter is included in the [execute request](#execute-request-body) but its content is empty (i.e. “outputs”:{}).
+  parts:
+  - |-
+      An empty “outputs” parameter in the [execute request](#execute-request-body) SHALL indicate that the execution of a process should occur without generating a response body.
+- id: "core/process-execute-honor-prefer-return"
+  type: "recommendation"
+  statement: |-
+    If an [execute request](#execute-request-body) **is accompanied** with the HTTP [`Prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-2) header asserting a [`return`](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) preference, then the server SHOULD honor that preference.
 
-  - id: core/pl-limit-definition
-    level: SHALL
-    statement: >
-      The operation at path `/processes` SHALL support a parameter `limit` with the following
-      characteristics: type integer, minimum 1, maximum 10000, default 10, query parameter,
-      not required, form style, not exploded.
-    applies-to:
-      bblock: ogc.api.processes.v1.paths.ProcessList
-    tested-by:
-      - process-list-success.json
+    See requirements:
 
-  - id: core/pl-limit-response
-    level: SHALL
-    statement: >
-      The response SHALL not contain more process summaries than specified by the optional
-      `limit` parameter. If the API definition specifies a maximum value for the `limit`
-      parameter, the response SHALL not contain more process summaries than this maximum value.
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.processList
-      json-path: $.processes
-    tested-by:
-      - process-list-success.json
+    - [/req/core/process-execute-sync-one](#req-core-process-execute-sync-one)
 
-  - id: core/process-description-inputs
-    level: SHALL
-    statement: >
-      Each entry in the `inputs` map of a process description SHALL conform to the
-      [inputDescription](bblocks://ogc.api.processes.v1.schemas.inputDescription) schema.
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.inputDescription
-      json-path: $
-    import-examples: 1
+    See recommendations:
 
-  - id: core/test-process
-    level: SHALL
-    condition: >
-      When the server is being tested using OGC CITE tests
-    statement: >
-      The server SHALL offer at least one testable process.
-    note: >
-      See Recommendation A.1 for guidance on what constitutes a testable process suitable
-      for CITE conformance testing.
+    - [/rec/core/process-execute-sync-many-json-prefer-none](#rec-core-process-execute-sync-many-json-prefer-none)
+    - [/rec/core/process-execute-sync-many-json-prefer-minimal](#rec-core-process-execute-sync-many-json-prefer-minimal)
+    - [/rec/core/process-execute-sync-many-json-prefer-representation](#rec-core-process-execute-sync-many-json-prefer-representation)
+    - [/rec/core/job-results-async-many-json-prefer-none](#rec-core-job-results-async-many-json-prefer-none)
+    - [/rec/core/job-results-async-many-json-prefer-minimal](#rec-core-job-results-async-many-json-prefer-minimal)
+    - [/rec/core/job-results-async-many-json-prefer-representation](#rec-core-job-results-async-many-json-prefer-representation)
+- id: "core/process-execute-sync-one"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous,
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported with a response with a HTTP status code `200`.
+  - |-
+      The media type of the response SHALL be as negotiated as per the [HTTP content negotiation rules](https://datatracker.ietf.org/doc/html/rfc2616#section-12).
+  - |-
+      The content of response body SHALL be the requested process output value in the negotiated output format.
+- id: "core/process-execute-sync-one-default-content"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous,
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. No content negotiation has been specified using either HTTP headers or other methods.
+  parts:
+  - |-
+      The media type of the response SHALL be the default media type for the requested processes output as specified in the process description.
+  - |-
+      The content of response body SHALL be the requested process output value in the default output format.
+- id: "core/process-execute-sync-one-result"
+  type: "permission"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous,
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+  parts:
+  - |-
+      In the case where a single output is requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)), [content negotiation by profile](#sec-17) MAY be used to request that the response conform to the [results.yaml](#schema_results) schema.
+  - |-
+      In this case, the [profile URI](#profile-uris) SHOULD be returned in the response with HTTP header [`Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+- id: "core/process-execute-sync-one-multi-valued-json"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+
+    2. The number of requested (whether [implicitly or explicitly](#implicit-explicit-outputs)) outputs in the [execute request](#execute-request-body) is 1.
+
+       - In its [process description](#sec-7.11) the requested output is defined as having `maxOccurs>1`.
+
+    3. The negotiated output content type is `application/json`.
+
+    4. Optionally, the negotiated profile is [`https://www.opengis.net/def/profile/OGC/0/ogc-values`](https://www.opengis.net/def/profile/OGC/0/ogc-values).
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - "The media type of the response SHALL be `application/json`."
+  - |-
+      The response HTTP headers SHALL include a [`Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-values", rel="profile"`](https://www.opengis.net/def/profile/OGC/0/ogc-values).
+  - "The content of response SHALL conform to the [values.yaml](#schema_values) schema."
+- id: "core/process-execute-multiple-values-pkg"
+  type: "permission"
+  statement: |-
+    A server MAY, through content negotiation, respond with something other than that specified by requirement [/req/core/process-execute-sync-one-multi-valued-json](#req-core-process-execute-sync-one-multi-valued-json). A server MAY, for example, respond with a [ZIP](https://www.iso.org/standard/60101.html) file or a [multi-part MIME](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) document containing all the requested output values.
+- id: "core/process-execute-sync-one-multi-valued-json-prefer-none"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+    4. No [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) accompanies the request.
+  parts:
+  - |-
+      If the server deems that the size of the output values is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output values is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/process-execute-sync-one-multi-valued-json-prefer-minimal"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+    4. The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `minimal`.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/process-execute-sync-one-multi-valued-json-prefer-representation"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+    4. The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `representation`.
+  parts:
+  - "Each requested output value SHOULD be included in-line in the response."
+- id: "core/process-execute-sync-one-multi-valued-other-formats"
+  type: "permission"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly or explicitly](#implicit-explicit-outputs)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the requested output is defined as having `maxOccurs>1`.
+  parts:
+  - |-
+      Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to [values.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/values.yaml).
+  - "This Standard does not provide any guidance on these other formats or encodings."
+- id: "core/process-execute-sync-many-json"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly or explicitly](#implicit-explicit-outputs)) outputs in the [execute request](#execute-request-body) is 2 or more.
+    3. The negotiated output content type is `application/json`.
+    4. Optionally, the negotiated profile is [`https://www.opengis.net/def/profile/OGC/0/ogc-results`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - "The media type of the response SHALL be `application/json`."
+  - |-
+      The response HTTP headers SHALL include a [`Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+  - "The content of response SHALL conform to the [results.yaml](#schema_results) schema."
+- id: "core/process-execute-multiple-output-pkg"
+  type: "permission"
+  statement: |-
+    A server MAY, through content negotiation, respond with something other than that specified by requirement [/req/core/process-execute-sync-many-json](#req-core-process-execute-sync-many-json). A server MAY, for example, respond with a [ZIP](https://www.iso.org/standard/60101.html) file or a [multi-part MIME](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) document containing all the requested output values.
+- id: "core/process-execute-sync-many-json-prefer-none"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 2 or more.
+    3. No [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) accompanies the request.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/process-execute-sync-many-json-prefer-minimal"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 2 or more.
+    3. The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `minimal`.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/process-execute-sync-many-json-prefer-representation"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is two (2) or more.
+    3. The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `representation`.
+  parts:
+  - "Each requested output value SHOULD be included in-line in the response."
+- id: "core/process-execute-sync-many-other-formats"
+  type: "permission"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The number of requested (whether [implicitly or explicitly](#implicit-explicit-outputs)) outputs in the [execute request](#execute-request-body) is 2 or more.
+  parts:
+  - |-
+      Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to [results.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml).
+  - "This Standard does not provide any guidance on these other formats or encodings."
+- id: "core/process-execute-success-sync-outputs-omitted"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The “outputs” parameter is omitted in the [execute request](#execute-request-body).
+  parts:
+  - |-
+      The server’s response SHALL include all outputs defined for the process in its [process description](#sec-7.11).
+- id: "core/process-execute-success-sync-empty-outputs"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is synchronous.
+    2. The “outputs” parameter is included in the [execute request](#execute-request-body) but is empty (i.e. “outputs”:{}).
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported with a response with a HTTP status code 204.
+  - "The response body SHALL be empty."
+- id: "core/process-execute-sync-job"
+  type: "permission"
+  statement: "Servers MAY support the creation of a job for synchronously executed processes."
+- id: "core/job-results-success-sync"
+  conditions: "1. The server creates a job when a process is executed synchronously."
+  parts:
+  - |-
+      A successful execution of the operation SHALL include an HTTP [`Link`](https://datatracker.ietf.org/doc/html/rfc8288#section-3) header with `rel=monitor` pointing to the created job.
+  - |-
+      When resolving the `rel=monitor` link, the content type of response SHALL be `application/json`.
+  - |-
+      When resolving the `rel=monitor` link, the body of the response SHALL be based upon the JSON schema fragment [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml).
+- id: "core/process-execute-success-async"
+  conditions: "The [negotiated execution mode](#sec-7.12.2.2) is asynchronous."
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code 201.
+  - |-
+      The header of the response SHALL return the HTTP [`Location`](https://datatracker.ietf.org/doc/html/rfc7231#page-68) header that contains a link to the newly created job.
+  - |-
+      The content of the response SHALL be based upon the JSON Schema fragment [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml).
+- id: "core/process-execute-success-async-outputs"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. One or more of the defined outputs of the process are specified in the [execute request](#execute-request-body).
+  parts:
+  - |-
+      The server SHALL produce and make available for retrieval all of the outputs specified in the [execute request](#execute-request-body).
+  - |-
+      The server SHALL respond with an HTTP status code of `404` if an attempt is made to access an unrequested output via the `/jobs/{jobsID}/resultes/{outputID}` path.
+- id: "core/process-execute-success-async-outputs-Nth"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The output with identifier `{outputID}` is specified in the [execute request](#execute-request-body).
+    3. The output with identifier `{outputID}` is defined as having `maxOccurs>1` in the [process description](#sec-7.11).
+  parts:
+  - |-
+      The server SHALL produce and make available for retrieval all the values of the output with identifier `{outputID}`.
+  - |-
+      The server SHALL respond with an HTTP status code of `404` if an attempt is made to access an unrequested output via the `/jobs/{jobsID}/resultes/{outputID}` path.
+  - |-
+      The server SHALL respond with an HTTP status code of `404` if an attempt is made to access an array element with an out-of-bound index, *N*, via the `/jobs/{jobsID}/resultes/{outputID}/{N}` path.
+- id: "core/process-execute-success-async-outputs-empty"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The “outputs” parameter is specified [execute request](#execute-request-body) but its content is empty (i.e. “outputs”:{}).
+  parts:
+  - |-
+      The server SHALL asynchronously execute the process but SHALL not produce any retrievable outputs.
+  - |-
+      Attempting to retrieve any of the process’s defined outputs via the `/jobs/{jobID}/results[/{outputID}]` path SHALL result in a HTTP status code 404 response.
+- id: "core/process-execute-success-async-outputs-omitted"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The “outputs” parameter is omitted in the [execute request](#execute-request-body).
+  parts:
+  - |-
+      The server SHALL produce and make available for retrieval all of the outputs defined for the process in its [process description](#sec-7.11).
+- id: "core/job-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}`."
+- id: "core/job-success"
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml).
+  - |-
+      The value of the `id` parameter SHALL be the identifier assigned by the server for the job.
+  - |-
+      The value of the `status` parameter SHALL indicate the state of the job at the time the request is made for the status information.
+  - |-
+      The value of the `processingEntityType` parameter SHALL indicate the type of server that created the job (e.g. `ogc-api-processes`, `openeo`, `ogc-api-coverages`, etc.).
+  - |-
+      The value of the `processingEntityType` parameter SHALL be `ogc-api-processes` to indicate that a server that conforms to this Standard created the job.
+  - |-
+      The value of the `processingEntityType` parameter SHALL not change if a different representation of the job status information is requested.
+- id: "core/job-status"
+  type: "recommendation"
+  parts:
+  - |-
+      Servers SHOULD, via the `title`, `description`, `keywords` and `metadata` fields, include descriptive metadata about the job.
+  - "Servers SHOULD set the value of the `processID` field if it is known."
+  - |-
+      Servers SHOULD set the value of the `created` field when a job has been accepted and queued for execution.
+  - |-
+      Servers SHOULD set the value of the `started` field when a job begins execution and is consuming compute resources.
+  - |-
+      Servers SHOULD set the value of the `finished` field when the execution of a job has completed and the process is no longer consuming compute resources.
+  - |-
+      Whenever the `status` field of the job changes, servers SHOULD revise the value of the `updated` field.
+  - |-
+      Servers SHOULD, if the information can be determined, set the value of the `progress` field indicating how much of the job has been completed.
+- id: "core/job-links"
+  type: "recommendation"
+  parts:
+  - |-
+      Servers SHOULD include a link (`rel="monitor"`) pointing to a resource that can be used to monitor the progress of a job.
+  - |-
+      Servers SHOULD, when available, include a link (`rel="[ogc-rel:results]"`) pointing to the results generated by the job.
+  - |-
+      Servers SHOULD include one or more links (`rel="[ogc-rel:log]"`) pointing to log files generated by the executing process.
+- id: "core/job-status"
+  type: "permission"
+  parts:
+  - |-
+      Servers MAY, via the `request` field, include the request that was submitted to the server resulting in the creation of this job. The initiating request MAY be encoded inline in the job status information or MAY be referenced via a link.
+  - |-
+      Servers MAY, via the `message` field, include additional human-readable context information about the job.
+- id: "core/job-exception-no-such-job"
+  parts:
+  - |-
+      If the operation is executed using an invalid job identifier, the response SHALL have HTTP status code 404.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job"`.
+- id: "core/process-exception-job-gone"
+  type: "permission"
+  statement: |-
+    If the operation is executed using a job identifier that once existed, the server MAY respond with a HTTP status code 410.
+- id: "core/job-results-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results`."
+- id: "core/job-results-param-outputs"
+  statement: |-
+    The operation at the `/jobs/{jobID}/results` endpoint SHALL support a parameter `outputs` with the following characteristics (using an OpenAPI Specification fragment):
+
+    ```yaml
+    name: outputs
+    in: query
+    required: false
+    schema:
+      type: array
+      items:
+        type: string
+    style: form
+    explode: false
+    ```
+- id: "core/job-results-param-outputs-response"
+  statement: |-
+    Only the outputs with identifiers specified using the optional [`outputs` parameter](#req-core-job-results-param-outputs) SHALL be included in the response.
+- id: "core/job-results-profile"
+  label: "/req/core/job-results-profile"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is either synchronous with [supported job creation](#per-core-process-execute-sync-job) or asynchronous with [successful job creation](#req-core-process-execute-success-async).
+    2. The number of requested (whether [implicitly or explicitly](#implicit-explicit-outputs)) outputs in the [execute request](#execute-request-body) is irrelevant.
+    3. The negotiated output content type is `application/json` and the negotiated profile is [`https://www.opengis.net/def/profile/OGC/0/ogc-results`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - "The media type of the response SHALL be `application/json`."
+  - |-
+      The response HTTP headers SHALL include a [`Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+  - "The content of response SHALL conform to the [results.yaml](#schema_results) schema."
+  - |-
+      The `Prefer` header MAY be considered for specific representations of the [results.yaml](#schema_results) contents according to [/rec/core/job-results-async-many-json-prefer-none](#rec-core-job-results-async-many-json-prefer-none), [/rec/core/job-results-async-many-json-prefer-minimal](#rec-core-job-results-async-many-json-prefer-minimal) and [/rec/core/job-results-async-many-json-prefer-representation](#rec-core-job-results-async-many-json-prefer-representation)
+- id: "core/job-result-op"
+  statement: |-
+    For each output, with output identifier `outputID`, defined in the [description of a process](#sec-7.11) and requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) in an [execute request](#execute-request-body), the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results/{outputID}`.
+- id: "core/job-result-op-Nth"
+  conditions: |-
+    1. The output with output identifier `outputID` is defined in the [process description](#sec-7.11) as having `maxOccurs>1`.
+    2. The output with output identifier `outputID` is [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18) requested in an [execute request](#execute-request-body).
+  parts:
+  - |-
+      The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results/{outputID}/{N}`.
+  - |-
+      The path element *N* is a 0-based index into the array of values generated by the process for this output.
+- id: "core/job-result-op-0th"
+  statement: |-
+    For each output, with output identifier `outputID`, defined in the [description of a process](#sec-7.11) and requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) in an [execute request](#execute-request-body), the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results/{outputID}/0`.
+- id: "core/job-results-async-one"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous,
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. The result is retrieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - |-
+      In the response headers, the server SHALL include an HTTP header named `OGC-Output-Values-Count` indicating how many processing values are retrievable for this output.
+  - |-
+      The media type of the response SHALL be as negotiated as per the [HTTP content negotiation rules](https://datatracker.ietf.org/doc/html/rfc2616#section-12).
+  - |-
+      The content of response body SHALL be the requested process output value in the negotiated output format.
+- id: "core/job-results-async-one-Nth"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous,
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. The requested output with identifier `outputID` is defined in the [process description](#sec-7.11) as having `maxOccurs>1`.
+    4. The path `/jobs/{jobID}/results/{outputID}/{N}` is accessed to retrieve the 0-based *N<sup>th</sup>* value from the array of values produced for this output.
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - |-
+      In the response headers, the server SHALL include an HTTP header named `OGC-Output-Values-Count` indicating how many processing values are retrievable for this output.
+  - |-
+      The media type of the response SHALL be as negotiated as per the [HTTP content negotiation rules](https://datatracker.ietf.org/doc/html/rfc2616#section-12).
+  - |-
+      The content of the response body SHALL be the 0-based *N<sup>th</sup>* value in the negotiated output format.
+- id: "core/job-results-async-one-multi-valued"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+
+       - In its [process description](#sec-7.11) the requested output is defined as having `maxOccurs>1`.
+
+    3. The results are retrieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - |-
+      In the response headers, the server SHALL include an HTTP header named `OGC-Output-Values-Count` indicating how many processing values are retrievable for this output.
+  - "The media type of the response SHALL be `application/json`."
+  - |-
+      The response HTTP headers SHALL include a [`Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-values", rel="profile"`](https://www.opengis.net/def/profile/OGC/0/ogc-values).
+  - "The content of response SHALL conform to the [values.yaml](#schema_values) schema."
+- id: "core/job-results-async-one-multi-valued-json-prefer-none"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+    4. A return preference is ***not*** specified via the HTTP [`prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) header.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/job-results-async-one-multi-valued-json-prefer-minimal"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+    4. The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `minimal`.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/job-results-async-one-multi-valued-json-prefer-representation"
+  type: "recommendation"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+    4. The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `representation`.
+  parts:
+  - "Each requested output value SHOULD be included in-line in the response."
+- id: "core/job-results-async-one-multi-valued-other-formats"
+  type: "permission"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 1.
+    3. In the [process description](#sec-7.11) the output is defined as having `maxOccurs>1`.
+  parts:
+  - |-
+      Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to [values.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/values.yaml).
+  - "This Standard does not provide any guidance on these other formats or encodings."
+- id: "core/job-results-async-many"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 2 or more.
+    3. The results are retrieved from the `/jobs/{jobID}/results` endpoint.
+  parts:
+  - "The server SHALL respond with an HTTP status code of 200."
+  - "The media type of the response SHALL be `application/json`."
+  - "The content of response SHALL conform to the [results.yaml](#schema_results) schema."
+- id: "core/job-results-async-many-json-prefer-none"
+  type: "recommendation"
+  conditions: |-
+    A return preference is ***not*** specified via the HTTP [`prefer`](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) header.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/job-results-async-many-json-prefer-minimal"
+  type: "recommendation"
+  conditions: |-
+    The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `minimal`.
+  parts:
+  - |-
+      If the server deems that the size of an output value is *small*, that value SHOULD be included in-line in the response.
+  - |-
+      If the server deems that the size of an output value is *large*, that value SHOULD be included by reference via hyperlink in the response.
+- id: "core/job-results-async-many-json-prefer-representation"
+  type: "recommendation"
+  conditions: |-
+    The negotiated [return preference](https://datatracker.ietf.org/doc/html/rfc7240#section-4.2) is `representation`.
+  parts:
+  - "Each requested output value SHOULD be included in-line in the response."
+- id: "core/job-results-async-many-other-formats"
+  type: "permission"
+  conditions: |-
+    1. The [negotiated execution mode](#sec-7.12.2.2) is asynchronous.
+    2. The number of requested (whether [implicitly](#sec-4.1.19) or [explicitly](#sec-4.1.18)) outputs in the [execute request](#execute-request-body) is 2 or more.
+  parts:
+  - |-
+      Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to [results.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml).
+  - "This Standard does not provide any guidance on these other formats or encodings."
+- id: "core/job-results-data-classes"
+  type: "recommendation"
+  statement: |-
+    Servers SHOULD use the `dataClasses` key with applicable profile references within respective `{outputID}` results obtained from an [execution](#sec-7.12) or [job results](#sec-7.14) response for data contents asserting certain conformance requirements.
+- id: "core/job-results-exception-invalid-query-parameter-value"
+  parts:
+  - |-
+      If the operation is executed using an invalid query parameter value, the response SHALL have HTTP status code 400.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value"`.
+- id: "core/job-results-exception-no-such-output"
+  label: "/req/core/job-results-exception-no-such-output"
+  conditions: ""
+  parts:
+  - "The response SHALL have HTTP status code 400."
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be “[http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output](http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output)”.
+- id: "core/job-results-exception-no-such-job"
+  parts:
+  - |-
+      If the operation is executed using an invalid job identifier, the response SHALL have HTTP status code 404.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job"`.
+- id: "core/job-results-exception-job-gone"
+  type: "permission"
+  statement: |-
+    If the operation is executed using a job identifier that once existed, the server MAY respond with a HTTP status code 410.
+- id: "core/job-results-exception-results-not-ready"
+  conditions: "1. The request is executed on a running job with valid job identifier `jobID`."
+  parts:
+  - "The response SHALL have HTTP status code 404."
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready"`.
+- id: "core/job-results-exception-results-not-available"
+  conditions: |-
+    1. The request is executed on a completed job with a valid job identifier `jobID`.
+    2. No outputs were generated either because processing failed or the [execute request](#execute-request-body) specified an empty “outputs” parameter thus requested that no outputs be made available for retrieval.
+  parts:
+  - "The response SHALL have HTTP status code 404."
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-available"`.
+- id: "core/job-results-failed"
+  parts:
+  - |-
+      If the operation is executed on a failed job using a valid job identifier, the response SHALL have a HTTP error code that corresponds to the reason for the failure.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml).
+  - |-
+      The `type` of the exception SHALL correspond to the reason of the failure, e.g. InvalidParameterValue for invalid input data.
+- id: "core/alternative-process-description"
+  type: "permission"
+  statement: "Servers MAY support alternative means of describing the inputs and outputs of a process."
+- id: "core/alternative-process-paths"
+  type: "permission"
+  statement: "Servers MAY support alternative API paths."
+- id: "core/test-process"
+  statement: |-
+    If a server implementing the OGC API — Processes — Part 1: Core is tested using CITE tests, the server SHALL offer at least one testable process. Please refer to recommendation [/rec/core/test-process](#rec-core-test-process) for further guidance.
+- id: "core/test-process"
+  type: "recommendation"
+  statement: |-
+    If a server implementing the OGC API — Processes — Part 1: Core is tested using CITE tests, the server SHOULD offer one of the following options:
+
+    1. An Echo process that returns any input that is provided, without any actual processing.
+    2. Provide example input data for a specific process.
+
+    The process logic SHOULD include a delay, whether through actual processing or a simple sleep mechanism, to test asynchronous execution.
+abstract-tests:
+- id: "core"
+  requirement: "/req/core/test-process"
+  purpose: "Ensure that a testable process is offered by the server being tested."
+  method: |-
+    1. Obtain a list of processes offer by the server as per test [/conf/core/process-list-op](#ats-core-process-list-op).
+    2. Verify that this list is not empty.
+    3. See also: [/rec/core/test-process](#rec-core-test-process).
+- id: "core/landingpage-op"
+  requirement: "/req/core/landingpage-op"
+  purpose: "Validate that a landing page can be retrieved from the expected location."
+  method: |-
+    1. Issue an HTTP GET request to the root URL `/`.
+    2. Validate the contents of the returned document using test [/conf/core/landingpage-success](#ats-core-landingpage-success).
+- id: "core/landingpage-success"
+  requirement: "/req/core/landingpage-success"
+  purpose: "Validate that the landing page complies with the require structure and contents."
+  method: |-
+    1. Validate that a document was returned with an HTTP status code or 200.
+
+    2. Validate the landing page for all supported media types using the resources and tests identified in [Table A.1](#landing-page-schemas)
+
+    3. For formats that require manual inspection, perform the following:
+
+       1. Validate that the landing page includes a “service-desc” and/or “service-doc” link to an API Definition.
+       2. Validate that the landing page includes a “[https://www.opengis.net/def/rel/ogc/1.0/conformance](https://www.opengis.net/def/rel/ogc/1.0/conformance)” link to the conformance class declaration.
+       3. Validate that the landing page includes a “[https://www.opengis.net/def/rel/ogc/1.0/processes](https://www.opengis.net/def/rel/ogc/1.0/processes)” link to the list of processes.
+- id: "core/api-definition-op"
+  requirement: "/req/core/api-definition-op"
+  purpose: "Validate that the API Definition document can be retrieved from the expected location."
+  method: |-
+    1. Construct a path for the API Definition document that ends with `/api`.
+    2. Issue a HTTP GET request on that path.
+    3. Validate the contents of the returned document using test [/conf/core/api-definition-success](#ats-core-api-definition-success).
+- id: "core/api-definition-success"
+  requirement: "/req/core/api-definition-success"
+  purpose: "Validate that the API Definition complies with the required structure and contents."
+  method: |-
+    1. Validate that a document was returned with a status code 200.
+    2. Validate the API Definition document against an appropriate schema document.
+- id: "core/conformance-op"
+  requirement: "/req/core/conformance-op"
+  purpose: "Validate that a Conformance Declaration can be retrieved from the expected location."
+  method: |-
+    1. Construct a path for each “rel=https://www.opengis.net/def/rel/ogc/1.0/conformance” link on the landing page as well as for the {root}/conformance path.
+    2. Issue an HTTP GET request on each path.
+    3. Validate the contents of the returned document using test [/conf/core/conformance-success](#ats-core-conformance-success).
+- id: "core/conformance-success"
+  requirement: "/req/core/conformance-success"
+  purpose: |-
+    Validate that the Conformance Declaration response complies with the required structure and contents.
+  method: |-
+    1. Validate that a document was returned with an HTTP status code of 200.
+    2. Validate the response document against OpenAPI 3.0 schema link: [confClasses.yaml](https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/confClasses.yaml).
+    3. Validate that the document includes the conformance class “[https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core](https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core)”.
+    4. Validate that the document list all OGC API conformance classes that the API implements.
+- id: "core/http"
+  requirement: "/req/core/http"
+  purpose: |-
+    Validate that the resource paths advertised through the API conform with HTTP 1.1 and, where appropriate, TLS.
+  method: |-
+    1. All compliance tests SHALL be configured to use the HTTP 1.1 protocol exclusively.
+    2. For APIs which support HTTPS, all compliance tests SHALL be configured to use [HTTP over TLS](#rfc2818) (RFC 2818) with their HTTP 1.1 protocol.
+- id: "core/process-list-op"
+  requirement: "/req/core/process-list-op"
+  purpose: |-
+    Validate that information about the processes can be retrieved from the expected location.
+  method: |-
+    1. Issue an HTTP GET request to the URL {root}/processes
+    2. Validate the contents of the returned document using test [/conf/core/process-list-success](#ats-core-process-list-success).
+- id: "core/process-list-limit-definition"
+  requirement: "/req/core/process-list-limit-definition"
+  purpose: "Validate that the `limit` query parameter is constructed correctly."
+  method: |-
+    Verify that the `limit` query parameter complies with its definition in requirement [/req/core/pl-limit-definition](#req-core-pl-limit-definition).
+- id: "core/process-list-limit-response"
+  requirement: "/req/core/process-list-limit-response"
+  purpose: "Validate that the `limit` query parameter is processed correctly."
+  method: |-
+    1. Get a list of processes as per test [/conf/core/process-list-op](#ats-core-process-list-op) and append the `limit` query parameter to the request.
+    2. Count the number of process summaries listed in the response.
+    3. Verify that this count is not greater than the value specified by the `limit` parameter.
+    4. If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
+- id: "core/process-list-success"
+  requirement: "/req/core/process-list-success"
+  purpose: "Validate that the process list content complies with the required structure and contents."
+  method: |-
+    1. Validate that a document was returned with an HTTP status code of 200.
+    2. Validate the process list content for all supported media types using the resources and tests identified in [Table A.2](#process-list-schema)
+- id: "core/process-list-links"
+  requirement: "/req/core/process-list-links"
+  purpose: "Validate that the proper links are included in a response."
+  method: |-
+    1. Get a list of process summaries as per test [/conf/core/process-list-op](#ats-core-process-list-op).
+    2. Verify that the `links` section of the response contains a link with `rel=self`.
+    3. Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its [conformance document](#sec-2).
+- id: "core/process-summary-links"
+  requirement: "/req/core/process-summary-links"
+  purpose: "Validate that the proper links are included in each process summary."
+  method: |-
+    1. Get a list of process summaries as per test [/conf/core/process-list-op](#ats-core-process-list-op).
+    2. Verify that the `links` section of each process summary of the response contains a link with `rel=self`.
+    3. Verify that the `links` section of each process summary of the response contains a link with `rel=alternate` for each response representation the service claims to support in its [conformance document](#sec-2).
+- id: "core/process-description-op"
+  requirement: "/req/core/process-description-op"
+  purpose: "Validate that a process description can be retrieved from the expected location."
+  method: |-
+    1. For every Process described in the process list content, issue an HTTP GET request to the URL `/processes/{processID}` where `{processID}` is the `id` property for the process.
+    2. Validate the response using the test [/conf/core/process-description-success](#ats-core-process-description-success).
+- id: "core/process-description-success"
+  requirement: "/req/core/process-description-success"
+  purpose: "Validate that the content complies with the required structure and contents."
+  method: |-
+    1. Validate that a document was returned with an HTTP status code of 200.
+    2. Verify that the content of the response is valid description of the interface of the process for all supported process description models.
+- id: "core/process-exception-no-such-process"
+  requirement: "/req/core/process-exception-no-such-process"
+  purpose: "Validate that an invalid process identifier is handled correctly."
+  method: |-
+    1. Issue an HTTP GET request to a URL that includes the `{processID}` as a path element using a non-existent process identifier.
+    2. Validate that the document was returned with a 404.
+    3. Validate that the document contains the exception `type` “[https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process](https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process)”.
+    4. Validate the document for all supported media types using the resources and tests identified in [Table A.4](#no-such-process)
+- id: "core/process-execute-op"
+  requirement: "/req/core/process-execute-op"
+  purpose: "Validate the execution of a process."
+  method: |-
+    1. Issue an HTTP POST request to the URL `/processes/{processID}/execution` for each execution mode according to requirements [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode) or [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode).
+    2. Validate that the server supports a POST request for that operation according to the test [/conf/core/process-execute-request](#ats-core-process-execute-request).
+    3. Validate the execution of a process according to the requirements [/req/core/process-execute-default-execution-mode](#req-core-process-execute-default-execution-mode), [/req/core/process-execute-auto-execution-mode](#req-core-process-execute-auto-execution-mode).
+- id: "core/process-execute-request"
+  requirement: "/req/core/process-execute-request"
+  purpose: |-
+    Validate that the server supports a process execution operation complying with the required structure and contents.
+  method: |-
+    Verify that the server supports a process execution request whose body conforms to the OpenAPI 3.0 schema [execute.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml).
+- id: "core/process-execute-default-execution-mode"
+  requirement: "/req/core/process-execute-op"
+  purpose: "Validate that the server correctly handles the default execution mode for a process."
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and take note of the job control options for the process.
+    3. Without setting the HTTP `Prefer` header, construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request).
+    4. For processes that are supposed to execute asynchronously according to the [/req/core/process-execute-default-execution-mode](#req-core-process-execute-default-execution-mode) requirement, verify the successful execution according to the [/conf/core/process-execute-success-async](#ats-core-process-execute-success-async) test.
+    5. For processes that are supposed to execute synchronously according to the [/req/core/process-execute-auto-execution-mode](#req-core-process-execute-auto-execution-mode) requirement, verify the successful synchronous execution according to the relevant requirement (one of: [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) base on the combination of execute parameters.
+- id: "core/process-execute-auto-execution-mode"
+  requirement: "/req/core/process-execute-op"
+  purpose: "Validate that the server correctly handles the execution mode for a process."
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and take note of the job control options for the process.
+    3. Setting the HTTP `Prefer` header to include the `respond-sync` preference, construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request).
+    4. For processes that are supposed to execute asynchronously according to the [/req/core/process-execute-auto-execution-mode](#req-core-process-execute-auto-execution-mode) requirement, verify the successful execution according to the [/req/core/process-execute-success-async](#ats-core-process-execute-success-async) test.
+    5. For processes that are supposed to execute synchronously according to the [/req/core/process-execute-auto-execution-mode](#req-core-process-execute-auto-execution-mode) requirement, verify the successful execution according to the relevant requirement (one of: [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) based on the combination of execute parameters.
+    6. For processes that may execute either synchronously or asynchronously according to the [/req/core/process-execute-auto-execution-mode](#req-core-process-execute-auto-execution-mode) requirement, verify the successful execution according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) based on the combination of execute parameters.
+- id: "core/process-execute-input-array"
+  requirement: "/req/core/process-execute-input-array"
+  purpose: |-
+    Verify that the server correctly recognizes the encoding of parameter values for input parameters with a maximum cardinality greater than one.
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and identify the list of processes that have inputs with a maximum cardinality greater than one.
+    3. For each identified process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode the inputs with maximum cardinality > 1 according to the requirement [/req/core/process-execute-input-array](#req-core-process-execute-input-array).
+    4. Verify that each process executes successfully according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) based on the combination of execute parameters.
+- id: "core/process-execute-input-inline-object"
+  requirement: "/req/core/process-execute-input-inline-object"
+  purpose: |-
+    Validate that inputs with a complex object schema encoded in-line in an [execute request](#execute-request-body) are correctly processed.
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and identify the subset of processes that have inputs with complex ``object schemas (i.e. inputs of type `object``).
+    3. For each identified process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode the identified object inputs in-line in the [execute request](#execute-request-body) according to requirement [/req/core/process-execute-input-inline-object](#req-core-process-execute-input-inline-object).
+    4. Verify that each process executes successfully according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) based on the combination of execute parameters.
+- id: "core/process-execute-input-inline-multiple-types"
+  requirement: "/req/core/process-execute-input-inline-multiple-types"
+  purpose: |-
+    Validate that inputs of multiple types encoded in-line in an [execute request](#execute-request-body) are correctly processed.
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and identify the subset of processes that have inputs of multiple types using the `oneOf[]` JSON Schema construct to define several alternate input value schemas.
+    3. For each identified process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode the identified mix-content inputs in-line in the [execute request](#execute-request-body) according to requirement [/req/core/process-execute-input-inline-multiple-types](#req-core-process-execute-input-multiple-types).
+    4. Verify that each process executes successfully according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) base on the combination of execute parameters.
+- id: "core/process-execute-input-inline-binary"
+  requirement: "/req/core/process-execute-input-inline-binary"
+  purpose: |-
+    Validate that binary input values encoded as base-64 string in-line in an [execute request](#execute-request-body) are correctly processes.
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and identify the subset of processes that have binary inputs.
+    3. For each identified process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode binary input values in-line in the [execute request](#execute-request-body) according to requirement [/req/core/process-execute-input-inline-binary](#req-core-process-execute-input-inline-binary).
+    4. Verify that each process executes successfully according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) base on the combination of execute parameters.
+- id: "core/process-execute-input-inline-bbox"
+  requirement: "/req/core/process-execute-input-inline-bbox"
+  purpose: |-
+    Validate that inputs with a bounding box schema encoded in-line in an [execute request](#execute-request-body) are correctly processed.
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and identify the subset of processes that have bounding box inputs that are supposed to conform to the [bbox.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml) schema.
+    3. For each identified process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode values for the identified bounding box inputs in-line in the [execute request](#execute-request-body).
+    4. Verify that each process executes successfully according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) based on the combination of execute parameters.
+- id: "core/process-execute-input-validation"
+  requirement: "/req/core/process-execute-input-validation"
+  purpose: |-
+    Verify that the server correctly validates process input values according to the definition obtained from the [process description](#sec-7.11).
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process taking note of the definition of each process input and specifically the schema of each process input.
+    3. For each process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode the input values according to the schema from the definition of each input.
+    4. Verify that each process execute successfully according to the relevant requirement (one of: [/req/core/process-execute-success-async](#ats-core-process-execute-success-async), [/req/core/process-execute-sync-many-json](#ats-core-process-execute-sync-many-json), [/req/core/process-execute-sync-one](#ats-core-process-execute-sync-one), [/req/core/process-execute-sync-one-default-content](#ats-core-process-execute-sync-one-default-content)) base on the combination of execute parameters.
+    5. For each process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) taking care to encode some of the input values in violation of the schema from the definition of the selected input.
+    6. Verify that each process generates an exception report that identifies the improperly specified input value(s).
+- id: "core/process-execute-omitted-outputs"
+  requirement: "/req/core/process-execute-omitted-outputs"
+  purpose: |-
+    Validate that all processing results are available when the `outputs` parameter is omitted from a process execution request.
+  method: |-
+    1. Negotiate process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the `outputs` parameter is not specified in the [execute request](#execute-request-body).
+    3. Verify that all processing outputs are available (see tests: [/conf/core/process-execute-success-sync-outputs-omitted](#ats-core-process-execute-success-sync-outputs-omitted), [/conf/core/process-execute-success-async-outputs-omitted](#ats-core-process-execute-success-async-outputs-omitted)).
+- id: "core/process-execute-empty-outputs"
+  requirement: "/req/core/process-execute-empty-outputs"
+  purpose: |-
+    Validate that no processing results are available when the `outputs` parameter is present in a process execution request but is empty.
+  method: |-
+    1. Negotiate process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the content of the `outputs` parameter, specified in the [execute request](#execute-request-body), is empty.
+    3. Verify that no processing outputs are generated (see tests: [/conf/core/process-execute-success-sync-empty-outputs](#ats-core-process-execute-success-sync-empty-outputs), [/conf/core/process-execute-success-async-outputs-empty](#ats-core-process-execute-success-async-outputs-empty)).
+- id: "core/process-execute-sync-one"
+  requirement: "/req/core/process-execute-sync-one"
+  purpose: |-
+    Validate that the correct output is generated upon process execution when a single output is requested.
+  method: |-
+    1. Negotiate synchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Request a single output with identifier `{outputID}` as per test [/req/core/job-results-param-outputs](#ats-core-job-results-param-outputs).
+    3. Negotiate an output format that is supported for the requested output according to the process’ description that has been retrieved as per test [/req/core/process-description-op](#ats-core-process-description-op).
+    4. Validate that the response conforms to the requirements of [/req/core/process-execute-sync-one](#req-core-process-execute-sync-one).
+- id: "core/process-execute-sync-one-default-content"
+  requirement: "/req/core/process-execute-sync-one-default-content"
+  purpose: |-
+    Validate that the default output format is generated upon process execution when a single output is requested but no specific supported format is negotiated.
+  method: |-
+    1. Negotiate synchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Request a single output with identifier `{outputID}` as per test [/req/core/job-results-param-outputs](#ats-core-job-results-param-outputs).
+    3. Do not negotiate a specific format for the requested output.
+    4. Validate that the response conforms to the requirements of [/req/core/process-execute-sync-one-default-content](#req-core-process-execute-sync-one-default-content).
+- id: "core/process-execute-sync-many-json"
+  requirement: "/req/core/process-execute-sync-many-json"
+  purpose: |-
+    Validate that the correct output with the correct content type is generated when a process generating multiple responses is synchronously executed.
+  method: |-
+    1. Negotiate synchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Request at least 2 process outputs as per test [/req/core/job-results-param-outputs](#ats-core-job-results-param-outputs).
+    3. Validate that the response conforms to the requirements of [/req/core/process-execute-sync-many-json](#req-core-process-execute-sync-many-json).
+- id: "core/process-execute-success-sync-outputs-omitted"
+  requirement: "/req/core/process-execute-success-sync-outputs-omitted"
+  purpose: |-
+    Validate that all processing results are generated when the `outputs` parameter is omitted from a process execution request.
+  method: |-
+    1. Negotiate synchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the `outputs` parameter is not specified in the [execute request](#execute-request-body).
+    3. Verify that all requested processing results are presented in the server’s response.
+- id: "core/process-execute-success-sync-empty-outputs"
+  requirement: "/req/core/process-execute-success-sync-empty-outputs"
+  purpose: |-
+    Validate that no processing results are generated when the `outputs` parameter is present in a process execution request but is empty.
+  method: |-
+    1. Negotiate synchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the content of the `outputs` parameter, specified in the [execute request](#execute-request-body), is empty.
+    3. Verify that the server responds with an empty response body and an HTTP status code of 204.
+- id: "core/job-results-success-sync"
+  requirement: "/req/core/job-results-success-sync"
+  purpose: |-
+    Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
+  method: |-
+    1. Get a description of each process offered by the server using test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
+    3. For each identified process construct an [execute request](#execute-request-body) according to test [/conf/core/process-execute-request](#ats-core-process-execute-request) ensuring that synchronous execution is [negotiated](#sec-7.12.2.2) according to test [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    4. Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
+    5. If the link exists, get the job status as per test [/conf/core/job-op](#ats-core-job-op) and ensure that the job status is set to `successful`.
+- id: "core/process-execute-success-async"
+  requirement: "/req/core/process-execute-success-async"
+  purpose: "Validate the results of a job that has been created using the `async` execution mode."
+  method: |-
+    1. Validate that the response returned with an HTTP status code of 201.
+    2. Validate that the response includes the HTTP [`Location`](https://datatracker.ietf.org/doc/html/rfc7231#page-68) header and that the link points to the newly created job.
+    3. Validate that the response body conforms to the JSON Schema fragment [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml).
+- id: "core/process-execute-success-async-outputs"
+  requirement: "/req/core/process-execute-success-async-outputs"
+  purpose: |-
+    Validate that, for an asynchronously executed process, all requested outputs are available for retrieval.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the [execute request](#execute-request-body), requests a subset of the defined process outputs. Some of the defined process output should be explicitly omitted from the [execute request](#execute-request-body).
+    3. Explicitly fetch each of the requested outputs via the `/jobs/{jobID}/results/{outputID}` endpoint and verify that the server responds successfully.
+    4. Explicitly fetch one or more of the outputs that were omitted from the [execute request](#execute-request-body) and verify that the server responds with HTTP status code of `404`.
+- id: "core/process-execute-success-async-outputs-empty"
+  requirement: "/req/core/process-execute-success-async-outputs-empty"
+  purpose: |-
+    Validate that no processing results are available when the `outputs` parameter is present in a process execution request but is empty.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the content of the `outputs` parameter, specified in the [execute request](#execute-request-body), is empty.
+    3. Verify that the server responds with an HTTP status code of `404` if an attempt is made to access any output via the `/jobs/{jobsID}/resultes/{outputID}` path.
+- id: "core/process-execute-success-async-outputs-omitted"
+  requirement: "/req/core/process-execute-success-async-outputs-omitted"
+  purpose: |-
+    Validate that all processing results are included in the response when the `outputs` parameter is omitted from a process execution request.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that the `outputs` parameter is omitted from the [execute request](#execute-request-body).
+    3. Verify that all outputs are available by fetching the all the results via the `/jobs/{jobID}/results` path OR by individually fetching each defined output via the `/jobs/{jobID}/results/{outputID}` path.
+- id: "core/job-op"
+  requirement: "/req/core/job-op"
+  purpose: "Validate that the status info of a job can be retrieved."
+  method: |-
+    1. Create a job as per [/req/core/process-execute-op](#ats-core-process-execute-op) and note the `{jobID}` assigned to the job.
+    2. Issue an HTTP GET request to the URL `/jobs/{jobID}`.
+    3. Validate the contents of the returned document using the test [/conf/core/job-success](#ats-core-job-success).
+- id: "core/job-success"
+  requirement: "/req/core/job-success"
+  purpose: "Validate that the job status info complies with the require structure and contents."
+  method: |-
+    1. Issue an HTTP GET request to the URL `/jobs/{jobID}`, where `{jobID}` is the identifier of a job previously created as per [/conf/core/process-execute-op](#ats-core-process-execute-op), either synchronously with [supported job creation](#per-core-process-execute-sync-job) or asynchronously.
+    2. Validate that the document was returned with an HTTP status code of 200.
+    3. Validate the job status info for all supported media types using the resources and tests identified in [Table A.5](#job-status-info-schema)
+- id: "core/job-exception-no-such-job"
+  requirement: "/req/core/job-exception-no-such-job"
+  purpose: "Validate that an invalid job identifier is handled correctly."
+  method: |-
+    1. Issue an HTTP GET request to the URL that includes the `{jobID}` as a path element using a non-existent job identifier.
+    2. Validate that the document was returned with a 404.
+    3. Validate that the document contains the exception type “[https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job](https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job)”.
+    4. Validate the document for all supported media types using the resources and tests identified in [Table A.6](#job-exception-no-such-job)
+- id: "core/job-results-op"
+  requirement: "/req/core/job-results-op"
+  purpose: "Validate that the results of a job can be retrieved."
+  method: |-
+    1. Create a job as per [/req/core/process-execute-op](#ats-core-process-execute-op) and note the `{jobID}` assigned to the job.
+    2. Issue an HTTP GET request to the URL `/jobs/{jobID}/results`.
+    3. Validate that the document was returned with a status code 200.
+    4. Depending on the number of outputs requested, the negotiated content type of the response and any client preferences, validate the contents of the returned document using the tests [/conf/core/job-results-success-sync](#ats-core-job-results-success-sync), [/conf/core/job-results-async-one](#ats-core-job-results-async-one) or [/conf/core/job-results-async-many](#ats-core-job-results-async-many).
+- id: "core/job-results-param-outputs"
+  requirement: "/req/core/job-results-param-outputs"
+  purpose: "Validate that the `outputs` parameter is constructed correctly."
+  method: |-
+    1. Verify that the `outputs` parameter complies with its definition in requirement [/req/core/job-results-param-outputs](#req-core-job-results-param-outputs).
+- id: "core/job-results-param-outputs-response"
+  requirement: "/req/core/job-results-param-outputs-response"
+  purpose: |-
+    Validate that only the requested processing results are included in the response when the `outputs` parameter is specified on a process execution request.
+  method: |-
+    Include the `outputs` parameter on a process execution request that enumerates a list of process outputs to include the response. Verify that the response includes the requested process outputs.
+- id: "core/job-results-profile"
+  requirement: "/req/core/job-results-profile"
+  purpose: |-
+    Validate that the results of a job can be retrieved with [results.yaml](#schema_results) contents.
+  method: |-
+    1. Create a job as per [/conf/core/process-execute-op](#ats-core-process-execute-op) and note the `{jobID}` assigned to the job. In the case of synchronous execution, the server must [support job creation](#per-core-process-execute-sync-job). Otherwise, asynchronous execution should be employed. If the process supports more than one output, the job MUST be created with only one output using `{"outputs": {"<outputID>": {}}}` where `<outputID>` is the identifier of one of the process outputs.
+    2. Ensure job has completed successfully, as per [/conf/core/job-success](#ats-core-job-success).
+    3. Issue an HTTP GET request to the URL `/jobs/{jobID}/results` with [Content negotiations by profile](#sec-7.7) requesting the profile [`https://www.opengis.net/def/profile/OGC/0/ogc-results`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+    4. Validate that the document was returned with a status code 200.
+    5. Regardless of the amount of outputs requested, validate that the media type of the response is `application/json` and validates against the [results.yaml](#schema_results) schema.
+    6. Validate that the response HTTP headers include a [`Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`](https://www.opengis.net/def/profile/OGC/0/ogc-results).
+- id: "core/job-result-op"
+  requirement: "/req/core/job-result-op"
+  purpose: |-
+    Validate that each process output with identifier `{outputID}` can be retrieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Validate that each process output can be retrieved as per requirement [/req/core/job-result-op](#req-core-job-result-op).
+- id: "core/job-results-async-one"
+  requirement: "/req/core/job-results-async-one"
+  purpose: |-
+    Validate that only the requested processing result is included in the response when the `outputs` parameter requesting output with identifier `{outputID}` is specified on a process execution request.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Request a single process output with output identifier `{outputID}` as per test [/req/core/job-results-param-outputs](#ats-core-job-results-param-outputs).
+    3. Retrieve the processing response from the `/jobs/{jobID}/results/{outputID}` endpoint.
+    4. Validate that the response conforms to the requirement [/req/core/job-results-async-one](#req-core-job-results-async-one).
+- id: "core/job-results-async-many"
+  requirement: "/req/core/job-results-async-many"
+  purpose: |-
+    Validate that only the requested processing results are included in the response when the `outputs` parameter is specified on a process execution request.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Request at least 2 process outputs as per test [/req/core/job-results-param-outputs](#ats-core-job-results-param-outputs).
+    3. Validate that the processing results retrieved from the `/jobs/{jobID}/results` endpoint conform to requirement [/req/core/job-results-async-many](#req-core-job-results-async-many).
+- id: "core/job-results-exception-invalid-query-parameter-value"
+  requirement: "/req/core/job-results-exception-invalid-query-parameter-value"
+  purpose: |-
+    Validate that the job results retrieved using an invalid job identifier complies with the require structure and contents.
+  method: |-
+    1. Issue an HTTP GET request to the URL ‘/jobs/{jobID}/results’ using a parameter (e.g. `outputs`) with an invalid parameter value.
+    2. Verify that the server responds with an HTTP status code 400.
+    3. Verify that the body of the response conforms to the [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml) schema.
+    4. Verify that the `type` of the exception is “[https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value](https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value)”.
+- id: "core/job-results-exception-no-such-output"
+  requirement: "/req/core/job-results-exception-no-such-output"
+  purpose: |-
+    Validate that the job results retrieved using an invalid output identifier complies with the require structure and contents.
+  method: |-
+    1. Issue an HTTP GET request to the URL ‘/jobs/{jobID}/results/{outputID}’ using an invalid {outputID}.
+    2. Validate that the document was returned with a 400.
+    3. Validate that the document contains the exception type “[http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output](http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output)”.
+    4. Validate the document for all supported media types using the resources and tests identified in [Table A.7](#job-results-exception-no-such-output)
+- id: "core/job-results-exception-no-such-job"
+  requirement: "/req/core/job-results-exception-no-such-job"
+  purpose: |-
+    Validate that the job results retrieved using an invalid job identifier complies with the require structure and contents.
+  method: |-
+    1. Issue an HTTP GET request to the URL ‘/jobs/{jobID}/results’ using an invalid {jobID}.
+    2. Validate that the document was returned with a 404.
+    3. Validate that the document contains the exception type “[https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job](https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job)”.
+    4. Validate the document for all supported media types using the resources and tests identified in [Table A.8](#job-results-exception-no-such-job)
+- id: "core/job-results-exception-results-not-ready"
+  requirement: "/req/core/job-results-exception-results-not-ready"
+  purpose: |-
+    Validate that the job results retrieved for an incomplete job complies with the require structure and contents.
+  method: |-
+    1. Create a job as per [/req/core/process-execute-op](#ats-core-process-execute-op) and note the `{jobID}` assigned to the job. Ensure that the job is long-running.
+    2. Issue an HTTP GET request to the URL `/jobs/{jobID}/results` before the job completes execution.
+    3. Validate that the document was returned with a 404.
+    4. Validate that the document contains the exception `type` “[https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready](https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready)”.
+    5. Validate the document for all supported media types using the resources and tests identified in [Table A.9](#job-results-exception-results-not-ready)
+- id: "core/job-results-exception_results-not-available"
+  requirement: |-
+    /req/core/job-results-exception_results-not-available test-purpose::Verify that the server responds correctly when requesting results that are not available.
+  method: |-
+    1. Negotiate asynchronous process execution as per test [/conf/core/process-execute-auto-execution-mode](#ats-core-process-execute-auto-execution-mode) or [/conf/core/process-execute-default-execution-mode](#ats-core-process-execute-default-execution-mode).
+    2. Ensure that [execute request body](#execute-request-body) includes the “outputs” parameter and that the content of the parameter is empty.
+    3. When processing is completed attempt to retrieve one or more of the defined outputs at the `/jobs/{jobID}/results/{outputID}` endpoint.
+    4. Verify that the server responds with an HTTP status code 404.
+    5. Verify that the body of the response contains an exception message that conforms to the [exception.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml) schema.
+    6. Verify that the `type` of the exception is “[https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-available](https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-available)”.
+- id: "core/job-results-failed"
+  requirement: "/req/core/job-results-failed"
+  purpose: |-
+    Validate that the job results for a failed job complies with the required structure and contents.
+  method: |-
+    1. Create a job as per [/req/core/process-execute-op](#ats-core-process-execute-op) but arrange a priori that the job will fail. Note the {jobID} assigned to the job.
+    2. Ensure that the failed job will not result in an HTTP 404 error code.
+    3. Issue an HTTP GET request to the URL ‘/jobs/{jobID}/results’.
+    4. Validate that the document was returned with a HTTP error code (4XX or 5XX).
+    5. Validate that the document contains an exception `type` that corresponds to the reason the job failed (e.g. InvalidParameterValue for invalid input data).
+    6. Validate the document for all supported media types using the resources and tests identified in [Table A.10](#job-results-failed-schema)

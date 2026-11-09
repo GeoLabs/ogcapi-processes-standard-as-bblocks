@@ -1,65 +1,95 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+
+sort: false
 terms:
-  - term: job
-    definition: >
-      A server-side object created by a processing service for a particular process execution.
-      A job may be latent in the case of synchronous execution or explicit in the case of
-      asynchronous execution. Since the client has only oblique access to a processing job,
-      a Job ID is used to monitor and control a job.
+- term: "collection; OGC API collection"
+  definition: |-
+    (in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by [OGC API standards](https://www.ogc.org/standards). ([OGC API — Common — Part 2: Geospatial Data](https://docs.ogc.org/DRAFTS/20-024.html))
+- term: "collection description document"
+  definition: |-
+    A resource accessible at the OGC API path `/collections/{collectionId}` that provides metadata about a [collection](#sec-4.1.1).
+- term: "dataset"
+  definition: |-
+    A collection of data, published or curated by a single agent, and available for access or download in one or more representations. ([Data Catalog Vocabulary (DCAT) — Version 2](https://www.w3.org/TR/vocab-dcat-2/))
+- term: "distribution"
+  definition: |-
+    A specific representation of a dataset. A dataset might be available in multiple distributions that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). ([Data Catalog Vocabulary (DCAT) — Version 2](https://www.w3.org/TR/vocab-dcat-2/))
 
-  - term: process
-    definition: >
-      A function p: X → Y where X denotes the domain of arguments (process inputs) and Y denotes
-      the co-domain of values (process outputs). Used as an umbrella term for any algorithm,
-      calculation or model that either generates new data or transforms some input data into output
-      data, as defined in section 4.1 of the OGC WPS 2.0 standard.
-    sources:
-      - title: OGC WPS 2.0
-        uri: https://docs.ogc.org/is/14-065/14-065.html
+    EXAMPLE: a downloadable file, an RSS feed or an API.
+- term: "job"
+  definition: |-
+    The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
+- term: "JSON"
+  definition: "JavaScript Object Notation is a lightweight text-based, data-interchange format."
+- term: "link"
+  definition: |-
+    The term “link” is commonly used as substitute for URL or URI. In this Standard, “link” refers to an element described by the schema for a link as shown at [link.yaml](#link-schema). This is a JSON element containing properties such as “rel” (relation) and “href”. The value of the “href” property is an URI.
+- term: "link header"
+  definition: "HTTP Link header, as defined in [RFC 8288 (Web Linking)](#rfc8288)."
+- term: "local collection"
+  definition: |-
+    A [collection](#sec-4.1.1) that is local to the [OGC API deployment](#sec-4.1.11) [currently being accessed](#sec-4.1.10).
+- term: "OGC API data access mechanism"
+  definition: |-
+    (in the context of OGC APIs) A mechanism defined by an OGC API Standard to access spatiotemporal data from a [collection](#sec-4.1.1)/
 
-  - term: process description
-    definition: >
-      An information model that specifies the interface of a process. Used for a machine-readable
-      description of the process itself but also provides some basic information about the process
-      inputs and outputs.
+    EXAMPLE: [*OGC API — Tiles — Part 1: Core*](https://docs.ogc.org/is/20-057/20-057.html), [*OGC API — Coverages — Part 1: Core*](https://docs.ogc.org/DRAFTS/19-087.html), [*OGC API — Discrete Global Grid Systems — Part 1: Core*](https://docs.ogc.org/DRAFTS/21-038r1.html), [*OGC API — Features — Part 1: Core*](https://docs.ogc.org/is/17-069r4/17-069r4.html), [*OGC API — Environmental Data Retrieval Standard*](https://docs.ogc.org/is/19-086r6/19-086r6.html), [*OGC API — Maps — Part 1: Core*](https://docs.ogc.org/is/20-058/20-058.html)
+- term: "OGC API deployment"
+  definition: |-
+    An implementation of an [OGC API Standard](https://www.ogc.org/standards/) that is accessible to users and other system(s) typically through the Web.
+- term: "process"
+  definition: |-
+    A process *p* is a function that for each input returns a corresponding output
 
-  - term: process execution
-    definition: >
-      An action that calculates the outputs of a given process for a given set of data inputs.
+    *p : X → Y*
 
-  - term: process input
-    definition: >
-      An argument of a process; data provided to a process. Each process input is an identifiable
-      item.
+    where *X* denotes the domain of arguments *x* and *Y* denotes the co-domain of values y. In this Standard, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
 
-  - term: process output
-    definition: >
-      A result of a process; data returned by a process. Each process output is an identifiable
-      item.
-
-  - term: process offering
-    definition: >
-      An identifiable process that may be executed on a particular service instance. A process
-      offering contains a process description as well as service-specific information about the
-      supported execution protocols.
-
-  - term: REST
-    definition: >
-      The Representational State Transfer architectural style. An abstraction of the architectural
-      elements within a distributed hypermedia system. An API that conforms to REST
-      architectural principles is called a RESTful API.
-    sources:
-      - title: OGC 18-088
-        uri: https://docs.ogc.org/is/18-088/18-088.html
-
+    The term “process” is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this Standard uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the OGC WPS 2.0 standard.
+- term: "process description"
+  definition: |-
+    A specific documented account of steps, roles, and rules involved in a computing [process](#sec-4.1.12), often described using standard like the [OpenAPI Standard](https://swagger.io/specification/).
+- term: "process execution"
+  definition: |-
+    The execution of a [process](#sec-4.1.12) is an action that calculates the outputs of a given process for a given set of data inputs.
+- term: "process input"
+  definition: |-
+    Process inputs are the arguments of a process and refer to data provided to a [process](#sec-4.1.12). Each process input is an identifiable item.
+- term: "process offering"
+  definition: |-
+    A process offering is an identifiable [process](#sec-4.1.12) that may be executed on a particular service instance. A process offering contains a process description as well as service-specific information about the supported execution protocols (e.g. synchronous and asynchronous execution).
+- term: "process output"
+  definition: |-
+    Process outputs are the selectable outputs of a [process](#sec-4.1.12) and refer to data results returned by the execution of that process. Each process output is an identifiable item.
+- term: "process output (explicitly requested)"
+  definition: |-
+    A process output that is defined in the [description of a process](#sec-7.11) and is explicitly specified using its identifier `{outputID}` in the “outputs” section of an [execute request](#execute-request-body).
+- term: "process output (implicitly requested)"
+  definition: |-
+    A process output that is defined in the [description of a process](#sec-7.11) and is generated as a result of an [execute request](#execute-request-body) where the “outputs” parameter has been omitted. Omitting the “outputs” parameters of an [execute request](#execute-request-body) is equivalent to explicitly requesting all of the outputs defined in the [process description](#sec-7.11)
+- term: "remote collections"
+  definition: |-
+    A [collection](#sec-4.1.1) that is available from an external OGC API deployment different from the deployment whose process is being executed.
+- term: "REST"
+  definition: |-
+    The Representational State Transfer (REST) style is an abstraction of the architectural elements within a distributed hypermedia system. REST focuses on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements. It encompasses the fundamental constraints upon components, connectors, and data that define the basis of the Web architecture, and thus the essence of its behavior as a network-based application. An API that conforms to the REST architectural principles/constraints is called a **RESTful API**. (Source: [OGC 18-088](https://docs.ogc.org/is/18-088/18-088.html#_rest))
+- term: "Value source server"
+  definition: |-
+    A server that implements one or more [data access mechanisms](#sec-4.1.10) for accessing data from an [OGC collection](#sec-4.1.1). The server acts as a source of values that are passed to a process being executed by an implementation of this Standard.
 abbreviated-terms:
-  API: Application Programming Interface
-  CITE: Compliance Interoperability & Testing Evaluation
-  CRS: Coordinate Reference System
-  HTTP: Hypertext Transfer Protocol
-  JSON: JavaScript Object Notation
-  KVP: Key-Value Pair
-  OGC: Open Geospatial Consortium
-  REST: Representational State Transfer
-  URI: Uniform Resource Identifier
-  URL: Uniform Resource Locator
-  WPS: Web Processing Service
+  "API": "Application Programming Interface"
+  "CITE": "Compliance Interoperability & Testing Evaluation"
+  "CRS": "Coordinate Reference System"
+  "GML": "Geography Markup Language"
+  "HTTP": "Hypertext Transfer Protocol"
+  "ISO": "International Organization for Standardization"
+  "JSON": "JavaScript Object Notation"
+  "KVP": "Key-Value Pair"
+  "MIME": "Multipurpose Internet Mail Extensions"
+  "OGC": "Open Geospatial Consortium"
+  "REST": "Representational State Transfer"
+  "URI": "Uniform Resource Identifier"
+  "URL": "Uniform Resource Locator"
+  "WPS": "Web Processing Service"
+  "XML": "Extensible Markup Language"

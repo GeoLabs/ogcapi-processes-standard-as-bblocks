@@ -1,0 +1,132 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: collection-input
+title: "Requirements Class ‘Collection Input’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-requirements-core"
+  title: "/req/core"
+conformance-class:
+  title: "Collection Input"
+requirements:
+- id: "collection-input/referencing"
+  statement: |-
+    For referencing a [local collection](#sec-4.1.1) as a source of [input values to a process](#sec-7.12.2.3):
+  parts:
+  - |-
+      The server SHALL support inputs in an [execute requests](#execute-request-body) that contain the `collection` parameter as defined in [“collectionValue.yaml”](#collection-value-schema) schema.
+  - |-
+      The value of the `collection` parameter SHALL be URI or Relative-URI identifying a [local collection](#sec-4.1.9) from which [process input values](#sec-7.12.2.3) are retrieved.
+  - |-
+      The URI or Relative-URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the [process description](#sec-7.11) and other factors, which supported [data access mechanisms](#sec-4.1.10) should be employed to retrieve input values from the [collection](#sec-4.1.9).
+  - |-
+      The server SHALL interpret Relative-URIs as relative to the parent process within which the containing collection object is nested.
+- id: "collection-input/collection-access"
+  description: |-
+    For referencing a [local collection](#sec-4.1.9) as a source of [input values to a process](#sec-7.12.2.3):
+  parts:
+  - |-
+      The server SHALL support accessing [local collections](#sec-4.1.9) using at least one supported [OGC API data access mechanism](#sec-4.1.10).
+  - |-
+      The server SHALL, in the [process description](#sec-9) and for each relevant input, indicate which [OGC data access API(s)](#sec-4.1.10) can be used to retrieve input values for that input from the [collection](#sec-4.1.9).
+- id: "collection-input/filtering"
+  description: |-
+    To support the filtering of data accessed from a [collection](#sec-4.1.1) before providing that data as [inputs to a process](#sec-7.12.2.3):
+  parts:
+  - |-
+      The server SHALL recognize the following parameters:
+
+      - filter, filterCrs, filterLang
+      - bbox, bboxCrs
+      - datetime
+      - subset, subsetCrs
+      - geometry, geometryCrs
+      - limit
+      - ids
+      - q
+      - assets
+      - crs
+
+      as defined in the [“collectionValue.yaml”](#collection-value-schema) schema.
+  - |-
+      These filtering parameters SHALL be mapped to corresponding query parameters in the [data access API](#sec-4.1.10) chosen to retrieve input values from the [collection](#sec-4.1.1).
+- id: "collection-input/property-selection"
+  description: |-
+    The support property and derived property selection from a [collection](#sec-4.1.1) before providing the data as [inputs to a process](#sec-7.12.2.3)
+  parts:
+  - |-
+      The server SHALL support the following parameters:
+
+      - aliases
+      - properties
+
+      as defined in the [“collectionValue.yaml”](#collection-value-schema) schema.
+  - |-
+      If supported by the [data access API](#sec-4.1.10) chosen to retrieve input values from the [collection](#sec-4.1.9), then the server SHALL map these parameters to the corresponding query parameters in the [data access API](#sec-4.1.10).
+  - |-
+      If NOT supported by the [data access API](#sec-4.1.10) chosen to retrieve input values from the [collection](#sec-4.1.9), then the server SHALL perform the property selection operation before providing the data as input to the process.
+- id: "collection-input/pass-through"
+  description: |-
+    To support the ability to opaquely pass query parameters through to the [value source server](#sec-4.1.22):
+  parts:
+  - |-
+      The server SHALL support the following parameters:
+
+      - passThroughParameters
+
+      as defined in the [“collectionValue.yaml”](#collection-value-schema) schema.
+abstract-tests:
+- id: "collection-input/referencing"
+  requirement: "/req/collection-input/referencing"
+  purpose: |-
+    Verify that the server correctly processes references to local collections from which input values are retrieved.
+  method: |-
+    1. Obtain a process description for one or more processes offered by a server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. Compose [execute requests](#execute-request-body) that includes the identified inputs and using a supported [data access API](#sec-4.1.10) (see test: [/conf/collection-input/collection-access](#ats-collection-input-collection-access) to identify supported [data access APIs](#sec-4.1.10)).
+    4. Use the `collection` parameter in the [execute request](#execute-request-body), as defined in [“collectionValue.yaml”](#collection-value-schema), to reference local collection from which input values are retrieved using one of the supported [data access APIs](#sec-4.1.10).
+    5. Verify that the execute request completes successfully.
+- id: "collection-input/collection-access"
+  requirement: "/req/collection-input/collection-access"
+  purpose: |-
+    Verify that the server supports the [OGC data access API(s)](#sec-4.1.10) that is advertises for collection input.
+  method: |-
+    1. Obtain a process description for one or more processes offered by the server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. For each of the identified inputs verify that the server supports the specified [OGC data access API(s)](#sec-4.1.10) by inspecting the server’s conformance document obtained from the `/conformance` endpoint.
+- id: "collection-input/filtering"
+  requirement: "/req/collection-input/filtering"
+  purpose: |-
+    Verify that the server correctly processes filtering elements in a collection input specification.
+  method: |-
+    1. Obtain a process description for one or more processes offered by a server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. Compose [execute requests](#execute-request-body) that include the identified inputs and using a supported [data access API](#sec-4.1.10) (see test: [/conf/collection-input/collection-access](#ats-collection-input-collection-access) to identify supported [data access APIs](#sec-4.1.10)).
+    4. In the specification of the collection input, specify one or more filtering elements as defined in [“collectionValue.yaml”](#collection-value-schema).
+    5. Verify that the execute request completes successfully.
+- id: "collection-input/property-selection"
+  requirement: "/req/collection-input/property-selection"
+  purpose: |-
+    Verify that the server correctly processes property-selection elements in a collection input specification.
+  method: |-
+    1. Obtain a process description for one or more processes offered by a server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. Compose [execute requests](#execute-request-body) that include the identified inputs and using a supported [data access API](#sec-4.1.10) (see test: [/conf/collection-input/collection-access](#ats-collection-input-collection-access) to identify supported [data access APIs](#sec-4.1.10)).
+    4. In the specification of the collection input, specify one or more property-selection elements using the `properties` (and optionally the `aliases`) parameter as defined in [“collectionValue.yaml”](#collection-value-schema).
+    5. Verify that the execute request completes successfully.
+- id: "collection-input/pass-through"
+  requirement: "/req/collection-input/pass-through"
+  purpose: |-
+    Verify that the server correctly processes the `passThroughParameters` element in a collection input specification.
+  method: |-
+    1. Obtain a process description for one or more processes offered by a server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. Compose [execute requests](#execute-request-body) that include the identified inputs and using a supported [data access API](#sec-4.1.10) (see test: [/conf/collection-input/collection-access](#ats-collection-input-collection-access) to identify supported [data access APIs](#sec-4.1.10)).
+    4. In the specification of the collection input, specify the `passThroughParameters` element, as defined in [“collectionValue.yaml”](#collection-value-schema), and include query parameters specific to the selected [data access API](#sec-4.1.10).
+    5. Verify that the execute request completes successfully
