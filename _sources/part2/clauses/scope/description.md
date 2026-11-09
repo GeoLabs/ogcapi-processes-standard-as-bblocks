@@ -1,4 +1,4 @@
-The OGC API — Processes — Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard \[OGC 18-062r2\] and defines the behavior of a server that supports the ability to dynamically add, replace and/or undeploy processes via an OGC API — Processes implementation instance.
+The OGC API — Processes — Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard \[[OGC 18-062r2](#OAProc-1)\] and defines the behavior of a server that supports the ability to dynamically add, replace and/or undeploy processes via an OGC API — Processes implementation instance.
 
 Specifically, the Processes Part 2 Standard specifies:
 

@@ -1,0 +1,19 @@
+{
+  "name": "Execution unit",
+  "abstract": "Value of the executionUnit property of an OGC Application Package: one execution unit, or an array of them.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-07T00:00:00Z",
+  "itemClass": "schema",
+  "version": "1.0.0",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "schema",
+    "draft"
+  ]
+}

@@ -22,7 +22,7 @@ requirements:
 - id: deploy-replace-undeploy/additional-status-codes
   type: permission
   statement: Servers MAY support other HTTP protocol capabilities. Therefore, the server may return other
-    status codes than those listed in Table 2.
+    status codes than those listed in [Table 2](#status_codes).
 - id: deploy-replace-undeploy/static-indicator
   parts:
   - The optional property `mutable` SHALL be used to indicate whether a process is a static or built-in
@@ -44,8 +44,6 @@ requirements:
     (i.e., the response to a GET request to `{landingPageUri}/processes`).
 - id: deploy-replace-undeploy/deploy-post-op
   statement: The server SHALL support the HTTP POST operation at the resources endpoint (path `/processes`).
-  tested-by:
-  - deploy-success
 - id: deploy-replace-undeploy/deploy-body
   statement: The body of the POST request SHALL contain a formal description of the process to be dynamically
     deployed to the API.
@@ -82,31 +80,28 @@ requirements:
 
     ```yaml
     allOf:
-      - $ref: "descriptionType.yaml"
-      - type: object
-        required:
-          - id
-          - version
-        properties:
-          id:
-            type: string
-          version:
-            type: string
-          jobControlOptions:
-            type: array
-            items:
-              $ref: "jobControlOptions.yaml"
-          links:
-            type: array
-            items:
-              $ref: "link.yaml"
+      - $ref: "descriptionType.yaml"
+      - type: object
+        required:
+          - id
+          - version
+        properties:
+          id:
+            type: string
+          version:
+            type: string
+          jobControlOptions:
+            type: array
+            items:
+              $ref: "jobControlOptions.yaml"
+          links:
+            type: array
+            items:
+              $ref: "link.yaml"
     ```
   applies-to:
-    bblock: ogc.api.processes.v1.schemas.processSummary
+    bblock: ogc.api.processes.part2.schemas.processSummary
     table: false
-  tested-by:
-  - deploy-success
-  - deploy-response-missing-id-fail
 - id: deploy-replace-undeploy/deploy-unsupported-media-type
   parts:
   - If the server does not support the `Content-Type` header associated with the request body, the code
@@ -119,18 +114,18 @@ requirements:
     description: JSON schema for exceptions based on RFC 7807
     type: object
     required:
-      - type
+      - type
     properties:
-      type:
-        type: string
-      title:
-        type: string
-      status:
-        type: integer
-      detail:
-        type: string
-      instance:
-        type: string
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
     additionalProperties: true
     ```
   - The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/unsupported-media-type"`.
@@ -151,18 +146,18 @@ requirements:
     description: JSON schema for exceptions based on RFC 7807
     type: object
     required:
-      - type
+      - type
     properties:
-      type:
-        type: string
-      title:
-        type: string
-      status:
-        type: integer
-      detail:
-        type: string
-      instance:
-        type: string
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
     additionalProperties: true
     ```
   - The `type` of the exception SHALL be “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
@@ -183,18 +178,18 @@ requirements:
     description: JSON schema for exceptions based on RFC 7807
     type: object
     required:
-      - type
+      - type
     properties:
-      type:
-        type: string
-      title:
-        type: string
-      status:
-        type: integer
-      detail:
-        type: string
-      instance:
-        type: string
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
     additionalProperties: true
     ```
   - The `type` of the exception SHALL be “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/immutable-process”.

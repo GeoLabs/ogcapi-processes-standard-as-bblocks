@@ -1,0 +1,11 @@
+See [OGC 18-062r2](#OAProc-1), Clause 13.
+
+Additional JSON media types that would typically be used in a server that supports JSON are:
+
+- `application/ogcapppkg+json`
+- `application/cwl+json`
+
+Additional CWL media types that would typically be used in a server that supports CWL are:
+
+- `application/cwl`
+- `application/cwl+yaml`

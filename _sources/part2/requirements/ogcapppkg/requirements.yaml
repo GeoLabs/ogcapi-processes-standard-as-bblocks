@@ -25,20 +25,20 @@ requirements:
     ```yaml
     type: object
     required:
-      - executionUnit
+      - executionUnit
     properties:
-      processDescription:
-        type: object
-        required:
-        - process
-        properties:
-          process:
-            $ref: "../processes-core/process.yaml"
-      executionUnit:
-        $ref: "executionUnit.yaml"
+      processDescription:
+        type: object
+        required:
+        - process
+        properties:
+          process:
+            $ref: "../processes-core/process.yaml"
+      executionUnit:
+        $ref: "executionUnit.yaml"
     ```
   applies-to:
-    bblock: ogc.api.processes.v2.schemas.ogcapppkg
+    bblock: ogc.api.processes.part2.schemas.ogcapppkg
     table: false
 - id: ogcapppkg/process-description
   statement: |
@@ -48,39 +48,83 @@ requirements:
 
     ```yaml
     allOf:
-      - $ref: "processSummary.yaml"
-      - type: object
-        properties:
-          inputs:
-            additionalProperties:
-              $ref: "inputDescription.yaml"
-          outputs:
-            additionalProperties:
-              $ref: "outputDescription.yaml"
+      - $ref: "processSummary.yaml"
+      - type: object
+        properties:
+          inputs:
+            additionalProperties:
+              $ref: "inputDescription.yaml"
+          outputs:
+            additionalProperties:
+              $ref: "outputDescription.yaml"
     ```
   applies-to:
     bblock: ogc.api.processes.v1.schemas.process
     table: false
 - id: ogcapppkg/executionUnit-schema
-  statement: "The value of the `executionUnit` property of an [OGC Application Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg)\
-    \ SHALL be defined by the following OpenAPI schema fragments:\n\nexecutionUnit.yaml\n\n```yaml\noneOf:\n\
-      - $ref: \"executionUnitBase.yaml\"\n  - type: array\n    items:\n      - $ref: \"executionUnitBase.yaml\"\
-    \n```\n\nexecutionUnitBase.yaml\n\n```yaml\noneOf:\n  - $ref: \"../common-core/link.yaml\"\n  - allOf:\n\
-        - $ref: \"../processes-core/qualifiedValue.yaml\"\n    - anyOf:\n      - description: |-\n         \
-    \ The execute unit is a container image.\n        type: object\n        required:\n          - type\n\
-            properties:\n          type:\n            type: string\n            enum:\n              -\
-    \ docker\n              - oci\n          value:\n            $ref: \"executionUnitContainer.yaml\"\
-    \n      - description: |-\n          The execution unit is CWL script.\n        type: object\n       \
-    \ required:\n          - mediaType\n        properties:\n          mediaType:\n            type: string\n\
-                enum:\n              - application/cwl\n          value:\n            #$ref: \"https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml\"\
-    \n            #$ref: \"../cwl/cwl-json-schema.yaml#/$defs/CWL\"\n            $ref: \"../cwl/cwl.yaml\"\
-    \n      - description: |-\n          The execution unit is not Docker/OCI or CWL and cannot be properly\n\
-              described via the \"mediaType\" property of a qualified value \n          using an RFC 2046\
-    \ media type (e.g. an \"R\" or \"Python\" script).\n          In this case a community-defined or\
-    \ custom token may be used\n          with the \"type\" property.\n        type: object\n        required:\n\
-              - type\n        properties:\n          type:\n            type: string\n```\n"
+  statement: |
+    The value of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg) SHALL be defined by the following OpenAPI schema fragments:
+
+    executionUnit.yaml
+
+    ```yaml
+    oneOf:
+      - $ref: "executionUnitBase.yaml"
+      - type: array
+        items:
+          - $ref: "executionUnitBase.yaml"
+    ```
+
+    executionUnitBase.yaml
+
+    ```yaml
+    oneOf:
+      - $ref: "../common-core/link.yaml"
+      - allOf:
+        - $ref: "../processes-core/qualifiedValue.yaml"
+        - anyOf:
+          - description: |-
+              The execute unit is a container image.
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                type: string
+                enum:
+                  - docker
+                  - oci
+              value:
+                $ref: "executionUnitContainer.yaml"
+          - description: |-
+              The execution unit is CWL script.
+            type: object
+            required:
+              - mediaType
+            properties:
+              mediaType:
+                type: string
+                enum:
+                  - application/cwl
+              value:
+                #$ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+                #$ref: "../cwl/cwl-json-schema.yaml#/$defs/CWL"
+                $ref: "../cwl/cwl.yaml"
+          - description: |-
+              The execution unit is not Docker/OCI or CWL and cannot be properly
+              described via the "mediaType" property of a qualified value 
+              using an RFC 2046 media type (e.g. an "R" or "Python" script).
+              In this case a community-defined or custom token may be used
+              with the "type" property.
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                type: string
+    ```
   applies-to:
-    bblock: ogc.api.processes.v2.schemas.executionUnit
+    bblock: ogc.api.processes.part2.schemas.executionUnit
     table: false
 - id: ogcapppkg/execution-unit-docker
   type: recommendation
@@ -91,7 +135,7 @@ requirements:
   statement: Servers MAY support other execution unit types but those types are not described in this
     Standard.
 - id: ogcapppkg/body
-  statement: For the Deploy operation and the Replace operation, the media type `application/ogcapppkg+json`
+  statement: For the [Deploy operation](#sec-6.6) and the [Replace operation](#sec-6.7), the media type `application/ogcapppkg+json`
     SHALL be used to indicate that the request body contains an [OGC Application Package](#sec-7).
 - id: ogcapppkg/package-response-body
   statement: For the [Application Package retrieval operation](#sec-6.9) the media type `application/ogcapppkg+json`

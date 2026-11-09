@@ -17,6 +17,7 @@
   "dependsOn": [
     "ogc.api.processes.part1.requirements.core",
     "ogc.api.processes.v1.schemas.processSummary",
+    "ogc.api.processes.part2.schemas.processSummary",
     "ogc.api.processes.v1.schemas.exception"
   ],
   "tags": ["ogcapi-processes", "standard", "requirements-class", "draft"],

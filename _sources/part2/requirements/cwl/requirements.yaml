@@ -14,14 +14,14 @@ depends-on:
   title: 'OGC API — Processes — Part 1: Core'
 - uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy
 - uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
-- uri: https://w3id.org/cwl/v1.2/
+- uri: '#Common_Workflow_Language'
   title: Common Workflow Language [1]
 conformance-class:
   title: Common Workflow Language
 requirements:
 - id: cwl/execution-unit-by-ref
   parts:
-  - If passed by reference, the value of the `executionUnit` property SHALL be a link pointing to the
+  - If passed by reference, the value of the [`executionUnit` property](#sec-7.4) SHALL be a link pointing to the
     CWL file describing the execution unit of the process.
   - Both the `href` and `type` fields of the link SHALL be specified.
   - If the encoding of the CWL is known to be JSON then the value of the `type` field SHALL be `application/cwl+json`.
@@ -31,12 +31,10 @@ requirements:
   applies-to:
     bblock: ogc.api.processes.v1.schemas.link
     table: false
-  tested-by:
-  - cwl-execution-unit-by-ref-success
 - id: cwl/execution-unit-by-val
   parts:
-  - If encoded in-line within an [OGC Application Package](#sec-7), the CWL value of the `executionUnit`
-    property SHALL be specified using a qualified value.
+  - If encoded in-line within an [OGC Application Package](#sec-7), the CWL value of the [`executionUnit`
+    property](#sec-7.4) SHALL be specified using a qualified value.
   - Both the `mediaType` and `value` fields of the qualified value SHALL be specified.
   - If the CWL value is specified as a JSON object then the value of the `mediaType` field SHALL be `application/cwl`.
   - If the CWL value is specified as an embedded JSON string then the value of the `mediaType` field SHALL
@@ -44,7 +42,7 @@ requirements:
   - If the CWL value is specified as an embedded YAML string then the value of the `mediaType` field SHALL
     be `application/cwl+yaml`.
   applies-to:
-    bblock: ogc.api.processes.v2.schemas.executionUnitBase
+    bblock: ogc.api.processes.part2.schemas.executionUnitBase
     table: false
 - id: cwl/body
   statement: The content of the request body of a [Deploy](#sec-6.6) or [Replace](#sec-6.7) operation
@@ -52,7 +50,7 @@ requirements:
 - id: cwl/multipart-cwl-body
   type: permission
   prerequisites:
-  - RFC 2387 (The MIME Multipart/Related Content-type)
+  - '[RFC 2387 (The MIME Multipart/Related Content-type)](#rfc2387)'
   statement: Recommendation for supporting multipart deployment of related CWL documents forming a process.
   parts:
   - 'If a process requires the deployment of multiple CWL documents to represent its execution unit (e.g.:
@@ -109,7 +107,7 @@ requirements:
     in: query
     required: false
     schema:
-      type: string
+      type: string
     ```
   - If, in this case, the `w` query parameter is not specified the the first process found SHALL be deployed.
 - id: cwl/deploy-exception-workflow-not-found
@@ -124,18 +122,18 @@ requirements:
     description: JSON schema for exceptions based on RFC 7807
     type: object
     required:
-      - type
+      - type
     properties:
-      type:
-        type: string
-      title:
-        type: string
-      status:
-        type: integer
-      detail:
-        type: string
-      instance:
-        type: string
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
     additionalProperties: true
     ```
   - The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found"`.

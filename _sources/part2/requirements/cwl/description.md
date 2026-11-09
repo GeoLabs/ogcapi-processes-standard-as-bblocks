@@ -16,10 +16,10 @@ Below is an example of a [Deploy request](#sec-6.6) body using a CWL-encoded exe
 
 ```json
 {
-  "executionUnit": {
-    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
-    "type": "application/cwl"
-  }
+  "executionUnit": {
+    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
+    "type": "application/cwl"
+  }
 }
 ```
 
@@ -31,10 +31,10 @@ Below is an example of a [Deploy request](#sec-6.6) body using a qualified value
 
 ```json
 {
-  "executionUnit": {
-    "mediaType": "application/cwl",
-    "value": { "cwlVersion": "v1.2", "class": "CommandLineTool", ... }
-  }
+  "executionUnit": {
+    "mediaType": "application/cwl",
+    "value": { "cwlVersion": "v1.2", "class": "CommandLineTool", ... }
+  }
 }
 ```
 
@@ -50,10 +50,10 @@ Below are other examples of [Deploy request](#sec-6.6) bodies where the CWL valu
 
 ```json
 {
-  "executionUnit": {
-    "mediaType": "application/cwl+json",
-    "value": "{ \"cwlVersion\": \"v1.2\", \"class\": \"CommandLineTool\", ... }"
-  }
+  "executionUnit": {
+    "mediaType": "application/cwl+json",
+    "value": "{ \"cwlVersion\": \"v1.2\", \"class\": \"CommandLineTool\", ... }"
+  }
 }
 ```
 
@@ -61,10 +61,10 @@ Below are other examples of [Deploy request](#sec-6.6) bodies where the CWL valu
 
 ```json
 {
-  "executionUnit": {
-    "mediaType": "application/cwl+yaml",
-    "value": "cwlVersion: 'v1.2'\nclass: CommandLineTool\n..."
-  }
+  "executionUnit": {
+    "mediaType": "application/cwl+yaml",
+    "value": "cwlVersion: 'v1.2'\nclass: CommandLineTool\n..."
+  }
 }
 ```
 
@@ -93,81 +93,81 @@ The last [CWL](bblocks://ogc.api.processes.part2.requirements.cwl) part illustra
 The last process description part illustrates how additional metadata can be included in the multipart body to refine the definition of the process being deployed, irrespective of its [CWL](bblocks://ogc.api.processes.part2.requirements.cwl) encoding.
 
 ```text
-Client                                                            Server
-  |                                                                 |
-  |  POST /processes HTTP/1.1                                       |
-  |  Host: example.org                                              |
-  |  Content-Type: multipart/related; type="application/cwl+yaml"; start="<workflow-main@example.org>"; boundary="===CWL-BUNDLE==="
-  |  Content-ID: <workflow-main@example.com>                        |
-  |                                                                 |
-  |  --===CWL-BUNDLE===                                             |
-  |  Content-Type: application/cwl+yaml                             |
-  |  Content-ID: <workflow-main@example.org>                        |
-  |  Content-Disposition: attachment; filename="workflows/main.cwl" |
-  |                                                                 |
-  |  cwlVersion: v1.2                                               |
-  |  class: Workflow                                                |
-  |  id: workflow-main                                              |
-  |  steps:                                                         |
-  |    by_filename:                                                 |
-  |      run: "tools/tool-1.cwl"                                    |
-  |      ...  # rest of the definition                              |
-  |    by_cid_host:                                                 |
-  |      run: "cid:tool-2@example.org"                              |
-  |      ...  # rest of the definition                              |
-  |    by_cid_uuid:                                                 |
-  |      run: "cid:urn:uuid:550e8400-e29b-41d4-a716-446655440002"   |
-  |      ...  # rest of the definition                              |
-  |    by_remote_url:                                               |
-  |      run: "https://example.org/cwl/tools/tool-4.cwl"            |
-  |      ...  # rest of the definition                              |
-  |                                                                 |
-  |  --===CWL-BUNDLE===                                             |
-  |  Content-Type: application/cwl+yaml                             |
-  |  Content-Disposition: attachment; filename="tools/tool-1.cwl"   |
-  |  Content-ID: <tool-1@example.org>                               |
-  |                                                                 |
-  |  cwlVersion: v1.2                                               |
-  |  class: CommandLineTool                                         |
-  |  id: tool-1                                                     |
-  |  ...  # rest of the definition                                  |
-  |                                                                 |
-  |  --===CWL-BUNDLE===                                             |
-  |  Content-Type: application/cwl+yaml                             |
-  |  Content-ID: <tool-2@example.org>                               |
-  |  Content-Disposition: attachment; filename="tools/tool-2.cwl"   |
-  |                                                                 |
-  |  cwlVersion: v1.2                                               |
-  |  class: CommandLineTool                                         |
-  |  id: tool-2                                                     |
-  |  ...  # rest of the definition                                  |
-  |                                                                 |
-  |  --===CWL-BUNDLE===                                             |
-  |  Content-Type: application/cwl+yaml                             |
-  |  Content-ID: <urn:uuid:550e8400-e29b-41d4-a716-446655440002>    |
-  |  Content-Disposition: attachment; filename="tools/tool-3.cwl"   |
-  |                                                                 |
-  |  cwlVersion: v1.2                                               |
-  |  class: CommandLineTool                                         |
-  |  id: tool-3                                                     |
-  |  ...  # rest of the definition                                  |
-  |                                                                 |
-  |  --===CWL-BUNDLE===                                             |
-  |  Content-Type: application/cwl+yaml                             |
-  |  Content-Location: https://example.org/cwl/tools/tool-4.cwl     |
-  |  Content-Disposition: attachment; filename="tools/tool-4.cwl"   |
-  |                                                                 |
-  |  --===CWL-BUNDLE===                                             |
-  |  Content-Type: application/json                                 |
-  |  Content-Profile: <https://www.opengis.net/def/profile/OGC/0/ogc-process-description>
-  |                                                                 |
-  |  ...  # additional metadata for the process being deployed      |
-  |  --===CWL-BUNDLE===--                                           |
-  |---------------------------------------------------------------->|
-  |                                                                 |
-  |  HTTP/1.1 201 Created                                           |
-  |  Location: /processes/{processID}                               |
-  |<----------------------------------------------------------------|
+Client                                                            Server
+  |                                                                 |
+  |  POST /processes HTTP/1.1                                       |
+  |  Host: example.org                                              |
+  |  Content-Type: multipart/related; type="application/cwl+yaml"; start="<workflow-main@example.org>"; boundary="===CWL-BUNDLE==="
+  |  Content-ID: <workflow-main@example.com>                        |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-ID: <workflow-main@example.org>                        |
+  |  Content-Disposition: attachment; filename="workflows/main.cwl" |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: Workflow                                                |
+  |  id: workflow-main                                              |
+  |  steps:                                                         |
+  |    by_filename:                                                 |
+  |      run: "tools/tool-1.cwl"                                    |
+  |      ...  # rest of the definition                              |
+  |    by_cid_host:                                                 |
+  |      run: "cid:tool-2@example.org"                              |
+  |      ...  # rest of the definition                              |
+  |    by_cid_uuid:                                                 |
+  |      run: "cid:urn:uuid:550e8400-e29b-41d4-a716-446655440002"   |
+  |      ...  # rest of the definition                              |
+  |    by_remote_url:                                               |
+  |      run: "https://example.org/cwl/tools/tool-4.cwl"            |
+  |      ...  # rest of the definition                              |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-Disposition: attachment; filename="tools/tool-1.cwl"   |
+  |  Content-ID: <tool-1@example.org>                               |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: CommandLineTool                                         |
+  |  id: tool-1                                                     |
+  |  ...  # rest of the definition                                  |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-ID: <tool-2@example.org>                               |
+  |  Content-Disposition: attachment; filename="tools/tool-2.cwl"   |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: CommandLineTool                                         |
+  |  id: tool-2                                                     |
+  |  ...  # rest of the definition                                  |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-ID: <urn:uuid:550e8400-e29b-41d4-a716-446655440002>    |
+  |  Content-Disposition: attachment; filename="tools/tool-3.cwl"   |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: CommandLineTool                                         |
+  |  id: tool-3                                                     |
+  |  ...  # rest of the definition                                  |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-Location: https://example.org/cwl/tools/tool-4.cwl     |
+  |  Content-Disposition: attachment; filename="tools/tool-4.cwl"   |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/json                                 |
+  |  Content-Profile: <https://www.opengis.net/def/profile/OGC/0/ogc-process-description>
+  |                                                                 |
+  |  ...  # additional metadata for the process being deployed      |
+  |  --===CWL-BUNDLE===--                                           |
+  |---------------------------------------------------------------->|
+  |                                                                 |
+  |  HTTP/1.1 201 Created                                           |
+  |  Location: /processes/{processID}                               |
+  |<----------------------------------------------------------------|
 ```
 
 **Listing 16**
@@ -175,29 +175,29 @@ Client                                     
 The following partial example illustrates how the main CWL part can be represented by the `#main` identifier in accordance to the [CWL Packed documents](https://www.commonwl.org/v1.2/CommandLineTool.html#Packed_documents) representation, instead of using the multipart `start` parameter. In this case, the `Content-ID` header of the entire request (i.e.: [`<workflow-main@example.com>`](mailto:workflow-main@example.com)) indicates that the `{processID}` should be `workflow-main`, while the `Content-ID` within the part (i.e.: [`<#main@example.com>`](mailto:main@example.com)) indicates that this part is the main [CWL](bblocks://ogc.api.processes.part2.requirements.cwl) document. The rest of the definition is identical to the previous example.
 
 ```text
-Client                                                            Server
-  |                                                                 |
-  | POST /processes HTTP/1.1                                        |
-  | Host: example.org                                               |
-  | Content-Type: multipart/related; type="application/cwl+yaml"; boundary="===CWL-BUNDLE==="
-  | Content-ID: <workflow-main@example.com>                         |
-  |                                                                 |
-  | --===CWL-BUNDLE===                                              |
-  | Content-Type: application/cwl+yaml                              |
-  | Content-ID: <#main@example.org>                                 |
-  | Content-Disposition: attachment; filename="workflows/main.cwl"  |
-  |                                                                 |
-  | cwlVersion: v1.2                                                |
-  | class: Workflow                                                 |
-  | id: workflow-main                                               |
-  | ...  # rest of the definition                                   |
-  |                                                                 |
-  | --===CWL-BUNDLE===                                              |
-  | ...  # other parts are identical to the previous example        |
-  | --===CWL-BUNDLE===--                                            |
-  .                                                                 .
-  .                                                                 .
-  .                                                                 .
+Client                                                            Server
+  |                                                                 |
+  | POST /processes HTTP/1.1                                        |
+  | Host: example.org                                               |
+  | Content-Type: multipart/related; type="application/cwl+yaml"; boundary="===CWL-BUNDLE==="
+  | Content-ID: <workflow-main@example.com>                         |
+  |                                                                 |
+  | --===CWL-BUNDLE===                                              |
+  | Content-Type: application/cwl+yaml                              |
+  | Content-ID: <#main@example.org>                                 |
+  | Content-Disposition: attachment; filename="workflows/main.cwl"  |
+  |                                                                 |
+  | cwlVersion: v1.2                                                |
+  | class: Workflow                                                 |
+  | id: workflow-main                                               |
+  | ...  # rest of the definition                                   |
+  |                                                                 |
+  | --===CWL-BUNDLE===                                              |
+  | ...  # other parts are identical to the previous example        |
+  | --===CWL-BUNDLE===--                                            |
+  .                                                                 .
+  .                                                                 .
+  .                                                                 .
 ```
 
 **Listing 17**

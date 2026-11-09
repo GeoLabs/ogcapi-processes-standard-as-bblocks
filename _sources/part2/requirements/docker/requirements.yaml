@@ -19,83 +19,89 @@ conformance-class:
 requirements:
 - id: docker/schema
   statement: |
-    The value of the `value` field of the `executionUnit` property of an [OGC Application Package](#sec-7) SHALL be defined by the following OpenAPI schema fragment:
+    The value of the `value` field of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](#sec-7) SHALL be defined by the following OpenAPI schema fragment:
 
     ```yaml
     type: object
     required: image
     properties:
-      image:
-        description: |-
-          Container image reference for the execution unit.
-        type: string
-      deployment:
-        description: |-
-          Deployment information for the execution unit.
-        type: string
-        anyOf:
-          - type: string
-          - enum:
-              - local
-              - remote
-              - hpc
-              - cloud
-      config:
-        type: object
-        description: |-
-          Hardware requirements and configuration properties for executing the
-          process.
-        properties:
-          cpuMin:
-            description: |-
-              Minimum number of CPUs required to run the process (unit is CPU core).
-            type: number
-            minimum: 1
-          cpuMax:
-            description: |-
-              Maximum number of CPU dedicated to the process (unit is CPU core)
-            type: number
-          memoryMin:
-            description: |-
-              Minimum RAM memory required to run the application (unit is GB)
-            type: number
-          memoryMax:
-            description: |-
-              Maximum RAM memory dedicated to the application (unit is GB)
-            type: number
-          storageTempMin:
-            description: |-
-              Minimum required temporary storage size (unit is GB)
-            type: number
-          storageOutputsMin:
-            description: |-
-              Minimum required output storage size (unit is GB)
-            type: number
-          jobTimeout:
-            description: |-
-              Timeout delay for a job execution (in seconds)
-            type: number
-        additionalProperties: true
-      bindings:
-        type: object
-        properties:
-          inputBindings:
-            additionalProperties:
-              $ref: "inputBinding.yaml"
-          outputBindings:
-            additionalProperties:
-              $ref: "outputBinding.yaml"
+      image:
+        description: |-
+          Container image reference for the execution unit.
+        type: string
+      deployment:
+        description: |-
+          Deployment information for the execution unit.
+        type: string
+        anyOf:
+          - type: string
+          - enum:
+              - local
+              - remote
+              - hpc
+              - cloud
+      config:
+        type: object
+        description: |-
+          Hardware requirements and configuration properties for executing the
+          process.
+        properties:
+          cpuMin:
+            description: |-
+              Minimum number of CPUs required to run the process (unit is CPU core).
+            type: number
+            minimum: 1
+          cpuMax:
+            description: |-
+              Maximum number of CPU dedicated to the process (unit is CPU core)
+            type: number
+          memoryMin:
+            description: |-
+              Minimum RAM memory required to run the application (unit is GB)
+            type: number
+          memoryMax:
+            description: |-
+              Maximum RAM memory dedicated to the application (unit is GB)
+            type: number
+          storageTempMin:
+            description: |-
+              Minimum required temporary storage size (unit is GB)
+            type: number
+          storageOutputsMin:
+            description: |-
+              Minimum required output storage size (unit is GB)
+            type: number
+          jobTimeout:
+            description: |-
+              Timeout delay for a job execution (in seconds)
+            type: number
+        additionalProperties: true
+      bindings:
+        type: object
+        properties:
+          inputBindings:
+            additionalProperties:
+              $ref: "inputBinding.yaml"
+          outputBindings:
+            additionalProperties:
+              $ref: "outputBinding.yaml"
     additionalProperties: true
     ```
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.executionUnitContainer
+    table: false
 - id: docker/execution-unit
   parts:
-  - The value of the `type` field of the `executionUnit` property of an [OGC Application Package](#sec-7)
+  - The value of the `type` field of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](#sec-7)
     SHALL be `docker`.
-  - The value of the `image` field of the `executionUnit` property of an [OGC Application Package](#sec-7)
+  - The value of the `image` field of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](#sec-7)
     SHALL be a reference to the Docker image that should be executed.
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.executionUnitBase
+    table: false
 - id: docker/deployment
   parts:
-  - The `deployment` field of the `executionUnit` property of an [OGC Application Package](#sec-7) SHALL
+  - The `deployment` field of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](#sec-7) SHALL
     be used to indicate where the Docker image, containing the executable code of a process, should be
     executed.
   - |
@@ -116,9 +122,12 @@ requirements:
     - **cloud**
 
       - The Docker image SHALL to be run on a cloud platform (e.g. AWS EKS).
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.executionUnitContainer
+    table: false
 - id: docker/config
   parts:
-  - The `config` field of the `executionUnit` property of an [OGC Application Package](#sec-7) SHALL be
+  - The `config` field of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](#sec-7) SHALL be
     used to convey to the processing server hardware and configuration requirements for running the Docker
     image encapsulating the executable code of a process.
   - |
@@ -151,13 +160,19 @@ requirements:
     - **jobTimeout**
 
       - Timeout delay for a job execution (in seconds)
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.executionUnitContainer
+    table: false
 - id: docker/bindings
   parts:
-  - The `bindings` field of the `executionUnit` property of an [OGC Application Package](#sec-7) SHALL
+  - The `bindings` field of the [`executionUnit` property](#sec-7.4) of an [OGC Application Package](#sec-7) SHALL
     be used to map the inputs and outputs of a process to arguments to be used in the invocation of the
     execution unit (e.g. command line arguments).
   - The `inputBindings` field SHALL be used to specify the binding information for a process’ inputs.
   - The `outputBindings` field SHALL be used to specify the binding information for a process’ outputs.
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.executionUnitContainer
+    table: false
 - id: docker/input-binding
   statement: |
     The schema of an input binding SHALL be defined by the following OpenAPI schema fragment:
@@ -167,62 +182,68 @@ requirements:
     ```yaml
     type: object
     description: |-
-      . Defines how to specify the input for the execution unit.
-      . The value of various properties defined below can be expressions.
-          . The expression language SHALL be JavaScript(???).
-      . The "$(...)" syntax can be used to reference the current input or other
-        process inputs in an expression.
-        . The value "self" refers to the value of the current input.
-        . The value "inputs.<other_input>" refers to the value of another
-          process input.
-        . If the input is defined as a string of format "file" or "directory"
-          then the meta-values ".path", ".basename", ".nameroot" and ".nameext"
-          can be used to manipulate file or directory name without having to
-          resort to complex regular expressions.
-            . ".path" returns the path of a file name without the file name
-            . ".basename" returns the name of the file without the path
-            . ".nameroot" returns the basename without any extension
-            . ".nameext" returns the extension of the basename
+      . Defines how to specify the input for the execution unit.
+      . The value of various properties defined below can be expressions.
+          . The expression language SHALL be JavaScript(???).
+      . The "$(...)" syntax can be used to reference the current input or other
+        process inputs in an expression.
+        . The value "self" refers to the value of the current input.
+        . The value "inputs.<other_input>" refers to the value of another
+          process input.
+        . If the input is defined as a string of format "file" or "directory"
+          then the meta-values ".path", ".basename", ".nameroot" and ".nameext"
+          can be used to manipulate file or directory name without having to
+          resort to complex regular expressions.
+            . ".path" returns the path of a file name without the file name
+            . ".basename" returns the name of the file without the path
+            . ".nameroot" returns the basename without any extension
+            . ".nameext" returns the extension of the basename
     properties:
-      prefix:
-        description: Command line prefix to add before the value.
-        type: string
-      position:
-        description: |-
-          . The zero-based sorting key.
-          . The value can be an integer or a string.
-          . If the value is a string then it should be an expression that evaluates
-            to a single integer value or null.
-        oneOf:
-          - type: integer
-          - type: string
-      valueFrom:
-        description: |-
-          . If valueFrom is a constant string value, use this as the value.
-          . If valueFrom is an expression, evaluate the expression to yield the
-            actual value to use to build the command line.
-          . If the value of the associated input parameter is null, valueFrom is
-            not evaluated and nothing is added to the command line.
-        type: string
-      itemSeparator:
-        description: |-
-          Join the array elements into a single string with the elements separated
-          by itemSeparator.
-        type: string
-      shellQuote:
-        description: |-
-          . A Boolean that controls whether the value is quoted on the command.
-          . A value of true (or if shecllQuote is not provided) means that the
-            implementation SHALL not permit the interpretation of any shell
-            metacharacters or directives.
-          . A value of false should be used to inject metacharacters for operations
-            such as pipes.
-        type: boolean
+      prefix:
+        description: Command line prefix to add before the value.
+        type: string
+      position:
+        description: |-
+          . The zero-based sorting key.
+          . The value can be an integer or a string.
+          . If the value is a string then it should be an expression that evaluates
+            to a single integer value or null.
+        oneOf:
+          - type: integer
+          - type: string
+      valueFrom:
+        description: |-
+          . If valueFrom is a constant string value, use this as the value.
+          . If valueFrom is an expression, evaluate the expression to yield the
+            actual value to use to build the command line.
+          . If the value of the associated input parameter is null, valueFrom is
+            not evaluated and nothing is added to the command line.
+        type: string
+      itemSeparator:
+        description: |-
+          Join the array elements into a single string with the elements separated
+          by itemSeparator.
+        type: string
+      shellQuote:
+        description: |-
+          . A Boolean that controls whether the value is quoted on the command.
+          . A value of true (or if shecllQuote is not provided) means that the
+            implementation SHALL not permit the interpretation of any shell
+            metacharacters or directives.
+          . A value of false should be used to inject metacharacters for operations
+            such as pipes.
+        type: boolean
     additionalProperties: true
     ```
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.inputBinding
+    table: false
 - id: docker/expression-lang
   statement: The language that SHALL be used to specify an expression as the value of a binding parameter
     SHALL be [CQL2](https://docs.ogc.org/is/21-065r2/21-065r2.html).
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.inputBinding
+    table: false
 - id: docker/output-binding
   parts:
   - |
@@ -234,21 +255,24 @@ requirements:
     type: object
     description: Defines how to retrieve the output result from the command.
     properties:
-      glob:
-        description: |-
-          . Wildcard pattern to find the output on disk or mounted volume.
-          . Uses UNIX "glob" wildcard patterns (see: "man 7 glob").
-          . See inputBinding.yaml for referencing input values in an output
-            binding "glob" expression.
-        oneOf:
-          - type: string
-          - type: array
-            items:
-              type: string
+      glob:
+        description: |-
+          . Wildcard pattern to find the output on disk or mounted volume.
+          . Uses UNIX "glob" wildcard patterns (see: "man 7 glob").
+          . See inputBinding.yaml for referencing input values in an output
+            binding "glob" expression.
+        oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
     additionalProperties: true
     ```
   - The value of the `glob` parameter SHALL be a regular expression using the syntax defined for the [UNIX
     glob program](https://www.man7.org/linux/man-pages/man7/glob.7.html).
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.outputBinding
+    table: false
 abstract-tests:
 - id: docker/deploy-body
   requirement: /rec/deploy-replace-undeploy/deploy-body-docker

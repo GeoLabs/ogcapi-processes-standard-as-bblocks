@@ -108,7 +108,7 @@ standards:
 
       The OGC API Processes Standard (aka Processes API) defines API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. OGC API Processes is comprised of multiple parts, each of them is a separate OGC Standard.
 
-      OGC API — Processes — Part 2: Deploy, Replace, Undeploy extends the core capabilities specified in OGC API — Processes — Part 1: Core \[OGC 18-062r2\] with the ability to dynamically add, modify and/or delete individual processes using an implementation (endpoint) of the OGC API — Processes Standard.
+      OGC API — Processes — Part 2: Deploy, Replace, Undeploy extends the core capabilities specified in OGC API — Processes — Part 1: Core \[[OGC 18-062r2](#OAProc-1)\] with the ability to dynamically add, modify and/or delete individual processes using an implementation (endpoint) of the OGC API — Processes Standard.
 
       <div class="admonition">
 
