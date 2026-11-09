@@ -1,0 +1,47 @@
+{
+  "standard": "part1",
+  "blocks": [
+    {
+      "bblock": "ogc.api.processes.part1.clauses.scope",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.clauses.references",
+      "itemClass": "references",
+      "role": "references",
+      "reason": "itemClass 'references'",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.clauses.terms",
+      "itemClass": "terms",
+      "role": "terms",
+      "reason": "itemClass 'terms'",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.clauses.conventions",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.requirements.core",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.requirements.json",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    }
+  ]
+}

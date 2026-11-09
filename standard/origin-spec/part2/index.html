@@ -1,0 +1,4407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20-044 — OGC API - Processes - Part 2: Deploy, Replace, Undeploy</title>
+  <link rel="stylesheet" href="ogc-standard.css">
+</head>
+<body data-status="Draft">
+
+
+<header id="cover">
+  <h1>OGC API - Processes - Part 2: Deploy, Replace, Undeploy</h1>
+  <div class="doc-meta">
+    <span><strong>Document:</strong> 20-044</span>
+    <span><strong>Type:</strong> Standard</span>
+    <span><strong>Status:</strong> Draft</span>
+    <span><strong>Version:</strong> 1.0</span>
+    
+    <span><strong>Date:</strong> yyyy-mm-dd</span>
+    
+  </div>
+  
+  <table class="editors-table">
+    <tr><th>Editors</th><th>Affiliation</th></tr>
+    
+    <tr><td>Panagiotis (Peter) A. Vretanos</td><td>CubeWerx Inc.</td></tr>
+    
+    <tr><td>Gérald Fenoy</td><td>GeoLabs</td></tr>
+    
+    <tr><td>Francis Charette-Migneault</td><td>Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM)</td></tr>
+    
+  </table>
+  
+  
+  
+  <p><strong>Keywords:</strong> process, collection, instance, spatial, data, openapi, transactions, insert, update, delete, add, remove, deploy, undeploy, REST, PUT, POST, DELETE</p>
+  
+  <div class="doc-abstract">
+    <strong>Abstract</strong>
+    <p>OGC API Standards define modular API building blocks to spatially enable Web APIs in a consistent way. The [OpenAPI specification](https://spec.openapis.org/oas/) is used to define the API building blocks.
+
+The OGC API Processes Standard (aka Processes API) defines API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. OGC API Processes is comprised of multiple parts, each of them is a separate OGC Standard.
+
+OGC API — Processes — Part 2: Deploy, Replace, Undeploy extends the core capabilities specified in OGC API — Processes — Part 1: Core \[[OGC 18-062r2](#OAProc-1)\] with the ability to dynamically add, modify and/or delete individual processes using an implementation (endpoint) of the OGC API — Processes Standard.
+
+<div class="admonition">
+
+**CAUTION**
+
+This is a DRAFT version of the 2nd part of the OGC API — Processes standards. This draft is not complete and there are open issues that are still under discussion.
+
+</div>
+</p>
+  </div>
+
+  
+  <div class="boilerplate">
+    <p><strong>Copyright notice</strong><br>
+    Copyright &copy; 2019 Open Geospatial Consortium.<br>
+    To obtain additional rights of use, visit <a href="http://www.opengeospatial.org/legal/">http://www.opengeospatial.org/legal/</a>.</p>
+
+    
+
+    
+  </div>
+</header>
+
+
+<nav id="toc">
+  <h2>Table of Contents</h2>
+  <ul>
+    
+    <li>
+      <a href="#clause-1">1. Scope</a>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-2">2. Conformance</a>
+      
+    </li>
+    
+    <li>
+      <a href="#references">3. Normative References</a>
+      
+    </li>
+    
+    <li>
+      <a href="#terms">4. Terms and Definitions</a>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-5">5. Conventions and background</a>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-6">6. Deploy, Replace, Undeploy</a>
+      
+      <ul>
+        
+        <li><a href="#overview">Overview</a></li>
+        
+        <li><a href="#http-status-codes">HTTP status codes</a></li>
+        
+        <li><a href="#cross-origin-requests">Cross-origin requests</a></li>
+        
+        <li><a href="#immutable-processes">Immutable processes</a></li>
+        
+        <li><a href="#resource-endpoints">Resource endpoints</a></li>
+        
+        <li><a href="#deploying-a-new-process-to-the-api">Deploying a new process to the API</a></li>
+        
+        <li><a href="#replacing-an-existing-processes">Replacing an existing processes</a></li>
+        
+        <li><a href="#removing-a-processes-from-the-api-undeployprocess">Removing a processes from the API (undeployProcess)</a></li>
+        
+        <li><a href="#application-package-retrieval">Application package retrieval</a></li>
+        
+        <li><a href="#req-clause-6-requirements">Requirements</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-7">7. OGC Application Package</a>
+      
+      <ul>
+        
+        <li><a href="#overview">Overview</a></li>
+        
+        <li><a href="#schema">Schema</a></li>
+        
+        <li><a href="#processdescription-property">processDescription property</a></li>
+        
+        <li><a href="#executionunit-property">executionUnit property</a></li>
+        
+        <li><a href="#media-types-in-operations">Media types in operations</a></li>
+        
+        <li><a href="#req-clause-7-requirements">Requirements</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-8">8. Docker</a>
+      
+      <ul>
+        
+        <li><a href="#overview">Overview</a></li>
+        
+        <li><a href="#schema">Schema</a></li>
+        
+        <li><a href="#properties-type-and-image">Properties type and image</a></li>
+        
+        <li><a href="#property-deployment">Property deployment</a></li>
+        
+        <li><a href="#property-config">Property config</a></li>
+        
+        <li><a href="#property-bindings">Property bindings</a></li>
+        
+        <li><a href="#req-clause-8-requirements">Requirements</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-9">9. CWL</a>
+      
+      <ul>
+        
+        <li><a href="#sending-cwl-embedded-in-an-ogc-application-package">Sending CWL embedded in an OGC Application Package</a></li>
+        
+        <li><a href="#sending-cwl-directly">Sending CWL directly</a></li>
+        
+        <li><a href="#w-parameter">w parameter</a></li>
+        
+        <li><a href="#media-types-in-operations">Media types in operations</a></li>
+        
+        <li><a href="#req-clause-9-requirements">Requirements</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-10">10. OpenAPI 3.0</a>
+      
+    </li>
+    
+    <li>
+      <a href="#clause-11">11. Media Types</a>
+      
+    </li>
+    
+    <li>
+      <a href="#annex-a">A. Abstract Test Suite (Normative)</a>
+      
+    </li>
+    
+    <li>
+      <a href="#annex-b">B. Revision History</a>
+      
+    </li>
+    
+    <li>
+      <a href="#annex-c">C. Bibliography</a>
+      
+    </li>
+    
+  </ul>
+</nav>
+
+<main>
+
+  
+  
+
+  
+  
+  <section id="clause-1" >
+    <h2>1. Scope</h2>
+    <p>The OGC API — Processes — Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard [<a href="#OAProc-1">OGC 18-062r2</a>] and defines the behavior of a server that supports the ability to dynamically add, replace and/or undeploy processes via an OGC API — Processes implementation instance.</p>
+<p>Specifically, the Processes Part 2 Standard specifies:</p>
+<ul>
+<li>How to deploy a new process.</li>
+<li>How to replace an existing process.</li>
+<li>How to undeploy an existing process.</li>
+</ul>
+<p>The following table crosswalks each of the resource endpoints discussed in this Standard with the HTTP methods POST, PUT and DELETE. Each intersecting cell in the table either contains the name of the operation for that combination of resource endpoint and HTTP method, or it contains the phrase “n/a” which is used to indicate that this Standard does not specify any behavior for that combination of resource endpoints and the HTTP method.</p>
+<p><strong>Table 1 — Supported HTTP methods by resource</strong></p>
+<table><colgroup><col><col><col><col><col></colgroup><thead><tr><th>Resource endpoint</th><th colspan="4">HTTP method</th></tr></thead><tbody><tr><td></td><td><b>GET</b></td><td><b>POST</b></td><td><b>PUT</b></td><td><b>DELETE</b></td></tr><tr><td><tt>/processes</tt></td><td>n/a</td><td><a href="#sec-6.6">deploy</a></td><td>n/a</td><td>n/a</td></tr><tr><td><tt>/processes/{processID}</tt></td><td>n/a</td><td>n/a</td><td><a href="#sec-6.7">replace</a></td><td><a href="#sec-6.8">undeploy</a></td></tr><tr><td><tt>/processes/{processID}/package</tt></td><td><a href="#sec-6.9">package</a></td><td>n/a</td><td>n/a</td><td>n/a</td></tr></tbody></table>
+
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-2" >
+    <h2>2. Conformance</h2>
+    <p>The OGC API — Processes — Part 2 Standard defines the following requirements classes.</p>
+<p>The main requirements class is:</p>
+<ul>
+<li><a href="#bb-ogc-api-processes-part2-requirements-dru">Deploy, Replace, Undeploy</a>.</li>
+</ul>
+<p>This class specifies requirements that any Web API implementing Processes Part 2 must conform with.</p>
+<p>The <code>Deploy, Replace, Undeploy</code> class does not mandate a specific encoding or format for the formal definition of a process. However, the Part 2 extension defines the following conformance class:</p>
+<ul>
+<li><a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a></li>
+</ul>
+<p>The <code>OGC Application Package</code> class defines the schema of a document that formally defines the inputs, outputs and other necessary metadata about a process that is to be dynamically deployed through the API.</p>
+<p>The Application Package encoding is not mandatory. An implementation of this Standard may choose to implement some other process description instead. That said, the <code>Deploy, Replace, Undeploy</code> conformance class includes recommendations to support the <code>OGC Application Package</code>.</p>
+<p>A requirement class is dedicated to the deployment of containers as processes:</p>
+<ul>
+<li><a href="#bb-ogc-api-processes-part2-requirements-docker">Docker</a></li>
+</ul>
+<p>In addition to the previous encoding, another conformance class is provided to enable support for the Common Workflow Language (CWL):</p>
+<ul>
+<li><a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a></li>
+</ul>
+<p>The standardization target for all Conformance class defined in this Standard is “Web API”.</p>
+<p>Conformance with this Standard shall be checked using all the relevant tests specified in <a href="#sec-A">[ats]</a> of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
+
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="references">
+    <h2>3. Normative References</h2>
+    <p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
+
+    
+    <div class="reference-entry">
+      <span class="ref-id">IETF RFC 2387</span>
+      <span class="ref-body">
+        <a href="https://www.rfc-editor.org/info/rfc2387">The MIME Multipart/Related Content-type</a>
+        
+      </span>
+    </div>
+    
+    <div class="reference-entry">
+      <span class="ref-id">IETF RFC 6902</span>
+      <span class="ref-body">
+        <a href="https://www.rfc-editor.org/info/rfc6902">JavaScript Object Notation (JSON) Patch</a>
+        
+      </span>
+    </div>
+    
+    <div class="reference-entry">
+      <span class="ref-id">OGC 17-069r3</span>
+      <span class="ref-body">
+        <a href="http://www.opengis.net/doc/IS/ogcapi-features-1/1.0.0">OGC API — Features — Part 1: Core</a>
+        
+      </span>
+    </div>
+    
+    <div class="reference-entry">
+      <span class="ref-id">OGC 18-062r2</span>
+      <span class="ref-body">
+        <a href="http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0">OGC API — Processes — Part 1: Core</a>
+        
+      </span>
+    </div>
+    
+    <div class="reference-entry">
+      <span class="ref-id">OGC 20-004r1</span>
+      <span class="ref-body">
+        <a href="http://www.opengis.net/doc/IS/ogcapi-records-1/1.0">OGC API — Records — Part 1: Core</a>
+        
+      </span>
+    </div>
+    
+    
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="terms">
+    <h2>4. Terms and Definitions</h2>
+    <p>This document uses the terms defined in <a href="https://portal.ogc.org/public_ogc/directives/directives.php">OGC Policy Directive 49</a>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this document and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.</p>
+<p>This document also uses terms defined in the OGC Standard for Modular specifications (<a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131r3</a>), also known as the ‘ModSpec’. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.</p>
+<p>For the purposes of this document, the following additional terms and definitions apply.</p>
+
+    
+    <div class="term-entry" id="term-deploy">
+      <span class="term-name">Deploy</span>:
+      Deploy refers to installing a desired execution unit onto a Processes API server so that client applications can interact with it as a process using the Processes API Part 1 Standard.
+      
+      
+    </div>
+    
+    <div class="term-entry" id="term-execution-unit">
+      <span class="term-name">Execution unit</span>:
+      A component containing a process that an implementation of the Processes API Part 1 can run.
+      
+      
+    </div>
+    
+    <div class="term-entry" id="term-replace">
+      <span class="term-name">Replace</span>:
+      Replace refers to upgrading a deployed process from a Processes API implementation.
+      
+      
+    </div>
+    
+    <div class="term-entry" id="term-undeploy">
+      <span class="term-name">Undeploy</span>:
+      Undeploy refers to removing a deployed process from a Processes API implementation so that it does not appear as an available process.
+      
+      
+    </div>
+    
+    
+    <div class="abbreviated-terms">
+      <h3>Abbreviated Terms</h3>
+      <table>
+        
+        <tr><td><strong>CWL</strong></td><td>Common Workflow Language</td></tr>
+        
+        <tr><td><strong>DRU</strong></td><td>Deploy, Replace, Undeploy</td></tr>
+        
+      </table>
+    </div>
+    
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-5" >
+    <h2>5. Conventions and background</h2>
+    <p>See <a href="#OAProc-1">OGC 18-062r2</a>, Clause 5.</p>
+
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-6" class="requirements-class">
+    <h2>6. Deploy, Replace, Undeploy</h2>
+
+    
+    <div class="req-class-box" id="bb-ogc-api-processes-part2-requirements-dru">
+      <h4>Requirements Class</h4>
+      <table>
+        <tr><th>Requirements class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy</a></td></tr>
+        <tr><th>Conformance class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy">https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy</a></td></tr>
+        <tr><th>Standardization target</th><td>Web API</td></tr>
+        
+        <tr>
+          <th>Dependencies</th>
+          <td>
+            
+            <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core">OGC API — Processes — Part 1: Core, Conformance Class ‘core’</a><br>
+            
+            <a href="http://www.opengis.net/spec/ogcapi-features-4/1.0/conf/create-replace-delete">OGC API — Features — Part 4: Create, Replace, Update and Delete, Conformance Class “Create/Replace/Delete”</a><br>
+            
+            <a href="https://www.rfc-editor.org/info/rfc2616">RFC 2616 (HTTP/1.1)</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+
+    
+    <h3 id="overview">Overview</h3>
+<!-- requirements-class -->
+<p>A server that implements the DRU Requirements Class provides the ability to dynamically deploy, replace and undeploy processes.</p>
+<p>The HTTP POST method is used to deploy a new process to the API.</p>
+<p>The HTTP PUT method is used to replace the definition of a previously deployed processes that are accessible via the Processes API endpoint.</p>
+<p>Finally, the HTTP DELETE method is used to undeploy a previously deployed process that is accessible via the Processes API endpoint.</p>
+<p>Deploying or replacing a process requires that a formal description of the new or replacement process be provided by the client. This Standard does not mandate that a specific processes description language or vocabulary be used. However, to promote interoperability, this Standard defines two conformance classes:</p>
+<ul>
+<li><a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a>, that defines a formal process description language encoded using JSON,</li>
+<li><a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a>, that enables support for CWL-encoded process definition.</li>
+</ul>
+<p>A recommendation is made later in this Standard that all implementations of Processes API Part 2 extension support the <code>OGC Application Package</code>.</p>
+<h3 id="http-status-codes">HTTP status codes</h3>
+<p>Clients implementing the Processes API Part 2 should be prepared to handle any legal HTTP or HTTPS status code.</p>
+<p>The <strong>Status Codes</strong> listed in <a href="#status_codes">Table 2</a> are of particular relevance to implementors of this Standard. Status codes 200, 201 and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations. The remainder of the status codes in <a href="#status_codes">Table 2</a> are not mandatory, but are important for the implementation of a well functioning API implementation. Support for these status codes is strongly encouraged for both client and server implementations.</p>
+<p><span id="status_codes"></span><strong>Table 2 — Typical HTTP status codes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200</code></td>
+<td>A successful request.</td>
+</tr>
+<tr>
+<td><code>201</code></td>
+<td>The server has successfully completed the operation and a new resource has been created.</td>
+</tr>
+<tr>
+<td><code>202</code></td>
+<td>The request was accepted for processing, but the processing was not completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.</td>
+</tr>
+<tr>
+<td><code>204</code></td>
+<td>A successful request with no additional content to send in the response.</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>The request requires user authentication. The response includes a <code>WWW-Authenticate</code> header field containing a challenge applicable to the requested resource.</td>
+</tr>
+<tr>
+<td><code>403</code></td>
+<td>The server understood the request, but is refusing to execute the request. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but that the client is not authorized to perform the requested operation on the resource.</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>The requested resource does not exist on the server. For example, a path parameter had an incorrect value.</td>
+</tr>
+<tr>
+<td><code>405</code></td>
+<td>The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.</td>
+</tr>
+<tr>
+<td><code>406</code></td>
+<td>Content negotiation failed. For example, the <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</td>
+</tr>
+<tr>
+<td><code>412</code></td>
+<td>The status code indicates that one or more conditions given in the request header fields evaluated to false when tested by the server.</td>
+</tr>
+<tr>
+<td><code>413</code></td>
+<td>The server is refusing to process the request because the request content is larger than the server is willing or able to process.</td>
+</tr>
+<tr>
+<td><code>415</code></td>
+<td>The server is refusing to service the request because the content is in a format not supported by this method on the target resource.</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>The server understands the content type of the request content and the syntax of the request content is correct, but was unable to process the contained instructions. For example, the submitted resource does not meet a semantic constraint, e.g. a mandatory property is missing.</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>An internal error occurred in the server.</td>
+</tr>
+</tbody>
+</table>
+<p>More specific guidance is provided for each resource, where applicable.</p>
+<!-- permission: deploy-replace-undeploy/additional-status-codes -->
+<p>The API Description Document describes the HTTP status codes generated by that API implementation instance. This should not be an exhaustive list of all possible status codes. It is not reasonable to expect an API designer to control the use of HTTP status codes which are not generated by their software. Therefore, it is recommended that the API Description Document be limited to describing HTTP status codes relevant to the proper operation of the API application logic. Client implementations should be prepared to receive HTTP status codes in addition to those described in the API Description Document.</p>
+<h3 id="cross-origin-requests">Cross-origin requests</h3>
+<p>See <a href="#OAFeat-1">OGC API — Features — Part 1: Core</a>, section <a href="https://www.opengis.net/doc/IS/ogcapi-features-1/1.0#cross_origin">Support for cross-origin requests</a>, about the importance of supporting cross-origin requests, typically via <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">Cross-origin resource sharing (CORS)</a>.</p>
+<h3 id="immutable-processes">Immutable processes</h3>
+<p>The Processes API Part 2 extension recognizes that an OGC web processing API may be deployed with a set of static, built-in processes that are immutable and cannot be removed or modified via requests from a deploy-replace-undeploy API implementation. In an API Description Document (e.g. OpenAPI), such process paths would not include support for the HTTP POST, PUT or DELETE methods.</p>
+<p>However, to make it clear which processes in a collection (path: <code>/processes</code>) are built-in — and thus immutable — and which have been dynamically deployed, the processes collection schema is modified to add a flag indicating this aspect of a process.</p>
+<!-- requirement: deploy-replace-undeploy/static-indicator -->
+<p>The following schema fragment extends the process summary accessible via the <code>/processes</code> path to add the <code>mutable</code> property.</p>
+<pre><code class="language-yaml">allOf:
+  - $ref: &quot;https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processSummary.yaml&quot;
+  - type: object
+    properties:
+      mutable:
+        type: boolean
+        default: true
+</code></pre>
+<h3 id="resource-endpoints">Resource endpoints</h3>
+<!-- requirement: deploy-replace-undeploy/resource-endpoints -->
+<!-- requirement: deploy-replace-undeploy/resource-endpoint -->
+<h3 id="deploying-a-new-process-to-the-api">Deploying a new process to the API</h3>
+<h4 id="sequence-diagram">Sequence diagram</h4>
+<p>The following diagram illustrates the sequence diagram for deploying a new process to the API:</p>
+<p><strong>Example — Process deployment example.</strong></p>
+<div class="example">
+<pre><code class="language-text">Client                                                        Server
+  |                                                             |
+  |  POST /processes   HTTP/1.1                                 |
+  |  Content-Type: application/ogcapppkg+json                   |
+  |                                                             |
+  |  ... Body contains a formal description of the process to   |
+  |      add (e.g. OGC Application Package) ...                 |
+  |------------------------------------------------------------&gt;|
+  |                                                             |
+  |  HTTP/1.1 201 Created                                       |
+  |  Location: /processes/{processID}                           |
+  |&lt;------------------------------------------------------------|
+</code></pre>
+</div>
+<h4 id="operation">Operation</h4>
+<!-- requirement: deploy-replace-undeploy/deploy-post-op -->
+<h4 id="request-body">Request body</h4>
+<h5 id="process-description">Process description</h5>
+<!-- requirement: deploy-replace-undeploy/deploy-body -->
+<!-- permission: deploy-replace-undeploy/deploy-body -->
+<!-- requirement: deploy-replace-undeploy/deploy-content-type -->
+<p>See <a href="https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5">section 3.1.1.5 of RFC 7231</a> for details.</p>
+<h5 id="ogc-application-package-body">OGC Application Package body</h5>
+<!-- recommendation: deploy-replace-undeploy/deploy-body-ogcapppkg -->
+<h5 id="cwl-body">CWL body</h5>
+<!-- recommendation: deploy-replace-undeploy/deploy-body-cwl -->
+<h4 id="response">Response</h4>
+<!-- requirement: deploy-replace-undeploy/deploy-response-pid -->
+<!-- requirement: deploy-replace-undeploy/deploy-response-success -->
+<!-- requirement: deploy-replace-undeploy/deploy-response-body -->
+<h4 id="exceptions">Exceptions</h4>
+<p>See <a href="#sec-6.2">Clause 6.2</a> for general guidance.</p>
+<!-- requirement: deploy-replace-undeploy/deploy-unsupported-media-type -->
+<!-- requirement: deploy-replace-undeploy/deploy-response-duplicate -->
+<!-- requirement: deploy-replace-undeploy/deploy-response-immutable -->
+<h3 id="replacing-an-existing-processes">Replacing an existing processes</h3>
+<h4 id="sequence-diagram">Sequence diagram</h4>
+<p>The following diagram illustrates the sequence diagram for replacing a previously deployed processes. The identifier of the process does not change.</p>
+<div class="note">
+<p><strong>NOTE:</strong> The new process definition replaces the old process definition. Version control is not discussed in this Standard.</p>
+</div>
+<p><strong>Example — Process replacement example.</strong></p>
+<div class="example">
+<pre><code class="language-text">Client                                                        Server
+  |                                                             |
+  |  PUT /processes/{processID}   HTTP/1.1                      |
+  |  Content-Type: application/ogcapppkg+json                   |
+  |                                                             |
+  |  ... Body contains a formal description of the process to   |
+  |      replace the existing process (e.g. OGC Application     |
+  |      Package) ...                                           |
+  |------------------------------------------------------------&gt;|
+  |                                                             |
+  |  HTTP/1.1 204 OK                                            |
+  |&lt;------------------------------------------------------------|
+</code></pre>
+</div>
+<h4 id="operation">Operation</h4>
+<!-- requirement: deploy-replace-undeploy/replace-put-op -->
+<h4 id="request-body">Request body</h4>
+<h5 id="process-description">Process description</h5>
+<!-- requirement: deploy-replace-undeploy/replace-body -->
+<!-- permission: deploy-replace-undeploy/replace-body -->
+<!-- requirement: deploy-replace-undeploy/replace-content-type -->
+<h5 id="ogc-application-package-body">OGC Application Package body</h5>
+<!-- recommendation: deploy-replace-undeploy/replace-body-ogcapppkg -->
+<h5 id="cwl-body">CWL body</h5>
+<!-- recommendation: deploy-replace-undeploy/replace-body-cwl -->
+<h4 id="response">Response</h4>
+<!-- requirement: deploy-replace-undeploy/replace-response -->
+<!-- requirement: deploy-replace-undeploy/replace-response-body -->
+<!-- permission: deploy-replace-undeploy/replace-response-insert -->
+<p>The status code depends on the server. If the server has replaced the process, the response is either <code>200</code> (if the response includes additional content) or <code>204</code> (if the response has no additional content).</p>
+<p>If the server will process the replace request later, a <code>202</code> status code will be returned. In this case, the processing can succeed or fail, without further notification to the client.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>See <a href="#sec-6.2">Clause 6.2</a> for general guidance.</p>
+<p>If the request body’s media type is not supported by the server, then <a href="#req-deploy-replace-undeploy-deploy-unsupported-media-type">/req/deploy-replace-undeploy/deploy/unsupported-media-type</a> applies.</p>
+<p>If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <a href="#OAProc-1">OGC 18-062r2</a>.</p>
+<p>If the process exist but is immutable then <a href="#req-deploy-replace-undeploy-deploy-response-immutable">/req/deploy-replace-undeploy/deploy/response-immutable</a> applies.</p>
+<h3 id="removing-a-processes-from-the-api-undeployprocess">Removing a processes from the API (undeployProcess)</h3>
+<h4 id="sequence-diagram">Sequence diagram</h4>
+<p>The following diagram illustrates the sequence diagram for undeploying a previously deployed process.</p>
+<p><strong>Example — Process undeployment example.</strong></p>
+<div class="example">
+<pre><code class="language-text">Client                                                        Server
+  |                                                             |
+  |  DELETE /processes/{processID}   HTTP/1.1                   |
+  |------------------------------------------------------------&gt;|
+  |                                                             |
+  |  HTTP/1.1 204 OK                                            |
+  |&lt;------------------------------------------------------------|
+</code></pre>
+</div>
+<h4 id="operation">Operation</h4>
+<!-- requirement: deploy-replace-undeploy/undeploy-delete-op -->
+<h4 id="response">Response</h4>
+<!-- requirement: deploy-replace-undeploy/undeploy-response -->
+<h4 id="exceptions">Exceptions</h4>
+<p>See <a href="#sec-6.2">HTTP status codes</a> for general guidance.</p>
+<p>If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <a href="#OAProc-1">OGC 18-062r2</a>.</p>
+<p>If the process exist but is immutable then <a href="#req-deploy-replace-undeploy-deploy-response-immutable">/req/deploy-replace-undeploy/deploy/response-immutable</a> applies.</p>
+<h3 id="application-package-retrieval">Application package retrieval</h3>
+<h4 id="overview">Overview</h4>
+<p>When a dynamic process is deployed or replaced an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">application package</a> is used to provide a formal description of that process to the processing server. The operation defined in this clause allows the last <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">application package</a> used to create or replace a dynamic process to be retrieved from the server.</p>
+<h4 id="operation">Operation</h4>
+<!-- requirement: deploy-replace-undeploy/package-get-op -->
+<h4 id="response">Response</h4>
+<!-- requirement: deploy-replace-undeploy/package-response-success -->
+<!-- requirement: deploy-replace-undeploy/package-response-body -->
+<p>See also: <a href="#sec-7">OGC Application Package</a>.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>See <a href="#sec-6.2">HTTP status codes</a> for general guidance.</p>
+<p>If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <a href="#OAProc-1">OGC 18-062r2</a>.</p>
+<p>If the process exist but is immutable then <a href="#req-deploy-replace-undeploy-deploy-response-immutable">/req/deploy-replace-undeploy/deploy/response-immutable</a> applies.</p>
+
+
+    
+    
+    <h3 id="req-clause-6-requirements">Requirements</h3>
+    
+
+    
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-additional-status-codes">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/1</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/additional-status-codes">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/additional-status-codes</a></span>
+      </div>
+      
+      <div class="req-statement"><p>Servers MAY support other HTTP protocol capabilities. Therefore, the server may return other status codes than those listed in <a href="#status_codes">Table 2</a>.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-static-indicator">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/2</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/static-indicator">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/static-indicator</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-resource-endpoints">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/3</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/resource-endpoints">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/resource-endpoints</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-resource-endpoint">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/4</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/resource-endpoint">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/resource-endpoint</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-post-op">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/5</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-post-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-post-op</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The server SHALL support the HTTP POST operation at the resources endpoint (path <code>/processes</code>).</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/6</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The body of the POST request SHALL contain a formal description of the process to be dynamically deployed to the API.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/7</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>A server MAY support any processes description encoding in the body of a HTTP POST operation.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-content-type">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/8</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-content-type">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-content-type</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The <code>Content-Type</code> <a href="https://tools.ietf.org/html/rfc2616#section-14.17">header</a> SHALL be used to declare the media type of the request body containing a description of the processes to be added to the API.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-body-ogcapppkg">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/9</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body-ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body-ogcapppkg</a></span>
+      </div>
+      
+      <div class="req-statement"><p>If a process can be represented for the intended use as an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package Conformance Class</a> for describing the process to be added to the API.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-body-cwl">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/10</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body-cwl">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body-cwl</a></span>
+      </div>
+      
+      <div class="req-statement"><p>If a process can be encoded for the intended use in <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL Conformance Class</a> for describing the process to be deployed to the API.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-response-pid">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/11</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-pid">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-pid</a></span>
+      </div>
+      
+      <div class="req-statement"><p>If the operation completes successfully, the server SHALL assign the processes identifier found in the processes description (i.e. <code>{processID}</code>) to the newly added processes.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-response-success">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/12</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-success">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-success</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-response-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/13</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The body of the response SHALL contain a summary description of the added process that conforms to the following OpenAPI schema:</p>
+<pre><code class="language-yaml">allOf:
+  - $ref: &quot;descriptionType.yaml&quot;
+  - type: object
+    required:
+      - id
+      - version
+    properties:
+      id:
+        type: string
+      version:
+        type: string
+      jobControlOptions:
+        type: array
+        items:
+          $ref: &quot;jobControlOptions.yaml&quot;
+      links:
+        type: array
+        items:
+          $ref: &quot;link.yaml&quot;
+</code></pre>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.processSummary
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-unsupported-media-type">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/14</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-unsupported-media-type">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-unsupported-media-type</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.exception">ogc.api.processes.v1.schemas.exception</a>
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>detail</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>instance</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>status</code></td>
+            <td>
+              integer
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>title</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>type</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-response-duplicate">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/15</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-duplicate">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-duplicate</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.exception">ogc.api.processes.v1.schemas.exception</a>
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>detail</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>instance</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>status</code></td>
+            <td>
+              integer
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>title</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>type</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-deploy-response-immutable">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/16</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-immutable">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-immutable</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.exception">ogc.api.processes.v1.schemas.exception</a>
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>detail</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>instance</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>status</code></td>
+            <td>
+              integer
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>title</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>type</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-put-op">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/17</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-put-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-put-op</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/18</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The body of a PUT request SHALL contain a formal description of the replacement process.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/19</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>A server MAY support any processes description encoding in the body of a HTTP PUT operation.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-content-type">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/20</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-content-type">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-content-type</a></span>
+      </div>
+      
+      <div class="req-statement"><p>As per <a href="https://tools.ietf.org/html/rfc2616#section-14.17">HTTP 1.1</a> the ‘Content-Type’ header SHALL be used to indicate the media type of a request body containing the description of the replacement processes.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-body-ogcapppkg">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/21</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body-ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body-ogcapppkg</a></span>
+      </div>
+      
+      <div class="req-statement"><p>If a process can be described for the intended use as an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a> encoding for describing the replacement process.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-body-cwl">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/22</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body-cwl">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body-cwl</a></span>
+      </div>
+      
+      <div class="req-statement"><p>If a process can be encoded for the intended use in <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> encoding for describing the replacement process.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-response">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/23</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-response-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/24</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response-body</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.processSummary">ogc.api.processes.v1.schemas.processSummary</a>
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-replace-response-insert">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/25</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response-insert">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response-insert</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-undeploy-delete-op">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/26</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/undeploy-delete-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/undeploy-delete-op</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-undeploy-response">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/27</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/undeploy-response">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/undeploy-response</a></span>
+      </div>
+      
+      <div class="req-statement"><p>A successful execution of the operation SHALL be reported as a response with a HTTP status code ‘204’.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-package-get-op">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/28</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-get-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-get-op</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-package-response-success">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/29</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-response-success">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-response-success</a></span>
+      </div>
+      
+      <div class="req-statement"><p>A successful access to the resource SHALL be reported as a response with a HTTP status code <code>200</code>.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-deploy-replace-undeploy-package-response-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 6/30</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-response-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The body of the response SHALL contain the last <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">application package</a> used to deploy the process.</p>
+</div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+
+    
+    
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-7" class="requirements-class">
+    <h2>7. OGC Application Package</h2>
+
+    
+    <div class="req-class-box" id="bb-ogc-api-processes-part2-requirements-ogcapppkg">
+      <h4>Requirements Class</h4>
+      <table>
+        <tr><th>Requirements class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg</a></td></tr>
+        <tr><th>Conformance class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/ogcapppkg</a></td></tr>
+        <tr><th>Standardization target</th><td>Web API</td></tr>
+        
+        <tr>
+          <th>Dependencies</th>
+          <td>
+            
+            <a href="http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0">OGC API — Processes — Part 1: Core</a><br>
+            
+            <a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+
+    
+    <h3 id="overview">Overview</h3>
+<!-- requirements-class -->
+<p>This requirements class defines the schema of an <code>OGC Application Package</code>.</p>
+<p>An <code>OGC Application Package</code> is a document that describes a process in sufficient detail so that an implementation of this Standard can dynamically deploy that process and make it accessible via an the processes API defined in <a href="https://fix.me">“OGC API — Processes — Part 1: Core”</a>.</p>
+<p>The information contained in an <code>OGC Application Package</code> includes:</p>
+<ul>
+<li>A formal description of the process including what inputs the process takes and what outputs the process generates.</li>
+<li>Either an inline or by-reference execution unit which describes the <code>code</code> that the server needs to execute whenever the process is invoked.</li>
+<li>Additional resource information the server may require in order to establish an execution environment for the execution unit.</li>
+</ul>
+<h3 id="schema">Schema</h3>
+<!-- requirement: ogcapppkg/schema -->
+<h3 id="processdescription-property">processDescription property</h3>
+<p>The formal process description (i.e. its inputs, its output, etc.) is provided via the <code>processDescription</code> property of the application package.</p>
+<!-- requirement: ogcapppkg/process-description -->
+<div class="note">
+<p><strong>NOTE:</strong> The <code>processDescription</code> property is optional and if it is not included in the application package, the process interface must be inferred from the information in the <a href="#sec-7.4">execution unit</a>.</p>
+</div>
+<h3 id="executionunit-property">executionUnit property</h3>
+<p>The execution unit, specified using the <a href="#sec-7.4"><code>executionUnit</code> property</a>, describes the code that a processing server must execute whenever a mutable process is invoked.</p>
+<!-- requirement: ogcapppkg/executionUnit-schema -->
+<p>Conformance classes for two types of execution units are defined in this Standard:</p>
+<ul>
+<li>execution units where the executable code is encapsulated with a container (e.g. Docker),</li>
+<li>execution units encoded as a workflow that is executed by some workflow runner (e.g. CWL).</li>
+</ul>
+<!-- recommendation: ogcapppkg/execution-unit-docker -->
+<!-- permission: ogcapppkg/other-execution-units -->
+<p>The following example illustrates an execution unit where the executable code is encapsulated in a Docker image:</p>
+<pre><code class="language-json">{
+  &quot;executionUnit&quot;: {
+    &quot;type&quot;: &quot;docker&quot;,
+    &quot;value&quot;: {
+      &quot;image&quot;: &quot;mydocker/ndvi:latest&quot;,
+      &quot;bindings&quot;: {
+        &quot;inputBindings&quot;: {
+          &quot;inputImage&quot;: {
+            &quot;prefix&quot;: &quot;inputsImages=&quot;,
+            &quot;inputSeparator&quot;: &quot;,&quot;
+          }
+        },
+        &quot;outputBindings&quot;: {
+          &quot;outputImage&quot;: {
+            &quot;glob&quot;: &quot;$(\&quot;/outputs/ndvi_\&quot; + inputs.inputImage.basename)&quot;
+          }
+        }
+      },
+      &quot;deployment&quot;: &quot;local&quot;,
+      &quot;config&quot;: {
+        &quot;cpuMin&quot;: 2,
+        &quot;cpuMax&quot;: 5,
+        &quot;memoryMin&quot;: 1,
+        &quot;memoryMax&quot;: 3
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="media-types-in-operations">Media types in operations</h3>
+<!-- requirement: ogcapppkg/body -->
+<!-- requirement: ogcapppkg/package-response-body -->
+
+
+    
+    
+    <h3 id="req-clause-7-requirements">Requirements</h3>
+    
+
+    
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-schema">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/1</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/schema">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/schema</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The schema of an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a> document SHALL be defined by the following OpenAPI schema fragment:</p>
+<p>ogcapppkg.yaml</p>
+<pre><code class="language-yaml">type: object
+required:
+  - executionUnit
+properties:
+  processDescription:
+    type: object
+    required:
+    - process
+    properties:
+      process:
+        $ref: &quot;../processes-core/process.yaml&quot;
+  executionUnit:
+    $ref: &quot;executionUnit.yaml&quot;
+</code></pre>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.ogcapppkg
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>processDescription</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>executionUnit</code></td>
+            <td>
+              —
+              <br><a href="http://localhost:9090/register/build-local/annotated/api/processes/part2/schemas/executionUnit/schema.json" class="schema-ref">schema</a>
+            </td>
+            <td>Yes</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-process-description">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/2</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/process-description">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/process-description</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The value of the <code>process</code> member of the <code>processDescription</code> property SHALL be defined by the following OpenAPI schema:</p>
+<p>process.yaml:</p>
+<pre><code class="language-yaml">allOf:
+  - $ref: &quot;processSummary.yaml&quot;
+  - type: object
+    properties:
+      inputs:
+        additionalProperties:
+          $ref: &quot;inputDescription.yaml&quot;
+      outputs:
+        additionalProperties:
+          $ref: &quot;outputDescription.yaml&quot;
+</code></pre>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.process">ogc.api.processes.v1.schemas.process</a>
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-executionUnit-schema">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/3</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/executionUnit-schema">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/executionUnit-schema</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The value of the <a href="#sec-7.4"><code>executionUnit</code> property</a> of an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a> SHALL be defined by the following OpenAPI schema fragments:</p>
+<p>executionUnit.yaml</p>
+<pre><code class="language-yaml">oneOf:
+  - $ref: &quot;executionUnitBase.yaml&quot;
+  - type: array
+    items:
+      - $ref: &quot;executionUnitBase.yaml&quot;
+</code></pre>
+<p>executionUnitBase.yaml</p>
+<pre><code class="language-yaml">oneOf:
+  - $ref: &quot;../common-core/link.yaml&quot;
+  - allOf:
+    - $ref: &quot;../processes-core/qualifiedValue.yaml&quot;
+    - anyOf:
+      - description: |-
+          The execute unit is a container image.
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string
+            enum:
+              - docker
+              - oci
+          value:
+            $ref: &quot;executionUnitContainer.yaml&quot;
+      - description: |-
+          The execution unit is CWL script.
+        type: object
+        required:
+          - mediaType
+        properties:
+          mediaType:
+            type: string
+            enum:
+              - application/cwl
+          value:
+            #$ref: &quot;https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml&quot;
+            #$ref: &quot;../cwl/cwl-json-schema.yaml#/$defs/CWL&quot;
+            $ref: &quot;../cwl/cwl.yaml&quot;
+      - description: |-
+          The execution unit is not Docker/OCI or CWL and cannot be properly
+          described via the &quot;mediaType&quot; property of a qualified value 
+          using an RFC 2046 media type (e.g. an &quot;R&quot; or &quot;Python&quot; script).
+          In this case a community-defined or custom token may be used
+          with the &quot;type&quot; property.
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string
+</code></pre>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnit
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-execution-unit-docker">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/4</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/execution-unit-docker">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/execution-unit-docker</a></span>
+      </div>
+      
+      <div class="req-statement"><p>If the execution unit is a Docker image, implementations SHOULD consider supporting the <a href="#sec-8">Docker Requirements Class</a>.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-other-execution-units">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/5</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/other-execution-units">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/other-execution-units</a></span>
+      </div>
+      
+      <div class="req-statement"><p>Servers MAY support other execution unit types but those types are not described in this Standard.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/6</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>For the <a href="#sec-6.6">Deploy operation</a> and the <a href="#sec-6.7">Replace operation</a>, the media type <code>application/ogcapppkg+json</code> SHALL be used to indicate that the request body contains an <a href="#sec-7">OGC Application Package</a>.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-ogcapppkg-package-response-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 7/7</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/package-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/package-response-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>For the <a href="#sec-6.9">Application Package retrieval operation</a> the media type <code>application/ogcapppkg+json</code> SHALL be used to indicate that the response body contains an <a href="#sec-7">OGC Application Package</a>.</p>
+</div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+
+    
+    
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-8" class="requirements-class">
+    <h2>8. Docker</h2>
+
+    
+    <div class="req-class-box" id="bb-ogc-api-processes-part2-requirements-docker">
+      <h4>Requirements Class</h4>
+      <table>
+        <tr><th>Requirements class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker</a></td></tr>
+        <tr><th>Conformance class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker">https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker</a></td></tr>
+        <tr><th>Standardization target</th><td>Web API</td></tr>
+        
+        <tr>
+          <th>Dependencies</th>
+          <td>
+            
+            <a href="http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0">OGC API — Processes — Part 1: Core</a><br>
+            
+            <a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy</a><br>
+            
+            <a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+
+    
+    <h3 id="overview">Overview</h3>
+<!-- requirements-class -->
+<p>This clause defines the requirements for describing, in the execution unit of an <a href="#sec-7">OGC Application Package</a>, a processes’ executable code encapsulated in a Docker container.</p>
+<h3 id="schema">Schema</h3>
+<!-- requirement: docker/schema -->
+<h3 id="properties-type-and-image">Properties type and image</h3>
+<!-- requirement: docker/execution-unit -->
+<h3 id="property-deployment">Property deployment</h3>
+<!-- requirement: docker/deployment -->
+<h3 id="property-config">Property config</h3>
+<!-- requirement: docker/config -->
+<h3 id="property-bindings">Property bindings</h3>
+<h4 id="overview">Overview</h4>
+<!-- requirement: docker/bindings -->
+<div class="note">
+<p><strong>NOTE:</strong> If a binding information is not specified, it is assumed that the processing server will apply some internally-defined default mapping; this is an implementation detail and beyond the scope of this Standard.</p>
+</div>
+<h4 id="input-binding">Input binding</h4>
+<h5 id="overview">Overview</h5>
+<!-- requirement: docker/input-binding -->
+<p>The following input binding parameters can be specified:</p>
+<ul>
+<li>
+<p><strong>prefix</strong>:</p>
+<ul>
+<li>A prefix to be added before an argument value that is used for the execution unit invocation.</li>
+</ul>
+</li>
+<li>
+<p><strong>position</strong>:</p>
+<ul>
+<li>The value can be an integer or a string.</li>
+<li>If it is an integer then it is assumed to be 0-based and the argument is added in this position to the execution unit invocation.</li>
+<li>If the value is a string then it should be an expression that evaluates to single integer value or null.</li>
+<li>If the value expression evaluates to null, nothing is added to the execution unit invocation.</li>
+</ul>
+</li>
+<li>
+<p><strong>valueFrom</strong>:</p>
+<ul>
+<li>If the <code>valueFrom</code> is a constant string value then this value is added verbatim as an argument to the execution unit invocation.</li>
+<li>If the <code>valueFrom</code> is an expression, evaluate the expression to yield the actual value and add that as an argument to the execute unit invocation.</li>
+<li>If the <code>valueFrom</code> is null, nothing is added to the execution unit invocation.</li>
+</ul>
+</li>
+<li>
+<p><strong>itemSeparator</strong></p>
+<ul>
+<li>Join the array elements into a single string with the elements separated by the <code>itemSeparator</code> and add that as an argument to the execution unit invocation.</li>
+</ul>
+</li>
+<li>
+<p><strong>shellQuote</strong></p>
+<ul>
+<li>A boolean that controls whether the value used as an argument in the execution unit invocation is quoted or not.</li>
+<li>A value of <code>true</code> (the default value) means metacharacters or directives are not interpreted when the execution unit is invoked.</li>
+<li>If metacharacters or directives need to be specified when the execution unit is invoked the value of this parameter should be set to <code>false</code>.</li>
+</ul>
+</li>
+</ul>
+<h5 id="macro-substitution-in-expressions">Macro substitution in expressions</h5>
+<p>The value of a binding parameters can be an expression.</p>
+<!-- requirement: docker/expression-lang -->
+<p>The macro syntax “$(…​)” can be used to reference an process input value in an expression.</p>
+<ul>
+<li>
+<p>The value <code>self</code> (e.g. <code>$(self)</code>) refers to the value of the current process input in the current execution unit invocation.</p>
+</li>
+<li>
+<p>The value <code>inputs.&lt;other_input&gt;</code> (e.g. <code>$(inputs.arg2)</code>) refers to the value of another process input in the current execution unit invocation.</p>
+</li>
+<li>
+<p>If the input is defined as a string type of format “file” or “directory”, the following meta-values can be used to manipulate the file or directory path without having to resort to complex regular expressions.</p>
+<ul>
+<li>“.path” returns the path of a name without the basename</li>
+<li>“.basename” returns the name of the file or directory without the path</li>
+<li>“.nameroot” returns the basename with any extension</li>
+<li>“.nameext” return the extension of the basename</li>
+</ul>
+</li>
+</ul>
+<h4 id="output-binding">Output binding</h4>
+<!-- requirement: docker/output-binding -->
+<p>The optional <code>glob</code> parameter can be used in an output binding to define a wildcard pattern to find the output on a disk or a mounted volume.</p>
+<p>The same <a href="#sec-8.6.2.2">macro expressions</a> that can be used in an input binding expression can also be used with <code>glob</code> expressions.</p>
+
+
+    
+    
+    <h3 id="req-clause-8-requirements">Requirements</h3>
+    
+
+    
+    
+    <div class="requirement req-level-SHALL" id="req-docker-schema">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/1</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/schema">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/schema</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The value of the <code>value</code> field of the <a href="#sec-7.4"><code>executionUnit</code> property</a> of an <a href="#sec-7">OGC Application Package</a> SHALL be defined by the following OpenAPI schema fragment:</p>
+<pre><code class="language-yaml">type: object
+required: image
+properties:
+  image:
+    description: |-
+      Container image reference for the execution unit.
+    type: string
+  deployment:
+    description: |-
+      Deployment information for the execution unit.
+    type: string
+    anyOf:
+      - type: string
+      - enum:
+          - local
+          - remote
+          - hpc
+          - cloud
+  config:
+    type: object
+    description: |-
+      Hardware requirements and configuration properties for executing the
+      process.
+    properties:
+      cpuMin:
+        description: |-
+          Minimum number of CPUs required to run the process (unit is CPU core).
+        type: number
+        minimum: 1
+      cpuMax:
+        description: |-
+          Maximum number of CPU dedicated to the process (unit is CPU core)
+        type: number
+      memoryMin:
+        description: |-
+          Minimum RAM memory required to run the application (unit is GB)
+        type: number
+      memoryMax:
+        description: |-
+          Maximum RAM memory dedicated to the application (unit is GB)
+        type: number
+      storageTempMin:
+        description: |-
+          Minimum required temporary storage size (unit is GB)
+        type: number
+      storageOutputsMin:
+        description: |-
+          Minimum required output storage size (unit is GB)
+        type: number
+      jobTimeout:
+        description: |-
+          Timeout delay for a job execution (in seconds)
+        type: number
+    additionalProperties: true
+  bindings:
+    type: object
+    properties:
+      inputBindings:
+        additionalProperties:
+          $ref: &quot;inputBinding.yaml&quot;
+      outputBindings:
+        additionalProperties:
+          $ref: &quot;outputBinding.yaml&quot;
+additionalProperties: true
+</code></pre>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnitContainer
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>image</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td>Container image reference for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>deployment</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Deployment information for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>config</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td>Hardware requirements and configuration properties for executing the
+process.</td>
+          </tr>
+          
+          <tr>
+            <td><code>bindings</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-execution-unit">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/2</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/execution-unit">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/execution-unit</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnitBase
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-deployment">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/3</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/deployment">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/deployment</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnitContainer
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>image</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td>Container image reference for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>deployment</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Deployment information for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>config</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td>Hardware requirements and configuration properties for executing the
+process.</td>
+          </tr>
+          
+          <tr>
+            <td><code>bindings</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-config">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/4</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/config">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/config</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnitContainer
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>image</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td>Container image reference for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>deployment</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Deployment information for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>config</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td>Hardware requirements and configuration properties for executing the
+process.</td>
+          </tr>
+          
+          <tr>
+            <td><code>bindings</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-bindings">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/5</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/bindings">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/bindings</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnitContainer
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>image</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td>Container image reference for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>deployment</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Deployment information for the execution unit.</td>
+          </tr>
+          
+          <tr>
+            <td><code>config</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td>Hardware requirements and configuration properties for executing the
+process.</td>
+          </tr>
+          
+          <tr>
+            <td><code>bindings</code></td>
+            <td>
+              object
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-input-binding">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/6</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/input-binding">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/input-binding</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The schema of an input binding SHALL be defined by the following OpenAPI schema fragment:</p>
+<p>inputBinding.yaml</p>
+<pre><code class="language-yaml">type: object
+description: |-
+  . Defines how to specify the input for the execution unit.
+  . The value of various properties defined below can be expressions.
+      . The expression language SHALL be JavaScript(???).
+  . The &quot;$(...)&quot; syntax can be used to reference the current input or other
+    process inputs in an expression.
+    . The value &quot;self&quot; refers to the value of the current input.
+    . The value &quot;inputs.&lt;other_input&gt;&quot; refers to the value of another
+      process input.
+    . If the input is defined as a string of format &quot;file&quot; or &quot;directory&quot;
+      then the meta-values &quot;.path&quot;, &quot;.basename&quot;, &quot;.nameroot&quot; and &quot;.nameext&quot;
+      can be used to manipulate file or directory name without having to
+      resort to complex regular expressions.
+        . &quot;.path&quot; returns the path of a file name without the file name
+        . &quot;.basename&quot; returns the name of the file without the path
+        . &quot;.nameroot&quot; returns the basename without any extension
+        . &quot;.nameext&quot; returns the extension of the basename
+properties:
+  prefix:
+    description: Command line prefix to add before the value.
+    type: string
+  position:
+    description: |-
+      . The zero-based sorting key.
+      . The value can be an integer or a string.
+      . If the value is a string then it should be an expression that evaluates
+        to a single integer value or null.
+    oneOf:
+      - type: integer
+      - type: string
+  valueFrom:
+    description: |-
+      . If valueFrom is a constant string value, use this as the value.
+      . If valueFrom is an expression, evaluate the expression to yield the
+        actual value to use to build the command line.
+      . If the value of the associated input parameter is null, valueFrom is
+        not evaluated and nothing is added to the command line.
+    type: string
+  itemSeparator:
+    description: |-
+      Join the array elements into a single string with the elements separated
+      by itemSeparator.
+    type: string
+  shellQuote:
+    description: |-
+      . A Boolean that controls whether the value is quoted on the command.
+      . A value of true (or if shecllQuote is not provided) means that the
+        implementation SHALL not permit the interpretation of any shell
+        metacharacters or directives.
+      . A value of false should be used to inject metacharacters for operations
+        such as pipes.
+    type: boolean
+additionalProperties: true
+</code></pre>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.inputBinding
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>prefix</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Command line prefix to add before the value.</td>
+          </tr>
+          
+          <tr>
+            <td><code>position</code></td>
+            <td>
+              —
+              
+            </td>
+            <td>No</td>
+            <td>. The zero-based sorting key.
+. The value can be an integer or a string.
+. If the value is a string then it should be an expression that evaluates
+  to a single integer value or null.</td>
+          </tr>
+          
+          <tr>
+            <td><code>valueFrom</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>. If valueFrom is a constant string value, use this as the value.
+. If valueFrom is an expression, evaluate the expression to yield the
+  actual value to use to build the command line.
+. If the value of the associated input parameter is null, valueFrom is
+  not evaluated and nothing is added to the command line.</td>
+          </tr>
+          
+          <tr>
+            <td><code>itemSeparator</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Join the array elements into a single string with the elements separated
+by itemSeparator.</td>
+          </tr>
+          
+          <tr>
+            <td><code>shellQuote</code></td>
+            <td>
+              boolean
+              
+            </td>
+            <td>No</td>
+            <td>. A Boolean that controls whether the value is quoted on the command.
+. A value of true (or if shecllQuote is not provided) means that the
+  implementation SHALL not permit the interpretation of any shell
+  metacharacters or directives.
+. A value of false should be used to inject metacharacters for operations
+  such as pipes.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-expression-lang">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/7</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/expression-lang">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/expression-lang</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The language that SHALL be used to specify an expression as the value of a binding parameter SHALL be <a href="https://docs.ogc.org/is/21-065r2/21-065r2.html">CQL2</a>.</p>
+</div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.inputBinding
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>prefix</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Command line prefix to add before the value.</td>
+          </tr>
+          
+          <tr>
+            <td><code>position</code></td>
+            <td>
+              —
+              
+            </td>
+            <td>No</td>
+            <td>. The zero-based sorting key.
+. The value can be an integer or a string.
+. If the value is a string then it should be an expression that evaluates
+  to a single integer value or null.</td>
+          </tr>
+          
+          <tr>
+            <td><code>valueFrom</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>. If valueFrom is a constant string value, use this as the value.
+. If valueFrom is an expression, evaluate the expression to yield the
+  actual value to use to build the command line.
+. If the value of the associated input parameter is null, valueFrom is
+  not evaluated and nothing is added to the command line.</td>
+          </tr>
+          
+          <tr>
+            <td><code>itemSeparator</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td>Join the array elements into a single string with the elements separated
+by itemSeparator.</td>
+          </tr>
+          
+          <tr>
+            <td><code>shellQuote</code></td>
+            <td>
+              boolean
+              
+            </td>
+            <td>No</td>
+            <td>. A Boolean that controls whether the value is quoted on the command.
+. A value of true (or if shecllQuote is not provided) means that the
+  implementation SHALL not permit the interpretation of any shell
+  metacharacters or directives.
+. A value of false should be used to inject metacharacters for operations
+  such as pipes.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-docker-output-binding">
+      <div class="req-header">
+        <span class="req-number">Requirement 8/8</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/output-binding">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/output-binding</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.outputBinding
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>glob</code></td>
+            <td>
+              —
+              
+            </td>
+            <td>No</td>
+            <td>. Wildcard pattern to find the output on disk or mounted volume.
+. Uses UNIX "glob" wildcard patterns (see: "man 7 glob").
+. See inputBinding.yaml for referencing input values in an output
+  binding "glob" expression.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+
+    
+    
+
+    
+    
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-9" class="requirements-class">
+    <h2>9. CWL</h2>
+
+    
+    <div class="req-class-box" id="bb-ogc-api-processes-part2-requirements-cwl">
+      <h4>Requirements Class</h4>
+      <table>
+        <tr><th>Requirements class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl</a></td></tr>
+        <tr><th>Conformance class</th><td><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl">https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl</a></td></tr>
+        <tr><th>Standardization target</th><td>Web API</td></tr>
+        
+        <tr>
+          <th>Dependencies</th>
+          <td>
+            
+            <a href="http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0">OGC API — Processes — Part 1: Core</a><br>
+            
+            <a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy</a><br>
+            
+            <a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg</a><br>
+            
+            <a href="#Common_Workflow_Language">Common Workflow Language [1]</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+
+    
+    <h3 id="sending-cwl-embedded-in-an-ogc-application-package">Sending CWL embedded in an OGC Application Package</h3>
+<h4 id="overview">Overview</h4>
+<!-- requirements-class -->
+<p>This clause defines the requirements for sending a CWL document to the process deployment endpoint (i.e. /processes) embedded in an <a href="#sec-7">OGC Application Package</a></p>
+<p>Embedding the CWL document in the <a href="#sec-7">OGC Application Package</a> means that the <code>processDescription</code> property does not need to be specified because the description of the process can be inferred from the CWL value specified in the <code>executionUnit</code>.</p>
+<h4 id="specifying-the-cwl-by-reference">Specifying the CWL by reference</h4>
+<!-- requirement: cwl/execution-unit-by-ref -->
+<p>Below is an example of a <a href="#sec-6.6">Deploy request</a> body using a CWL-encoded execution unit by reference.</p>
+<pre><code class="language-json">{
+  &quot;executionUnit&quot;: {
+    &quot;href&quot;: &quot;https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl&quot;,
+    &quot;type&quot;: &quot;application/cwl&quot;
+  }
+}
+</code></pre>
+<h4 id="specifying-the-cwl-by-value">Specifying the CWL by value</h4>
+<!-- requirement: cwl/execution-unit-by-val -->
+<p>Below is an example of a <a href="#sec-6.6">Deploy request</a> body using a qualified value to pass the CWL value. In this example, the CWL is encoded as a JSON object and so the value of the <code>mediaType</code> field does not need to explicitly state that the CWL is JSON-encoded. This is implied by the structure of the content of the <code>value</code> field.</p>
+<pre><code class="language-json">{
+  &quot;executionUnit&quot;: {
+    &quot;mediaType&quot;: &quot;application/cwl&quot;,
+    &quot;value&quot;: { &quot;cwlVersion&quot;: &quot;v1.2&quot;, &quot;class&quot;: &quot;CommandLineTool&quot;, ... }
+  }
+}
+</code></pre>
+<p><strong>Listing 13</strong></p>
+<div class="note">
+<p><strong>NOTE:</strong> The CWL content is truncated for readability.</p>
+</div>
+<p>Below are other examples of <a href="#sec-6.6">Deploy request</a> bodies where the CWL value is included as an embedded string within the qualified value. In these cases the value of the <code>mediaType</code> field needs to be explicit in order to disambiguate the structure of the string content.</p>
+<pre><code class="language-json">{
+  &quot;executionUnit&quot;: {
+    &quot;mediaType&quot;: &quot;application/cwl+json&quot;,
+    &quot;value&quot;: &quot;{ \&quot;cwlVersion\&quot;: \&quot;v1.2\&quot;, \&quot;class\&quot;: \&quot;CommandLineTool\&quot;, ... }&quot;
+  }
+}
+</code></pre>
+<p><strong>Listing 14</strong></p>
+<pre><code class="language-json">{
+  &quot;executionUnit&quot;: {
+    &quot;mediaType&quot;: &quot;application/cwl+yaml&quot;,
+    &quot;value&quot;: &quot;cwlVersion: 'v1.2'\nclass: CommandLineTool\n...&quot;
+  }
+}
+</code></pre>
+<p><strong>Listing 15</strong></p>
+<h3 id="sending-cwl-directly">Sending CWL directly</h3>
+<h4 id="overview">Overview</h4>
+<p>This clause defines the requirements for sending a CWL document directly to the process deployment endpoint (i.e. <code>/processes</code>) without embedding the CWL into an <a href="#sec-7">OGC Application Package</a></p>
+<h4 id="cwl-request-body">CWL request body</h4>
+<!-- requirement: cwl/body -->
+<h4 id="multipart-cwl-request-body">Multipart CWL request body</h4>
+<!-- permission: cwl/multipart-cwl-body -->
+<p>The following multipart example illustrates one request payload with a root workflow selected by the <code>start</code> parameter, with supporting documents referenced by <code>filename</code>, <code>cid:</code> URI and remote URL combinations. The full contents of the individual <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> documents are not included for simplification. Note that the <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> YAML representation are employed to provide a concise example, but other <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> media-types are permitted in any desired combination.</p>
+<p>In the example, the <code>Content-ID</code> headers and embedded <code>id</code> fields of respective parts are provided to illustrate the expected interpretation of equivalent definitions, but some might be omitted as described in the recommendation text.</p>
+<p>The last <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> part illustrates how its corresponding definition can be omitted because of the provided <code>Content-Location</code> header. However, each part (including the ones providing the content directly), could also include the <code>Content-Location</code> header for complementary identification of their origin if desired.</p>
+<p>The last process description part illustrates how additional metadata can be included in the multipart body to refine the definition of the process being deployed, irrespective of its <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> encoding.</p>
+<pre><code class="language-text">Client                                                            Server
+  |                                                                 |
+  |  POST /processes HTTP/1.1                                       |
+  |  Host: example.org                                              |
+  |  Content-Type: multipart/related; type=&quot;application/cwl+yaml&quot;; start=&quot;&lt;workflow-main@example.org&gt;&quot;; boundary=&quot;===CWL-BUNDLE===&quot;
+  |  Content-ID: &lt;workflow-main@example.com&gt;                        |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-ID: &lt;workflow-main@example.org&gt;                        |
+  |  Content-Disposition: attachment; filename=&quot;workflows/main.cwl&quot; |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: Workflow                                                |
+  |  id: workflow-main                                              |
+  |  steps:                                                         |
+  |    by_filename:                                                 |
+  |      run: &quot;tools/tool-1.cwl&quot;                                    |
+  |      ...  # rest of the definition                              |
+  |    by_cid_host:                                                 |
+  |      run: &quot;cid:tool-2@example.org&quot;                              |
+  |      ...  # rest of the definition                              |
+  |    by_cid_uuid:                                                 |
+  |      run: &quot;cid:urn:uuid:550e8400-e29b-41d4-a716-446655440002&quot;   |
+  |      ...  # rest of the definition                              |
+  |    by_remote_url:                                               |
+  |      run: &quot;https://example.org/cwl/tools/tool-4.cwl&quot;            |
+  |      ...  # rest of the definition                              |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-Disposition: attachment; filename=&quot;tools/tool-1.cwl&quot;   |
+  |  Content-ID: &lt;tool-1@example.org&gt;                               |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: CommandLineTool                                         |
+  |  id: tool-1                                                     |
+  |  ...  # rest of the definition                                  |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-ID: &lt;tool-2@example.org&gt;                               |
+  |  Content-Disposition: attachment; filename=&quot;tools/tool-2.cwl&quot;   |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: CommandLineTool                                         |
+  |  id: tool-2                                                     |
+  |  ...  # rest of the definition                                  |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-ID: &lt;urn:uuid:550e8400-e29b-41d4-a716-446655440002&gt;    |
+  |  Content-Disposition: attachment; filename=&quot;tools/tool-3.cwl&quot;   |
+  |                                                                 |
+  |  cwlVersion: v1.2                                               |
+  |  class: CommandLineTool                                         |
+  |  id: tool-3                                                     |
+  |  ...  # rest of the definition                                  |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/cwl+yaml                             |
+  |  Content-Location: https://example.org/cwl/tools/tool-4.cwl     |
+  |  Content-Disposition: attachment; filename=&quot;tools/tool-4.cwl&quot;   |
+  |                                                                 |
+  |  --===CWL-BUNDLE===                                             |
+  |  Content-Type: application/json                                 |
+  |  Content-Profile: &lt;https://www.opengis.net/def/profile/OGC/0/ogc-process-description&gt;
+  |                                                                 |
+  |  ...  # additional metadata for the process being deployed      |
+  |  --===CWL-BUNDLE===--                                           |
+  |----------------------------------------------------------------&gt;|
+  |                                                                 |
+  |  HTTP/1.1 201 Created                                           |
+  |  Location: /processes/{processID}                               |
+  |&lt;----------------------------------------------------------------|
+</code></pre>
+<p><strong>Listing 16</strong></p>
+<p>The following partial example illustrates how the main CWL part can be represented by the <code>#main</code> identifier in accordance to the <a href="https://www.commonwl.org/v1.2/CommandLineTool.html#Packed_documents">CWL Packed documents</a> representation, instead of using the multipart <code>start</code> parameter. In this case, the <code>Content-ID</code> header of the entire request (i.e.: <a href="mailto:workflow-main@example.com"><code>&lt;workflow-main@example.com&gt;</code></a>) indicates that the <code>{processID}</code> should be <code>workflow-main</code>, while the <code>Content-ID</code> within the part (i.e.: <a href="mailto:main@example.com"><code>&lt;#main@example.com&gt;</code></a>) indicates that this part is the main <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> document. The rest of the definition is identical to the previous example.</p>
+<pre><code class="language-text">Client                                                            Server
+  |                                                                 |
+  | POST /processes HTTP/1.1                                        |
+  | Host: example.org                                               |
+  | Content-Type: multipart/related; type=&quot;application/cwl+yaml&quot;; boundary=&quot;===CWL-BUNDLE===&quot;
+  | Content-ID: &lt;workflow-main@example.com&gt;                         |
+  |                                                                 |
+  | --===CWL-BUNDLE===                                              |
+  | Content-Type: application/cwl+yaml                              |
+  | Content-ID: &lt;#main@example.org&gt;                                 |
+  | Content-Disposition: attachment; filename=&quot;workflows/main.cwl&quot;  |
+  |                                                                 |
+  | cwlVersion: v1.2                                                |
+  | class: Workflow                                                 |
+  | id: workflow-main                                               |
+  | ...  # rest of the definition                                   |
+  |                                                                 |
+  | --===CWL-BUNDLE===                                              |
+  | ...  # other parts are identical to the previous example        |
+  | --===CWL-BUNDLE===--                                            |
+  .                                                                 .
+  .                                                                 .
+  .                                                                 .
+</code></pre>
+<p><strong>Listing 17</strong></p>
+<h3 id="w-parameter">w parameter</h3>
+<p>When encoded in CWL processes are identified as instances of the workflow class.</p>
+<!-- requirement: cwl/deploy-w-param -->
+<!-- requirement: cwl/deploy-exception-workflow-not-found -->
+<h3 id="media-types-in-operations">Media types in operations</h3>
+<!-- requirement: cwl/media-type-request -->
+
+
+    
+    
+    <h3 id="req-clause-9-requirements">Requirements</h3>
+    
+
+    
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-execution-unit-by-ref">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/1</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/execution-unit-by-ref">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/execution-unit-by-ref</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.link">ogc.api.processes.v1.schemas.link</a>
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>href</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>hreflang</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>rel</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>title</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>type</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-execution-unit-by-val">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/2</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/execution-unit-by-val">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/execution-unit-by-val</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        ogc.api.processes.part2.schemas.executionUnitBase
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/3</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>The content of the request body of a <a href="#sec-6.6">Deploy</a> or <a href="#sec-6.7">Replace</a> operation SHALL be a CWL document.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-multipart-cwl-body">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/4</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/multipart-cwl-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/multipart-cwl-body</a></span>
+      </div>
+      
+      <div class="req-statement"><p>Recommendation for supporting multipart deployment of related CWL documents forming a process.</p>
+</div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-deploy-w-param">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/5</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/deploy-w-param">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/deploy-w-param</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-deploy-exception-workflow-not-found">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/6</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/deploy-exception-workflow-not-found">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/deploy-exception-workflow-not-found</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      <div class="req-applies-to">
+        Applies to:
+        
+        
+        <a href="https://geolabs.github.io/bblocks-ogcapi-processes/bblock/ogc.api.processes.v1.schemas.exception">ogc.api.processes.v1.schemas.exception</a>
+        
+        
+      </div>
+      
+      
+      <table class="property-table">
+        <thead><tr><th>Property</th><th>Type / Format</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><code>detail</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>instance</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>status</code></td>
+            <td>
+              integer
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>title</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>No</td>
+            <td></td>
+          </tr>
+          
+          <tr>
+            <td><code>type</code></td>
+            <td>
+              string
+              
+            </td>
+            <td>Yes</td>
+            <td></td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+      
+      
+    </div>
+    
+    <div class="requirement req-level-SHALL" id="req-cwl-media-type-request">
+      <div class="req-header">
+        <span class="req-number">Requirement 9/7</span>
+        <span class="req-level">SHALL</span>
+        <span class="req-uri"><a href="https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/media-type-request">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/media-type-request</a></span>
+      </div>
+      
+      <div class="req-statement"></div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+
+    
+    
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-10" >
+    <h2>10. OpenAPI 3.0</h2>
+    <p>See <a href="#OAProc-1">OGC 18-062r2</a>, Clause 12.</p>
+
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="clause-11" >
+    <h2>11. Media Types</h2>
+    <p>See <a href="#OAProc-1">OGC 18-062r2</a>, Clause 13.</p>
+<p>Additional JSON media types that would typically be used in a server that supports JSON are:</p>
+<ul>
+<li><code>application/ogcapppkg+json</code></li>
+<li><code>application/cwl+json</code></li>
+</ul>
+<p>Additional CWL media types that would typically be used in a server that supports CWL are:</p>
+<ul>
+<li><code>application/cwl</code></li>
+<li><code>application/cwl+yaml</code></li>
+</ul>
+
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="annex-a" class="annex normative">
+    <h2>A Abstract Test Suite (Normative)</h2>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-additional-status-codes">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/additional-status-codes</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-additional-status-codes">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/additional-status-codes</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>Servers MAY support other HTTP protocol capabilities. Therefore, the server may return other status codes than those listed in <a href="#status_codes">Table 2</a>.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-static-indicator">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/static-indicator</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-static-indicator">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/static-indicator</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-resource-endpoints">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/resource-endpoints</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-resource-endpoints">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/resource-endpoints</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-resource-endpoint">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/resource-endpoint</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-resource-endpoint">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/resource-endpoint</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-post-op">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-post-op</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-post-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-post-op</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The server SHALL support the HTTP POST operation at the resources endpoint (path <code>/processes</code>).</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The body of the POST request SHALL contain a formal description of the process to be dynamically deployed to the API.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>A server MAY support any processes description encoding in the body of a HTTP POST operation.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-content-type">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-content-type</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-content-type">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-content-type</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The <code>Content-Type</code> <a href="https://tools.ietf.org/html/rfc2616#section-14.17">header</a> SHALL be used to declare the media type of the request body containing a description of the processes to be added to the API.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-body-ogcapppkg">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-body-ogcapppkg</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-body-ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body-ogcapppkg</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>If a process can be represented for the intended use as an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package Conformance Class</a> for describing the process to be added to the API.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-body-cwl">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-body-cwl</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-body-cwl">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-body-cwl</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>If a process can be encoded for the intended use in <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL Conformance Class</a> for describing the process to be deployed to the API.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-response-pid">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-response-pid</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-response-pid">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-pid</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>If the operation completes successfully, the server SHALL assign the processes identifier found in the processes description (i.e. <code>{processID}</code>) to the newly added processes.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-response-success">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-response-success</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-response-success">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-success</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-response-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-response-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The body of the response SHALL contain a summary description of the added process that conforms to the following OpenAPI schema:</p>
+<pre><code class="language-yaml">allOf:
+  - $ref: &quot;descriptionType.yaml&quot;
+  - type: object
+    required:
+      - id
+      - version
+    properties:
+      id:
+        type: string
+      version:
+        type: string
+      jobControlOptions:
+        type: array
+        items:
+          $ref: &quot;jobControlOptions.yaml&quot;
+      links:
+        type: array
+        items:
+          $ref: &quot;link.yaml&quot;
+</code></pre>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-unsupported-media-type">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-unsupported-media-type</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-unsupported-media-type">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-unsupported-media-type</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-response-duplicate">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-response-duplicate</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-response-duplicate">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-duplicate</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-deploy-response-immutable">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/deploy-response-immutable</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-deploy-response-immutable">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/deploy-response-immutable</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-put-op">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-put-op</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-put-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-put-op</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The body of a PUT request SHALL contain a formal description of the replacement process.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>A server MAY support any processes description encoding in the body of a HTTP PUT operation.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-content-type">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-content-type</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-content-type">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-content-type</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>As per <a href="https://tools.ietf.org/html/rfc2616#section-14.17">HTTP 1.1</a> the ‘Content-Type’ header SHALL be used to indicate the media type of a request body containing the description of the replacement processes.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-body-ogcapppkg">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-body-ogcapppkg</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-body-ogcapppkg">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body-ogcapppkg</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>If a process can be described for the intended use as an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a> encoding for describing the replacement process.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-body-cwl">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-body-cwl</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-body-cwl">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-body-cwl</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>If a process can be encoded for the intended use in <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a>, implementations SHOULD consider supporting the <a href="#bb-ogc-api-processes-part2-requirements-cwl">CWL</a> encoding for describing the replacement process.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-response">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-response</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-response">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-response-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-response-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-replace-response-insert">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/replace-response-insert</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-replace-response-insert">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/replace-response-insert</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-undeploy-delete-op">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/undeploy-delete-op</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-undeploy-delete-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/undeploy-delete-op</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-undeploy-response">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/undeploy-response</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-undeploy-response">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/undeploy-response</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>A successful execution of the operation SHALL be reported as a response with a HTTP status code ‘204’.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-package-get-op">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/package-get-op</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-package-get-op">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-get-op</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-package-response-success">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/package-response-success</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-package-response-success">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-response-success</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>A successful access to the resource SHALL be reported as a response with a HTTP status code <code>200</code>.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-deploy-replace-undeploy-package-response-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/deploy-replace-undeploy/package-response-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-deploy-replace-undeploy-package-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/package-response-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The body of the response SHALL contain the last <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">application package</a> used to deploy the process.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-schema">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/schema</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-schema">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/schema</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The schema of an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a> document SHALL be defined by the following OpenAPI schema fragment:</p>
+<p>ogcapppkg.yaml</p>
+<pre><code class="language-yaml">type: object
+required:
+  - executionUnit
+properties:
+  processDescription:
+    type: object
+    required:
+    - process
+    properties:
+      process:
+        $ref: &quot;../processes-core/process.yaml&quot;
+  executionUnit:
+    $ref: &quot;executionUnit.yaml&quot;
+</code></pre>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-process-description">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/process-description</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-process-description">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/process-description</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The value of the <code>process</code> member of the <code>processDescription</code> property SHALL be defined by the following OpenAPI schema:</p>
+<p>process.yaml:</p>
+<pre><code class="language-yaml">allOf:
+  - $ref: &quot;processSummary.yaml&quot;
+  - type: object
+    properties:
+      inputs:
+        additionalProperties:
+          $ref: &quot;inputDescription.yaml&quot;
+      outputs:
+        additionalProperties:
+          $ref: &quot;outputDescription.yaml&quot;
+</code></pre>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-executionUnit-schema">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/executionUnit-schema</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-executionUnit-schema">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/executionUnit-schema</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The value of the <a href="#sec-7.4"><code>executionUnit</code> property</a> of an <a href="#bb-ogc-api-processes-part2-requirements-ogcapppkg">OGC Application Package</a> SHALL be defined by the following OpenAPI schema fragments:</p>
+<p>executionUnit.yaml</p>
+<pre><code class="language-yaml">oneOf:
+  - $ref: &quot;executionUnitBase.yaml&quot;
+  - type: array
+    items:
+      - $ref: &quot;executionUnitBase.yaml&quot;
+</code></pre>
+<p>executionUnitBase.yaml</p>
+<pre><code class="language-yaml">oneOf:
+  - $ref: &quot;../common-core/link.yaml&quot;
+  - allOf:
+    - $ref: &quot;../processes-core/qualifiedValue.yaml&quot;
+    - anyOf:
+      - description: |-
+          The execute unit is a container image.
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string
+            enum:
+              - docker
+              - oci
+          value:
+            $ref: &quot;executionUnitContainer.yaml&quot;
+      - description: |-
+          The execution unit is CWL script.
+        type: object
+        required:
+          - mediaType
+        properties:
+          mediaType:
+            type: string
+            enum:
+              - application/cwl
+          value:
+            #$ref: &quot;https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml&quot;
+            #$ref: &quot;../cwl/cwl-json-schema.yaml#/$defs/CWL&quot;
+            $ref: &quot;../cwl/cwl.yaml&quot;
+      - description: |-
+          The execution unit is not Docker/OCI or CWL and cannot be properly
+          described via the &quot;mediaType&quot; property of a qualified value 
+          using an RFC 2046 media type (e.g. an &quot;R&quot; or &quot;Python&quot; script).
+          In this case a community-defined or custom token may be used
+          with the &quot;type&quot; property.
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string
+</code></pre>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-execution-unit-docker">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/execution-unit-docker</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-execution-unit-docker">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/execution-unit-docker</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>If the execution unit is a Docker image, implementations SHOULD consider supporting the <a href="#sec-8">Docker Requirements Class</a>.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-other-execution-units">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/other-execution-units</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-other-execution-units">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/other-execution-units</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>Servers MAY support other execution unit types but those types are not described in this Standard.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>For the <a href="#sec-6.6">Deploy operation</a> and the <a href="#sec-6.7">Replace operation</a>, the media type <code>application/ogcapppkg+json</code> SHALL be used to indicate that the request body contains an <a href="#sec-7">OGC Application Package</a>.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-ogcapppkg-package-response-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/ogcapppkg/package-response-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-ogcapppkg-package-response-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg/package-response-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>For the <a href="#sec-6.9">Application Package retrieval operation</a> the media type <code>application/ogcapppkg+json</code> SHALL be used to indicate that the response body contains an <a href="#sec-7">OGC Application Package</a>.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-schema">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/schema</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-schema">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/schema</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The value of the <code>value</code> field of the <a href="#sec-7.4"><code>executionUnit</code> property</a> of an <a href="#sec-7">OGC Application Package</a> SHALL be defined by the following OpenAPI schema fragment:</p>
+<pre><code class="language-yaml">type: object
+required: image
+properties:
+  image:
+    description: |-
+      Container image reference for the execution unit.
+    type: string
+  deployment:
+    description: |-
+      Deployment information for the execution unit.
+    type: string
+    anyOf:
+      - type: string
+      - enum:
+          - local
+          - remote
+          - hpc
+          - cloud
+  config:
+    type: object
+    description: |-
+      Hardware requirements and configuration properties for executing the
+      process.
+    properties:
+      cpuMin:
+        description: |-
+          Minimum number of CPUs required to run the process (unit is CPU core).
+        type: number
+        minimum: 1
+      cpuMax:
+        description: |-
+          Maximum number of CPU dedicated to the process (unit is CPU core)
+        type: number
+      memoryMin:
+        description: |-
+          Minimum RAM memory required to run the application (unit is GB)
+        type: number
+      memoryMax:
+        description: |-
+          Maximum RAM memory dedicated to the application (unit is GB)
+        type: number
+      storageTempMin:
+        description: |-
+          Minimum required temporary storage size (unit is GB)
+        type: number
+      storageOutputsMin:
+        description: |-
+          Minimum required output storage size (unit is GB)
+        type: number
+      jobTimeout:
+        description: |-
+          Timeout delay for a job execution (in seconds)
+        type: number
+    additionalProperties: true
+  bindings:
+    type: object
+    properties:
+      inputBindings:
+        additionalProperties:
+          $ref: &quot;inputBinding.yaml&quot;
+      outputBindings:
+        additionalProperties:
+          $ref: &quot;outputBinding.yaml&quot;
+additionalProperties: true
+</code></pre>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-execution-unit">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/execution-unit</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-execution-unit">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/execution-unit</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-deployment">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/deployment</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-deployment">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/deployment</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-config">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/config</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-config">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/config</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-bindings">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/bindings</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-bindings">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/bindings</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-input-binding">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/input-binding</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-input-binding">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/input-binding</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The schema of an input binding SHALL be defined by the following OpenAPI schema fragment:</p>
+<p>inputBinding.yaml</p>
+<pre><code class="language-yaml">type: object
+description: |-
+  . Defines how to specify the input for the execution unit.
+  . The value of various properties defined below can be expressions.
+      . The expression language SHALL be JavaScript(???).
+  . The &quot;$(...)&quot; syntax can be used to reference the current input or other
+    process inputs in an expression.
+    . The value &quot;self&quot; refers to the value of the current input.
+    . The value &quot;inputs.&lt;other_input&gt;&quot; refers to the value of another
+      process input.
+    . If the input is defined as a string of format &quot;file&quot; or &quot;directory&quot;
+      then the meta-values &quot;.path&quot;, &quot;.basename&quot;, &quot;.nameroot&quot; and &quot;.nameext&quot;
+      can be used to manipulate file or directory name without having to
+      resort to complex regular expressions.
+        . &quot;.path&quot; returns the path of a file name without the file name
+        . &quot;.basename&quot; returns the name of the file without the path
+        . &quot;.nameroot&quot; returns the basename without any extension
+        . &quot;.nameext&quot; returns the extension of the basename
+properties:
+  prefix:
+    description: Command line prefix to add before the value.
+    type: string
+  position:
+    description: |-
+      . The zero-based sorting key.
+      . The value can be an integer or a string.
+      . If the value is a string then it should be an expression that evaluates
+        to a single integer value or null.
+    oneOf:
+      - type: integer
+      - type: string
+  valueFrom:
+    description: |-
+      . If valueFrom is a constant string value, use this as the value.
+      . If valueFrom is an expression, evaluate the expression to yield the
+        actual value to use to build the command line.
+      . If the value of the associated input parameter is null, valueFrom is
+        not evaluated and nothing is added to the command line.
+    type: string
+  itemSeparator:
+    description: |-
+      Join the array elements into a single string with the elements separated
+      by itemSeparator.
+    type: string
+  shellQuote:
+    description: |-
+      . A Boolean that controls whether the value is quoted on the command.
+      . A value of true (or if shecllQuote is not provided) means that the
+        implementation SHALL not permit the interpretation of any shell
+        metacharacters or directives.
+      . A value of false should be used to inject metacharacters for operations
+        such as pipes.
+    type: boolean
+additionalProperties: true
+</code></pre>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-expression-lang">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/expression-lang</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-expression-lang">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/expression-lang</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The language that SHALL be used to specify an expression as the value of a binding parameter SHALL be <a href="https://docs.ogc.org/is/21-065r2/21-065r2.html">CQL2</a>.</p>
+</td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-docker-output-binding">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/docker/output-binding</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-docker-output-binding">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker/output-binding</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-execution-unit-by-ref">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/execution-unit-by-ref</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-execution-unit-by-ref">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/execution-unit-by-ref</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-execution-unit-by-val">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/execution-unit-by-val</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-execution-unit-by-val">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/execution-unit-by-val</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>The content of the request body of a <a href="#sec-6.6">Deploy</a> or <a href="#sec-6.7">Replace</a> operation SHALL be a CWL document.</p>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-multipart-cwl-body">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/multipart-cwl-body</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-multipart-cwl-body">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/multipart-cwl-body</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td><p>Recommendation for supporting multipart deployment of related CWL documents forming a process.</p>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-deploy-w-param">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/deploy-w-param</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-deploy-w-param">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/deploy-w-param</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-deploy-exception-workflow-not-found">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/deploy-exception-workflow-not-found</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-deploy-exception-workflow-not-found">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/deploy-exception-workflow-not-found</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+    <div class="ats-entry" id="ats-cwl-media-type-request">
+      <div class="ats-header">https://www.opengis.net/spec/ogcapi-processes-2/1.0/ats/cwl/media-type-request</div>
+      <table>
+        <tr>
+          <td>Requirement</td>
+          <td><a href="#req-cwl-media-type-request">https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl/media-type-request</a></td>
+        </tr>
+        <tr>
+          <td>Test purpose</td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td>Test method</td>
+          <td>
+            
+            <p>Validate that a link object with <code>href</code> and <code>type: application/cwl</code> conforms to the <code>link</code> schema (ogc.api.processes.v1.schemas.link), as required when specifying a CWL execution unit by reference.</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td>Test resources</td>
+          <td>
+            
+            <a class="test-resource "
+               href="http://localhost:9090/register/_sources/part2/requirements/cwl/tests/cwl-execution-unit-by-ref-success.json">cwl-execution-unit-by-ref-success.json</a>
+            
+          </td>
+        </tr>
+        
+      </table>
+    </div>
+    
+  </section>
+
+  
+
+  
+  
+
+  
+  
+  <section id="annex-b" class="informative">
+    <h2>B. Revision History</h2>
+    <p><strong>Table — Revision history</strong></p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Release</th>
+<th>Editor</th>
+<th>Primary clauses modified</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-05-19</td>
+<td>None</td>
+<td>Panagiotis (Peter) A. Vretanos</td>
+<td>all</td>
+<td>Initial check in of draft transactions extension.</td>
+</tr>
+<tr>
+<td>2020-06-23</td>
+<td>None</td>
+<td>Panagiotis (Peter) A. Vretanos</td>
+<td>all</td>
+<td>Add initial draft of an example Open API document</td>
+</tr>
+<tr>
+<td>2021-10-18</td>
+<td>None</td>
+<td>Panagiotis (Peter) A. Vretanos</td>
+<td>all</td>
+<td>Rename transaction directory to deploy_replace_undeploy.</td>
+</tr>
+<tr>
+<td>2022-10-04</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Use relative path to exception and problem+json</td>
+</tr>
+<tr>
+<td>2022-10-05</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Update the Deploy, Replace, Undeploy extension</td>
+</tr>
+<tr>
+<td>2022-12-12</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Change the status code to be returned (immutable)</td>
+</tr>
+<tr>
+<td>2023-02-20</td>
+<td>None</td>
+<td>Panagiotis (Peter) A. Vretanos</td>
+<td>all</td>
+<td>Realign abstract test with requirements.</td>
+</tr>
+<tr>
+<td>2023-05-30</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Update status code and schema.</td>
+</tr>
+<tr>
+<td>2023-10-16</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Add content to the Abstract Test Suite</td>
+</tr>
+<tr>
+<td>2023-11-28</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Update test for validating support of a given HTTP method</td>
+</tr>
+<tr>
+<td>2023-12-06</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Abstract Test Suite Updates</td>
+</tr>
+<tr>
+<td>2023-12-07</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Fix mixed status code and value in security consideration</td>
+</tr>
+<tr>
+<td>2023-12-08</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Add requirements for managing docker image as execution unit</td>
+</tr>
+<tr>
+<td>2024-04-26</td>
+<td>None</td>
+<td>Gérald Fenoy</td>
+<td>all</td>
+<td>Add section for retrieving formal description of a mutable process</td>
+</tr>
+<tr>
+<td>2026-04-08</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>all</td>
+<td>Update format rendering of code snippets</td>
+</tr>
+<tr>
+<td>2026-04-13</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>all</td>
+<td>Fix req/rec/per definitions format and references.</td>
+</tr>
+<tr>
+<td>2026-04-14</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>Replace</td>
+<td>Add more explicit details about replacement conditions and body expectations.</td>
+</tr>
+<tr>
+<td>2026-04-16</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>Replace</td>
+<td>Fix missing req/rec/per document references in sections.</td>
+</tr>
+<tr>
+<td>2026-05-27</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>all</td>
+<td>Replace HTTP by HTTPS for requirement/conformance class references.</td>
+</tr>
+<tr>
+<td>2026-05-27</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>CWL</td>
+<td>Add multiple clarifications to CWL media-type and their operations.</td>
+</tr>
+<tr>
+<td>2026-05-27</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>CWL</td>
+<td>Add CWL multipart deployment details and guidance.</td>
+</tr>
+<tr>
+<td>2026-05-27</td>
+<td>None</td>
+<td>Francis Charette-Migneault</td>
+<td>AST</td>
+<td>Fix invalid AST reference to requirement for ‘unsupported media type’.</td>
+</tr>
+</tbody>
+</table>
+
+  </section>
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="annex-c">
+    <h2>C. Bibliography</h2>
+    
+    
+    
+    <h3>Bibliography</h3>
+    
+    <div class="reference-entry">
+      <span class="ref-id">[1]</span>
+      <span class="ref-body">
+        <a href="https://w3id.org/cwl/v1.2/">Peter Amstutz, Michael R</a>
+        
+      </span>
+    </div>
+    
+    <div class="reference-entry">
+      <span class="ref-id">[2]</span>
+      <span class="ref-body">
+        <a href="https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs">OpenEO: OpenEO Developers API Reference / Process Graphs</a>
+        
+      </span>
+    </div>
+    
+    
+  </section>
+
+  
+  
+
+</main>
+
+<footer>
+  <p>
+    2019
+    Open Geospatial Consortium —
+    20-044
+    
+  </p>
+  <p>Generated by <strong>bblocks-specgen</strong></p>
+</footer>
+
+</body>
+</html>

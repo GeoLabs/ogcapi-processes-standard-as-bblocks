@@ -178,6 +178,7 @@ body[data-status="Published"] .editor-note { display: none; }
 }
 .property-table tbody tr:last-child td { border-bottom: none; }
 .property-table a.schema-ref { font-size: 0.8em; color: #4a7ab5; }
+.ontology-table td code { font-size: 0.9em; }
 
 /* ---- Examples ---- */
 .examples-section { margin-top: 2rem; }
@@ -214,4 +215,18 @@ footer {
   font-size: 0.85rem;
   color: #777;
   text-align: center;
+}
+
+/* Figures */
+figure {
+  margin: 1.5em auto;
+  text-align: center;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+figcaption {
+  margin-top: 0.5em;
+  font-weight: bold;
 }
