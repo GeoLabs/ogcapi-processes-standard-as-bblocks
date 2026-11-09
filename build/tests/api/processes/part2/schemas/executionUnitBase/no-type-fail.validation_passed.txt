@@ -1,0 +1,24 @@
+Validation report for ogc.api.processes.part2.schemas.executionUnitBase - Execution unit (single)
+Generated 2026-11-09T11:31:51.167724+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using no-type-fail.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'not a typed execution unit' is not valid under any of the given schemas
+
+Failed validating 'oneOf' in schema[1]['properties']['value']:
+    {'oneOf': [{'$ref': '#/$defs/CWLAtomic'},
+               {'$ref': '#/$defs/CWLGraph'},
+               {'$ref': '#/$defs/CWLWorkflow'}]}
+
+On instance['value']:
+    'not a typed execution unit'
+=== End JSON Schema ===
+

@@ -1,0 +1,32 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.clauses.submitters",
+  "name": "Submitters",
+  "abstract": "Submitters of OGC API \u2014 Processes Part 2 (DRAFT).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-05T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/clauses/submitters/",
+  "validationPassed": true,
+  "description": "All questions regarding this submission should be directed to the editors or the submitters:\n\n**Table \u2014 Submitters**\n\n| Name | Affiliation |\n|---|---|\n| Panagiotis (Peter) A. Vretanos *(editor)* | CubeWerx Inc. |\n| G\u00e9rald Fenoy *(editor)* | GeoLabs |\n| Francis Charette-Migneault | Technologies Luqia, Centre de Recherche Informatique de Montr\u00e9al (CRIM) |\n| Pedro Gon\u00e7alves | Terradue Srl. |\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/clauses/submitters"
+}

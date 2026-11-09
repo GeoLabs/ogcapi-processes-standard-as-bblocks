@@ -1,0 +1,147 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.schemas.inputBinding - Docker input binding",
+  "bblockName": "Docker input binding",
+  "bblockId": "ogc.api.processes.part2.schemas.inputBinding",
+  "generated": "2026-11-09T11:31:48.981182+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/part2/schemas/inputBinding/tests/invalid-position-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/tests/invalid-position-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using invalid-position-fail.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "True is not valid under any of the given schemas",
+              "isError": true,
+              "message": "ValidationError: True is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['properties']['position']:\n    {'description': '. The zero-based sorting key.\\n'\n                    '. The value can be an integer or a string.\\n'\n                    '. If the value is a string then it should be an '\n                    'expression that evaluates\\n'\n                    '  to a single integer value or null.',\n     'oneOf': [{'type': 'integer'}, {'type': 'string'}]}\n\nOn instance['position']:\n    True"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/part2/schemas/inputBinding/tests/invalid-shell-quote-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/tests/invalid-shell-quote-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using invalid-shell-quote-fail.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'yes' is not of type 'boolean'",
+              "isError": true,
+              "message": "ValidationError: 'yes' is not of type 'boolean'\n\nFailed validating 'type' in schema['properties']['shellQuote']:\n    {'description': '. A Boolean that controls whether the value is quoted '\n                    'on the command.\\n'\n                    '. A value of true (or if shecllQuote is not provided) '\n                    'means that the\\n'\n                    '  implementation SHALL not permit the interpretation '\n                    'of any shell\\n'\n                    '  metacharacters or directives.\\n'\n                    '. A value of false should be used to inject '\n                    'metacharacters for operations\\n'\n                    '  such as pipes.',\n     'type': 'boolean'}\n\nOn instance['shellQuote']:\n    'yes'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/schemas/inputBinding/tests/prefix-position.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/tests/prefix-position.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using prefix-position.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0
+  }
+}

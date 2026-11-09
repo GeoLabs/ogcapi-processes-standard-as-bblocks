@@ -1,0 +1,1 @@
+{"defs":{},"properties":[{"path":["glob"],"description":". Wildcard pattern to find the output on disk or mounted volume.\n. Uses UNIX \"glob\" wildcard patterns (see: \"man 7 glob\").\n. See inputBinding.yaml for referencing input values in an output\n  binding \"glob\" expression.","sources":["bblocks://ogc.api.processes.part2.schemas.outputBinding"]}]}

@@ -1,0 +1,42 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.schemas.executionUnitBase",
+  "name": "Execution unit (single)",
+  "abstract": "One execution unit: a link, or a qualified value holding a container image, a CWL document or a custom type.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-07T00:00:00Z",
+  "itemClass": "schema",
+  "version": "1.0.0",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "schema",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.api.processes.part2.schemas.executionUnitContainer",
+    "ogc.api.processes.v1.schemas.link",
+    "ogc.api.processes.v1.schemas.qualifiedValue"
+  ],
+  "dateOfLastChange": "2026-11-09",
+  "schema": {
+    "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.yaml",
+    "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/schema.json"
+  },
+  "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/schema.yaml",
+  "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitBase/resolvedProperties.json",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part2/schemas/executionUnitBase/",
+  "description": "One execution unit: a link, or a qualified value holding a container image, a CWL document or a custom type.\n\nThe schema is the fragment quoted in the OGC 20-044 draft, with its references replaced by building block references.\n\nDifferences from the draft:\n\n- The draft refers to `../cwl/cwl.yaml`, which it does not include. This block uses the CWL v1.2 schema URL that the draft gives in a comment.\n- As written in the draft, the third `anyOf` branch accepts any `type`, so this schema does not reject an invalid Docker `value`. Validate such a value against `ogc.api.processes.part2.schemas.executionUnitContainer`.\n",
+  "annotatedSchema": "oneOf:\n- $ref: https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/link/schema.yaml\n- allOf:\n  - $ref: https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/qualifiedValue/schema.yaml\n  - anyOf:\n    - description: The execute unit is a container image.\n      type: object\n      required:\n      - type\n      properties:\n        type:\n          type: string\n          enum:\n          - docker\n          - oci\n        value:\n          $ref: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitContainer/schema.yaml\n    - description: The execution unit is CWL script.\n      type: object\n      required:\n      - mediaType\n      properties:\n        mediaType:\n          type: string\n          enum:\n          - application/cwl\n        value:\n          $ref: https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml\n    - description: \"The execution unit is not Docker/OCI or CWL and cannot be properly\\ndescribed\n        via the \\\"mediaType\\\" property of a qualified value \\nusing an RFC 2046 media\n        type (e.g. an \\\"R\\\" or \\\"Python\\\" script).\\nIn this case a community-defined\n        or custom token may be used\\nwith the \\\"type\\\" property.\"\n      type: object\n      required:\n      - type\n      properties:\n        type:\n          type: string\nx-bblocks-metadata:\n  itemIdentifier: ogc.api.processes.part2.schemas.executionUnitBase\n  register: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json\n  version: 1.0.0\n  dateOfLastChange: '2026-11-07'\n",
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/schemas/executionUnitBase"
+}

@@ -18,15 +18,15 @@
     }
   ],
   "dependsOn": [
-    "ogc.api.processes.v1.paths.ProcessList",
-    "ogc.api.processes.v1.paths.Job",
-    "ogc.api.processes.v1.schemas.processSummary",
-    "ogc.api.processes.v1.schemas.processList",
-    "ogc.api.processes.v1.paths.JobResult",
+    "ogc.api.processes.v1.paths.Conformance",
     "ogc.api.processes.v1.paths.Execution",
-    "ogc.api.processes.v1.paths.ProcessDescription",
+    "ogc.api.processes.v1.paths.Job",
+    "ogc.api.processes.v1.paths.JobResult",
     "ogc.api.processes.v1.paths.LandingPage",
-    "ogc.api.processes.v1.paths.Conformance"
+    "ogc.api.processes.v1.paths.ProcessDescription",
+    "ogc.api.processes.v1.paths.ProcessList",
+    "ogc.api.processes.v1.schemas.processList",
+    "ogc.api.processes.v1.schemas.processSummary"
   ],
   "tags": [
     "ogcapi-processes",
@@ -41,7 +41,7 @@
     }
   ],
   "shaclShapes": {},
-  "dateOfLastChange": "2026-05-21",
+  "dateOfLastChange": "2026-11-09",
   "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/core/",
   "testResources": [
     {

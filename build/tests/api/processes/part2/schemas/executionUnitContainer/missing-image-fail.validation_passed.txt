@@ -1,0 +1,127 @@
+Validation report for ogc.api.processes.part2.schemas.executionUnitContainer - Docker execution unit value
+Generated 2026-11-09T11:31:49.001440+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using missing-image-fail.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'image' is a required property
+
+Failed validating 'required' in schema:
+    {'type': 'object',
+     'required': ['image'],
+     'properties': {'image': {'description': 'Container image reference '
+                                             'for the execution unit.',
+                              'type': 'string'},
+                    'deployment': {'description': 'Deployment information '
+                                                  'for the execution unit.',
+                                   'type': 'string',
+                                   'anyOf': [{'type': 'string'},
+                                             {'enum': ['local',
+                                                       'remote',
+                                                       'hpc',
+                                                       'cloud']}]},
+                    'config': {'type': 'object',
+                               'description': 'Hardware requirements and '
+                                              'configuration properties '
+                                              'for executing the\n'
+                                              'process.',
+                               'properties': {'cpuMin': {'description': 'Minimum '
+                                                                        'number '
+                                                                        'of '
+                                                                        'CPUs '
+                                                                        'required '
+                                                                        'to '
+                                                                        'run '
+                                                                        'the '
+                                                                        'process '
+                                                                        '(unit '
+                                                                        'is '
+                                                                        'CPU '
+                                                                        'core).',
+                                                         'type': 'number',
+                                                         'minimum': 1},
+                                              'cpuMax': {'description': 'Maximum '
+                                                                        'number '
+                                                                        'of '
+                                                                        'CPU '
+                                                                        'dedicated '
+                                                                        'to '
+                                                                        'the '
+                                                                        'process '
+                                                                        '(unit '
+                                                                        'is '
+                                                                        'CPU '
+                                                                        'core)',
+                                                         'type': 'number'},
+                                              'memoryMin': {'description': 'Minimum '
+                                                                           'RAM '
+                                                                           'memory '
+                                                                           'required '
+                                                                           'to '
+                                                                           'run '
+                                                                           'the '
+                                                                           'application '
+                                                                           '(unit '
+                                                                           'is '
+                                                                           'GB)',
+                                                            'type': 'number'},
+                                              'memoryMax': {'description': 'Maximum '
+                                                                           'RAM '
+                                                                           'memory '
+                                                                           'dedicated '
+                                                                           'to '
+                                                                           'the '
+                                                                           'application '
+                                                                           '(unit '
+                                                                           'is '
+                                                                           'GB)',
+                                                            'type': 'number'},
+                                              'storageTempMin': {'description': 'Minimum '
+                                                                                'required '
+                                                                                'temporary '
+                                                                                'storage '
+                                                                                'size '
+                                                                                '(unit '
+                                                                                'is '
+                                                                                'GB)',
+                                                                 'type': 'number'},
+                                              'storageOutputsMin': {'description': 'Minimum '
+                                                                                   'required '
+                                                                                   'output '
+                                                                                   'storage '
+                                                                                   'size '
+                                                                                   '(unit '
+                                                                                   'is '
+                                                                                   'GB)',
+                                                                    'type': 'number'},
+                                              'jobTimeout': {'description': 'Timeout '
+                                                                            'delay '
+                                                                            'for '
+                                                                            'a '
+                                                                            'job '
+                                                                            'execution '
+                                                                            '(in '
+                                                                            'seconds)',
+                                                             'type': 'number'}},
+                               'additionalProperties': True},
+                    'bindings': {'type': 'object',
+                                 'properties': {'inputBindings': {'additionalProperties': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/inputBinding/schema.yaml'}},
+                                                'outputBindings': {'additionalProperties': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/outputBinding/schema.yaml'}}}}},
+     'additionalProperties': True,
+     'x-bblocks-metadata': {'itemIdentifier': 'ogc.api.processes.part2.schemas.executionUnitContainer',
+                            'register': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json',
+                            'version': '1.0.0',
+                            'dateOfLastChange': '2026-11-07'},
+     '$id': 'file:///github/workspace/build/annotated/api/processes/part2/schemas/executionUnitContainer/schema.yaml'}
+
+On instance:
+    {'deployment': 'local'}
+=== End JSON Schema ===
+

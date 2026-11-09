@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total": 13,
-    "passed": 11,
-    "failed": 2,
+    "total": 30,
+    "passed": 29,
+    "failed": 1,
     "result": false
   },
   "bblocks": {
@@ -10,10 +10,11 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.conventions - Conventions",
       "bblockName": "Conventions",
       "bblockId": "ogc.api.processes.part1.clauses.conventions",
-      "generated": "2026-08-18T09:13:26.053144+00:00",
+      "generated": "2026-11-09T11:31:48.931921+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -24,10 +25,11 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part1.clauses.references",
-      "generated": "2026-08-18T09:13:26.055771+00:00",
+      "generated": "2026-11-09T11:31:48.936902+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -38,10 +40,11 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part1.clauses.scope",
-      "generated": "2026-08-18T09:13:26.058083+00:00",
+      "generated": "2026-11-09T11:31:48.940066+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -52,10 +55,116 @@
       "title": "Validation report for ogc.api.processes.part1.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part1.clauses.terms",
-      "generated": "2026-08-18T09:13:26.060609+00:00",
+      "generated": "2026-11-09T11:31:48.942786+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.annexes.ats": {
+      "title": "Validation report for ogc.api.processes.part2.annexes.ats - Abstract Test Suite",
+      "bblockName": "Abstract Test Suite",
+      "bblockId": "ogc.api.processes.part2.annexes.ats",
+      "generated": "2026-11-09T11:31:48.945503+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.annexes.bibliography": {
+      "title": "Validation report for ogc.api.processes.part2.annexes.bibliography - Bibliography",
+      "bblockName": "Bibliography",
+      "bblockId": "ogc.api.processes.part2.annexes.bibliography",
+      "generated": "2026-11-09T11:31:48.948055+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.annexes.revisionHistory": {
+      "title": "Validation report for ogc.api.processes.part2.annexes.revisionHistory - Revision History",
+      "bblockName": "Revision History",
+      "bblockId": "ogc.api.processes.part2.annexes.revisionHistory",
+      "generated": "2026-11-09T11:31:48.950449+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.conformance": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.conformance - Conformance",
+      "bblockName": "Conformance",
+      "bblockId": "ogc.api.processes.part2.clauses.conformance",
+      "generated": "2026-11-09T11:31:48.952812+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.conventions": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.conventions - Conventions and background",
+      "bblockName": "Conventions and background",
+      "bblockId": "ogc.api.processes.part2.clauses.conventions",
+      "generated": "2026-11-09T11:31:48.955136+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.mediaTypes": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.mediaTypes - Media Types",
+      "bblockName": "Media Types",
+      "bblockId": "ogc.api.processes.part2.clauses.mediaTypes",
+      "generated": "2026-11-09T11:31:48.957450+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.openapi": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.openapi - OpenAPI 3.0",
+      "bblockName": "OpenAPI 3.0",
+      "bblockId": "ogc.api.processes.part2.clauses.openapi",
+      "generated": "2026-11-09T11:31:48.959795+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -66,10 +175,11 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.references - Normative References",
       "bblockName": "Normative References",
       "bblockId": "ogc.api.processes.part2.clauses.references",
-      "generated": "2026-08-18T09:13:26.063259+00:00",
+      "generated": "2026-11-09T11:31:48.962218+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -80,10 +190,56 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.scope - Scope",
       "bblockName": "Scope",
       "bblockId": "ogc.api.processes.part2.clauses.scope",
-      "generated": "2026-08-18T09:13:26.065597+00:00",
+      "generated": "2026-11-09T11:31:48.964540+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.securityConsiderations": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.securityConsiderations - Security Considerations",
+      "bblockName": "Security Considerations",
+      "bblockId": "ogc.api.processes.part2.clauses.securityConsiderations",
+      "generated": "2026-11-09T11:31:48.966972+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.submitters": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.submitters - Submitters",
+      "bblockName": "Submitters",
+      "bblockId": "ogc.api.processes.part2.clauses.submitters",
+      "generated": "2026-11-09T11:31:48.969304+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.clauses.submittingOrganizations": {
+      "title": "Validation report for ogc.api.processes.part2.clauses.submittingOrganizations - Submitting Organizations",
+      "bblockName": "Submitting Organizations",
+      "bblockId": "ogc.api.processes.part2.clauses.submittingOrganizations",
+      "generated": "2026-11-09T11:31:48.971604+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -94,13 +250,1042 @@
       "title": "Validation report for ogc.api.processes.part2.clauses.terms - Terms and Definitions",
       "bblockName": "Terms and Definitions",
       "bblockId": "ogc.api.processes.part2.clauses.terms",
-      "generated": "2026-08-18T09:13:26.068131+00:00",
+      "generated": "2026-11-09T11:31:48.973985+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.inputBinding": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.inputBinding - Docker input binding",
+      "bblockName": "Docker input binding",
+      "bblockId": "ogc.api.processes.part2.schemas.inputBinding",
+      "generated": "2026-11-09T11:31:48.981182+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/inputBinding/tests/invalid-position-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/tests/invalid-position-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-position-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "True is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: True is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['properties']['position']:\n    {'description': '. The zero-based sorting key.\\n'\n                    '. The value can be an integer or a string.\\n'\n                    '. If the value is a string then it should be an '\n                    'expression that evaluates\\n'\n                    '  to a single integer value or null.',\n     'oneOf': [{'type': 'integer'}, {'type': 'string'}]}\n\nOn instance['position']:\n    True"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/inputBinding/tests/invalid-shell-quote-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/tests/invalid-shell-quote-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-shell-quote-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'yes' is not of type 'boolean'",
+                  "isError": true,
+                  "message": "ValidationError: 'yes' is not of type 'boolean'\n\nFailed validating 'type' in schema['properties']['shellQuote']:\n    {'description': '. A Boolean that controls whether the value is quoted '\n                    'on the command.\\n'\n                    '. A value of true (or if shecllQuote is not provided) '\n                    'means that the\\n'\n                    '  implementation SHALL not permit the interpretation '\n                    'of any shell\\n'\n                    '  metacharacters or directives.\\n'\n                    '. A value of false should be used to inject '\n                    'metacharacters for operations\\n'\n                    '  such as pipes.',\n     'type': 'boolean'}\n\nOn instance['shellQuote']:\n    'yes'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/inputBinding/tests/prefix-position.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/tests/prefix-position.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using prefix-position.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.outputBinding": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.outputBinding - Docker output binding",
+      "bblockName": "Docker output binding",
+      "bblockId": "ogc.api.processes.part2.schemas.outputBinding",
+      "generated": "2026-11-09T11:31:48.987454+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/outputBinding/tests/glob-array.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/outputBinding/tests/glob-array.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using glob-array.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/outputBinding/tests/glob-string.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/outputBinding/tests/glob-string.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using glob-string.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/outputBinding/tests/invalid-glob-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/outputBinding/tests/invalid-glob-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-glob-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "3 is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: 3 is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['properties']['glob']:\n    {'description': '. Wildcard pattern to find the output on disk or '\n                    'mounted volume.\\n'\n                    '. Uses UNIX \"glob\" wildcard patterns (see: \"man 7 '\n                    'glob\").\\n'\n                    '. See inputBinding.yaml for referencing input values '\n                    'in an output\\n'\n                    '  binding \"glob\" expression.',\n     'oneOf': [{'type': 'string'},\n               {'type': 'array', 'items': {'type': 'string'}}]}\n\nOn instance['glob']:\n    3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.executionUnitContainer": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.executionUnitContainer - Docker execution unit value",
+      "bblockName": "Docker execution unit value",
+      "bblockId": "ogc.api.processes.part2.schemas.executionUnitContainer",
+      "generated": "2026-11-09T11:31:49.001538+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/executionUnitContainer/tests/docker-example.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitContainer/tests/docker-example.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using docker-example.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/executionUnitContainer/tests/invalid-config-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitContainer/tests/invalid-config-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-config-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "0 is less than the minimum of 1",
+                  "isError": true,
+                  "message": "ValidationError: 0 is less than the minimum of 1\n\nFailed validating 'minimum' in schema['properties']['config']['properties']['cpuMin']:\n    {'description': 'Minimum number of CPUs required to run the process '\n                    '(unit is CPU core).',\n     'type': 'number',\n     'minimum': 1}\n\nOn instance['config']['cpuMin']:\n    0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/executionUnitContainer/tests/invalid-input-binding-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitContainer/tests/invalid-input-binding-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-input-binding-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "True is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: True is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['properties']['bindings']['properties']['inputBindings']['additionalProperties']['properties']['position']:\n    {'description': '. The zero-based sorting key.\\n'\n                    '. The value can be an integer or a string.\\n'\n                    '. If the value is a string then it should be an '\n                    'expression that evaluates\\n'\n                    '  to a single integer value or null.',\n     'oneOf': [{'type': 'integer'}, {'type': 'string'}]}\n\nOn instance['bindings']['inputBindings']['inputImage']['position']:\n    True"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/executionUnitContainer/tests/invalid-output-binding-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitContainer/tests/invalid-output-binding-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-output-binding-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "3 is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: 3 is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['properties']['bindings']['properties']['outputBindings']['additionalProperties']['properties']['glob']:\n    {'description': '. Wildcard pattern to find the output on disk or '\n                    'mounted volume.\\n'\n                    '. Uses UNIX \"glob\" wildcard patterns (see: \"man 7 '\n                    'glob\").\\n'\n                    '. See inputBinding.yaml for referencing input values '\n                    'in an output\\n'\n                    '  binding \"glob\" expression.',\n     'oneOf': [{'type': 'string'},\n               {'type': 'array', 'items': {'type': 'string'}}]}\n\nOn instance['bindings']['outputBindings']['outputImage']['glob']:\n    3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/executionUnitContainer/tests/missing-image-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitContainer/tests/missing-image-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using missing-image-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'image' is a required property",
+                  "isError": true,
+                  "message": "ValidationError: 'image' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'required': ['image'],\n     'properties': {'image': {'description': 'Container image reference '\n                                             'for the execution unit.',\n                              'type': 'string'},\n                    'deployment': {'description': 'Deployment information '\n                                                  'for the execution unit.',\n                                   'type': 'string',\n                                   'anyOf': [{'type': 'string'},\n                                             {'enum': ['local',\n                                                       'remote',\n                                                       'hpc',\n                                                       'cloud']}]},\n                    'config': {'type': 'object',\n                               'description': 'Hardware requirements and '\n                                              'configuration properties '\n                                              'for executing the\\n'\n                                              'process.',\n                               'properties': {'cpuMin': {'description': 'Minimum '\n                                                                        'number '\n                                                                        'of '\n                                                                        'CPUs '\n                                                                        'required '\n                                                                        'to '\n                                                                        'run '\n                                                                        'the '\n                                                                        'process '\n                                                                        '(unit '\n                                                                        'is '\n                                                                        'CPU '\n                                                                        'core).',\n                                                         'type': 'number',\n                                                         'minimum': 1},\n                                              'cpuMax': {'description': 'Maximum '\n                                                                        'number '\n                                                                        'of '\n                                                                        'CPU '\n                                                                        'dedicated '\n                                                                        'to '\n                                                                        'the '\n                                                                        'process '\n                                                                        '(unit '\n                                                                        'is '\n                                                                        'CPU '\n                                                                        'core)',\n                                                         'type': 'number'},\n                                              'memoryMin': {'description': 'Minimum '\n                                                                           'RAM '\n                                                                           'memory '\n                                                                           'required '\n                                                                           'to '\n                                                                           'run '\n                                                                           'the '\n                                                                           'application '\n                                                                           '(unit '\n                                                                           'is '\n                                                                           'GB)',\n                                                            'type': 'number'},\n                                              'memoryMax': {'description': 'Maximum '\n                                                                           'RAM '\n                                                                           'memory '\n                                                                           'dedicated '\n                                                                           'to '\n                                                                           'the '\n                                                                           'application '\n                                                                           '(unit '\n                                                                           'is '\n                                                                           'GB)',\n                                                            'type': 'number'},\n                                              'storageTempMin': {'description': 'Minimum '\n                                                                                'required '\n                                                                                'temporary '\n                                                                                'storage '\n                                                                                'size '\n                                                                                '(unit '\n                                                                                'is '\n                                                                                'GB)',\n                                                                 'type': 'number'},\n                                              'storageOutputsMin': {'description': 'Minimum '\n                                                                                   'required '\n                                                                                   'output '\n                                                                                   'storage '\n                                                                                   'size '\n                                                                                   '(unit '\n                                                                                   'is '\n                                                                                   'GB)',\n                                                                    'type': 'number'},\n                                              'jobTimeout': {'description': 'Timeout '\n                                                                            'delay '\n                                                                            'for '\n                                                                            'a '\n                                                                            'job '\n                                                                            'execution '\n                                                                            '(in '\n                                                                            'seconds)',\n                                                             'type': 'number'}},\n                               'additionalProperties': True},\n                    'bindings': {'type': 'object',\n                                 'properties': {'inputBindings': {'additionalProperties': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/inputBinding/schema.yaml'}},\n                                                'outputBindings': {'additionalProperties': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/outputBinding/schema.yaml'}}}}},\n     'additionalProperties': True,\n     'x-bblocks-metadata': {'itemIdentifier': 'ogc.api.processes.part2.schemas.executionUnitContainer',\n                            'register': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json',\n                            'version': '1.0.0',\n                            'dateOfLastChange': '2026-11-07'},\n     '$id': 'file:///github/workspace/build/annotated/api/processes/part2/schemas/executionUnitContainer/schema.yaml'}\n\nOn instance:\n    {'deployment': 'local'}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 5,
+        "passed": 5,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.processSummary": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.processSummary - Process summary (Deploy response)",
+      "bblockName": "Process summary (Deploy response)",
+      "bblockId": "ogc.api.processes.part2.schemas.processSummary",
+      "generated": "2026-11-09T11:31:49.642194+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/processSummary/tests/deploy-response-missing-id-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/processSummary/tests/deploy-response-missing-id-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using deploy-response-missing-id-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'id' is a required property",
+                  "isError": true,
+                  "message": "ValidationError: 'id' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'type': 'object',\n     'required': ['id', 'version'],\n     'properties': {'id': {'type': 'string'},\n                    'version': {'type': 'string'},\n                    'jobControlOptions': {'type': 'array',\n                                          'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/jobControlOptions/schema.yaml'}},\n                    'links': {'type': 'array',\n                              'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/link/schema.yaml'}}}}\n\nOn instance:\n    {'title': 'EchoProcess',\n     'version': '1.0.0',\n     'jobControlOptions': ['sync-execute'],\n     'links': [{'href': 'https://processing.example.org/processes/EchoProcess',\n                'rel': 'self',\n                'type': 'application/json',\n                'title': 'Process description'}]}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/processSummary/tests/deploy-success.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/processSummary/tests/deploy-success.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using deploy-success.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.executionUnitBase": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.executionUnitBase - Execution unit (single)",
+      "bblockName": "Execution unit (single)",
+      "bblockId": "ogc.api.processes.part2.schemas.executionUnitBase",
+      "generated": "2026-11-09T11:31:51.167873+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/executionUnitBase/tests/docker.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/tests/docker.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using docker.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/executionUnitBase/tests/link.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/tests/link.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using link.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/executionUnitBase/tests/no-type-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnitBase/tests/no-type-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using no-type-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'not a typed execution unit' is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: 'not a typed execution unit' is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema[1]['properties']['value']:\n    {'oneOf': [{'$ref': '#/$defs/CWLAtomic'},\n               {'$ref': '#/$defs/CWLGraph'},\n               {'$ref': '#/$defs/CWLWorkflow'}]}\n\nOn instance['value']:\n    'not a typed execution unit'"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.executionUnit": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.executionUnit - Execution unit",
+      "bblockName": "Execution unit",
+      "bblockId": "ogc.api.processes.part2.schemas.executionUnit",
+      "generated": "2026-11-09T11:31:53.634399+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/executionUnit/tests/array.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/tests/array.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using array.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/executionUnit/tests/invalid-array-item-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/tests/invalid-array-item-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using invalid-array-item-fail.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'not a typed execution unit' is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: 'not a typed execution unit' is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema[1]['properties']['value']:\n    {'oneOf': [{'$ref': '#/$defs/CWLAtomic'},\n               {'$ref': '#/$defs/CWLGraph'},\n               {'$ref': '#/$defs/CWLWorkflow'}]}\n\nOn instance['value']:\n    'not a typed execution unit'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/executionUnit/tests/single.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/executionUnit/tests/single.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using single.json from test resources"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    "ogc.api.processes.part2.schemas.ogcapppkg": {
+      "title": "Validation report for ogc.api.processes.part2.schemas.ogcapppkg - OGC Application Package",
+      "bblockName": "OGC Application Package",
+      "bblockId": "ogc.api.processes.part2.schemas.ogcapppkg",
+      "generated": "2026-11-09T11:31:54.589890+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": false,
+            "filename": "_sources/part2/schemas/ogcapppkg/tests/docker-example.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/ogcapppkg/tests/docker-example.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using docker-example.json from test resources"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "docker-example.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD docker-example.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "docker-example.ttl",
+                  "size": 1,
+                  "isError": false,
+                  "message": "Output Turtle docker-example.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/part2/schemas/ogcapppkg/tests/missing-execution-unit-fail.json",
+            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/ogcapppkg/tests/missing-execution-unit-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "hasWarnings": false,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using missing-execution-unit-fail.json from test resources"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "missing-execution-unit-fail.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD missing-execution-unit-fail.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": true,
+                  "filename": "missing-execution-unit-fail.ttl",
+                  "size": 0,
+                  "isError": true,
+                  "message": "**Empty** output Turtle missing-execution-unit-fail.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'executionUnit' is a required property",
+                  "isError": true,
+                  "message": "ValidationError: 'executionUnit' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'required': ['executionUnit'],\n     'properties': {'processDescription': {'type': 'object',\n                                           'required': ['process'],\n                                           'properties': {'process': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml'}}},\n                    'executionUnit': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.yaml'}},\n     'x-bblocks-metadata': {'itemIdentifier': 'ogc.api.processes.part2.schemas.ogcapppkg',\n                            'register': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json',\n                            'version': '1.0.0',\n                            'dateOfLastChange': '2026-11-07'},\n     '$id': 'file:///github/workspace/build/annotated/api/processes/part2/schemas/ogcapppkg/schema.yaml'}\n\nOn instance:\n    {'processDescription': {'process': {'id': 'ndvi', 'version': '1.0.0'}}}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "hasWarnings": false,
+      "counts": {
+        "total": 2,
+        "passed": 2,
         "failed": 0
       }
     },
@@ -108,7 +1293,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
       "bblockName": "Core",
       "bblockId": "ogc.api.processes.part1.requirements.core",
-      "generated": "2026-08-18T09:13:26.076196+00:00",
+      "generated": "2026-11-09T11:31:54.599690+00:00",
       "result": false,
       "items": [
         {
@@ -120,6 +1305,7 @@
             "language": "json"
           },
           "result": false,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "GENERAL",
@@ -153,6 +1339,7 @@
             "language": "json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -175,6 +1362,7 @@
             "language": "json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -197,6 +1385,7 @@
             "language": "json"
           },
           "result": false,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "GENERAL",
@@ -232,6 +1421,7 @@
             "language": "application/json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -256,6 +1446,7 @@
             "language": "application/json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -271,6 +1462,7 @@
         }
       ],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 6,
         "passed": 4,
@@ -281,7 +1473,7 @@
       "title": "Validation report for ogc.api.processes.part1.requirements.json - JSON",
       "bblockName": "JSON",
       "bblockId": "ogc.api.processes.part1.requirements.json",
-      "generated": "2026-08-18T09:13:26.082770+00:00",
+      "generated": "2026-11-09T11:31:54.607159+00:00",
       "result": true,
       "items": [
         {
@@ -293,6 +1485,7 @@
             "language": "json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -315,6 +1508,7 @@
             "language": "json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -330,6 +1524,7 @@
         }
       ],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 2,
         "passed": 2,
@@ -340,135 +1535,26 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.dru - Deploy, Replace, Undeploy",
       "bblockName": "Deploy, Replace, Undeploy",
       "bblockId": "ogc.api.processes.part2.requirements.dru",
-      "generated": "2026-08-18T09:13:26.089090+00:00",
-      "result": false,
-      "items": [
-        {
-          "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": true,
-            "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-            "language": "json"
-          },
-          "result": false,
-          "sections": [
-            {
-              "name": "GENERAL",
-              "title": "General",
-              "entries": [
-                {
-                  "op": "require-fail",
-                  "isError": true,
-                  "message": "Test was expected to fail but it did not."
-                }
-              ]
-            },
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using deploy-response-missing-id-fail.json from test resources"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": false,
-            "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
-            "language": "json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using deploy-success.json from test resources"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": false,
-            "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
-            "language": "json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using deploy-success.json from test resources"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": true,
-            "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-            "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-            "language": "json"
-          },
-          "result": false,
-          "sections": [
-            {
-              "name": "GENERAL",
-              "title": "General",
-              "entries": [
-                {
-                  "op": "require-fail",
-                  "isError": true,
-                  "message": "Test was expected to fail but it did not."
-                }
-              ]
-            },
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using deploy-response-missing-id-fail.json from test resources"
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "generated": "2026-11-09T11:31:54.610394+00:00",
+      "result": true,
+      "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
-        "total": 4,
-        "passed": 2,
-        "failed": 2
+        "total": 0,
+        "passed": 0,
+        "failed": 0
       }
     },
     "ogc.api.processes.part2.requirements.ogcapppkg": {
       "title": "Validation report for ogc.api.processes.part2.requirements.ogcapppkg - OGC Application Package",
       "bblockName": "OGC Application Package",
       "bblockId": "ogc.api.processes.part2.requirements.ogcapppkg",
-      "generated": "2026-08-18T09:13:26.092439+00:00",
+      "generated": "2026-11-09T11:31:54.613722+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,
@@ -479,7 +1565,7 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.cwl - CWL",
       "bblockName": "CWL",
       "bblockId": "ogc.api.processes.part2.requirements.cwl",
-      "generated": "2026-08-18T09:13:26.098423+00:00",
+      "generated": "2026-11-09T11:31:54.620829+00:00",
       "result": true,
       "items": [
         {
@@ -491,6 +1577,7 @@
             "language": "json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -513,6 +1600,7 @@
             "language": "json"
           },
           "result": true,
+          "hasWarnings": false,
           "sections": [
             {
               "name": "FILES",
@@ -528,6 +1616,7 @@
         }
       ],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 2,
         "passed": 2,
@@ -538,10 +1627,11 @@
       "title": "Validation report for ogc.api.processes.part2.requirements.docker - Docker",
       "bblockName": "Docker",
       "bblockId": "ogc.api.processes.part2.requirements.docker",
-      "generated": "2026-08-18T09:13:26.101779+00:00",
+      "generated": "2026-11-09T11:31:54.624939+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
+      "hasWarnings": false,
       "counts": {
         "total": 0,
         "passed": 0,

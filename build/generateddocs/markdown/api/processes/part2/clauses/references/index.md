@@ -7,6 +7,10 @@ Normative references for OGC API — Processes Part 2: Deploy, Replace, Undeploy
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Description
+
+The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.
+
 ## Sources
 
 * [OGC API - Processes - Part 2: Deploy, Replace, Undeploy](https://docs.ogc.org/DRAFTS/20-044.html)

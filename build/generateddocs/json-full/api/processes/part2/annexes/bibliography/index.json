@@ -1,0 +1,38 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.annexes.bibliography",
+  "name": "Bibliography",
+  "abstract": "Bibliography of OGC API \u2014 Processes Part 2: Deploy, Replace, Undeploy (DRAFT).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-05T00:00:00Z",
+  "itemClass": "references",
+  "version": "1.0.0",
+  "normative": false,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/annexes/bibliography/references.yaml",
+      "role": "references",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/annexes/bibliography/",
+  "validationPassed": true,
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/annexes/bibliography"
+}

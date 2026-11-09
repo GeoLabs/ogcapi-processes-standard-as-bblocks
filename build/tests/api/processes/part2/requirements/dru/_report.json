@@ -2,124 +2,14 @@
   "title": "Validation report for ogc.api.processes.part2.requirements.dru - Deploy, Replace, Undeploy",
   "bblockName": "Deploy, Replace, Undeploy",
   "bblockId": "ogc.api.processes.part2.requirements.dru",
-  "generated": "2026-08-18T09:13:26.089090+00:00",
-  "result": false,
-  "items": [
-    {
-      "source": {
-        "type": "TEST_RESOURCE",
-        "requireFail": true,
-        "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-        "language": "json"
-      },
-      "result": false,
-      "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": true,
-              "message": "Test was expected to fail but it did not."
-            }
-          ]
-        },
-        {
-          "name": "FILES",
-          "title": "Files",
-          "entries": [
-            {
-              "isError": false,
-              "message": "Using deploy-response-missing-id-fail.json from test resources"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "source": {
-        "type": "TEST_RESOURCE",
-        "requireFail": false,
-        "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
-        "language": "json"
-      },
-      "result": true,
-      "sections": [
-        {
-          "name": "FILES",
-          "title": "Files",
-          "entries": [
-            {
-              "isError": false,
-              "message": "Using deploy-success.json from test resources"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "source": {
-        "type": "TEST_RESOURCE",
-        "requireFail": false,
-        "filename": "_sources/part2/requirements/dru/tests/deploy-success.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-success.json",
-        "language": "json"
-      },
-      "result": true,
-      "sections": [
-        {
-          "name": "FILES",
-          "title": "Files",
-          "entries": [
-            {
-              "isError": false,
-              "message": "Using deploy-success.json from test resources"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "source": {
-        "type": "TEST_RESOURCE",
-        "requireFail": true,
-        "filename": "_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/requirements/dru/tests/deploy-response-missing-id-fail.json",
-        "language": "json"
-      },
-      "result": false,
-      "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": true,
-              "message": "Test was expected to fail but it did not."
-            }
-          ]
-        },
-        {
-          "name": "FILES",
-          "title": "Files",
-          "entries": [
-            {
-              "isError": false,
-              "message": "Using deploy-response-missing-id-fail.json from test resources"
-            }
-          ]
-        }
-      ]
-    }
-  ],
+  "generated": "2026-11-09T11:31:54.610394+00:00",
+  "result": true,
+  "items": [],
   "globalErrors": {},
+  "hasWarnings": false,
   "counts": {
-    "total": 4,
-    "passed": 2,
-    "failed": 2
+    "total": 0,
+    "passed": 0,
+    "failed": 0
   }
 }

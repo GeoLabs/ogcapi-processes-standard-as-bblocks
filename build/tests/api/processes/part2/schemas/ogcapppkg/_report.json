@@ -1,0 +1,137 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.schemas.ogcapppkg - OGC Application Package",
+  "bblockName": "OGC Application Package",
+  "bblockId": "ogc.api.processes.part2.schemas.ogcapppkg",
+  "generated": "2026-11-09T11:31:54.589890+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/schemas/ogcapppkg/tests/docker-example.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/ogcapppkg/tests/docker-example.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using docker-example.json from test resources"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "docker-example.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD docker-example.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "docker-example.ttl",
+              "size": 1,
+              "isError": false,
+              "message": "Output Turtle docker-example.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/part2/schemas/ogcapppkg/tests/missing-execution-unit-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/ogcapppkg/tests/missing-execution-unit-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using missing-execution-unit-fail.json from test resources"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "missing-execution-unit-fail.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD missing-execution-unit-fail.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": true,
+              "filename": "missing-execution-unit-fail.ttl",
+              "size": 0,
+              "isError": true,
+              "message": "**Empty** output Turtle missing-execution-unit-fail.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'executionUnit' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'executionUnit' is a required property\n\nFailed validating 'required' in schema:\n    {'type': 'object',\n     'required': ['executionUnit'],\n     'properties': {'processDescription': {'type': 'object',\n                                           'required': ['process'],\n                                           'properties': {'process': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml'}}},\n                    'executionUnit': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.yaml'}},\n     'x-bblocks-metadata': {'itemIdentifier': 'ogc.api.processes.part2.schemas.ogcapppkg',\n                            'register': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json',\n                            'version': '1.0.0',\n                            'dateOfLastChange': '2026-11-07'},\n     '$id': 'file:///github/workspace/build/annotated/api/processes/part2/schemas/ogcapppkg/schema.yaml'}\n\nOn instance:\n    {'processDescription': {'process': {'id': 'ndvi', 'version': '1.0.0'}}}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

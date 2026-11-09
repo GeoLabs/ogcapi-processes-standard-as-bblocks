@@ -30,9 +30,10 @@
     }
   ],
   "shaclShapes": {},
-  "dateOfLastChange": "2026-08-03",
+  "dateOfLastChange": "2026-11-09",
   "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/clauses/references/",
   "validationPassed": true,
+  "description": "The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.\n",
   "annotatedSchema": null,
   "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
   "gitPath": "_sources/part2/clauses/references"

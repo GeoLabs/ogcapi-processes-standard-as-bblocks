@@ -1,0 +1,37 @@
+Validation report for ogc.api.processes.part2.schemas.ogcapppkg - OGC Application Package
+Generated 2026-11-09T11:31:54.589768+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using missing-execution-unit-fail.json from test resources
+JSON-LD context is present - uplifting
+Output JSON-LD missing-execution-unit-fail.jsonld created
+
+** Validation error **
+**Empty** output Turtle missing-execution-unit-fail.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'executionUnit' is a required property
+
+Failed validating 'required' in schema:
+    {'type': 'object',
+     'required': ['executionUnit'],
+     'properties': {'processDescription': {'type': 'object',
+                                           'required': ['process'],
+                                           'properties': {'process': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml'}}},
+                    'executionUnit': {'$ref': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.yaml'}},
+     'x-bblocks-metadata': {'itemIdentifier': 'ogc.api.processes.part2.schemas.ogcapppkg',
+                            'register': 'https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json',
+                            'version': '1.0.0',
+                            'dateOfLastChange': '2026-11-07'},
+     '$id': 'file:///github/workspace/build/annotated/api/processes/part2/schemas/ogcapppkg/schema.yaml'}
+
+On instance:
+    {'processDescription': {'process': {'id': 'ndvi', 'version': '1.0.0'}}}
+=== End JSON Schema ===
+

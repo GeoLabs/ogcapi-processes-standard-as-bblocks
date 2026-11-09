@@ -1,0 +1,134 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.schemas.outputBinding - Docker output binding",
+  "bblockName": "Docker output binding",
+  "bblockId": "ogc.api.processes.part2.schemas.outputBinding",
+  "generated": "2026-11-09T11:31:48.987454+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/schemas/outputBinding/tests/glob-array.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/outputBinding/tests/glob-array.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using glob-array.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/schemas/outputBinding/tests/glob-string.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/outputBinding/tests/glob-string.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using glob-string.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/part2/schemas/outputBinding/tests/invalid-glob-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/outputBinding/tests/invalid-glob-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using invalid-glob-fail.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "3 is not valid under any of the given schemas",
+              "isError": true,
+              "message": "ValidationError: 3 is not valid under any of the given schemas\n\nFailed validating 'oneOf' in schema['properties']['glob']:\n    {'description': '. Wildcard pattern to find the output on disk or '\n                    'mounted volume.\\n'\n                    '. Uses UNIX \"glob\" wildcard patterns (see: \"man 7 '\n                    'glob\").\\n'\n                    '. See inputBinding.yaml for referencing input values '\n                    'in an output\\n'\n                    '  binding \"glob\" expression.',\n     'oneOf': [{'type': 'string'},\n               {'type': 'array', 'items': {'type': 'string'}}]}\n\nOn instance['glob']:\n    3"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0
+  }
+}

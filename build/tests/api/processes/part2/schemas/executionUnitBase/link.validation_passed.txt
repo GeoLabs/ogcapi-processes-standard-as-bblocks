@@ -1,0 +1,10 @@
+Validation report for ogc.api.processes.part2.schemas.executionUnitBase - Execution unit (single)
+Generated 2026-11-09T11:31:50.605474+00:00
+=== Files ===
+Using link.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+

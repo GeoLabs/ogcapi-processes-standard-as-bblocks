@@ -1,0 +1,37 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.schemas.inputBinding",
+  "name": "Docker input binding",
+  "abstract": "How a process input is passed to a Docker execution unit (Requirement /req/docker/input-binding).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-07T00:00:00Z",
+  "itemClass": "schema",
+  "version": "1.0.0",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "schema",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "schema": {
+    "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/inputBinding/schema.yaml",
+    "application/json": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/inputBinding/schema.json"
+  },
+  "sourceSchema": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/schema.yaml",
+  "resolvedSchemaProperties": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/inputBinding/resolvedProperties.json",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/inputBinding/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part2/schemas/inputBinding/",
+  "description": "How a process input is passed to a Docker execution unit (Requirement /req/docker/input-binding).\n\nThe schema is the fragment quoted in the OGC 20-044 draft, with its references replaced by building block references.\n",
+  "annotatedSchema": "type: object\ndescription: \". Defines how to specify the input for the execution unit.\\n. The value\n  of various properties defined below can be expressions.\\n    . The expression language\n  SHALL be JavaScript(???).\\n. The \\\"$(...)\\\" syntax can be used to reference the\n  current input or other\\n  process inputs in an expression.\\n  . The value \\\"self\\\"\n  refers to the value of the current input.\\n  . The value \\\"inputs.<other_input>\\\"\n  refers to the value of another\\n    process input.\\n  . If the input is defined\n  as a string of format \\\"file\\\" or \\\"directory\\\"\\n    then the meta-values \\\".path\\\",\n  \\\".basename\\\", \\\".nameroot\\\" and \\\".nameext\\\"\\n    can be used to manipulate file\n  or directory name without having to\\n    resort to complex regular expressions.\\n\n  \\     . \\\".path\\\" returns the path of a file name without the file name\\n      .\n  \\\".basename\\\" returns the name of the file without the path\\n      . \\\".nameroot\\\"\n  returns the basename without any extension\\n      . \\\".nameext\\\" returns the extension\n  of the basename\"\nproperties:\n  prefix:\n    description: Command line prefix to add before the value.\n    type: string\n  position:\n    description: \". The zero-based sorting key.\\n. The value can be an integer or\n      a string.\\n. If the value is a string then it should be an expression that evaluates\\n\n      \\ to a single integer value or null.\"\n    oneOf:\n    - type: integer\n    - type: string\n  valueFrom:\n    description: \". If valueFrom is a constant string value, use this as the value.\\n.\n      If valueFrom is an expression, evaluate the expression to yield the\\n  actual\n      value to use to build the command line.\\n. If the value of the associated input\n      parameter is null, valueFrom is\\n  not evaluated and nothing is added to the\n      command line.\"\n    type: string\n  itemSeparator:\n    description: 'Join the array elements into a single string with the elements separated\n\n      by itemSeparator.'\n    type: string\n  shellQuote:\n    description: \". A Boolean that controls whether the value is quoted on the command.\\n.\n      A value of true (or if shecllQuote is not provided) means that the\\n  implementation\n      SHALL not permit the interpretation of any shell\\n  metacharacters or directives.\\n.\n      A value of false should be used to inject metacharacters for operations\\n  such\n      as pipes.\"\n    type: boolean\nadditionalProperties: true\nx-bblocks-metadata:\n  itemIdentifier: ogc.api.processes.part2.schemas.inputBinding\n  register: https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/register.json\n  version: 1.0.0\n  dateOfLastChange: '2026-11-07'\n",
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/schemas/inputBinding"
+}

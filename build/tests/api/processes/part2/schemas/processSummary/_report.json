@@ -1,0 +1,99 @@
+{
+  "title": "Validation report for ogc.api.processes.part2.schemas.processSummary - Process summary (Deploy response)",
+  "bblockName": "Process summary (Deploy response)",
+  "bblockId": "ogc.api.processes.part2.schemas.processSummary",
+  "generated": "2026-11-09T11:31:49.642194+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/part2/schemas/processSummary/tests/deploy-response-missing-id-fail.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/processSummary/tests/deploy-response-missing-id-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using deploy-response-missing-id-fail.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'id' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'id' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'type': 'object',\n     'required': ['id', 'version'],\n     'properties': {'id': {'type': 'string'},\n                    'version': {'type': 'string'},\n                    'jobControlOptions': {'type': 'array',\n                                          'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/jobControlOptions/schema.yaml'}},\n                    'links': {'type': 'array',\n                              'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/link/schema.yaml'}}}}\n\nOn instance:\n    {'title': 'EchoProcess',\n     'version': '1.0.0',\n     'jobControlOptions': ['sync-execute'],\n     'links': [{'href': 'https://processing.example.org/processes/EchoProcess',\n                'rel': 'self',\n                'type': 'application/json',\n                'title': 'Process description'}]}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part2/schemas/processSummary/tests/deploy-success.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/schemas/processSummary/tests/deploy-success.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using deploy-success.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

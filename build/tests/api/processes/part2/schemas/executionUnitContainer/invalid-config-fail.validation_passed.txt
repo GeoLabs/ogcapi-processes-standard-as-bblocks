@@ -1,0 +1,25 @@
+Validation report for ogc.api.processes.part2.schemas.executionUnitContainer - Docker execution unit value
+Generated 2026-11-09T11:31:48.997830+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using invalid-config-fail.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 0 is less than the minimum of 1
+
+Failed validating 'minimum' in schema['properties']['config']['properties']['cpuMin']:
+    {'description': 'Minimum number of CPUs required to run the process '
+                    '(unit is CPU core).',
+     'type': 'number',
+     'minimum': 1}
+
+On instance['config']['cpuMin']:
+    0
+=== End JSON Schema ===
+

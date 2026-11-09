@@ -1,0 +1,10 @@
+Validation report for ogc.api.processes.part2.schemas.executionUnitContainer - Docker execution unit value
+Generated 2026-11-09T11:31:48.997391+00:00
+=== Files ===
+Using docker-example.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+

@@ -1,0 +1,35 @@
+Validation report for ogc.api.processes.part2.schemas.processSummary - Process summary (Deploy response)
+Generated 2026-11-09T11:31:49.289575+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using deploy-response-missing-id-fail.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'id' is a required property
+
+Failed validating 'required' in schema['allOf'][1]:
+    {'type': 'object',
+     'required': ['id', 'version'],
+     'properties': {'id': {'type': 'string'},
+                    'version': {'type': 'string'},
+                    'jobControlOptions': {'type': 'array',
+                                          'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/jobControlOptions/schema.yaml'}},
+                    'links': {'type': 'array',
+                              'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/link/schema.yaml'}}}}
+
+On instance:
+    {'title': 'EchoProcess',
+     'version': '1.0.0',
+     'jobControlOptions': ['sync-execute'],
+     'links': [{'href': 'https://processing.example.org/processes/EchoProcess',
+                'rel': 'self',
+                'type': 'application/json',
+                'title': 'Process description'}]}
+=== End JSON Schema ===
+

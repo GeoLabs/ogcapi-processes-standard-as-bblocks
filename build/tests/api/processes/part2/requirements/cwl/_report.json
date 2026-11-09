@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.api.processes.part2.requirements.cwl - CWL",
   "bblockName": "CWL",
   "bblockId": "ogc.api.processes.part2.requirements.cwl",
-  "generated": "2026-08-18T09:13:26.098423+00:00",
+  "generated": "2026-11-09T11:31:54.620829+00:00",
   "result": true,
   "items": [
     {
@@ -14,6 +14,7 @@
         "language": "json"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -36,6 +37,7 @@
         "language": "json"
       },
       "result": true,
+      "hasWarnings": false,
       "sections": [
         {
           "name": "FILES",
@@ -51,6 +53,7 @@
     }
   ],
   "globalErrors": {},
+  "hasWarnings": false,
   "counts": {
     "total": 2,
     "passed": 2,
