@@ -1,0 +1,32 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.clauses.submitters",
+  "name": "Submitters",
+  "abstract": "Submitters of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "clause",
+  "version": "2.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/submitters/",
+  "validationPassed": true,
+  "description": "All questions regarding this submission should be directed to the editor or the submitters:\n\n**Table \u2014 Table of submitters**\n\n<table>\n<tbody><tr><td><strong>Name</strong></td><td><strong>Affiliation</strong></td></tr><tr><td>Benjamin Pross <em>(editor)</em></td><td>52\u00b0North GmbH</td></tr><tr><td>Stan Tillman</td><td>Hexagon</td></tr><tr><td>Panagiotis (Peter) A. Vretanos <em>(editor)</em></td><td>CubeWerx Inc.</td></tr><tr><td>J\u00e9r\u00f4me Jacovella-St-Louis</td><td>Ecere Corporation</td></tr><tr><td>Pedro Gon\u00e7alves</td><td>Terradue Srl</td></tr><tr><td>G\u00e9rald Fenoy</td><td>G\u00e9rald Fenoy (Individual Member)</td></tr><tr><td>Francis Charette-Migneault</td><td>Technologies Luqia, Centre de Recherche Informatique de Montr\u00e9al (CRIM)</td></tr><tr><td>Cristiano Lopes</td><td>European Space Agency (ESA)</td></tr><tr><td>Christophe Noel</td><td>Spacebel</td></tr></tbody>\n</table>\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/clauses/submitters"
+}

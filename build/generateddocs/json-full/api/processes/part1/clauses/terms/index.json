@@ -22,10 +22,17 @@
       "format": "application/yaml"
     }
   ],
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
   "shaclShapes": {},
   "dateOfLastChange": "2026-11-09",
   "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/terms/",
   "validationPassed": true,
+  "description": "This document uses the terms defined in [OGC Policy Directive 49](https://portal.ogc.org/public_ogc/directives/directives.php), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word \u201cshall\u201d (not \u201cmust\u201d) is the verb form used to indicate a requirement to be strictly followed to conform to this document and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.\n\nThis document also uses terms defined in the OGC Standard for Modular specifications ([OGC 08-131r3](https://portal.opengeospatial.org/files/?artifact_id=34762)), also known as the \u2018ModSpec\u2019. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.\n\nFor the purposes of this document, the following additional terms and definitions apply.\n",
   "annotatedSchema": null,
   "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
   "gitPath": "_sources/part1/clauses/terms"

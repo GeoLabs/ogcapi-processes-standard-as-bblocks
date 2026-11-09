@@ -1,6 +1,0 @@
-Validation report for ogc.api.processes.part1.requirements.core - Core
-Generated 2026-11-09T13:02:52.402349+00:00
-=== Files ===
-Using examples/ProcessList.json from examples
-=== End Files ===
-

@@ -1,0 +1,32 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.clauses.overview",
+  "name": "Overview",
+  "abstract": "Overview clause of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): Web Processing Service, resources, encodings and execution modes.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "clause",
+  "version": "2.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/overview/",
+  "validationPassed": true,
+  "description": "# Web Processing Service\n\nThe [OGC Web Processing Service (WPS)](https://docs.ogc.org/is/14-065/14-065r2.html) is a legacy interface standard that defines how to offer and execute geospatial processing algorithms over the Web. The WPS standard is designed to wrap any type of GIS functionality\u2014from a simple \u201cbuffer\u201d tool to a complex climate model\u2014into a Web service that can be discovered and invoked by any compliant client. The WPS standard is built around three mandatory \u201crequests\u201d (methods) that a client can send to a server. The methods are:\n\n- **GetCapabilites:** Returns metadata about the service including a list of all available processes hosted by the server.\n- **DescribeProcess:** Provides a detailed description of a specific process inc luding its required inputs and the output that it produces.\n- **Execute:** Tells the server to run a specified process with the set of provi ded inputs.\n\nThe WPS uses a rigid RPC-style invocation method using a fixed endpoint with different values for the \u201crequest\u201d parameter to invoke the different methods. It also relies heavily of XML and complex GML schemas.\n\nThe requirements in the OGC API \u2013 Processes Standard are designed to provide the same functionality as a WPS implementation but based on modern resource-oriented web architectural patterns.\n\n# Resources overview\n\nThe following table provides a summary of the resources and HTTP methods specified by this Standard:\n\n**Table 6 \u2014 Requirements class Core**\n\n| Resource description | Path | HTTP method | Parameter | Document reference |\n|---|---|---|---|---|\n| Landing page | `/` | GET | N/A | [Clause 7.2](#sec-7.2) |\n| Conformance classes | `/conformance` | GET | N/A | [Clause 7.4](#sec-7.4) |\n| Lists all available processes offered by the server | `/processes` | GET | N/A | [Clause 7.10](#sec-7.10) |\n| Provides detailed matadata about a specific process | `/processes/{processID}` | GET | processID (in path) | [Clause 7.11](#sec-7.11) |\n| The endpoint used to trigger execution of a process | `/processes/{processID}/execution` | POST | processID (in path), Execute request (contained in body) | [Clause 7.12](#sec-7.12) |\n| List of all current and past processing jobs | `/jobs` | GET | N/A | [[sc_job_list]](#sec-12) |\n| Status of a specific job | `/jobs/{jobID}` | GET | jobID (in path) | [Clause 7.13](#sec-7.13) |\n| The endpoint to retrieve all requested processing results | `/jobs/{jobID}/results` | GET | jobID (in path) | [Clause 7.14.2.4](#sec-7.14.2.4) |\n| The endpoint to retrieve a specific processing result | `/jobs/{jobID}/results/{outputID}` | GET | jobID (in path), outputID (in path) | [Clause 7.14.2.2](#sec-7.14.2.2) |\n| The endpoint to retrieve the Nth value of a specific processing result | `/jobs/{jobID}/results/{outputID}/{N}` | GET | jobID (in path), outputID (in path), N (in path) | [Clause 7.14.2.3](#sec-7.14.2.3) |\n| Dismiss a job | `/jobs/{jobID}` | DELETE | jobID (in path) | [[sc_job-dismiss]](#sec-14) |\n\n# Encodings\n\nJSON is the encoding for requests and responses. The inputs and outputs of a process can be in any format. The formats are defined at the time of job creation and are fixed for the specific job.\n\n[Support for HTML](#bb-ogc-api-processes-part1-requirements-html) is recommended as HTML is the core language of the World Wide Web. A server that supports HTML will support browsing with a web browser and will enable search engines to crawl and index the processes.\n\n# Execution modes\n\nThe standard supports two ways of execution a process:\n\n- **Synchronous:** The client stays connected and waits for the server to finish the task and return the result immediately. This is ideal for quick calculations.\n- **Asynchronous:** The server acknowledges the request and provides a job ID. The client polls the job status and retrieves the results later. This is necessary for long-running computations.\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/clauses/overview"
+}

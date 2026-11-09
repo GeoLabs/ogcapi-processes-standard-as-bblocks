@@ -3,7 +3,7 @@
   "name": "OGC API - Processes (Standard as Building Blocks)",
   "abstract": "OGC API \u2014 Processes, authored as Building Blocks. This is a proof-of-concept demonstrating the\n\"OGC Standards as BBs\" methodology, where the standards document is generated from a set of\nBuilding Blocks rather than from AsciiDoc source. Covers Part 1: Core and Part 2: Deploy,\nReplace, Undeploy (the latter still a DRAFT standard, not yet adopted).\n",
   "description": "This repository contains the Building Blocks for OGC API \u2014 Processes Part 1: Core (OGC 18-062r3)\nand OGC API \u2014 Processes Part 2: Deploy, Replace, Undeploy (OGC 20-044, **DRAFT**, not yet\nadopted). It demonstrates the [OGC Standards as BBs](https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/ogc-standards-as-bblocks.md)\nproposal, where normative requirements, conformance tests, schemas, and prose are all co-located\nin a Building Block, and the standards document is generated from the BB set.\n\nNew BB types introduced: `requirements-class`, `clause`, `terms`, `references`.\nNew `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.\n",
-  "modified": "2026-11-09T13:02:41.984878",
+  "modified": "2026-11-09T16:39:05.335451",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"2deb5c60331691186d997e4f6ae9aab18b548ce5",
@@ -24,6 +24,286 @@
   ],
   "bblocks": [
     {
+      "itemIdentifier": "ogc.api.processes.part1.annexes.ats",
+      "name": "Abstract Test Suite",
+      "abstract": "Annex A (normative) of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): introduction and layout of the conformance classes and abstract tests.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/annexes/ats/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/annexes/ats/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/annexes/ats/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.annexes.ats"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.annexes.bibliography",
+      "name": "Bibliography",
+      "abstract": "Bibliography of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "references",
+      "version": "2.0",
+      "normative": false,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "references",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/annexes/bibliography/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/annexes/bibliography/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/annexes/bibliography/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.annexes.bibliography"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.annexes.revisionHistory",
+      "name": "Revision history",
+      "abstract": "Annex B (informative) of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): revision history.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": false,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/annexes/revisionHistory/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/annexes/revisionHistory/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/annexes/revisionHistory/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.annexes.revisionHistory"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.acknowledgements",
+      "name": "Acknowledgements",
+      "abstract": "Acknowledgements of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/acknowledgements/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/acknowledgements/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/acknowledgements/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.acknowledgements"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.additionalBuildingBlocks",
+      "name": "Additional API Building Blocks",
+      "abstract": "Additional API building blocks of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): alternative process descriptions and paths.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/additionalBuildingBlocks/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/additionalBuildingBlocks/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/additionalBuildingBlocks/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.additionalBuildingBlocks"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.collections",
+      "name": "Collections",
+      "abstract": "Collections clause of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3), grouping the Collection Input, Remote Collections, Collection Output and Local Filtering requirements classes.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/collections/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/collections/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/collections/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.collections"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.conformance",
+      "name": "Conformance",
+      "abstract": "Conformance clause of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): the sixteen requirements / conformance classes.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/conformance/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/conformance/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/conformance/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.conformance"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.api.processes.part1.clauses.conventions",
       "name": "Conventions",
       "abstract": "Conventions used throughout OGC API \u2014 Processes Part 1: Core.",
@@ -37,6 +317,12 @@
         "ogcapi-processes",
         "standard",
         "clause"
+      ],
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
       ],
       "shaclShapes": {},
       "dateOfLastChange": "2026-11-09",
@@ -54,6 +340,206 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.conventions"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.encodings",
+      "name": "Requirements classes for encodings",
+      "abstract": "Encodings clause of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3), grouping the JSON and HTML requirements classes.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/encodings/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/encodings/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/encodings/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.encodings"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.mediaTypes",
+      "name": "Media Types",
+      "abstract": "Media types and profile identifiers of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/mediaTypes/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/mediaTypes/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/mediaTypes/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.mediaTypes"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.openapi",
+      "name": "OpenAPI requirements classes",
+      "abstract": "OpenAPI clause of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3), grouping the OpenAPI Specification, OpenAPI 3.0 and OpenAPI 3.1 requirements classes.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/openapi/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/openapi/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/openapi/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.openapi"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.overview",
+      "name": "Overview",
+      "abstract": "Overview clause of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): Web Processing Service, resources, encodings and execution modes.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/overview/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/overview/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/overview/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.overview"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.preface",
+      "name": "Preface",
+      "abstract": "Preface of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/preface/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/preface/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/preface/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.preface"
         }
       }
     },
@@ -77,6 +563,12 @@
           "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/references/references.yaml",
           "role": "references",
           "format": "application/yaml"
+        }
+      ],
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
         }
       ],
       "shaclShapes": {},
@@ -113,6 +605,12 @@
         "standard",
         "clause"
       ],
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
       "shaclShapes": {},
       "dateOfLastChange": "2026-11-09",
       "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/scope/",
@@ -129,6 +627,126 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.scope"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.securityConsiderations",
+      "name": "Security Considerations",
+      "abstract": "Security considerations of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): HTTP GET operations, the execute operation and the dismiss operation.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/securityConsiderations/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/securityConsiderations/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/securityConsiderations/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.securityConsiderations"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.submitters",
+      "name": "Submitters",
+      "abstract": "Submitters of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/submitters/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/submitters/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/submitters/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.submitters"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.clauses.submittingOrganizations",
+      "name": "Submitting Organizations",
+      "abstract": "Organizations that submitted OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "clause",
+      "version": "2.0",
+      "normative": true,
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "clause",
+        "draft"
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/submittingOrganizations/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/clauses/submittingOrganizations/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/clauses/submittingOrganizations/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.submittingOrganizations"
         }
       }
     },
@@ -154,6 +772,12 @@
           "format": "application/yaml"
         }
       ],
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
       "shaclShapes": {},
       "dateOfLastChange": "2026-11-09",
       "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/terms/",
@@ -170,6 +794,678 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.clauses.terms"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.callback",
+      "name": "Callback",
+      "abstract": "Requirements class \u201cCallback\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): notification of completed jobs.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/callback/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/callback/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/callback/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/callback/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.callback"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.collectionInput",
+      "name": "Collection Input",
+      "abstract": "Requirements class \u201cCollection Input\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): OGC API collections as process inputs.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/collectionInput/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/collectionInput/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/collectionInput/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/collectionInput/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.collectionInput"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.collectionOutput",
+      "name": "Collection Output",
+      "abstract": "Requirements class \u201cCollection Output\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): process execution triggered through OGC API data access mechanisms.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/collectionOutput/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/collectionOutput/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/collectionOutput/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/collectionOutput/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.collectionOutput"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.dismiss",
+      "name": "Dismiss",
+      "abstract": "Requirements class \u201cDismiss\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): cancelling active jobs or deleting completed jobs.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/dismiss/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/dismiss/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/dismiss/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/dismiss/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.dismiss"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.html",
+      "name": "HTML",
+      "abstract": "Requirements class \u201cHTML\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): HTML encoding of the API responses.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/html/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/html/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/html/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/html/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.html"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.jobList",
+      "name": "Job list",
+      "abstract": "Requirements class \u201cJob list\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): list of jobs with optional filtering.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/jobList/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/jobList/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/jobList/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/jobList/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.jobList"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.kvpExecute",
+      "name": "KVP-encoded Execute",
+      "abstract": "Requirements class \u201cKVP-encoded Execute\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): process inputs encoded as query parameters of an HTTP GET request.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/kvpExecute/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/kvpExecute/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/kvpExecute/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/kvpExecute/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.kvpExecute"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.localFiltering",
+      "name": "Local Filtering",
+      "abstract": "Requirements class \u201cLocal Filtering\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): filtering of input values by the processing server.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/localFiltering/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/localFiltering/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/localFiltering/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/localFiltering/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.localFiltering"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.oas",
+      "name": "OpenAPI Specification",
+      "abstract": "Requirements class \u201cOpenAPI Specification\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/oas/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/oas/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/oas/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/oas/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.oas"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.oas30",
+      "name": "OpenAPI Specification 3.0",
+      "abstract": "Requirements class \u201cOpenAPI Specification 3.0\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/oas30/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/oas30/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/oas30/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/oas30/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.oas30"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.oas31",
+      "name": "OpenAPI Specification 3.1",
+      "abstract": "Requirements class \u201cOpenAPI Specification 3.1\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/oas31/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/oas31/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/oas31/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/oas31/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.oas31"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.ogcProcessDescription",
+      "name": "OGC Process Description",
+      "abstract": "Requirements class \u201cOGC Process Description\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): a JSON information model describing the interface of a process.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/ogcProcessDescription/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/ogcProcessDescription/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/ogcProcessDescription/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/ogcProcessDescription/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.ogcProcessDescription"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.queryParamProfile",
+      "name": "Profile query parameter",
+      "abstract": "Requirements class \u201cProfile query parameter\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/queryParamProfile/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/queryParamProfile/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/queryParamProfile/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/queryParamProfile/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.queryParamProfile"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.api.processes.part1.requirements.remoteCollections",
+      "name": "Remote Collections",
+      "abstract": "Requirements class \u201cRemote Collections\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): collections of other OGC API deployments as process inputs.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-09T00:00:00Z",
+      "itemClass": "requirements-class",
+      "version": "2.0",
+      "normative": true,
+      "standardization-target": "Web API",
+      "sources": [
+        {
+          "title": "OGC API - Processes - Part 1: Core",
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+        }
+      ],
+      "tags": [
+        "ogcapi-processes",
+        "standard",
+        "requirements-class",
+        "draft"
+      ],
+      "resources": [
+        {
+          "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/remoteCollections/requirements.yaml",
+          "role": "requirements",
+          "format": "application/yaml"
+        }
+      ],
+      "shaclShapes": {},
+      "dateOfLastChange": "2026-11-09",
+      "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/remoteCollections/",
+      "validationPassed": true,
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/json-full/api/processes/part1/requirements/remoteCollections/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/generateddocs/markdown/api/processes/part1/requirements/remoteCollections/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/bblock/ogc.api.processes.part1.requirements.remoteCollections"
         }
       }
     },
@@ -1072,7 +2368,7 @@
       "sources": [
         {
           "title": "OGC API - Processes - Part 1: Core",
-          "link": "https://docs.ogc.org/is/18-062r2/18-062r2.html"
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
         }
       ],
       "dependsOn": [
@@ -1145,7 +2441,7 @@
       "sources": [
         {
           "title": "OGC API - Processes - Part 1: Core",
-          "link": "https://docs.ogc.org/is/18-062r2/18-062r2.html"
+          "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
         }
       ],
       "dependsOn": [

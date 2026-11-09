@@ -1,0 +1,15 @@
+{
+  "title": "Validation report for ogc.api.processes.part1.annexes.revisionHistory - Revision history",
+  "bblockName": "Revision history",
+  "bblockId": "ogc.api.processes.part1.annexes.revisionHistory",
+  "generated": "2026-11-09T16:39:11.218279+00:00",
+  "result": true,
+  "items": [],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}

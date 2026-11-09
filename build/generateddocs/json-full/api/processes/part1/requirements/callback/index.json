@@ -1,0 +1,40 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.requirements.callback",
+  "name": "Callback",
+  "abstract": "Requirements class \u201cCallback\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): notification of completed jobs.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0",
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/callback/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/requirements/callback/",
+  "validationPassed": true,
+  "description": "The Callback Requirements Class specifies a callback mechanism for completed jobs. In contrast to the pull-based mechanism specified in [Clause 7.12](#sec-7.12) and [Clause 7.13](#sec-7.13), this requirements class specifies a push-based mechanism, where a subscriber-URL is passed to the Processes API endpoint in the [execute request](#execute-request-body). After the job is completed, the result response is sent to the specified URL.\n\n<!-- requirements-class -->\n\n<!-- requirement: callback/job-callback -->\n\n**Example \u2014 A callback in the execute operation**\n\n```yaml\ncallbacks:\n    jobCompleted:\n      '{$request.body#/subscriber/successUri}':\n        post:\n          requestBody:\n            content:\n              application/json:\n                schema:\n                  $ref: '#/components/schemas/results'\n          responses:\n            '202':\n              description: Results received successfully\n```\n\nAdding multiple callbacks is possible for getting progress updates and notifications of the success or failure of a job completion.\n\nFurther guidance about how to use callbacks can be found in the [OpenAPI documentation](https://swagger.io/docs/specification/callbacks/).\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/requirements/callback"
+}

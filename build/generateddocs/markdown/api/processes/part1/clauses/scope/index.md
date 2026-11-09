@@ -9,12 +9,11 @@ Scope clause for OGC API — Processes Part 1: Core.
 
 ## Description
 
-The OGC API — Processes Standard (aka "Processes API") specifies requirements of a Web API that
-enables the execution of computing processes and the retrieval of metadata describing their purpose
-and functionality. Typically, these processes combine raster, vector, coverage and/or point cloud
-data with well-defined algorithms to produce new raster, vector, coverage and/or point cloud
-information.
+The OGC API — Processes Standard (aka “Processes API”) specifies requirements of a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, coverage and/or point cloud data with well-defined algorithms to produce new raster, vector, coverage and/or point cloud information.
 
+## Sources
+
+* [OGC API - Processes - Part 1: Core](https://docs.ogc.org/DRAFTS/18-062r3.html)
 
 # For developers
 

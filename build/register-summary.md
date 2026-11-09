@@ -18,11 +18,83 @@ New `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.
 
 ## Building Blocks
 
+### `ogc.api.processes.part1.annexes.ats` — Abstract Test Suite
+
+**Type:** clause
+
+Annex A (normative) of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): introduction and layout of the conformance classes and abstract tests.
+
+### `ogc.api.processes.part1.annexes.bibliography` — Bibliography
+
+**Type:** references
+
+Bibliography of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.annexes.revisionHistory` — Revision history
+
+**Type:** clause
+
+Annex B (informative) of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): revision history.
+
+### `ogc.api.processes.part1.clauses.acknowledgements` — Acknowledgements
+
+**Type:** clause
+
+Acknowledgements of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.clauses.additionalBuildingBlocks` — Additional API Building Blocks
+
+**Type:** clause
+
+Additional API building blocks of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): alternative process descriptions and paths.
+
+### `ogc.api.processes.part1.clauses.collections` — Collections
+
+**Type:** clause
+
+Collections clause of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3), grouping the Collection Input, Remote Collections, Collection Output and Local Filtering requirements classes.
+
+### `ogc.api.processes.part1.clauses.conformance` — Conformance
+
+**Type:** clause
+
+Conformance clause of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): the sixteen requirements / conformance classes.
+
 ### `ogc.api.processes.part1.clauses.conventions` — Conventions
 
 **Type:** clause
 
 Conventions used throughout OGC API — Processes Part 1: Core.
+
+### `ogc.api.processes.part1.clauses.encodings` — Requirements classes for encodings
+
+**Type:** clause
+
+Encodings clause of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3), grouping the JSON and HTML requirements classes.
+
+### `ogc.api.processes.part1.clauses.mediaTypes` — Media Types
+
+**Type:** clause
+
+Media types and profile identifiers of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.clauses.openapi` — OpenAPI requirements classes
+
+**Type:** clause
+
+OpenAPI clause of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3), grouping the OpenAPI Specification, OpenAPI 3.0 and OpenAPI 3.1 requirements classes.
+
+### `ogc.api.processes.part1.clauses.overview` — Overview
+
+**Type:** clause
+
+Overview clause of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): Web Processing Service, resources, encodings and execution modes.
+
+### `ogc.api.processes.part1.clauses.preface` — Preface
+
+**Type:** clause
+
+Preface of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
 
 ### `ogc.api.processes.part1.clauses.references` — Normative References
 
@@ -36,11 +108,113 @@ Normative references for OGC API — Processes Part 1: Core.
 
 Scope clause for OGC API — Processes Part 1: Core.
 
+### `ogc.api.processes.part1.clauses.securityConsiderations` — Security Considerations
+
+**Type:** clause
+
+Security considerations of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): HTTP GET operations, the execute operation and the dismiss operation.
+
+### `ogc.api.processes.part1.clauses.submitters` — Submitters
+
+**Type:** clause
+
+Submitters of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.clauses.submittingOrganizations` — Submitting Organizations
+
+**Type:** clause
+
+Organizations that submitted OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
 ### `ogc.api.processes.part1.clauses.terms` — Terms and Definitions
 
 **Type:** terms
 
 Terms, definitions and abbreviated terms for OGC API — Processes Part 1: Core.
+
+### `ogc.api.processes.part1.requirements.callback` — Callback
+
+**Type:** requirements-class
+
+Requirements class “Callback” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): notification of completed jobs.
+
+### `ogc.api.processes.part1.requirements.collectionInput` — Collection Input
+
+**Type:** requirements-class
+
+Requirements class “Collection Input” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): OGC API collections as process inputs.
+
+### `ogc.api.processes.part1.requirements.collectionOutput` — Collection Output
+
+**Type:** requirements-class
+
+Requirements class “Collection Output” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): process execution triggered through OGC API data access mechanisms.
+
+### `ogc.api.processes.part1.requirements.dismiss` — Dismiss
+
+**Type:** requirements-class
+
+Requirements class “Dismiss” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): cancelling active jobs or deleting completed jobs.
+
+### `ogc.api.processes.part1.requirements.html` — HTML
+
+**Type:** requirements-class
+
+Requirements class “HTML” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): HTML encoding of the API responses.
+
+### `ogc.api.processes.part1.requirements.jobList` — Job list
+
+**Type:** requirements-class
+
+Requirements class “Job list” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): list of jobs with optional filtering.
+
+### `ogc.api.processes.part1.requirements.kvpExecute` — KVP-encoded Execute
+
+**Type:** requirements-class
+
+Requirements class “KVP-encoded Execute” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): process inputs encoded as query parameters of an HTTP GET request.
+
+### `ogc.api.processes.part1.requirements.localFiltering` — Local Filtering
+
+**Type:** requirements-class
+
+Requirements class “Local Filtering” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): filtering of input values by the processing server.
+
+### `ogc.api.processes.part1.requirements.oas` — OpenAPI Specification
+
+**Type:** requirements-class
+
+Requirements class “OpenAPI Specification” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.requirements.oas30` — OpenAPI Specification 3.0
+
+**Type:** requirements-class
+
+Requirements class “OpenAPI Specification 3.0” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.requirements.oas31` — OpenAPI Specification 3.1
+
+**Type:** requirements-class
+
+Requirements class “OpenAPI Specification 3.1” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.requirements.ogcProcessDescription` — OGC Process Description
+
+**Type:** requirements-class
+
+Requirements class “OGC Process Description” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): a JSON information model describing the interface of a process.
+
+### `ogc.api.processes.part1.requirements.queryParamProfile` — Profile query parameter
+
+**Type:** requirements-class
+
+Requirements class “Profile query parameter” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).
+
+### `ogc.api.processes.part1.requirements.remoteCollections` — Remote Collections
+
+**Type:** requirements-class
+
+Requirements class “Remote Collections” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3): collections of other OGC API deployments as process inputs.
 
 ### `ogc.api.processes.part2.annexes.ats` — Abstract Test Suite
 

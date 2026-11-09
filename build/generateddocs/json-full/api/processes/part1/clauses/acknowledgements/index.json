@@ -1,0 +1,32 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.clauses.acknowledgements",
+  "name": "Acknowledgements",
+  "abstract": "Acknowledgements of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "clause",
+  "version": "2.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/acknowledgements/",
+  "validationPassed": true,
+  "description": "Requirements integrated within version 2.0 of this OGC API\u2009\u2014\u2009Processes Standard was sourced from Part 3: Workflows, whose development was undertaken as part of GeoConnections 2020-2021 and 2025-2027 projects GNS20-21IFP02 (Modular OGC API Workflows) and GNS25-27IFP2 (Advancing and Implementing OGC Standards for GeoDataCubes, DGGSs, Data Stores for Digital Twins and Cartographic Symbology). Financial support provided by GeoConnections, a national collaborative initiative led by Natural Resources Canada. GeoConnections supports the modernization of the Canadian Geospatial Data Infrastructure (CGDI). The CGDI is the collection of geospatial data, standards, policies, applications, and governance that facilitate its access, use, integration, and preservation.\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/clauses/acknowledgements"
+}

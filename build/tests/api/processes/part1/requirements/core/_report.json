@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.api.processes.part1.requirements.core - Core",
   "bblockName": "Core",
   "bblockId": "ogc.api.processes.part1.requirements.core",
-  "generated": "2026-11-09T13:02:52.403626+00:00",
+  "generated": "2026-11-09T16:39:15.514531+00:00",
   "result": false,
   "items": [
     {
@@ -118,63 +118,13 @@
           ]
         }
       ]
-    },
-    {
-      "source": {
-        "type": "EXAMPLE",
-        "requireFail": false,
-        "filename": "build/tests/api/processes/part1/requirements/core/example_1_1.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_1_1.json",
-        "exampleIndex": 1,
-        "snippetIndex": 1,
-        "language": "application/json"
-      },
-      "result": true,
-      "hasWarnings": false,
-      "sections": [
-        {
-          "name": "FILES",
-          "title": "Files",
-          "entries": [
-            {
-              "isError": false,
-              "message": "Using examples/ProcessList.json from examples"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "source": {
-        "type": "EXAMPLE",
-        "requireFail": false,
-        "filename": "build/tests/api/processes/part1/requirements/core/example_2_1.json",
-        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/tests/api/processes/part1/requirements/core/example_2_1.json",
-        "exampleIndex": 2,
-        "snippetIndex": 1,
-        "language": "application/json"
-      },
-      "result": true,
-      "hasWarnings": false,
-      "sections": [
-        {
-          "name": "FILES",
-          "title": "Files",
-          "entries": [
-            {
-              "isError": false,
-              "message": "Using examples/ProcessDescription.json from examples"
-            }
-          ]
-        }
-      ]
     }
   ],
   "globalErrors": {},
   "hasWarnings": false,
   "counts": {
-    "total": 6,
-    "passed": 4,
+    "total": 4,
+    "passed": 2,
     "failed": 2
   }
 }

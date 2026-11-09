@@ -15,11 +15,17 @@
     "standard",
     "clause"
   ],
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
   "shaclShapes": {},
   "dateOfLastChange": "2026-11-09",
   "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/clauses/scope/",
   "validationPassed": true,
-  "description": "The OGC API \u2014 Processes Standard (aka \"Processes API\") specifies requirements of a Web API that\nenables the execution of computing processes and the retrieval of metadata describing their purpose\nand functionality. Typically, these processes combine raster, vector, coverage and/or point cloud\ndata with well-defined algorithms to produce new raster, vector, coverage and/or point cloud\ninformation.\n",
+  "description": "The OGC API\u2009\u2014\u2009Processes Standard (aka \u201cProcesses API\u201d) specifies requirements of a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, coverage and/or point cloud data with well-defined algorithms to produce new raster, vector, coverage and/or point cloud information.\n",
   "annotatedSchema": null,
   "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
   "gitPath": "_sources/part1/clauses/scope"

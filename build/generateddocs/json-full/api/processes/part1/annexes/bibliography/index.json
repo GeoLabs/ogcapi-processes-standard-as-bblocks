@@ -1,0 +1,31 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.annexes.bibliography",
+  "name": "Bibliography",
+  "abstract": "Bibliography of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "references",
+  "version": "2.0",
+  "normative": false,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "references",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "dateOfLastChange": "2026-11-09",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/annexes/bibliography/",
+  "validationPassed": true,
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/annexes/bibliography"
+}
