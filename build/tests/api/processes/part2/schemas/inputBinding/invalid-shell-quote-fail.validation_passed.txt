@@ -1,5 +1,5 @@
 Validation report for ogc.api.processes.part2.schemas.inputBinding - Docker input binding
-Generated 2026-11-09T16:39:11.311812+00:00
+Generated 2026-11-09T16:47:57.881646+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===

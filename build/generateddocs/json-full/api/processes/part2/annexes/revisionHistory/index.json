@@ -22,6 +22,9 @@
     "draft"
   ],
   "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
   "dateOfLastChange": "2026-11-09",
   "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/annexes/revisionHistory/",
   "validationPassed": true,

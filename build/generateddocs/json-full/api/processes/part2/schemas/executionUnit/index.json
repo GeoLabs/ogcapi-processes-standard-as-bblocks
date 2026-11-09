@@ -23,6 +23,9 @@
   "dependsOn": [
     "ogc.api.processes.part2.schemas.executionUnitBase"
   ],
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
   "dateOfLastChange": "2026-11-09",
   "schema": {
     "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnit/schema.yaml",

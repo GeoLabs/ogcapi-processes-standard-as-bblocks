@@ -1,5 +1,5 @@
 Validation report for ogc.api.processes.part2.schemas.ogcapppkg - OGC Application Package
-Generated 2026-11-09T16:39:15.326320+00:00
+Generated 2026-11-09T16:48:00.493485+00:00
 === Files ===
 Using docker-example.json from test resources
 JSON-LD context is present - uplifting

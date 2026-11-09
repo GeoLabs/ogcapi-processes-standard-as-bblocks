@@ -1,5 +1,5 @@
 Validation report for ogc.api.processes.part2.schemas.outputBinding - Docker output binding
-Generated 2026-11-09T16:39:11.316000+00:00
+Generated 2026-11-09T16:47:57.889062+00:00
 === Files ===
 Using glob-string.json from test resources
 === End Files ===

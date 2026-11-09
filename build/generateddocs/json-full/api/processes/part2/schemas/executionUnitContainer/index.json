@@ -24,6 +24,9 @@
     "ogc.api.processes.part2.schemas.inputBinding",
     "ogc.api.processes.part2.schemas.outputBinding"
   ],
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
   "dateOfLastChange": "2026-11-09",
   "schema": {
     "application/yaml": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/executionUnitContainer/schema.yaml",

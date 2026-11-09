@@ -1,5 +1,5 @@
 Validation report for ogc.api.processes.part2.schemas.inputBinding - Docker input binding
-Generated 2026-11-09T16:39:11.312012+00:00
+Generated 2026-11-09T16:47:57.882013+00:00
 === Files ===
 Using prefix-position.json from test resources
 === End Files ===
