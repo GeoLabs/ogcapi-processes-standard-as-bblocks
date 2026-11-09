@@ -1,6 +1,7 @@
 standards:
 
-  - prefix: ogc.api.processes.part1
+  - id: part1
+    prefix: ogc.api.processes.part1
     title: "OGC API - Processes - Part 1: Core"
     doc-number: OGC 18-062r3
     type: Standard
@@ -47,47 +48,134 @@ standards:
       copyright-year: 2026
       license: OGC Document Notice
 
-  - prefix: ogc.api.processes.part2
+  - id: part2
+    # Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05)
+    prefix: ogc.api.processes.part2
     title: "OGC API - Processes - Part 2: Deploy, Replace, Undeploy"
-    doc-number: OGC 20-044
+    doc-number: "20-044"
     type: Standard
+    doc-subtype: Implementation
     status: Draft
-    version: "1.0.0"
-    pub-date: null
-    base-uri: http://www.opengis.net/spec/ogcapi-processes-2/1.0
+    version: "1.0"
+    submission-date: yyyy-mm-dd
+    approval-date: yyyy-mm-dd
+    pub-date: yyyy-mm-dd
+    external-id: https://www.opengis.net/doc/IS/ogcapi-processes-2/1.0
+    base-uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0
 
-    req-uri-template:  "{base-uri}/{status}req/{id}"
-    conf-uri-template: "{base-uri}/{status}conf/{id}"
+    # Rendered like the published OGC document: ModSpec tables, statements numbered
+    # document-wide (Requirement 1..41, Permission 1..6, Recommendation 1..5), numbered
+    # subclauses, roman-numbered preface.
+    layout: ogc
+
+    # Identifiers as in the draft: /req/<class>/<name>, /rec/..., /per/..., /conf/...
+    req-uri-template:  "{base-uri}/req/{id}"
+    rec-uri-template:  "{base-uri}/rec/{id}"
+    per-uri-template:  "{base-uri}/per/{id}"
+    conf-uri-template: "{base-uri}/conf/{id}"
+    ats-uri-template:  "{base-uri}/conf/{id}"
 
     editors:
       - name: Panagiotis (Peter) A. Vretanos
         affiliation: CubeWerx Inc.
+      - name: Gérald Fenoy
+        affiliation: GeoLabs
+      - name: Francis Charette-Migneault
+        affiliation: Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM)
 
-    wg: WPS SWG
     keywords:
-      - OGC API
-      - processes
-      - deployment
-      - web processing
+      - process
+      - collection
+      - instance
+      - spatial
+      - data
+      - openapi
+      - transactions
+      - insert
+      - update
+      - delete
+      - add
+      - remove
+      - deploy
+      - undeploy
+      - REST
+      - PUT
+      - POST
+      - DELETE
 
     abstract: |
-      OGC API — Processes — Part 2 extends Part 1 with deployment capabilities,
-      including deploy, replace and undeploy operations for process descriptions,
-      as well as support for OGC Application Packages, Docker execution units,
-      and optional CWL integration.
+      OGC API Standards define modular API building blocks to spatially enable Web APIs in a consistent way. The [OpenAPI specification](https://spec.openapis.org/oas/) is used to define the API building blocks.
+
+      The OGC API Processes Standard (aka Processes API) defines API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. OGC API Processes is comprised of multiple parts, each of them is a separate OGC Standard.
+
+      OGC API — Processes — Part 2: Deploy, Replace, Undeploy extends the core capabilities specified in OGC API — Processes — Part 1: Core \[[OGC 18-062r2](#OAProc-1)\] with the ability to dynamically add, modify and/or delete individual processes using an implementation (endpoint) of the OGC API — Processes Standard.
+
+      <div class="admonition">
+
+      **CAUTION**
+
+      This is a DRAFT version of the 2nd part of the OGC API — Processes standards. This draft is not complete and there are open issues that are still under discussion.
+
+      </div>
+
+    preface:
+      - auto: abstract
+      - auto: keywords
+      - bblock: ogc.api.processes.part2.clauses.securityConsiderations
+      - bblock: ogc.api.processes.part2.clauses.submittingOrganizations
+      - bblock: ogc.api.processes.part2.clauses.submitters
 
     clauses:
       - bblock: ogc.api.processes.part2.clauses.scope
-      - auto: conformance
+      - bblock: ogc.api.processes.part2.clauses.conformance
       - bblock: ogc.api.processes.part2.clauses.references
+        title: Normative references
       - bblock: ogc.api.processes.part2.clauses.terms
+        title: Terms, definitions and abbreviated terms
+      - bblock: ogc.api.processes.part2.clauses.conventions
       - bblock: ogc.api.processes.part2.requirements.dru
+        title: Requirements Class “Deploy, Replace, Undeploy (DRU)”
       - bblock: ogc.api.processes.part2.requirements.ogcapppkg
+        title: Requirements Class “OGC Application Package”
       - bblock: ogc.api.processes.part2.requirements.docker
+        title: Requirements Class “Docker”
       - bblock: ogc.api.processes.part2.requirements.cwl
+        title: Requirements Class “CWL”
+      - bblock: ogc.api.processes.part2.clauses.openapi
+      - bblock: ogc.api.processes.part2.clauses.mediaTypes
       - auto: annex-a
+        bblock: ogc.api.processes.part2.annexes.ats
+      - bblock: ogc.api.processes.part2.annexes.revisionHistory
+      - bblock: ogc.api.processes.part2.annexes.bibliography
+        numbered: false
 
     boilerplate:
-      patent-policy: OGC RF
-      copyright-year: 2026
-      license: OGC Document Notice
+      copyright-year: 2019
+      notices:
+        - title: Notice for Drafts
+          text: |
+            This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.
+
+            Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+
+            | | |
+            |---|---|
+            | Document number: | 20-044 |
+            | Document type: | OGC Standard |
+            | Document subtype: | Implementation |
+            | Document stage: | Draft |
+            | Document language: | English |
+        - title: Copyright notice
+          text: |
+            Copyright © 2019 Open Geospatial Consortium<br>
+            To obtain additional rights of use, visit <https://www.ogc.org/legal>
+        - title: Note
+          text: |
+            Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+            Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+        - title: License Agreement
+          text: |
+            Use of this document is subject to the license agreement at <https://www.ogc.org/license>
+
+            Suggested additions, changes and comments on this document are welcome and encouraged. Such suggestions may be submitted using the online change request form on OGC web site: <http://ogc.standardstracker.org/>

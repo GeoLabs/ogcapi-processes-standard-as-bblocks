@@ -1,0 +1,19 @@
+# Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05).
+# Text transcribed verbatim from the draft; regenerate the document with bblocks-specgen.
+#
+# Abstract tests of Annex A that belong to no conformance class (A.1 Introduction).
+# The tests of each conformance class are in its requirements.yaml.
+
+abstract-tests:
+- id: dru/mutable-process
+  uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/dru/mutable-process
+  purpose: Ensure that a mutable process is offered by the server being tested.
+  method: 'If a server implementing the OGC API — Processes — Part 2: Deploy, Replace, Undeploy is tested
+    using CITE tests, the server SHALL offer at least one mutable process.'
+- id: dru/test-process
+  uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/dru/test-process
+  purpose: Ensure that an application package URL can be provided in CWL encoding to test deploying processes
+    using OGC Application Package and CWL conformance classes.
+  method: 'If a server implementing the OGC API — Processes — Part 2: Deploy, Replace, Undeploy is tested
+    using CITE tests, it should provide a URL to an example application package encoded in CWL for tests
+    against the OGC Application Package and CWL conformance classes.'

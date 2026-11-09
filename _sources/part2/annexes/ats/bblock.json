@@ -1,0 +1,21 @@
+{
+  "name": "Abstract Test Suite",
+  "abstract": "Annex A (normative) of OGC API — Processes Part 2: Deploy, Replace, Undeploy (DRAFT): introduction and layout of the conformance classes and abstract tests.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-05T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ]
+}

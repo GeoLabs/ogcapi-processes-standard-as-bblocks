@@ -1,0 +1,17 @@
+# Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05).
+# Text transcribed verbatim from the draft; regenerate the document with bblocks-specgen.
+
+sort: false
+informative:
+- doc-id: '[1]'
+  anchor: Common_Workflow_Language
+  title: Peter Amstutz, Michael R
+  uri: https://w3id.org/cwl/v1.2/
+  citation: '\[1\] Peter Amstutz, Michael R. Crusoe, Nebojša Tijanić (editors), Brad Chapman, John Chilton,
+    Michael Heuer, Andrey Kartashov, Dan Leehr, Hervé Ménager, Maya Nedeljkovich, Matt Scales, Stian Soiland-Reyes,
+    Luka Stojanovic (2020): Common Workflow Language, v1.2. Specification, Common Workflow Language working
+    group. [https://w3id.org/cwl/v1.2/](https://w3id.org/cwl/v1.2/)'
+- doc-id: '[2]'
+  title: 'OpenEO: OpenEO Developers API Reference / Process Graphs'
+  uri: https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs
+  citation: '\[2\] OpenEO: OpenEO Developers API Reference / Process Graphs. [https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs](https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs)'

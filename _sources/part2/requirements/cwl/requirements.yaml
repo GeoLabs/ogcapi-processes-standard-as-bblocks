@@ -1,99 +1,168 @@
-# Requirements class: CWL — DRAFT
-# Class URI: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl
-# Source (draft, re-check before treating as final): https://docs.ogc.org/DRAFTS/20-044.html
+# Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05).
+# Text transcribed verbatim from the draft; regenerate the document with bblocks-specgen.
 #
-# All 6 requirements of rc_cwl are transcribed here (the source's `requirement::` list has 6
-# entries, not 7 — a `REQ_media-type-response.adoc` file exists on disk but is genuinely empty
-# (0 bytes) and is not referenced by the requirements-class summary, so it is intentionally
-# omitted here too).
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl
+# Statements are placed in description.md with <!-- requirement|recommendation|permission: <id> -->
+# markers; abstract tests are laid out by the Annex A block (part2/annexes/ats).
 
+class-id: cwl
+title: Requirements Class ‘CWL’
 standardization-target: Web API
-
+obligation: requirement
 depends-on:
-  - uri: https://docs.ogc.org/is/18-062r2/18-062r2.html
-    title: "OGC API — Processes — Part 1: Core"
-  - bblock: ogc.api.processes.part2.requirements.dru
-  - bblock: ogc.api.processes.part2.requirements.ogcapppkg
-  - uri: https://www.commonwl.org/v1.2/
-    title: "Common Workflow Language v1.2"
-
+- uri: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0.0
+  title: 'OGC API — Processes — Part 1: Core'
+- uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy
+- uri: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
+- uri: '#Common_Workflow_Language'
+  title: Common Workflow Language [1]
+conformance-class:
+  title: Common Workflow Language
 requirements:
+- id: cwl/execution-unit-by-ref
+  parts:
+  - If passed by reference, the value of the [`executionUnit` property](#sec-7.4) SHALL be a link pointing to the
+    CWL file describing the execution unit of the process.
+  - Both the `href` and `type` fields of the link SHALL be specified.
+  - If the encoding of the CWL is known to be JSON then the value of the `type` field SHALL be `application/cwl+json`.
+  - If the encoding of the CWL is known to be YAML then the value of the `type` field SHALL be `application/cwl+yaml`.
+  - If the specific encoding of the CWL is unknown then the value of the `type` field SHALL be the generic
+    media type `application/cwl`.
+  applies-to:
+    bblock: ogc.api.processes.v1.schemas.link
+    table: false
+- id: cwl/execution-unit-by-val
+  parts:
+  - If encoded in-line within an [OGC Application Package](#sec-7), the CWL value of the [`executionUnit`
+    property](#sec-7.4) SHALL be specified using a qualified value.
+  - Both the `mediaType` and `value` fields of the qualified value SHALL be specified.
+  - If the CWL value is specified as a JSON object then the value of the `mediaType` field SHALL be `application/cwl`.
+  - If the CWL value is specified as an embedded JSON string then the value of the `mediaType` field SHALL
+    be `application/cwl+json`.
+  - If the CWL value is specified as an embedded YAML string then the value of the `mediaType` field SHALL
+    be `application/cwl+yaml`.
+  applies-to:
+    bblock: ogc.api.processes.part2.schemas.executionUnitBase
+    table: false
+- id: cwl/body
+  statement: The content of the request body of a [Deploy](#sec-6.6) or [Replace](#sec-6.7) operation
+    SHALL be a CWL document.
+- id: cwl/multipart-cwl-body
+  type: permission
+  prerequisites:
+  - '[RFC 2387 (The MIME Multipart/Related Content-type)](#rfc2387)'
+  statement: Recommendation for supporting multipart deployment of related CWL documents forming a process.
+  parts:
+  - 'If a process requires the deployment of multiple CWL documents to represent its execution unit (e.g.:
+    a `class: Workflow` that depends on multiple other `steps` referring to separate `class: CommandLineTool`
+    documents), a server MAY support the `multipart/related` media-type ([RFC 2387](https://datatracker.ietf.org/doc/html/rfc2387)).'
+  - The media-type of each individual CWL part in the multipart body SHOULD be specified by their respective
+    part `Content-Type` header using `application/cwl`, `application/cwl+json` or `application/cwl+yaml`
+    media-types in accordance to their respective content encoding.
+  - The CWL parts of the multipart body SHOULD employ the `start` parameter ([RFC 2387, section 3.2](https://datatracker.ietf.org/doc/html/rfc2387#section-3.2))
+    within the request `Content-Type` header to indicate a part identifier of the part consisting of the
+    main CWL `Workflow` documents that invokes other `steps`.
+  - If the `start` parameter is not provided in the request `Content-Type` header, the CWL part corresponding
+    to the main `Workflow` document MAY include a part `Content-ID` header indicating a `#main` reference
+    in accordance to [CWL Packed documents](https://www.commonwl.org/v1.2/CommandLineTool.html#Packed_documents)
+    specification to identify itself as the main part of the multipart body.
+  - If no indication of `start` or `Content-ID` parameter can be resolved to identify the main CWL part,
+    the server MAY assume that the **first** part of the multipart body is the main one or use other means
+    of identification outside the multipart body such as using [/req/cwl/w-param](#req-cwl-deploy-w-param).
+  - Part identifiers MAY be resolved using `Content-ID` header or an embedded `id` field within the CWL
+    content of each respective part, while request-level `Content-ID` header SHOULD be reserved for identifying
+    the main `{processID}` resulting from the deployment of this multipart CWL definition.
+  - Part identifiers SHOULD employ consistent values between `Content-ID`, embedded `id` field within
+    the CWL and `steps[*].run` references of other CWL parts using them.
+  - 'If the main CWL part employs `run` references to other `steps` referring to documents by file names
+    (e.g.: `run: tools/tool-1.cwl`), the server SHOULD consider supporting a `Content-Disposition: attachment;
+    filename="tools/tool-1.cwl"` header for each part to resolve the corresponding execution units that
+    compose the process.'
+  - 'If the main CWL part employs `run` references to other `steps` referring to documents by unique IDs
+    (e.g.: `run: "cid:tool-2@bundle.example"` or `run: "cid:urn:uuid:550e8400-e29b-41d4-a716-446655440002"`),
+    the server SHOULD consider supporting a `Content-ID: <CID-ref@server>` header for each part to resolve
+    the corresponding execution units that compose the process.'
+  - 'If the main CWL part employs `run` references to other `steps` referring to external document URIs
+    (e.g.: `run: "https://repo.example.org/cwl/tools/tool-4.cwl"`), the server SHOULD consider supporting
+    a `Content-Location` header that indicates the location of the original part content for traceability.'
+  - A CWL part that provides a `Content-Location` header MAY omit its corresponding content to let the
+    server retrieve it from the indicated location, or include it explicitly to provide an alternative
+    local copy of the content.
+  - 'Additional parts providing supplementary metadata information about the overall process being deployed
+    (e.g.: using a process description or other profile negotiation by `Content-Profile` header) MAY be
+    included using `Content-Type` media-types other than the ones reserved by the CWL parts. Specific
+    interpretation and parsing of such additional parts are outside the scope of this recommendation.'
+- id: cwl/deploy-w-param
+  parts:
+  - If the CWL contains more than a single workflow identifier, an additional `w` query parameter SHALL
+    be used to target a specific workflow identifier to be deployed.
+  - |
+    The `w` query parameter SHALL be defined by the following OpenAPI schema fragment:
 
-  - id: execution-unit-by-ref
-    # Full URI: .../req/cwl/execution-unit-by-ref
-    level: SHALL
-    statement: >
-      If passed by reference, the value of the `executionUnit` property SHALL be a link pointing
-      to the CWL file describing the execution unit of the process. Both the `href` and `type`
-      fields of the link SHALL be specified. If the encoding of the CWL is known to be JSON then
-      the value of the `type` field SHALL be `application/cwl+json`. If the encoding of the CWL
-      is known to be YAML then the value of the `type` field SHALL be `application/cwl+yaml`. If
-      the specific encoding of the CWL is unknown then the value of the `type` field SHALL be the
-      generic media type `application/cwl`.
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.link
-      json-path: $
-    tested-by:
-      - cwl-execution-unit-by-ref-success
+    w-param.yaml
 
-  - id: execution-unit-by-val
-    level: SHALL
-    statement: >
-      If encoded in-line within an [OGC Application
-      Package](bblocks://ogc.api.processes.part2.requirements.ogcapppkg), the CWL value of the
-      `executionUnit` property SHALL be specified using a qualified value. Both the `mediaType`
-      and `value` fields of the qualified value SHALL be specified. If the CWL value is specified
-      as a JSON object then the value of the `mediaType` field SHALL be `application/cwl`. If the
-      CWL value is specified as an embedded JSON string then the value of the `mediaType` field
-      SHALL be `application/cwl+json`. If the CWL value is specified as an embedded YAML string
-      then the value of the `mediaType` field SHALL be `application/cwl+yaml`.
-    applies-to:
-      bblock: ogc.api.processes.v2.schemas.executionUnitBase
-      json-path: $
+    ```yaml
+    name: w
+    description: Point to the workflow identifier for deploying a CWL containing multiple workflow definitions
+    in: query
+    required: false
+    schema:
+      type: string
+    ```
+  - If, in this case, the `w` query parameter is not specified the the first process found SHALL be deployed.
+- id: cwl/deploy-exception-workflow-not-found
+  parts:
+  - If the `w` parameter has a value that cannot be located with the request body, the server SHALL respond
+    with an HTTP status code `400`.
+  - |
+    The content of that response SHALL validate against the following OpenAPI schema fragment:
 
-  - id: body
-    level: SHALL
-    statement: >
-      The content of the request body of a Deploy or Replace operation SHALL be a CWL document
-      (when the CWL document is sent directly, without being embedded in an OGC Application
-      Package).
-    applies-to:
-      bblock: ogc.api.processes.part2.requirements.dru
-
-  - id: media-type-request
-    level: SHALL
-    statement: >
-      The media type `application/cwl` SHALL be used to indicate that the request body contains a
-      process description encoded as CWL of a generic encoding (JSON or YAML). If the CWL
-      encoding is known to be a JSON document, the request MAY employ `application/cwl+json`
-      instead of `application/cwl` to advertise it more explicitly. If the CWL encoding is known
-      to be a YAML document, the request MAY employ `application/cwl+yaml` instead of
-      `application/cwl` to advertise it more explicitly.
-    applies-to:
-      bblock: ogc.api.processes.part2.requirements.dru
-
-  - id: deploy-w-param
-    level: SHALL
-    statement: >
-      If the CWL contains more than a single workflow identifier, an additional `w` query
-      parameter SHALL be used to target a specific workflow identifier to be deployed. The `w`
-      query parameter SHALL be a string, supplied via a non-required query parameter named `w`.
-      If, in this case, the `w` query parameter is not specified, the first process found SHALL
-      be deployed.
-    note: >
-      Upstream OpenAPI parameter fragment (openapi/parameters/processes-dru/w-param.yaml):
-      `{name: w, in: query, required: false, schema: {type: string}}`. Reproduced inline here
-      rather than as a separate imported/local parameter Building Block, since it is a single
-      leaf-level query parameter with no further schema structure.
-
-  - id: deploy-exception-workflow-not-found
-    level: SHALL
-    statement: >
-      If the `w` parameter has a value that cannot be located within the request body, the server
-      SHALL respond with an HTTP status code `400`. The content of that response SHALL validate
-      against the [exception](bblocks://ogc.api.processes.v1.schemas.exception) schema. The
-      `type` of the exception SHALL be
-      `https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found`.
-    applies-to:
-      bblock: ogc.api.processes.v1.schemas.exception
-      json-path: $
+    ```yaml
+    title: Exception Schema
+    description: JSON schema for exceptions based on RFC 7807
+    type: object
+    required:
+      - type
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: true
+    ```
+  - The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found"`.
+  applies-to:
+    bblock: ogc.api.processes.v1.schemas.exception
+    table: false
+- id: cwl/media-type-request
+  parts:
+  - The media type `application/cwl` SHALL be used to indicate that request body contains a processes
+    description encoded as CWL of a generic encoding (JSON or YAML).
+  - If the CWL encoding is known to be a JSON document, the request MAY employ `application/cwl+json`
+    instead of `application/cwl` to advertise it more explicitly.
+  - If the CWL encoding is known to be a YAML document, the request MAY employ `application/cwl+yaml`
+    instead of `application/cwl` to advertise it more explicitly.
+abstract-tests:
+- id: cwl/deploy-body
+  requirement: /req/cwl/deploy-body
+  purpose: Validate that the server support deploy operation using the Common Workflow Language encoding
+  method: |
+    1. Retrieve all links from the landing page with “rel=https://www.opengis.net/def/rel/ogc/1.0/processes” and /processes
+    2. Issue an HTTP POST request using the media type “application/cwl” and the application package content
+    3. Validate the response with [/conf/ogcapppkg/deploy/response](#ats-ogcapppkg-deploy-response)
+    4. Send the same POST request again
+    5. Validate the response with [/conf/ogcapppkg/deploy/response-duplicate](#ats-ogcapppkg-deploy-response-duplicate)
+- id: cwl/replace-body
+  requirement: /req/cwl/replace-body
+  purpose: Validate that the server support replace operation using the Common Workflow Language encoding
+  method: |
+    1. Construct a path for each “rel=https://www.opengis.net/def/rel/ogc/1.0/processes” link on the landing page as well as for the {root}/processes path.
+    2. Append `/{processID}` to each path, where `{processID}` is a mutable process id.
+    3. Send a PUT request for one path using the media type “application/cwl” and the application package content
+    4. Validate the response with [/conf/ogcapppkg/replace/response](#ats-ogcapppkg-replace-response)

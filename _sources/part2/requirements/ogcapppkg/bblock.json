@@ -17,8 +17,8 @@
   "dependsOn": [
     "ogc.api.processes.part1.requirements.core",
     "ogc.api.processes.part2.requirements.dru",
-    "ogc.api.processes.v2.schemas.ogcapppkg",
-    "ogc.api.processes.v2.schemas.executionUnit",
+    "ogc.api.processes.part2.schemas.ogcapppkg",
+    "ogc.api.processes.part2.schemas.executionUnit",
     "ogc.api.processes.v1.schemas.process"
   ],
   "tags": ["ogcapi-processes", "standard", "requirements-class", "draft"],

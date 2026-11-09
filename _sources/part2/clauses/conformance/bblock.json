@@ -1,0 +1,22 @@
+{
+  "name": "Conformance",
+  "abstract": "Conformance clause for OGC API — Processes Part 2: Deploy, Replace, Undeploy (DRAFT).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-05T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0.0",
+  "clause-index": 2,
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ]
+}
