@@ -11,7 +11,7 @@
   "sources": [
     {
       "title": "OGC API - Processes - Part 1: Core",
-      "link": "https://docs.ogc.org/is/18-062r2/18-062r2.html"
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
     }
   ],
   "dependsOn": [
@@ -25,8 +25,16 @@
     "ogc.api.processes.v1.paths.LandingPage",
     "ogc.api.processes.v1.paths.Conformance"
   ],
-  "tags": ["ogcapi-processes", "standard", "requirements-class"],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class"
+  ],
   "resources": [
-    { "ref": "requirements.yaml", "role": "requirements", "format": "application/yaml" }
+    {
+      "ref": "requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
   ]
 }

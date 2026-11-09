@@ -1,0 +1,44 @@
+# Web Processing Service
+
+The [OGC Web Processing Service (WPS)](https://docs.ogc.org/is/14-065/14-065r2.html) is a legacy interface standard that defines how to offer and execute geospatial processing algorithms over the Web. The WPS standard is designed to wrap any type of GIS functionality—from a simple “buffer” tool to a complex climate model—into a Web service that can be discovered and invoked by any compliant client. The WPS standard is built around three mandatory “requests” (methods) that a client can send to a server. The methods are:
+
+- **GetCapabilites:** Returns metadata about the service including a list of all available processes hosted by the server.
+- **DescribeProcess:** Provides a detailed description of a specific process inc luding its required inputs and the output that it produces.
+- **Execute:** Tells the server to run a specified process with the set of provi ded inputs.
+
+The WPS uses a rigid RPC-style invocation method using a fixed endpoint with different values for the “request” parameter to invoke the different methods. It also relies heavily of XML and complex GML schemas.
+
+The requirements in the OGC API – Processes Standard are designed to provide the same functionality as a WPS implementation but based on modern resource-oriented web architectural patterns.
+
+# Resources overview
+
+The following table provides a summary of the resources and HTTP methods specified by this Standard:
+
+**Table 6 — Requirements class Core**
+
+| Resource description | Path | HTTP method | Parameter | Document reference |
+|---|---|---|---|---|
+| Landing page | `/` | GET | N/A | [Clause 7.2](#sec-7.2) |
+| Conformance classes | `/conformance` | GET | N/A | [Clause 7.4](#sec-7.4) |
+| Lists all available processes offered by the server | `/processes` | GET | N/A | [Clause 7.10](#sec-7.10) |
+| Provides detailed matadata about a specific process | `/processes/{processID}` | GET | processID (in path) | [Clause 7.11](#sec-7.11) |
+| The endpoint used to trigger execution of a process | `/processes/{processID}/execution` | POST | processID (in path), Execute request (contained in body) | [Clause 7.12](#sec-7.12) |
+| List of all current and past processing jobs | `/jobs` | GET | N/A | [[sc_job_list]](#sec-12) |
+| Status of a specific job | `/jobs/{jobID}` | GET | jobID (in path) | [Clause 7.13](#sec-7.13) |
+| The endpoint to retrieve all requested processing results | `/jobs/{jobID}/results` | GET | jobID (in path) | [Clause 7.14.2.4](#sec-7.14.2.4) |
+| The endpoint to retrieve a specific processing result | `/jobs/{jobID}/results/{outputID}` | GET | jobID (in path), outputID (in path) | [Clause 7.14.2.2](#sec-7.14.2.2) |
+| The endpoint to retrieve the Nth value of a specific processing result | `/jobs/{jobID}/results/{outputID}/{N}` | GET | jobID (in path), outputID (in path), N (in path) | [Clause 7.14.2.3](#sec-7.14.2.3) |
+| Dismiss a job | `/jobs/{jobID}` | DELETE | jobID (in path) | [[sc_job-dismiss]](#sec-14) |
+
+# Encodings
+
+JSON is the encoding for requests and responses. The inputs and outputs of a process can be in any format. The formats are defined at the time of job creation and are fixed for the specific job.
+
+[Support for HTML](#bb-ogc-api-processes-part1-requirements-html) is recommended as HTML is the core language of the World Wide Web. A server that supports HTML will support browsing with a web browser and will enable search engines to crawl and index the processes.
+
+# Execution modes
+
+The standard supports two ways of execution a process:
+
+- **Synchronous:** The client stays connected and waits for the server to finish the task and return the result immediately. This is ideal for quick calculations.
+- **Asynchronous:** The server acknowledges the request and provides a job ID. The client polls the job status and retrieves the results later. This is necessary for long-running computations.

@@ -1,0 +1,48 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/dismiss
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: dismiss
+title: "Requirements Class ‘Dismiss’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-requirements-core"
+  title: "/req/core"
+conformance-class:
+  title: "Dismiss"
+requirements:
+- id: "dismiss/job-dismiss-op"
+  statement: "The server SHALL support the HTTP DELETE operation at the path `/jobs/{jobID}`."
+- id: "dismiss/job-dismiss-status"
+  parts:
+  - |-
+      If the job is currently in the `accepted` or `running` state, then the server SHALL set the status of the job to `dismissed`.
+  - |-
+      If the job is currently in the `successful`, `failed` or `dismissed` state, then the server SHALL remove the job and it SHALL no longer be accessible via the Processes API.
+- id: "dismiss/job-dismiss-success"
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml).
+  - "The status SHALL be set to “dismissed”."
+abstract-tests:
+- id: "dismiss/job-dismiss-op"
+  requirement: "/req/dismiss/job-dismiss-op"
+  purpose: "Validate that a running job can be dismissed."
+  method: |-
+    1. Create an asynchronous job as per test [/conf/core/process-execute-op](#ats-core-process-execute-op); not the job identifier, `{jobID}`, assigned to the job.
+    2. Issue an HTTP DELETE operation to the URL `/jobs/{jobID}`.
+    3. Validate the contents of the returned document using test [/conf/dismiss/job-dismiss-success](#ats-dismiss-job-dismiss-success).
+- id: "dismiss/job-dismiss-success"
+  requirement: "/req/dismiss/job-dismiss-success"
+  purpose: |-
+    Validate that the content returned when dismissing a job complies with the required structure and contents.
+  method: |-
+    1. Validate that a document was returned with an HTTP status code of 200.
+    2. Validate that the status is the response is set to “dismissed”.
+    3. Validate the process list content for all supported media types using the resources and tests identified in [Table A.12](#job-dismiss-schema).

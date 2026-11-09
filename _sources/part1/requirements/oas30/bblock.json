@@ -1,0 +1,29 @@
+{
+  "name": "OpenAPI Specification 3.0",
+  "abstract": "Requirements class “OpenAPI Specification 3.0” of OGC API — Processes — Part 1: Core (DRAFT, OGC 18-062r3).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0",
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ]
+}

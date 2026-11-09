@@ -1,0 +1,54 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/callback
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: callback
+title: "Requirements Class ‘Callback’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-requirements-core"
+  title: "/req/core"
+conformance-class:
+  title: "Callback"
+requirements:
+- id: "callback/job-callback"
+  parts:
+  - "The server SHALL support callback functions for jobs."
+  - |-
+      The optional `subscriber` element SHALL be used on an [execute](#execute-request-body) request to specify zero or more of the success, in-progress and failed URI endpoints.
+  - |-
+      The schema of the `subscriber` element of the [execute](#execute-request-body) request SHALL be defined by the following schema fragment:
+
+      description: |- Optional URIs for callbacks for this job.
+
+      ```yaml
+        Support for this parameter is not required and the parameter may be
+        removed from the API definition, if conformance class **'callback'**
+        is not listed in the conformance declaration under `/conformance`.
+      type: object
+      properties:
+        successUri:
+          type: string
+          format: uri
+        inProgressUri:
+          type: string
+          format: uri
+        failedUri:
+          type: string
+          format: uri
+      ```
+
+      **Figure 2**
+abstract-tests:
+- id: "callback/job-callback"
+  requirement: "/req/callback/job-callback"
+  purpose: "Validate the passing of a subscriber-URL in an [execute request](#execute-request-body)."
+  method: |-
+    1. Configure a URL endpoint to accept a message body from the server.
+    2. Create an asynchronous [execute request](#execute-request-body) that includes the optional `subscriber` key (see [execute.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml).
+    3. Execute the asynchronous job using test [/conf/core/process-execute-request](#ats-core-process-execute-op).
+    4. Validate the job results are received by the specified callback URL.

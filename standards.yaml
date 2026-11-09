@@ -1,17 +1,34 @@
 standards:
 
   - id: part1
+    # Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09)
     prefix: ogc.api.processes.part1
     title: "OGC API - Processes - Part 1: Core"
-    doc-number: OGC 18-062r3
+    doc-number: 18-062r3
     type: Standard
     status: Draft
-    version: "2.0.0"
-    pub-date: null
-    base-uri: http://www.opengis.net/spec/ogcapi-processes-1/2.0
+    version: "2.0"
+    submission-date: "2026-01-01"
+    approval-date: "2026-02-17"
+    pub-date: "2026-01-01"
+    external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/2.0
+    base-uri: https://www.opengis.net/spec/ogcapi-processes-1/2.0
 
-    req-uri-template:  "{base-uri}/{status}req/{id}"
-    conf-uri-template: "{base-uri}/{status}conf/{id}"
+    # Rendered like the published OGC document: ModSpec tables, statements numbered
+    # document-wide (Requirement 1..137, Recommendation 1..42, Permission 1..38, A.1 in
+    # Annex A), numbered subclauses, roman-numbered preface.
+    layout: ogc
+    modspec:
+      statement-label: Statement
+      singular-labels: true
+      obligation-row: false
+
+    # Identifiers as in the draft: /req/<class>/<name>, /rec/..., /per/..., /conf/...
+    req-uri-template:  "{base-uri}/req/{id}"
+    rec-uri-template:  "{base-uri}/rec/{id}"
+    per-uri-template:  "{base-uri}/per/{id}"
+    conf-uri-template: "{base-uri}/conf/{id}"
+    ats-uri-template:  "{base-uri}/conf/{id}"
 
     editors:
       - name: Benjamin Pross
@@ -19,34 +36,126 @@ standards:
       - name: Panagiotis (Peter) A. Vretanos
         affiliation: CubeWerx Inc.
 
-    wg: WPS SWG
     keywords:
+      - ogcdoc
+      - OGC document
       - OGC API
+      - Geospatial API
       - processes
-      - geospatial
-      - web processing
+      - Web Processing Service
+      - WPS
+      - JSON
+      - HTML
+      - geoprocessing
+      - API
+      - OpenAPI
 
     abstract: |
-      The OGC API — Processes Standard specifies a Web API that enables the execution of computing
-      processes, the retrieval of metadata describing their purpose and functionality and the retrieval
-      of the results of the process execution. The requirements specified in the OGC API — Processes
-      Standard build on the OGC Web Processing Service (WPS) 2.0 Standard and specify a processing
-      interface to communicate over a RESTful protocol using JSON encodings.
+      The OGC API — Processes Standard is a resource-oriented API that allows for the execution of computing processes and the retrieval of metadata describing those processes. It is the modern, RESTful successor to the older [Web Processing Service (WPS) 2.0 Interface Standard](https://docs.ogc.org/is/14-065/14-065r2.html). It utilizes OpenAPI, JSON and modern web architectural patterns to make geospatial processing more accessible to web developers.
+
+      The key benefits of the Standard are:
+
+      - **Developer friendly:** By default, the Standard uses JSON and integrates easily with modern web frameworks and tools like Swagger/ReDoc.
+      - **Scalable:** The Standard is designed to work well with cloud-native architectures, microservices and containerized environments.
+      - **Modular:** The “building-blocks” approach allows servers to implement only what they need (e.g. a server might support process execution but not dynamic process deployment).
+      - **Interoperable:** Standardizing how parameters are passed to algorithms ensures that process execution can be triggered on any compliant server regardless of the underlying programming language (e.g. C, Python, Java, etc.)
+
+      Like other OGC APIs (such as Features or Records), OGC API Processes uses a common core for landing pages, conformance declarations, and API definitions. This consistency allows developers to use similar patterns across different types of geospatial web services.
+
+    preface:
+      - auto: abstract
+      - auto: keywords
+      - bblock: ogc.api.processes.part1.clauses.preface
+      - bblock: ogc.api.processes.part1.clauses.securityConsiderations
+      - bblock: ogc.api.processes.part1.clauses.submittingOrganizations
+      - bblock: ogc.api.processes.part1.clauses.submitters
+      - bblock: ogc.api.processes.part1.clauses.acknowledgements
 
     clauses:
       - bblock: ogc.api.processes.part1.clauses.scope
-      - auto: conformance
+      - bblock: ogc.api.processes.part1.clauses.conformance
       - bblock: ogc.api.processes.part1.clauses.references
+        title: Normative references
       - bblock: ogc.api.processes.part1.clauses.terms
+        title: Terms, definitions and abbreviated terms
       - bblock: ogc.api.processes.part1.clauses.conventions
+      - bblock: ogc.api.processes.part1.clauses.overview
       - bblock: ogc.api.processes.part1.requirements.core
-      - bblock: ogc.api.processes.part1.requirements.json
+        title: Requirements Class “Core”
+      - bblock: ogc.api.processes.part1.clauses.collections
+        subclauses:
+          - bblock: ogc.api.processes.part1.requirements.collectionInput
+            title: REQUIREMENTS CLASS “COLLECTION INPUT”
+          - bblock: ogc.api.processes.part1.requirements.remoteCollections
+            title: REQUIREMENTS CLASS “REMOTE COLLECTIONS”
+          - bblock: ogc.api.processes.part1.requirements.collectionOutput
+            title: REQUIREMENTS CLASS “COLLECTION OUTPUT”
+          - bblock: ogc.api.processes.part1.requirements.localFiltering
+            title: REQUIREMENTS CLASS “LOCAL FILTERING”
+      - bblock: ogc.api.processes.part1.requirements.ogcProcessDescription
+        title: Requirements Class “OGC Process Description”
+      - bblock: ogc.api.processes.part1.clauses.encodings
+        subclauses:
+          - bblock: ogc.api.processes.part1.requirements.json
+            title: Requirement Class “JSON”
+          - bblock: ogc.api.processes.part1.requirements.html
+            title: Requirement Class “HTML”
+      - bblock: ogc.api.processes.part1.clauses.openapi
+        subclauses:
+          - bblock: ogc.api.processes.part1.requirements.oas
+            title: Requirements Class “OpenAPI Specification”
+          - bblock: ogc.api.processes.part1.requirements.oas30
+            title: Requirements Class “OpenAPI Specification 3.0”
+          - bblock: ogc.api.processes.part1.requirements.oas31
+            title: Requirements Class “OpenAPI Specification 3.1”
+      - bblock: ogc.api.processes.part1.requirements.jobList
+        title: Requirements Class “Job list”
+      - bblock: ogc.api.processes.part1.requirements.callback
+        title: Requirements Class “Callback”
+      - bblock: ogc.api.processes.part1.requirements.dismiss
+        title: Requirements Class “Dismiss”
+      - bblock: ogc.api.processes.part1.requirements.kvpExecute
+        title: Requirements Class “KVP-encoded Execute”
+      - bblock: ogc.api.processes.part1.clauses.mediaTypes
+      - bblock: ogc.api.processes.part1.requirements.queryParamProfile
+        title: Requirements Class “Profile query parameter”
+      - bblock: ogc.api.processes.part1.clauses.additionalBuildingBlocks
       - auto: annex-a
+        bblock: ogc.api.processes.part1.annexes.ats
+      - bblock: ogc.api.processes.part1.annexes.revisionHistory
+      - bblock: ogc.api.processes.part1.annexes.bibliography
+        numbered: false
 
     boilerplate:
-      patent-policy: OGC RF
       copyright-year: 2026
-      license: OGC Document Notice
+      notices:
+        - title: Notice for Drafts
+          text: |
+            This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.
+
+            Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+
+            | | |
+            |---|---|
+            | Document number: | 18-062r3 |
+            | Document type: | OGC Standard |
+            | Document subtype: | Implementation |
+            | Document stage: | Draft |
+            | Document language: | English |
+        - title: Copyright notice
+          text: |
+            Copyright © 2026 Open Geospatial Consortium<br>
+            To obtain additional rights of use, visit <https://www.ogc.org/legal>
+        - title: Note
+          text: |
+            Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+            Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+        - title: License Agreement
+          text: |
+            Use of this document is subject to the license agreement at <https://www.ogc.org/license>
+
+            Suggested additions, changes and comments on this document are welcome and encouraged. Such suggestions may be submitted using the online change request form on OGC web site: <http://ogc.standardstracker.org/>
 
   - id: part2
     # Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05)
