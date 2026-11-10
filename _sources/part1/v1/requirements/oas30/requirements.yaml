@@ -1,0 +1,306 @@
+class-id: oas30
+title: Requirements Class “OpenAPI 3.0”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes 1.0 Core
+- uri: http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30
+  title: API — Common OpenAPI 3.0
+- uri: '#OpenAPI-Spec'
+  title: OpenAPI Specification 3.0.1
+source:
+  source-anchor: rc_oas30
+  source-label: Requirements class 5
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30
+  source-table-html: |-
+    <table class="recommendclass" id="rc_oas30" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirements class 5</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Obligation</td><td class="recommend" style="vertical-align:top;">requirement</td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes 1.0 Core</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30">API — Common OpenAPI 3.0</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#OpenAPI-Spec">OpenAPI Specification 3.0.1</a>
+    </td></tr></tbody></table>
+conformance-class:
+  title: oas30
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_oas30">Requirements Class “OpenAPI Specification 3.0”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#ats_core">Conformance Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_oas30
+  source-label: Conformance class A.5
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
+  source-table-html: |-
+    <table class="recommendclass" id="ats_oas30" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.5</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_oas30">Requirements Class “OpenAPI Specification 3.0”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#ats_core">Conformance Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: oas30/oas-definition-1
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30/oas-definition-1
+  type: requirement
+  source-anchor: req_oas30_oas-definition-1
+  source-label: Requirement 58
+  source-uri: /req/oas30/oas-definition-1
+  source-table-html: |-
+    <table class="recommend" id="req_oas30_oas-definition-1" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 58</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/oas30/oas-definition-1</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_cf8716af-a2f2-8c28-5aab-2e49f228b32d">An OpenAPI definition in JSON using the media type <tt>application/vnd.oai.openapi+json;version=3.0</tt> and a HTML version of the API definition using the media type <tt>text/html</tt> SHALL be available.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_cf8716af-a2f2-8c28-5aab-2e49f228b32d">An OpenAPI definition in JSON using the media type <tt>application/vnd.oai.openapi+json;version=3.0</tt> and a HTML version of the API definition using the media type <tt>text/html</tt> SHALL be available.</p>
+- id: oas30/oas-definition-2
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30/oas-definition-2
+  type: requirement
+  source-anchor: req_oas30_oas-definition-2
+  source-label: Requirement 59
+  source-uri: /req/oas30/oas-definition-2
+  source-table-html: |-
+    <table class="recommend" id="req_oas30_oas-definition-2" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 59</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/oas30/oas-definition-2</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_3ceb8a39-652f-4e25-5837-a0967d4535d9">The JSON representation SHALL conform to the
+    <a href="#OpenAPI-Spec">OpenAPI Specification, version 3.0</a>.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_3ceb8a39-652f-4e25-5837-a0967d4535d9">The JSON representation SHALL conform to the
+    <a href="#OpenAPI-Spec">OpenAPI Specification, version 3.0</a>.</p>
+- id: oas30/oas-impl
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30/oas-impl
+  type: requirement
+  source-anchor: req_oas30_oas-impl
+  source-label: Requirement 60
+  source-uri: /req/oas30/oas-impl
+  source-table-html: |-
+    <table class="recommend" id="req_oas30_oas-impl" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 60</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/oas30/oas-impl</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_4ffaa048-311b-84b6-69a4-c7c150407b81">The server SHALL implement all capabilities specified in the OpenAPI
+    definition.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_4ffaa048-311b-84b6-69a4-c7c150407b81">The server SHALL implement all capabilities specified in the OpenAPI
+    definition.</p>
+- id: oas30/completeness
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30/completeness
+  type: requirement
+  source-anchor: req_oas30_completeness
+  source-label: Requirement 61
+  source-uri: /req/oas30/completeness
+  source-table-html: |-
+    <table class="recommend" id="req_oas30_completeness" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 61</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/oas30/completeness</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_ec46806d-9a61-1030-5d41-0a215da2210e">The OpenAPI definition SHALL specify for each operation all
+    <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a>
+    and
+    <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Objects</a>
+    that the server uses in responses.</p><p id="_16f0fcfb-aed6-ccce-9bd8-b95e5d7bb496">This includes the successful execution of an operation as well as all error
+    situations that originate from the server.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_ec46806d-9a61-1030-5d41-0a215da2210e">The OpenAPI definition SHALL specify for each operation all
+    <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a>
+    and
+    <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Objects</a>
+    that the server uses in responses.</p><p id="_16f0fcfb-aed6-ccce-9bd8-b95e5d7bb496">This includes the successful execution of an operation as well as all error
+    situations that originate from the server.</p>
+- id: oas30/exceptions-codes
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30/exceptions-codes
+  type: requirement
+  source-anchor: req_oas30_exceptions-codes
+  source-label: Requirement 62
+  source-uri: /req/oas30/exceptions-codes
+  source-table-html: |-
+    <table class="recommend" id="req_oas30_exceptions-codes" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 62</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/oas30/exceptions-codes</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_35d88097-4ea8-c36c-80cb-0ea78d3af595">For error situations that originate from the server, the API definition
+    SHALL cover all applicable HTTP Status Codes.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_35d88097-4ea8-c36c-80cb-0ea78d3af595">For error situations that originate from the server, the API definition
+    SHALL cover all applicable HTTP Status Codes.</p>
+- id: oas30/security
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30/security
+  type: requirement
+  source-anchor: req_oas30_security
+  source-label: Requirement 63
+  source-uri: /req/oas30/security
+  source-table-html: |-
+    <table class="recommend" id="req_oas30_security" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 63</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/oas30/security</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_1e76e084-f272-59e7-c46f-53140b544782">For cases, where the operations of the server are access-controlled,
+    the security scheme(s) SHALL be documented in the OpenAPI definition.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_1e76e084-f272-59e7-c46f-53140b544782">For cases, where the operations of the server are access-controlled,
+    the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
+abstract-tests:
+- id: oas30/completeness
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30/completeness
+  source-anchor: ats_oas30_completeness
+  source-label: Abstract test A.58
+  source-uri: /conf/oas30/completeness
+  source-table-html: |-
+    <table class="recommendtest" id="ats_oas30_completeness" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.58</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/oas30/completeness</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_oas30_completeness">/req/oas30/completeness</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_93f213d8-7c7e-d0ed-8762-591d27a5953c">Verify the completeness of an OpenAPI document.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_a5fa84fe-8bdc-42ef-30bd-71012efd1b1c">Verify that for each operation, the OpenAPI document describes all <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a> and <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Objects</a> that the API uses in responses.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_93f213d8-7c7e-d0ed-8762-591d27a5953c">Verify the completeness of an OpenAPI document.</p>
+  requirement:
+  - ref: /req/oas30/completeness
+    text: <a href="#req_oas30_completeness">/req/oas30/completeness</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_a5fa84fe-8bdc-42ef-30bd-71012efd1b1c">Verify that for each operation, the OpenAPI document describes all <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a> and <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Objects</a> that the API uses in responses.</p>
+    </li>
+    </ol>
+- id: oas30/exceptions-codes
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30/exceptions-codes
+  source-anchor: ats_oas30_exceptions-codes
+  source-label: Abstract test A.59
+  source-uri: /conf/oas30/exceptions-codes
+  source-table-html: |-
+    <table class="recommendtest" id="ats_oas30_exceptions-codes" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.59</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/oas30/exceptions-codes</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_oas30_exceptions-codes">/req/oas30/exceptions-codes</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_b319fb4d-98de-9348-6b82-a144a30a8814">Verify that the OpenAPI document fully describes potential exception codes.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_6979580a-10ee-0994-bcef-c5aa92ada0ca">Verify that for each operation, the OpenAPI document describes all <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a> that may be generated.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_b319fb4d-98de-9348-6b82-a144a30a8814">Verify that the OpenAPI document fully describes potential exception codes.</p>
+  requirement:
+  - ref: /req/oas30/exceptions-codes
+    text: <a href="#req_oas30_exceptions-codes">/req/oas30/exceptions-codes</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_6979580a-10ee-0994-bcef-c5aa92ada0ca">Verify that for each operation, the OpenAPI document describes all <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a> that may be generated.</p>
+    </li>
+    </ol>
+- id: oas30/oas-definition-1
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30/oas-definition-1
+  source-anchor: ats_oas30_oas-definition-1
+  source-label: Abstract test A.60
+  source-uri: /conf/oas30/oas-definition-1
+  source-table-html: |-
+    <table class="recommendtest" id="ats_oas30_oas-definition-1" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.60</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/oas30/oas-definition-1</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_oas30_oas-definition-1">/req/oas30/oas-definition-1</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_efc17e04-0286-ca8e-e211-b6edb3fcfb6b">Verify that JSON and HTML versions of the OpenAPI document are available.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_7658d281-92ae-8b00-c99f-fc8db758c7d6">Verify that an OpenAPI definition in JSON is available using the media type <tt>application/vnd.oai.openapi+json;version=3.0</tt> and link relation <tt>service-desc</tt></p>
+    </li>
+    <li>
+    <p id="_6cc353cb-4c3f-8d35-ca7d-b0af0109b90b">Verify that an HTML version of the API definition is available using the media type <tt>text/html</tt> and link relation <tt>service-doc</tt>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_efc17e04-0286-ca8e-e211-b6edb3fcfb6b">Verify that JSON and HTML versions of the OpenAPI document are available.</p>
+  requirement:
+  - ref: /req/oas30/oas-definition-1
+    text: <a href="#req_oas30_oas-definition-1">/req/oas30/oas-definition-1</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_7658d281-92ae-8b00-c99f-fc8db758c7d6">Verify that an OpenAPI definition in JSON is available using the media type <tt>application/vnd.oai.openapi+json;version=3.0</tt> and link relation <tt>service-desc</tt></p>
+    </li>
+    <li>
+    <p id="_6cc353cb-4c3f-8d35-ca7d-b0af0109b90b">Verify that an HTML version of the API definition is available using the media type <tt>text/html</tt> and link relation <tt>service-doc</tt>.</p>
+    </li>
+    </ol>
+- id: oas30/oas-definition-2
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30/oas-definition-2
+  source-anchor: ats_oas30_oas-definition-2
+  source-label: Abstract test A.61
+  source-uri: /conf/oas30/oas-definition-2
+  source-table-html: |-
+    <table class="recommendtest" id="ats_oas30_oas-definition-2" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.61</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/oas30/oas-definition-2</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_oas30_oas-definition-2">/req/oas30/oas-definition-2</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_72bc67b2-e890-a8a4-cc7a-71b9c2fae9b5">Verify that the OpenAPI document is valid JSON.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_1d21e338-f453-9967-8d9a-ace5bb993cae">Verify that the JSON representation conforms to the <a href="#OpenAPI-Spec">OpenAPI Specification, version 3.0</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_72bc67b2-e890-a8a4-cc7a-71b9c2fae9b5">Verify that the OpenAPI document is valid JSON.</p>
+  requirement:
+  - ref: /req/oas30/oas-definition-2
+    text: <a href="#req_oas30_oas-definition-2">/req/oas30/oas-definition-2</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_1d21e338-f453-9967-8d9a-ace5bb993cae">Verify that the JSON representation conforms to the <a href="#OpenAPI-Spec">OpenAPI Specification, version 3.0</a>.</p>
+    </li>
+    </ol>
+- id: oas30/oas-impl
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30/oas-impl
+  source-anchor: ats_oas30_oas-impl
+  source-label: Abstract test A.62
+  source-uri: /conf/oas30/oas-impl
+  source-table-html: |-
+    <table class="recommendtest" id="ats_oas30_oas-impl" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.62</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/oas30/oas-impl</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_oas30_oas-impl">/req/oas30/oas-impl</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_59f530f3-07b8-7389-93c2-77000655a235">Verify that all capabilities specified in the OpenAPI definition are implemented by the API.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_631ee005-09cc-2a45-b992-190d04f8cb3e">Construct a path from each URL template including all server URL options and all enumerated path parameters.</p>
+    </li>
+    <li>
+    <p id="_0c7653c8-c2c4-5499-8a48-2d26be4a0fa6">For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the OGC API — Processes standard.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_59f530f3-07b8-7389-93c2-77000655a235">Verify that all capabilities specified in the OpenAPI definition are implemented by the API.</p>
+  requirement:
+  - ref: /req/oas30/oas-impl
+    text: <a href="#req_oas30_oas-impl">/req/oas30/oas-impl</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_631ee005-09cc-2a45-b992-190d04f8cb3e">Construct a path from each URL template including all server URL options and all enumerated path parameters.</p>
+    </li>
+    <li>
+    <p id="_0c7653c8-c2c4-5499-8a48-2d26be4a0fa6">For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the OGC API — Processes standard.</p>
+    </li>
+    </ol>
+- id: oas30/security
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30/security
+  source-anchor: ats_oas30_security
+  source-label: Abstract test A.63
+  source-uri: /conf/oas30/security
+  source-table-html: |-
+    <table class="recommendtest" id="ats_oas30_security" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.63</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/oas30/security</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_oas30_security">/req/oas30/security</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_624f7f12-384a-5aec-0a8e-ce51f5dcd5cf">Verify that any authentication protocols implemented by the API are documented in the OpenAPI document.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_3048c679-d3c4-086d-d910-fcec54c786a2">Identify all authentication protocols supported by the API.</p>
+    </li>
+    <li>
+    <p id="_89ff88a7-688a-fc5d-ad4a-cc4f96c6d1bb">Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_624f7f12-384a-5aec-0a8e-ce51f5dcd5cf">Verify that any authentication protocols implemented by the API are documented in the OpenAPI document.</p>
+  requirement:
+  - ref: /req/oas30/security
+    text: <a href="#req_oas30_security">/req/oas30/security</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_3048c679-d3c4-086d-d910-fcec54c786a2">Identify all authentication protocols supported by the API.</p>
+    </li>
+    <li>
+    <p id="_89ff88a7-688a-fc5d-ad4a-cc4f96c6d1bb">Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.</p>
+    </li>
+    </ol>

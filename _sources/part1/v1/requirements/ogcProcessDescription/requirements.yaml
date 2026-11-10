@@ -1,0 +1,416 @@
+class-id: ogc-process-description
+title: Requirements Class “OGC Process Description”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes Core
+- uri: '#rfc8259'
+  title: JSON
+source:
+  source-anchor: rc_ogc-process-description
+  source-label: Requirements class 2
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description
+  source-table-html: |-
+    <table class="recommendclass" id="rc_ogc-process-description" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirements class 2</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Obligation</td><td class="recommend" style="vertical-align:top;">requirement</td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes Core</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rfc8259">JSON</a>
+    </td></tr></tbody></table>
+conformance-class:
+  title: ogcProcessDescription
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_ogc-process-description">Requirements Class “OGC Process Description”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_ogc-process-description
+  source-label: Conformance class A.2
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
+  source-table-html: |-
+    <table class="recommendclass" id="ats_ogc-process-description" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.2</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_ogc-process-description">Requirements Class “OGC Process Description”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: ogc-process-description/json-encoding
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/json-encoding
+  type: requirement
+  source-anchor: req_ogc-process-description_json-encoding
+  source-label: Requirement 47
+  source-uri: /req/ogc-process-description/json-encoding
+  source-table-html: '<table class="recommend" id="req_ogc-process-description_json-encoding" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 47</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/json-encoding</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_c4f15113-dcda-ccd2-7366-fc60c8aedf5f">A JSON-encoded OGC process description SHALL validate against the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/process.yaml">process.yaml</a>.</p></td></tr></tbody></table>'
+  statement: '<p id="_c4f15113-dcda-ccd2-7366-fc60c8aedf5f">A JSON-encoded OGC process description SHALL validate against the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/process.yaml">process.yaml</a>.</p>'
+- id: ogc-process-description/inputs-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/inputs-def
+  type: requirement
+  source-anchor: req_ogc-process-description_inputs-def
+  source-label: Requirement 48
+  source-uri: /req/ogc-process-description/inputs-def
+  source-table-html: |-
+    <table class="recommend" id="req_ogc-process-description_inputs-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 48</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/inputs-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_61f0270b-1254-08fa-0279-b6cfdc1876d2">Each process input definition SHALL be listed in the <tt>inputs</tt> section according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/inputDescription.yaml">inputDescription.yaml</a>.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_f8b04065-acbf-41a2-2421-6fc8c0e5a922">The key of each process input in the <tt>inputs</tt> section of the process definition SHALL be the identifier for that input.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_61f0270b-1254-08fa-0279-b6cfdc1876d2">Each process input definition SHALL be listed in the <tt>inputs</tt> section according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/inputDescription.yaml">inputDescription.yaml</a>.</p>'
+  - <p id="_f8b04065-acbf-41a2-2421-6fc8c0e5a922">The key of each process input in the <tt>inputs</tt> section of the process definition SHALL be the identifier for that input.</p>
+- id: ogc-process-description/input-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/input-def
+  type: requirement
+  source-anchor: req_ogc-process-description_input-def
+  source-label: Requirement 49
+  source-uri: /req/ogc-process-description/input-def
+  source-table-html: |-
+    <table class="recommend" id="req_ogc-process-description_input-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 49</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/input-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_4ccfb3bb-0df1-948a-32fe-c6c8939025d4">The schema of each <a href="#input-value-schema">process <b>input</b> value</a> SHALL be specified using the <tt>schema</tt> parameter.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c63238f2-2567-42d5-25ef-7b9d4bfead57">The value of the <tt>schema</tt> parameter SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">C</td><td class="recommend" style="vertical-align:top;">
+    <p id="_28113e4c-6134-f17d-7073-08fe3c35b324">Servers SHALL use this schema fragment to validate the components of a <a href="#sc_process_inputs">process input</a> in an <a href="#execute-request-body">execute request</a> that is an instance of <a href="#input-value-schema">inputValue.yaml</a>.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_4ccfb3bb-0df1-948a-32fe-c6c8939025d4">The schema of each <a href="#input-value-schema">process <b>input</b> value</a> SHALL be specified using the <tt>schema</tt> parameter.</p>
+  - '<p id="_c63238f2-2567-42d5-25ef-7b9d4bfead57">The value of the <tt>schema</tt> parameter SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>'
+  - <p id="_28113e4c-6134-f17d-7073-08fe3c35b324">Servers SHALL use this schema fragment to validate the components of a <a href="#sc_process_inputs">process input</a> in an <a href="#execute-request-body">execute request</a> that is an instance of <a href="#input-value-schema">inputValue.yaml</a>.</p>
+- id: ogc-process-description/input-binary
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/input-binary
+  type: requirement
+  source-anchor: req_ogc-process-description_input-binary
+  source-label: Requirement 50
+  source-uri: /req/ogc-process-description/input-binary
+  source-table-html: '<table class="recommend" id="req_ogc-process-description_input-binary" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 50</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/input-binary</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_d77bc7f0-4e42-377d-9e33-24dfc89c55b6">A server SHALL support the following schema for binary include values:</p><pre class="prettyprint" id="_dba41f21-f0dc-ccf6-3c2b-cb4cfbfe14df">type: string<br/>format: byte</pre></td></tr></tbody></table>'
+  statement: '<p id="_d77bc7f0-4e42-377d-9e33-24dfc89c55b6">A server SHALL support the following schema for binary include values:</p><pre class="prettyprint" id="_dba41f21-f0dc-ccf6-3c2b-cb4cfbfe14df">type: string<br/>format: byte</pre>'
+- id: ogc-process-description/input-mixed-type
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/input-mixed-type
+  type: requirement
+  source-anchor: req_ogc-process-description_input-mixed-type
+  source-label: Requirement 51
+  source-uri: /req/ogc-process-description/input-mixed-type
+  source-table-html: |-
+    <table class="recommend" id="req_ogc-process-description_input-mixed-type" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 51</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/input-mixed-type</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_0ab122d4-7085-2ffe-2307-d489c570f8b7">An input that can be of mixed type SHALL be defined using the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> JSON Schema keyword.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_e914fd44-6edd-a489-49b6-aec3cc4f05c9">Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">C</td><td class="recommend" style="vertical-align:top;">
+    <p id="_1c81fe46-1cc0-0e3e-e337-27d907637465">The first sub-schema in the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> array SHALL be considered the default format.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_0ab122d4-7085-2ffe-2307-d489c570f8b7">An input that can be of mixed type SHALL be defined using the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> JSON Schema keyword.</p>
+  - '<p id="_e914fd44-6edd-a489-49b6-aec3cc4f05c9">Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>'
+  - <p id="_1c81fe46-1cc0-0e3e-e337-27d907637465">The first sub-schema in the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> array SHALL be considered the default format.</p>
+- id: ogc-process-description/outputs-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/outputs-def
+  type: requirement
+  source-anchor: req_ogc-process-description_outputs-def
+  source-label: Requirement 52
+  source-uri: /req/ogc-process-description/outputs-def
+  source-table-html: |-
+    <table class="recommend" id="req_ogc-process-description_outputs-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 52</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/outputs-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_f169f91f-833c-7aa6-c73d-224ac10a55bb">Each process output definition SHALL be listed in the <tt>outputs</tt> section according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/outputDescription.yaml">outputDescription.yaml</a>.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_cf088ed5-297a-e8ef-8cbc-485856dae00d">The key of each process input in the <tt>output</tt> section of the process definition SHALL be the identifier for that output.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_f169f91f-833c-7aa6-c73d-224ac10a55bb">Each process output definition SHALL be listed in the <tt>outputs</tt> section according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/outputDescription.yaml">outputDescription.yaml</a>.</p>'
+  - <p id="_cf088ed5-297a-e8ef-8cbc-485856dae00d">The key of each process input in the <tt>output</tt> section of the process definition SHALL be the identifier for that output.</p>
+- id: ogc-process-description/output-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/output-def
+  type: requirement
+  source-anchor: req_ogc-process-description_output-def
+  source-label: Requirement 53
+  source-uri: /req/ogc-process-description/output-def
+  source-table-html: |-
+    <table class="recommend" id="req_ogc-process-description_output-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 53</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/output-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_cb46d21f-0e08-6c32-c9c8-7b7911274b35">The schema of each <a href="#sc_process_outputs">process <b>output</b></a> SHALL be specified using the <tt>schema</tt> parameter.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c04e626e-90ba-a859-d383-1690bb421d51">The value of the <tt>schema</tt> parameter SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_cb46d21f-0e08-6c32-c9c8-7b7911274b35">The schema of each <a href="#sc_process_outputs">process <b>output</b></a> SHALL be specified using the <tt>schema</tt> parameter.</p>
+  - '<p id="_c04e626e-90ba-a859-d383-1690bb421d51">The value of the <tt>schema</tt> parameter SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>'
+- id: ogc-process-description/output-mixed-type
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description/output-mixed-type
+  type: requirement
+  source-anchor: req_ogc-process-description_output-mixed-type
+  source-label: Requirement 54
+  source-uri: /req/ogc-process-description/output-mixed-type
+  source-table-html: |-
+    <table class="recommend" id="req_ogc-process-description_output-mixed-type" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 54</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/ogc-process-description/output-mixed-type</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_b0177894-b4d8-d3aa-8354-1e8a85df74b0">An output that can be of mixed type SHALL be defined using the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> JSON Schema keyword.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c2371086-3272-19f1-1b87-bc2997998edf">Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">C</td><td class="recommend" style="vertical-align:top;">
+    <p id="_17790b1a-5f0a-d8b4-06ff-4a1b95478fdd">The first sub-schema in the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> array SHALL be considered the default format.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_b0177894-b4d8-d3aa-8354-1e8a85df74b0">An output that can be of mixed type SHALL be defined using the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> JSON Schema keyword.</p>
+  - '<p id="_c2371086-3272-19f1-1b87-bc2997998edf">Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>'
+  - <p id="_17790b1a-5f0a-d8b4-06ff-4a1b95478fdd">The first sub-schema in the <a href="https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3"><tt>oneOf</tt></a> array SHALL be considered the default format.</p>
+abstract-tests:
+- id: ogc-process-description/json-encoding
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/json-encoding
+  source-anchor: ats_ogc-process-description_json-encoding
+  source-label: Abstract test A.48
+  source-uri: /conf/ogc-process-description/json-encoding
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_json-encoding" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.48</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/json-encoding</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_json-encoding">/req/ogc-process-description/json-encoding</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_036dcbda-c19a-3f92-d692-90e34b24203d">Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_f5f91cf0-31fd-de0c-7267-e75ce76be5ff">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_ff5a962f-4608-0dfd-ade0-ee0ba230bf98">For each process, verify the contents of the response body validate against the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/process.yaml">process.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_036dcbda-c19a-3f92-d692-90e34b24203d">Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/json-encoding
+    text: <a href="#req_ogc-process-description_json-encoding">/req/ogc-process-description/json-encoding</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_f5f91cf0-31fd-de0c-7267-e75ce76be5ff">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_ff5a962f-4608-0dfd-ade0-ee0ba230bf98">For each process, verify the contents of the response body validate against the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/process.yaml">process.yaml</a>.</p>
+    </li>
+    </ol>
+- id: ogc-process-description/inputs-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/inputs-def
+  source-anchor: ats_ogc-process-description_inputs-def
+  source-label: Abstract test A.49
+  source-uri: /conf/ogc-process-description/inputs-def
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_inputs-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.49</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/inputs-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_inputs-def">/req/ogc-process-description/inputs-def</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_ab6f1940-0970-3dfc-da0e-898d848d444a">Verify that the definition of <tt>inputs</tt> for each process complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_01b2b6f8-05e1-6b36-59e1-36d574664382">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_554a8b4f-e92b-490d-c7b9-3c55dedc8481">For each process, verify that the definition of the inputs conforms to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/inputDescription.yaml">inputDescription.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_ab6f1940-0970-3dfc-da0e-898d848d444a">Verify that the definition of <tt>inputs</tt> for each process complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/inputs-def
+    text: <a href="#req_ogc-process-description_inputs-def">/req/ogc-process-description/inputs-def</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_01b2b6f8-05e1-6b36-59e1-36d574664382">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_554a8b4f-e92b-490d-c7b9-3c55dedc8481">For each process, verify that the definition of the inputs conforms to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/inputDescription.yaml">inputDescription.yaml</a>.</p>
+    </li>
+    </ol>
+- id: ogc-process-description/input-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/input-def
+  source-anchor: ats_ogc-process-description_input-def
+  source-label: Abstract test A.50
+  source-uri: /conf/ogc-process-description/input-def
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_input-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.50</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/input-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_input-def">/req/ogc-process-description/input-def</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_ff3b3b68-b64f-1255-72d3-0bb548a38015">Verify that the definition of each input for each process complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_ecd088ab-1774-93d9-7e76-4fedf3e03aaa">For each input identified according to the test <a href="#ats_ogc-process-description_inputs-def">/conf/ogc-process-description/inputs-def</a> verify that the value of the <tt>schema</tt> key, that defines the input, validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_ff3b3b68-b64f-1255-72d3-0bb548a38015">Verify that the definition of each input for each process complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/input-def
+    text: <a href="#req_ogc-process-description_input-def">/req/ogc-process-description/input-def</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_ecd088ab-1774-93d9-7e76-4fedf3e03aaa">For each input identified according to the test <a href="#ats_ogc-process-description_inputs-def">/conf/ogc-process-description/inputs-def</a> verify that the value of the <tt>schema</tt> key, that defines the input, validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+- id: ogc-process-description/input-mixed-type
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/input-mixed-type
+  source-anchor: ats_ogc-process-description_input-mixed-type
+  source-label: Abstract test A.51
+  source-uri: /conf/ogc-process-description/input-mixed-type
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_input-mixed-type" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.51</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/input-mixed-type</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_input-mixed-type">/req/ogc-process-description/input-mixed-type</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_eb169247-eaf6-d971-5a39-3c77070d1288">Validate that each input of mixed type complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_b350d96a-0b89-f2a9-cb47-cfb5d05cfe1e">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_a1d0ae25-5198-feb0-3c79-8d9e7416bcb1">For each process identify if the process has one or more inputs of mixed type.</p>
+    </li>
+    <li>
+    <p id="_ef362857-ebb4-e170-9d54-335f07e87658">For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_eb169247-eaf6-d971-5a39-3c77070d1288">Validate that each input of mixed type complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/input-mixed-type
+    text: <a href="#req_ogc-process-description_input-mixed-type">/req/ogc-process-description/input-mixed-type</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_b350d96a-0b89-f2a9-cb47-cfb5d05cfe1e">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_a1d0ae25-5198-feb0-3c79-8d9e7416bcb1">For each process identify if the process has one or more inputs of mixed type.</p>
+    </li>
+    <li>
+    <p id="_ef362857-ebb4-e170-9d54-335f07e87658">For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+- id: ogc-process-description/outputs-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/outputs-def
+  source-anchor: ats_ogc-process-description_outputs-def
+  source-label: Abstract test A.52
+  source-uri: /conf/ogc-process-description/outputs-def
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_outputs-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.52</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/outputs-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_outputs-def">/req/ogc-process-description/outputs-def</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_5f4653d4-6be5-b678-7055-040d58cd8c8a">Verify that the definition of <tt>outputs</tt> for each process complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_52011daa-8c5a-12e0-a09f-d53ff7263c54">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_9e89c4c5-2ac5-0faa-6833-9d70cf409094">For each process, verify that the definition of the outputs conforms to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/outputDescription.yaml">outputDescription.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_5f4653d4-6be5-b678-7055-040d58cd8c8a">Verify that the definition of <tt>outputs</tt> for each process complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/outputs-def
+    text: <a href="#req_ogc-process-description_outputs-def">/req/ogc-process-description/outputs-def</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_52011daa-8c5a-12e0-a09f-d53ff7263c54">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_9e89c4c5-2ac5-0faa-6833-9d70cf409094">For each process, verify that the definition of the outputs conforms to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/outputDescription.yaml">outputDescription.yaml</a>.</p>
+    </li>
+    </ol>
+- id: ogc-process-description/output-def
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/output-def
+  source-anchor: ats_ogc-process-description_output-def
+  source-label: Abstract test A.53
+  source-uri: /conf/ogc-process-description/output-def
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_output-def" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.53</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/output-def</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_output-def">/req/ogc-process-description/output-def</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_aa17c59f-ca5e-f098-afbd-75b0e6a32f50">Verify that the definition of each output for each process complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_70143b6a-5dff-ce2d-02cf-aba0a51e6ffc">For each output identified according to the test <a href="#ats_ogc-process-description_outputs-def">/conf/ogc-process-description/outputs-def</a> verify that the value of the <tt>schema</tt> key, that defines the output, validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_aa17c59f-ca5e-f098-afbd-75b0e6a32f50">Verify that the definition of each output for each process complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/output-def
+    text: <a href="#req_ogc-process-description_output-def">/req/ogc-process-description/output-def</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_70143b6a-5dff-ce2d-02cf-aba0a51e6ffc">For each output identified according to the test <a href="#ats_ogc-process-description_outputs-def">/conf/ogc-process-description/outputs-def</a> verify that the value of the <tt>schema</tt> key, that defines the output, validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+- id: ogc-process-description/output-mixed-type
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/output-mixed-type
+  source-anchor: ats_ogc-process-description_output-mixed-type
+  source-label: Abstract test A.54
+  source-uri: /conf/ogc-process-description/output-mixed-type
+  source-table-html: |-
+    <table class="recommendtest" id="ats_ogc-process-description_output-mixed-type" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.54</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/ogc-process-description/output-mixed-type</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_ogc-process-description_output-mixed-type">/req/ogc-process-description/output-mixed-type</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_584cc845-3281-42ec-54e2-2207f9ca7ccf">Validate that each output of mixed type complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_445aa641-5d5c-ad9a-b0aa-e76f0301c58a">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_bbfb06eb-9279-111e-fd70-a5df8d641103">For each process identify if the process has one or more output of mixed type denoted by the use of the <tt>oneOf</tt> JSON Schema keyword.</p>
+    </li>
+    <li>
+    <p id="_e810eb90-ca34-3fa3-c856-2479e45816c8">For each sub-schema or each identified output, verify that the definition validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_584cc845-3281-42ec-54e2-2207f9ca7ccf">Validate that each output of mixed type complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/ogc-process-description/output-mixed-type
+    text: <a href="#req_ogc-process-description_output-mixed-type">/req/ogc-process-description/output-mixed-type</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_445aa641-5d5c-ad9a-b0aa-e76f0301c58a">Retrieve a description of each process according to test <a href="#ats_core_process">/conf/core/process</a>.</p>
+    </li>
+    <li>
+    <p id="_bbfb06eb-9279-111e-fd70-a5df8d641103">For each process identify if the process has one or more output of mixed type denoted by the use of the <tt>oneOf</tt> JSON Schema keyword.</p>
+    </li>
+    <li>
+    <p id="_e810eb90-ca34-3fa3-c856-2479e45816c8">For each sub-schema or each identified output, verify that the definition validates according to the JSON Schema: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/schema.yaml">schema.yaml</a>.</p>
+    </li>
+    </ol>
+published-statements:
+- id: ogc-process-description/format-key
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/ogc-process-description/format-key
+  type: recommendation
+  source-anchor: rec_ogc-process-description_format-key
+  source-label: Recommendation 17
+  source-uri: /rec/ogc-process-description/format-key
+  source-table-html: |-
+    <table class="recommend" id="rec_ogc-process-description_format-key" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 17</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/ogc-process-description/format-key</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_685622cc-bfd8-a9f8-31b0-5e886d204465">Servers SHOULD use the <tt>format</tt> key in the schema description of a process input or output (key: <tt>schema</tt>) to provide additional semantic context that can aid in the interpretation and validation of process input or output values in an <a href="#sc_create_job">execute</a> request.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_685622cc-bfd8-a9f8-31b0-5e886d204465">Servers SHOULD use the <tt>format</tt> key in the schema description of a process input or output (key: <tt>schema</tt>) to provide additional semantic context that can aid in the interpretation and validation of process input or output values in an <a href="#sc_create_job">execute</a> request.</p>'
+- id: ogc-process-description/format-short-code
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/ogc-process-description/format-short-code
+  type: recommendation
+  source-anchor: rec_ogc-process-description_additional-format-short-code
+  source-label: Recommendation 18
+  source-uri: /rec/ogc-process-description/format-short-code
+  source-table-html: <table class="recommend" id="rec_ogc-process-description_additional-format-short-code" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 18</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/ogc-process-description/format-short-code</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_b301d350-4c6f-afe1-3484-c16b9dc211a1">In addition to the key values listed in <a href="#format-key-values">Table 13</a>, servers SHOULD also accept the short codes.</p></td></tr></tbody></table>
+  statement: <p id="_b301d350-4c6f-afe1-3484-c16b9dc211a1">In addition to the key values listed in <a href="#format-key-values">Table 13</a>, servers SHOULD also accept the short codes.</p>
+- id: ogc-process-description/format-value-registration
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/ogc-process-description/format-value-registration
+  type: recommendation
+  source-anchor: rec_ogc-process-description_format-value-registration
+  source-label: Recommendation 19
+  source-uri: /rec/ogc-process-description/format-value-registration
+  source-table-html: <table class="recommend" id="rec_ogc-process-description_format-value-registration" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 19</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/ogc-process-description/format-value-registration</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_c7aad1ad-881d-8003-bfe4-179950a21095">Servers wishing to extend this list of <tt>format</tt> key values, SHOULD officially register such values with the <a href="https://www.ogc.org/ogcna">OGC Naming Authority</a>.</p></td></tr></tbody></table>
+  statement: <p id="_c7aad1ad-881d-8003-bfe4-179950a21095">Servers wishing to extend this list of <tt>format</tt> key values, SHOULD officially register such values with the <a href="https://www.ogc.org/ogcna">OGC Naming Authority</a>.</p>

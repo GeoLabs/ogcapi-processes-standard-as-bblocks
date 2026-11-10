@@ -1,0 +1,22 @@
+{
+  "name": "Overview",
+  "abstract": "Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-10T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0",
+  "clause-index": 16,
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC 18-062r2 — Approved source, 2021-12-20",
+      "link": "https://docs.ogc.org/is/18-062r2/18-062r2.html#toc39"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "published-source",
+    "modified-rendition"
+  ]
+}

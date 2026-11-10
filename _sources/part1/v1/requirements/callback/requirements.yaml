@@ -1,0 +1,135 @@
+class-id: callback
+title: Requirements Class “Callback”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes Core
+source:
+  source-anchor: rc_callback
+  source-label: Requirements class 7
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback
+  source-table-html: |-
+    <table class="recommendclass" id="rc_callback" style="border-collapse:collapse;border-spacing:0;">
+    <thead>
+    <tr>
+    <th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;">
+    <p class="RecommendationTitle">Requirements class 7</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback</a>
+    </p>
+    </td>
+    </tr>
+    <tr>
+    <td class="recommend" style="vertical-align:top;">Obligation</td>
+    <td class="recommend" style="vertical-align:top;">requirement</td>
+    </tr>
+    <tr>
+    <td class="recommend" style="vertical-align:top;">Target type</td>
+    <td class="recommend" style="vertical-align:top;">Web API</td>
+    </tr>
+    <tr>
+    <td class="recommend" style="vertical-align:top;">Dependency</td>
+    <td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes Core</a>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+conformance-class:
+  title: callback
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_callback
+  source-label: Conformance class A.7
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
+  source-table-html: |-
+    <table class="recommendclass" id="ats_callback" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.7</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: callback/job-callback
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback/job-callback
+  type: requirement
+  source-anchor: req_callback_job-callback
+  source-label: Requirement 80
+  source-uri: /req/callback/job-callback
+  source-table-html: |-
+    <table class="recommend" id="req_callback_job-callback" style="border-collapse:collapse;border-spacing:0;">
+    <thead>
+    <tr>
+    <th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;">
+    <p class="RecommendationTitle">Requirement 80</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p>/req/callback/job-callback</p>
+    </td>
+    </tr>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p id="_d75c942f-d6e9-2e9d-b16d-7c50609eedc7">The server SHALL support callback functions for jobs.</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  statement: <p id="_d75c942f-d6e9-2e9d-b16d-7c50609eedc7">The server SHALL support callback functions for jobs.</p>
+abstract-tests:
+- id: callback/job-callback
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback/job-callback
+  source-anchor: ats_callback_job-callback
+  source-label: Abstract test A.80
+  source-uri: /conf/callback/job-callback
+  source-table-html: |-
+    <table class="recommendtest" id="ats_callback_job-callback" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.80</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/callback/job-callback</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_callback_job-callback">/req/callback/job-callback</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_07c623b6-fa00-a81e-0c36-b33e8d267a2b">Validate the passing of a subscriber-URL in an execute request.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_e587c999-0d74-5a7a-30c1-762ae9242646">Configure a URL endpoint to accept message body from the server.</p>
+    </li>
+    <li>
+    <p id="_0340ede8-2b3d-35f2-6adc-082b6b0f488f">Create an asynchronous execute request that includes the optional <tt>subscriber</tt> key (see <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/execute.yaml">execute.yaml</a>.</p>
+    </li>
+    <li>
+    <p id="_aa379bf4-d01d-9003-57a3-06bce333bd43">Execute the asynchronous job using test <a href="#ats_core_job-creation-op">/conf/core/job-creation-request</a>.</p>
+    </li>
+    <li>
+    <p id="_b2d13311-4e4e-ba5a-8dd7-e20486678d2b">Validate the job results are received by the specified callback URL.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_07c623b6-fa00-a81e-0c36-b33e8d267a2b">Validate the passing of a subscriber-URL in an execute request.</p>
+  requirement:
+  - ref: /req/callback/job-callback
+    text: <a href="#req_callback_job-callback">/req/callback/job-callback</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_e587c999-0d74-5a7a-30c1-762ae9242646">Configure a URL endpoint to accept message body from the server.</p>
+    </li>
+    <li>
+    <p id="_0340ede8-2b3d-35f2-6adc-082b6b0f488f">Create an asynchronous execute request that includes the optional <tt>subscriber</tt> key (see <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/execute.yaml">execute.yaml</a>.</p>
+    </li>
+    <li>
+    <p id="_aa379bf4-d01d-9003-57a3-06bce333bd43">Execute the asynchronous job using test <a href="#ats_core_job-creation-op">/conf/core/job-creation-request</a>.</p>
+    </li>
+    <li>
+    <p id="_b2d13311-4e4e-ba5a-8dd7-e20486678d2b">Validate the job results are received by the specified callback URL.</p>
+    </li>
+    </ol>

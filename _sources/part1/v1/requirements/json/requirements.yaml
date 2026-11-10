@@ -1,0 +1,181 @@
+class-id: json
+title: Requirement Class “JSON”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes Core
+- uri: '#rfc8259'
+  title: JSON
+source:
+  source-anchor: rc_json
+  source-label: Requirements class 3
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/json
+  source-table-html: |-
+    <table class="recommendclass" id="rc_json" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirements class 3</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/json">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/json</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Obligation</td><td class="recommend" style="vertical-align:top;">requirement</td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes Core</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rfc8259">JSON</a>
+    </td></tr></tbody></table>
+conformance-class:
+  title: json
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_json
+  source-label: Conformance class A.3
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
+  source-table-html: |-
+    <table class="recommendclass" id="ats_json" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.3</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: json/definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/json/definition
+  type: requirement
+  source-anchor: req_json_definition
+  source-label: Requirement 55
+  source-uri: /req/json/definition
+  source-table-html: |-
+    <table class="recommend" id="req_json_definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 55</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/json/definition</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_720d9280-4ef4-abb6-2d15-ab6f6fd47f67"><tt>200</tt>-responses of the server SHALL support the following media type:</p><ul id="_477827ef-b6e5-7541-9c00-ad45020be50d">
+    <li>
+    <p id="_23a1bf0c-7bde-70fa-74ce-d8f644cdc375">
+    <tt>application/json</tt>
+    </p>
+    </li>
+    </ul><p id="_6eed019b-8673-24d6-aee9-b39f9b0956d6">for the following API endpoints:</p><ul id="_f8f1593c-830f-13f7-40d5-490f966418ea">
+    <li>
+    <p id="_34adbace-eb8f-9d9d-7823-51b8c7362633">
+    <a href="#sc_landing_page">
+    <tt>/</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_d33c1942-270c-6da9-5712-07c3002686a1">
+    <a href="#sc_conformance_classes">
+    <tt>/conformance</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_65b58390-2fbe-174d-796b-bfc8916cf132">
+    <a href="#sc_process_list">
+    <tt>/processes</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_2d5b4707-3c39-6db2-3f93-18dc3ceff63e">
+    <a href="#sc_process_description">
+    <tt>/processes/{processID}</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_1e00100d-b1d8-ab33-2dcf-cf61d8eea46f">
+    <a href="#sc_retrieve_status_info">
+    <tt>/jobs/{jobID}</tt>
+    </a>
+    </p>
+    </li>
+    </ul><p id="_4328c690-f0a3-a38d-81c7-e863cf6acbbc">and for the following API endpoint:</p><ul id="_86dd1282-d67e-a364-675c-3ed76a640514">
+    <li>
+    <p id="_e6a614b4-bc35-3e2f-4198-be988f8374f8">
+    <a href="#sc_create_job">
+    <tt>/processes/{processID}/execution</tt>
+    </a>
+    </p>
+    </li>
+    </ul><p id="_5bf2fcf4-d81e-9ab4-9f26-d562a45c31e1">when the <a href="#sc_response_parameter"><tt>response</tt></a> parameter is set to the value <tt>document</tt> and/or the <a href="#sc_execution_mode">negotiated execution mode</a> is asynchronous.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_720d9280-4ef4-abb6-2d15-ab6f6fd47f67"><tt>200</tt>-responses of the server SHALL support the following media type:</p><ul id="_477827ef-b6e5-7541-9c00-ad45020be50d">
+    <li>
+    <p id="_23a1bf0c-7bde-70fa-74ce-d8f644cdc375">
+    <tt>application/json</tt>
+    </p>
+    </li>
+    </ul><p id="_6eed019b-8673-24d6-aee9-b39f9b0956d6">for the following API endpoints:</p><ul id="_f8f1593c-830f-13f7-40d5-490f966418ea">
+    <li>
+    <p id="_34adbace-eb8f-9d9d-7823-51b8c7362633">
+    <a href="#sc_landing_page">
+    <tt>/</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_d33c1942-270c-6da9-5712-07c3002686a1">
+    <a href="#sc_conformance_classes">
+    <tt>/conformance</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_65b58390-2fbe-174d-796b-bfc8916cf132">
+    <a href="#sc_process_list">
+    <tt>/processes</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_2d5b4707-3c39-6db2-3f93-18dc3ceff63e">
+    <a href="#sc_process_description">
+    <tt>/processes/{processID}</tt>
+    </a>
+    </p>
+    </li>
+    <li>
+    <p id="_1e00100d-b1d8-ab33-2dcf-cf61d8eea46f">
+    <a href="#sc_retrieve_status_info">
+    <tt>/jobs/{jobID}</tt>
+    </a>
+    </p>
+    </li>
+    </ul><p id="_4328c690-f0a3-a38d-81c7-e863cf6acbbc">and for the following API endpoint:</p><ul id="_86dd1282-d67e-a364-675c-3ed76a640514">
+    <li>
+    <p id="_e6a614b4-bc35-3e2f-4198-be988f8374f8">
+    <a href="#sc_create_job">
+    <tt>/processes/{processID}/execution</tt>
+    </a>
+    </p>
+    </li>
+    </ul><p id="_5bf2fcf4-d81e-9ab4-9f26-d562a45c31e1">when the <a href="#sc_response_parameter"><tt>response</tt></a> parameter is set to the value <tt>document</tt> and/or the <a href="#sc_execution_mode">negotiated execution mode</a> is asynchronous.</p>
+abstract-tests:
+- id: json/definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json/definition
+  source-anchor: _5a1b64f2-8e75-f2d2-aa43-34726d912125
+  source-label: Abstract test A.55
+  source-uri: /conf/json/definition
+  source-table-html: |-
+    <table class="recommendtest" id="_5a1b64f2-8e75-f2d2-aa43-34726d912125" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.55</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/json/definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_json_definition">/req/json/definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_7716803a-3e63-2326-f357-693dbf6ffe74">Verify support for JSON.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_84481b0c-4d29-3780-e220-8e84cc2ace1c">A resource is requested with response media type of <tt>application/json</tt>.</p>
+    </li>
+    <li>
+    <p id="_3e135143-f612-c571-1d05-fe6a80403eab">All <tt>200</tt> responses SHALL support the following media types: <tt>application/json</tt> for all resources.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_7716803a-3e63-2326-f357-693dbf6ffe74">Verify support for JSON.</p>
+  requirement:
+  - ref: /req/json/definition
+    text: <a href="#req_json_definition">/req/json/definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_84481b0c-4d29-3780-e220-8e84cc2ace1c">A resource is requested with response media type of <tt>application/json</tt>.</p>
+    </li>
+    <li>
+    <p id="_3e135143-f612-c571-1d05-fe6a80403eab">All <tt>200</tt> responses SHALL support the following media types: <tt>application/json</tt> for all resources.</p>
+    </li>
+    </ol>

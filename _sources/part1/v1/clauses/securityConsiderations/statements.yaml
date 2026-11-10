@@ -1,0 +1,9 @@
+statements:
+- id: job-list/access-control-job-list
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/job-list/access-control-job-list
+  type: recommendation
+  source-anchor: rec_job-list_access-control-job-list
+  source-label: Recommendation 1
+  source-uri: /rec/job-list/access-control-job-list
+  source-table-html: <table class="recommend" id="rec_job-list_access-control-job-list" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 1</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/job-list/access-control-job-list</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_5c4b5972-79c6-7082-de75-c16f25e1ae02">Servers implementing the conformance class ‘Job List’ SHOULD have an access control in place for the /jobs endpoint to prevent misuse of job-ids.</p></td></tr></tbody></table>
+  statement: <p id="_5c4b5972-79c6-7082-de75-c16f25e1ae02">Servers implementing the conformance class ‘Job List’ SHOULD have an access control in place for the /jobs endpoint to prevent misuse of job-ids.</p>

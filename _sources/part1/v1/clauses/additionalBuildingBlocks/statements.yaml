@@ -1,0 +1,59 @@
+statements:
+- id: core/alternative-process-description
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/per/core/alternative-process-description
+  type: permission
+  source-anchor: per_core_alternative-process-description
+  source-label: Permission 11
+  source-uri: /per/core/alternative-process-description
+  source-table-html: |-
+    <table class="recommend" id="per_core_alternative-process-description" style="border-collapse:collapse;border-spacing:0;">
+    <thead>
+    <tr>
+    <th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;">
+    <p class="RecommendationTitle">Permission 11</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p>/per/core/alternative-process-description</p>
+    </td>
+    </tr>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p id="_de97a287-8b6a-223d-abf4-3bbb7371c558">Servers MAY support alternative means of describing the inputs and outputs of a process.</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  statement: <p id="_de97a287-8b6a-223d-abf4-3bbb7371c558">Servers MAY support alternative means of describing the inputs and outputs of a process.</p>
+- id: core/alternative-process-paths
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/per/core/alternative-process-paths
+  type: permission
+  source-anchor: per_core_alternative-process-paths
+  source-label: Permission 12
+  source-uri: /per/core/alternative-process-paths
+  source-table-html: |-
+    <table class="recommend" id="per_core_alternative-process-paths" style="border-collapse:collapse;border-spacing:0;">
+    <thead>
+    <tr>
+    <th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;">
+    <p class="RecommendationTitle">Permission 12</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p>/per/core/alternative-process-paths</p>
+    </td>
+    </tr>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p id="_bc0de771-9aa4-5e8f-9360-5212c54ddbe3">Servers MAY support alternative API paths.</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  statement: <p id="_bc0de771-9aa4-5e8f-9360-5212c54ddbe3">Servers MAY support alternative API paths.</p>

@@ -1,0 +1,164 @@
+class-id: dismiss
+title: Requirements Class “Dismiss”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes Core
+source:
+  source-anchor: rc_dismiss
+  source-label: Requirements class 8
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss
+  source-table-html: |-
+    <table class="recommendclass" id="rc_dismiss" style="border-collapse:collapse;border-spacing:0;">
+    <thead>
+    <tr>
+    <th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;">
+    <p class="RecommendationTitle">Requirements class 8</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="recommend" colspan="2" style="vertical-align:top;">
+    <p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss</a>
+    </p>
+    </td>
+    </tr>
+    <tr>
+    <td class="recommend" style="vertical-align:top;">Obligation</td>
+    <td class="recommend" style="vertical-align:top;">requirement</td>
+    </tr>
+    <tr>
+    <td class="recommend" style="vertical-align:top;">Target type</td>
+    <td class="recommend" style="vertical-align:top;">Web API</td>
+    </tr>
+    <tr>
+    <td class="recommend" style="vertical-align:top;">Dependency</td>
+    <td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes Core</a>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+conformance-class:
+  title: dismiss
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_dismiss
+  source-label: Conformance class A.8
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
+  source-table-html: |-
+    <table class="recommendclass" id="ats_dismiss" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.8</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: dismiss/job-dismiss-op
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss/job-dismiss-op
+  type: requirement
+  source-anchor: req_dismiss_job-dismiss-op
+  source-label: Requirement 81
+  source-uri: /req/dismiss/job-dismiss-op
+  source-table-html: <table class="recommend" id="req_dismiss_job-dismiss-op" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 81</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/dismiss/job-dismiss-op</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_2729521b-3515-b1c5-e1bb-2c2a462e66f6">The server SHALL support the HTTP DELETE operation at the path <tt>/jobs/{jobID}</tt>.</p></td></tr></tbody></table>
+  statement: <p id="_2729521b-3515-b1c5-e1bb-2c2a462e66f6">The server SHALL support the HTTP DELETE operation at the path <tt>/jobs/{jobID}</tt>.</p>
+- id: dismiss/job-dismiss-success
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss/job-dismiss-success
+  type: requirement
+  source-anchor: req_dismiss_job-dismiss-success
+  source-label: Requirement 82
+  source-uri: /req/dismiss/job-dismiss-success
+  source-table-html: |-
+    <table class="recommend" id="req_dismiss_job-dismiss-success" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 82</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/dismiss/job-dismiss-success</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_5f6869af-5717-e30b-c160-edc9d68350f9">A successful execution of the operation SHALL be reported as a
+    response with a HTTP status code 200.
+    The content of that response SHALL be based upon the OpenAPI
+    3.0 schema <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>. The status SHALL be set to “dismissed”.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_5f6869af-5717-e30b-c160-edc9d68350f9">A successful execution of the operation SHALL be reported as a
+    response with a HTTP status code 200.
+    The content of that response SHALL be based upon the OpenAPI
+    3.0 schema <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>. The status SHALL be set to “dismissed”.</p>
+abstract-tests:
+- id: dismiss/job-dismiss-op
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss/job-dismiss-op
+  source-anchor: ats_dismiss_job-dismiss-op
+  source-label: Abstract test A.81
+  source-uri: /conf/dismiss/job-dismiss-op
+  source-table-html: |-
+    <table class="recommendtest" id="ats_dismiss_job-dismiss-op" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.81</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/dismiss/job-dismiss-op</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_dismiss_job-dismiss-op">/req/dismiss/job-dismiss-op</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_fa009bec-bfff-38a5-035e-0fef2cb66959">Validate that a running job can be dismissed.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_45d23a4d-8c3d-2797-f3dd-5f9bf14970ed">Create an asynchronous job as per test <a href="#ats_core_job-creation-op">/conf/core/job-creation-op</a>; not the job identifier, {jobID}, assigned to the job.</p>
+    </li>
+    <li>
+    <p id="_b1bc5007-08a7-7251-bf0c-e54dd6d866a6">Issue an HTTP DELETE operation to the URL ‘/jobs/{jobID}’.</p>
+    </li>
+    <li>
+    <p id="_75ba6b13-d7a9-1dd2-540f-60f2b05bc3aa">Validate the contents of the returned document using test <a href="#ats_dismiss_job-dismiss-success">/conf/dismiss/job-dismiss-success</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_fa009bec-bfff-38a5-035e-0fef2cb66959">Validate that a running job can be dismissed.</p>
+  requirement:
+  - ref: /req/dismiss/job-dismiss-op
+    text: <a href="#req_dismiss_job-dismiss-op">/req/dismiss/job-dismiss-op</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_45d23a4d-8c3d-2797-f3dd-5f9bf14970ed">Create an asynchronous job as per test <a href="#ats_core_job-creation-op">/conf/core/job-creation-op</a>; not the job identifier, {jobID}, assigned to the job.</p>
+    </li>
+    <li>
+    <p id="_b1bc5007-08a7-7251-bf0c-e54dd6d866a6">Issue an HTTP DELETE operation to the URL ‘/jobs/{jobID}’.</p>
+    </li>
+    <li>
+    <p id="_75ba6b13-d7a9-1dd2-540f-60f2b05bc3aa">Validate the contents of the returned document using test <a href="#ats_dismiss_job-dismiss-success">/conf/dismiss/job-dismiss-success</a>.</p>
+    </li>
+    </ol>
+- id: dismiss/job-dismiss-success
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss/job-dismiss-success
+  source-anchor: ats_dismiss_job-dismiss-success
+  source-label: Abstract test A.82
+  source-uri: /conf/dismiss/job-dismiss-success
+  source-table-html: |-
+    <table class="recommendtest" id="ats_dismiss_job-dismiss-success" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.82</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/dismiss/job-dismiss-success</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_dismiss_job-dismiss-success">/req/dismiss/job-dismiss-success</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_93797f07-5897-0cf8-c7cf-b6c6d6434d1e">Validate that the content returned when dismissing a job complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_05e558e8-ca3c-c30e-5bab-31e4f34c421d">Validate that a document was returned with an HTTP status code of 200.</p>
+    </li>
+    <li>
+    <p id="_c467c427-6416-c509-4282-eac555b63655">Validate that the status is the response is set to “dismissed”.</p>
+    </li>
+    <li>
+    <p id="_e4cda1bc-91e3-0ed7-9736-1f89f82582fe">Validate the process list content for all supported media types using the resources and tests identified in <a href="#job-dismiss-schema">Table A.11</a></p>
+    </li>
+    </ol>
+    </td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_ff7c4142-011b-8747-8c45-bf872bc5f907">The response to dismissing a job can be presented in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p></td></tr></tbody></table>
+  purpose: <p id="_93797f07-5897-0cf8-c7cf-b6c6d6434d1e">Validate that the content returned when dismissing a job complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/dismiss/job-dismiss-success
+    text: <a href="#req_dismiss_job-dismiss-success">/req/dismiss/job-dismiss-success</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_05e558e8-ca3c-c30e-5bab-31e4f34c421d">Validate that a document was returned with an HTTP status code of 200.</p>
+    </li>
+    <li>
+    <p id="_c467c427-6416-c509-4282-eac555b63655">Validate that the status is the response is set to “dismissed”.</p>
+    </li>
+    <li>
+    <p id="_e4cda1bc-91e3-0ed7-9736-1f89f82582fe">Validate the process list content for all supported media types using the resources and tests identified in <a href="#job-dismiss-schema">Table A.11</a></p>
+    </li>
+    </ol>
+
+    <p id="_ff7c4142-011b-8747-8c45-bf872bc5f907">The response to dismissing a job can be presented in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>

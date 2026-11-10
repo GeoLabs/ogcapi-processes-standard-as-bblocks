@@ -1,0 +1,33 @@
+statements:
+- id: core/test-process
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core/test-process
+  type: requirement
+  source-anchor: req_core_test-process
+  source-label: Requirement A.1
+  source-uri: /req/core/test-process
+  source-table-html: '<table class="recommend" id="req_core_test-process" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement A.1</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/core/test-process</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_f7ea6e18-3c7e-33e1-d83f-5bad15af9a27">If a server implementing the OGC API — Processes — Part 1: Core is tested using CITE tests, the server SHALL offer at least one testable process. Please refer to <a href="#rec_core_test-process">Annex A.1, Recommendation A.1</a> for further guidance.</p></td></tr></tbody></table>'
+  statement: '<p id="_f7ea6e18-3c7e-33e1-d83f-5bad15af9a27">If a server implementing the OGC API — Processes — Part 1: Core is tested using CITE tests, the server SHALL offer at least one testable process. Please refer to <a href="#rec_core_test-process">Annex A.1, Recommendation A.1</a> for further guidance.</p>'
+- id: core/test-process--published-recommendation-a-1
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/core/test-process
+  type: recommendation
+  source-anchor: rec_core_test-process
+  source-label: Recommendation A.1
+  source-uri: /rec/core/test-process
+  source-table-html: |-
+    <table class="recommend" id="rec_core_test-process" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation A.1</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/core/test-process</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_4927ca30-8763-d8ac-7116-200cfc58a65d">If a server implementing the OGC API — Processes — Part 1: Core is tested using CITE tests, the server SHOULD offer one of the following options:</p><ol id="_984b753c-8d29-fd41-3c88-a80194b22392" type="1">
+    <li>
+    <p id="_9f30cf2d-5acd-200e-b410-569f7478c6c4">An Echo process that returns any input that is provided, without any actual processing.</p>
+    </li>
+    <li>
+    <p id="_4e93727e-ee46-c01c-1df9-04e82995280f">Provide example input data for a specific process.</p>
+    </li>
+    </ol><p id="_73a229fa-83dc-f1fc-2ee3-29d2872bdcdf">The process logic SHOULD include a delay, whether through actual processing or a simple sleep mechanism, in order to test asynchronous execution.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_4927ca30-8763-d8ac-7116-200cfc58a65d">If a server implementing the OGC API — Processes — Part 1: Core is tested using CITE tests, the server SHOULD offer one of the following options:</p><ol id="_984b753c-8d29-fd41-3c88-a80194b22392" type="1">
+    <li>
+    <p id="_9f30cf2d-5acd-200e-b410-569f7478c6c4">An Echo process that returns any input that is provided, without any actual processing.</p>
+    </li>
+    <li>
+    <p id="_4e93727e-ee46-c01c-1df9-04e82995280f">Provide example input data for a specific process.</p>
+    </li>
+    </ol><p id="_73a229fa-83dc-f1fc-2ee3-29d2872bdcdf">The process logic SHOULD include a delay, whether through actual processing or a simple sleep mechanism, in order to test asynchronous execution.</p>

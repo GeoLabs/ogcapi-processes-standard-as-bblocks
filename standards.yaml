@@ -288,3 +288,74 @@ standards:
             Use of this document is subject to the license agreement at <https://www.ogc.org/license>
 
             Suggested additions, changes and comments on this document are welcome and encouraged. Such suggestions may be submitted using the online change request form on OGC web site: <http://ogc.standardstracker.org/>
+
+  # Independent published edition: do not rename or replace part1 (v2) / part2 (v1).
+  # Reproducible definition: provenance/part1-v1/standard.yaml.
+  - id: part1-v1
+    prefix: ogc.api.processes.part1.v1.
+    title: 'OGC API - Processes - Part 1: Core (1.0.0, modified BB rendition)'
+    doc-number: 18-062r2
+    type: Standard
+    doc-subtype: Implementation
+    status: Approved
+    version: 1.0.0
+    submission-date: '2021-06-18'
+    approval-date: '2021-08-23'
+    pub-date: '2021-12-20'
+    external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0
+    base-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0
+    layout: ogc
+    modspec:
+      statement-label: Statement
+      singular-labels: true
+      obligation-row: false
+    req-uri-template: '{base-uri}/req/{id}'
+    rec-uri-template: '{base-uri}/rec/{id}'
+    per-uri-template: '{base-uri}/per/{id}'
+    conf-uri-template: '{base-uri}/conf/{id}'
+    ats-uri-template: '{base-uri}/conf/{id}'
+    editors:
+      - name: Benjamin Pross
+        affiliation: 52°North GmbH
+      - name: Panagiotis (Peter) A. Vretanos
+        affiliation: CubeWerx Inc.
+    preface:
+      - bblock: ogc.api.processes.part1.v1.clauses.abstract
+      - bblock: ogc.api.processes.part1.v1.clauses.keywords
+      - bblock: ogc.api.processes.part1.v1.clauses.securityConsiderations
+      - bblock: ogc.api.processes.part1.v1.clauses.submittingOrganizations
+      - bblock: ogc.api.processes.part1.v1.clauses.submitters
+      - bblock: ogc.api.processes.part1.v1.clauses.sourceFrontMatter
+        numbered: false
+    clauses:
+      - bblock: ogc.api.processes.part1.v1.clauses.scope
+      - bblock: ogc.api.processes.part1.v1.clauses.conformance
+      - bblock: ogc.api.processes.part1.v1.clauses.references
+      - bblock: ogc.api.processes.part1.v1.clauses.terms
+      - bblock: ogc.api.processes.part1.v1.clauses.conventions
+      - bblock: ogc.api.processes.part1.v1.clauses.overview
+      - bblock: ogc.api.processes.part1.v1.requirements.core
+      - bblock: ogc.api.processes.part1.v1.requirements.ogcProcessDescription
+      - bblock: ogc.api.processes.part1.v1.clauses.encodings
+        subclauses:
+          - bblock: ogc.api.processes.part1.v1.clauses.encodingOverview
+          - bblock: ogc.api.processes.part1.v1.requirements.json
+          - bblock: ogc.api.processes.part1.v1.requirements.html
+      - bblock: ogc.api.processes.part1.v1.requirements.oas30
+      - bblock: ogc.api.processes.part1.v1.requirements.jobList
+      - bblock: ogc.api.processes.part1.v1.requirements.callback
+      - bblock: ogc.api.processes.part1.v1.requirements.dismiss
+      - bblock: ogc.api.processes.part1.v1.clauses.mediaTypes
+      - bblock: ogc.api.processes.part1.v1.clauses.additionalBuildingBlocks
+      - bblock: ogc.api.processes.part1.v1.annexes.ats
+        auto: annex-a
+      - bblock: ogc.api.processes.part1.v1.annexes.revisionHistory
+      - bblock: ogc.api.processes.part1.v1.annexes.bibliography
+        numbered: false
+    boilerplate:
+      copyright-year: 2021
+      notices:
+        - title: Modified rendition — not an OGC-approved publication
+          text: Modified Building Blocks rendition of OGC 18-062r2 (2021). This Intellectual Property includes modifications that have not been approved or adopted by the Open Geospatial Consortium (LICENSOR). The published source is an Approved OGC Standard; this reconstructed rendition is not an OGC-approved publication. In case of any discrepancy the published HTML prevails.
+        - title: Copyright notice
+          text: Copyright © 2021 Open Geospatial Consortium. Original copyright and full licence are retained in the Published source front matter and licence section.

@@ -1,0 +1,40 @@
+{
+  "name": "Requirements Class “OGC Process Description”",
+  "abstract": "Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-10T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "1.0",
+  "clause-index": 14,
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC 18-062r2 — Approved source, 2021-12-20",
+      "link": "https://docs.ogc.org/is/18-062r2/18-062r2.html#toc35"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "published-source",
+    "modified-rendition"
+  ],
+  "standardization-target": "Web API",
+  "req-class-uri": "http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description",
+  "dependsOn": [
+    "ogc.api.processes.part1.v1.requirements.core",
+    "ogc.api.processes.part1.v1.schemas.bbox",
+    "ogc.api.processes.part1.v1.schemas.descriptionType",
+    "ogc.api.processes.part1.v1.schemas.inputDescription",
+    "ogc.api.processes.part1.v1.schemas.outputDescription",
+    "ogc.api.processes.part1.v1.schemas.process",
+    "ogc.api.processes.part1.v1.schemas.schema"
+  ],
+  "resources": [
+    {
+      "ref": "requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ]
+}

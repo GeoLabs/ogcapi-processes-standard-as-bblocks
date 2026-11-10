@@ -1,0 +1,969 @@
+class-id: job-list
+title: Requirements Class “Job list”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes Core
+source:
+  source-anchor: rc_job-list
+  source-label: Requirements class 6
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list
+  source-table-html: |-
+    <table class="recommendclass" id="rc_job-list" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirements class 6</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Obligation</td><td class="recommend" style="vertical-align:top;">requirement</td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes Core</a>
+    </td></tr></tbody></table>
+conformance-class:
+  title: jobList
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_job-list
+  source-label: Conformance class A.6
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
+  source-table-html: |-
+    <table class="recommendclass" id="ats_job-list" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.6</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: job-list/job-list-op
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/job-list-op
+  type: requirement
+  source-anchor: req_job-list_job-list-op
+  source-label: Requirement 64
+  source-uri: /req/job-list/job-list-op
+  source-table-html: <table class="recommend" id="req_job-list_job-list-op" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 64</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/job-list-op</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_1f3380e0-f5f3-5b13-f78e-5925e812e4df">The server SHALL support the HTTP GET operation at the path <tt>/jobs</tt>.</p></td></tr></tbody></table>
+  statement: <p id="_1f3380e0-f5f3-5b13-f78e-5925e812e4df">The server SHALL support the HTTP GET operation at the path <tt>/jobs</tt>.</p>
+- id: job-list/type-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/type-definition
+  type: requirement
+  source-anchor: req_job-list_type-definition
+  source-label: Requirement 65
+  source-uri: /req/job-list/type-definition
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_type-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 65</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/type-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_1633e3c6-022d-a27d-b062-fb0e9c97a8c2">The operation SHALL support a parameter <tt>type</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_0aa4afdb-3c54-453c-f748-8af8090d5b0b">name: type<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: string</pre>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_1633e3c6-022d-a27d-b062-fb0e9c97a8c2">The operation SHALL support a parameter <tt>type</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_0aa4afdb-3c54-453c-f748-8af8090d5b0b">name: type<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: string</pre>
+- id: job-list/type-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/type-response
+  type: requirement
+  source-anchor: req_job-list_type-response
+  source-label: Requirement 66
+  source-uri: /req/job-list/type-response
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_type-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 66</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/type-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_f6ab9bac-0906-d9c5-e4fc-f7fafe00ca92">If the parameter is provided and its value is <tt>process</tt> then only jobs created by an OGC processes API SHALL be included in the response.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_937dfa1f-db86-4261-8765-1c886a8883ef">If the parameter is omitted, then all jobs SHALL be included in the response.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_f6ab9bac-0906-d9c5-e4fc-f7fafe00ca92">If the parameter is provided and its value is <tt>process</tt> then only jobs created by an OGC processes API SHALL be included in the response.</p>
+  - <p id="_937dfa1f-db86-4261-8765-1c886a8883ef">If the parameter is omitted, then all jobs SHALL be included in the response.</p>
+- id: job-list/processID-mandatory
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/processID-mandatory
+  type: requirement
+  source-anchor: req_job-list_processID-mandatory
+  source-label: Requirement 67
+  source-uri: /req/job-list/processID-mandatory
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_processID-mandatory" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 67</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/processID-mandatory</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_d38cd33c-2a60-116e-79c9-af977cd486db">If the server supports this conformance class, the optional <tt>processID</tt> property in the <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a> schema SHALL be mandatory.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_d38cd33c-2a60-116e-79c9-af977cd486db">If the server supports this conformance class, the optional <tt>processID</tt> property in the <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a> schema SHALL be mandatory.</p>
+- id: job-list/processID-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/processID-definition
+  type: requirement
+  source-anchor: req_job-list_processID-definition
+  source-label: Requirement 68
+  source-uri: /req/job-list/processID-definition
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_processID-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 68</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/processID-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_08954964-ff38-0dc1-39a2-393175945b79">The operation SHALL support a parameter <tt>processID</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_dd79032f-5f3f-5c77-ffa9-50ee7fa01267">name: processID<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: string</pre>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_08954964-ff38-0dc1-39a2-393175945b79">The operation SHALL support a parameter <tt>processID</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_dd79032f-5f3f-5c77-ffa9-50ee7fa01267">name: processID<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: string</pre>
+- id: job-list/processid-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/processid-response
+  type: requirement
+  source-anchor: req_job-list_processid-response
+  source-label: Requirement 69
+  source-uri: /req/job-list/processid-response
+  source-table-html: '<table class="recommend" id="req_job-list_processid-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 69</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/processid-response</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_0bb127de-8d6e-e080-e1d5-450a5714a264">If the parameter is specified with the operation, only jobs that have a value for the <tt>processID</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) that matches one of the values specified for the <tt>processID</tt> parameter SHALL be included in the response.</p></td></tr></tbody></table>'
+  statement: '<p id="_0bb127de-8d6e-e080-e1d5-450a5714a264">If the parameter is specified with the operation, only jobs that have a value for the <tt>processID</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) that matches one of the values specified for the <tt>processID</tt> parameter SHALL be included in the response.</p>'
+- id: job-list/status-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/status-definition
+  type: requirement
+  source-anchor: req_job-list_status-definition
+  source-label: Requirement 70
+  source-uri: /req/job-list/status-definition
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_status-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 70</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/status-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_7c8c94fd-8f73-56eb-6f9d-a50e5c096afd">The operation SHALL support a parameter <tt>status</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_cd9166b3-1d8a-95b1-ddc4-69e2e2cc72aa">name: status<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: string</pre>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_7c8c94fd-8f73-56eb-6f9d-a50e5c096afd">The operation SHALL support a parameter <tt>status</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_cd9166b3-1d8a-95b1-ddc4-69e2e2cc72aa">name: status<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: string</pre>
+- id: job-list/status-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/status-response
+  type: requirement
+  source-anchor: req_job-list_status-response
+  source-label: Requirement 71
+  source-uri: /req/job-list/status-response
+  source-table-html: '<table class="recommend" id="req_job-list_status-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 71</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/status-response</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_60ceb323-8b8f-00ab-af57-e2b7e7d82bdb">If the parameter is specified with the operation, only jobs that have a value for the <tt>status</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) that matches one of the specified values of the <tt>status</tt> parameter SHALL be included in the response.</p></td></tr></tbody></table>'
+  statement: '<p id="_60ceb323-8b8f-00ab-af57-e2b7e7d82bdb">If the parameter is specified with the operation, only jobs that have a value for the <tt>status</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) that matches one of the specified values of the <tt>status</tt> parameter SHALL be included in the response.</p>'
+- id: job-list/datetime-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/datetime-definition
+  type: requirement
+  source-anchor: req_job-list_datetime-definition
+  source-label: Requirement 72
+  source-uri: /req/job-list/datetime-definition
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_datetime-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 72</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/datetime-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_fde269b5-e713-3fe7-e3b4-ad01274c0dd8">The operation SHALL support a parameter <tt>datetime</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_763e1e92-ab22-39ce-b9d2-bc9ffdbfab46">name: datetime<br/>in: query<br/>required: false<br/>schema:<br/>  type: string</pre>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;"><p id="_8734b17e-2bc9-565c-f046-1dcfdea7a714">The value of the <tt>datetime</tt> parameter is either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
+    <pre class="prettyprint" id="_f4523aac-b6c1-6068-35b6-05a3f0d4ac0e">interval-closed     = date-time "/" date-time<br/>interval-open-start = [".."] "/" date-time<br/>interval-open-end   = date-time "/" [".."]<br/>interval            = interval-closed / interval-open-start / interval-open-end<br/>datetime            = date-time / interval</pre>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">C</td><td class="recommend" style="vertical-align:top;">
+    <p id="_86aeb368-275a-39bc-ea1f-b62257e38279">The syntax of <tt>date-time</tt> is specified by <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339, 5.6</a>.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">D</td><td class="recommend" style="vertical-align:top;">
+    <p id="_dff8cb41-30be-5e67-692d-d9ef92118089">Open ranges in time intervals at the start or end are supported using a double-dot (<tt>..</tt>) or an empty string for the start/end.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_fde269b5-e713-3fe7-e3b4-ad01274c0dd8">The operation SHALL support a parameter <tt>datetime</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_763e1e92-ab22-39ce-b9d2-bc9ffdbfab46">name: datetime<br/>in: query<br/>required: false<br/>schema:<br/>  type: string</pre>
+  - |-
+    <p id="_8734b17e-2bc9-565c-f046-1dcfdea7a714">The value of the <tt>datetime</tt> parameter is either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
+    <pre class="prettyprint" id="_f4523aac-b6c1-6068-35b6-05a3f0d4ac0e">interval-closed     = date-time "/" date-time<br/>interval-open-start = [".."] "/" date-time<br/>interval-open-end   = date-time "/" [".."]<br/>interval            = interval-closed / interval-open-start / interval-open-end<br/>datetime            = date-time / interval</pre>
+  - <p id="_86aeb368-275a-39bc-ea1f-b62257e38279">The syntax of <tt>date-time</tt> is specified by <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339, 5.6</a>.</p>
+  - <p id="_dff8cb41-30be-5e67-692d-d9ef92118089">Open ranges in time intervals at the start or end are supported using a double-dot (<tt>..</tt>) or an empty string for the start/end.</p>
+- id: job-list/datetime-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/datetime-response
+  type: requirement
+  source-anchor: req_job-list_datetime-response
+  source-label: Requirement 73
+  source-uri: /req/job-list/datetime-response
+  source-table-html: '<table class="recommend" id="req_job-list_datetime-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 73</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/datetime-response</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_b0501ada-b3f0-b38c-192b-4d122795366d">If the parameter is specified with the operation, only jobs that have a value for the <tt>created</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a> that intersects the temporal information in the <tt>datetime</tt> parameter SHALL be included in the response.</p></td></tr></tbody></table>'
+  statement: '<p id="_b0501ada-b3f0-b38c-192b-4d122795366d">If the parameter is specified with the operation, only jobs that have a value for the <tt>created</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a> that intersects the temporal information in the <tt>datetime</tt> parameter SHALL be included in the response.</p>'
+- id: job-list/duration-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/duration-definition
+  type: requirement
+  source-anchor: req_job-list_duration-definition
+  source-label: Requirement 74
+  source-uri: /req/job-list/duration-definition
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_duration-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 74</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/duration-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_1651fab1-377d-3ac5-bdb2-b4af4f19cf86">The operation SHALL support a parameter <tt>minDuration</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_55d1d891-22ef-cba9-6b8b-3cc5e4b19c1c">name: minDuration<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: integer</pre>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;"><p id="_4dae47db-5f86-4bd8-f3bc-8ca8dfd4b815">The operation SHALL support a parameter <tt>maxDuration</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_57230e40-5bbe-040b-985c-965ca946e5e2">name: maxDuration<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: integer<br/>style: form<br/>explode: false</pre>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_1651fab1-377d-3ac5-bdb2-b4af4f19cf86">The operation SHALL support a parameter <tt>minDuration</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_55d1d891-22ef-cba9-6b8b-3cc5e4b19c1c">name: minDuration<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: integer</pre>
+  - |-
+    <p id="_4dae47db-5f86-4bd8-f3bc-8ca8dfd4b815">The operation SHALL support a parameter <tt>maxDuration</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_57230e40-5bbe-040b-985c-965ca946e5e2">name: maxDuration<br/>in: query<br/>required: false<br/>schema:<br/>  type: array<br/>  items:<br/>    type: integer<br/>style: form<br/>explode: false</pre>
+- id: job-list/status-response--published-requirement-75
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/status-response
+  type: requirement
+  source-anchor: req_job-list_duration-response
+  source-label: Requirement 75
+  source-uri: /req/job-list/status-response
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_duration-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 75</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/status-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Conditions</td><td class="recommend" style="vertical-align:top;">
+    <ol id="_71b67bd6-11af-3dca-c09f-fc379f65a713" type="1">
+    <li>
+    <p id="_45e77789-973a-fbae-e98b-94cc34893031">If the <tt>status</tt> parameter is not specified then only jobs that are running (status: <tt>running</tt>) or have completed execution (<tt>successful</tt>, <tt>failed</tt> or <tt>dismissed</tt>) SHALL be considered for inclusion in the response.</p>
+    </li>
+    <li>
+    <p id="_e582331c-559e-badd-6d71-57f327552cad">If the <tt>status</tt> parameter is specified, then only jobs with the specified status SHALL be considered for inclusion in the response.</p>
+    </li>
+    </ol>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_8ec6b881-8ae5-cd07-6569-f29d179eee5e">If only the <tt>minDuration</tt> parameter is specified with the operation, only jobs with the appropriate status and a duration of at least the specified <tt>minDuration</tt> value SHALL be included in the response.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_6d528fcc-8c4f-5528-fd22-6ce5f8954ec0">If only the <tt>maxDuration</tt> parameter is specified with the operation, only jobs with the appropriate status and a duration of no longer than the specified <tt>maxDuration</tt> value SHALL be included in the response.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">C</td><td class="recommend" style="vertical-align:top;">
+    <p id="_96ee161d-cab2-3099-9b33-881ae6d3d584">If both the <tt>minDuration</tt> and <tt>maxDuration</tt> parameters are specified with the operation, only jobs with the appropriate status and a duration of at least the specified <tt>minDuration</tt> value and no longer than the specified <tt>maxDuration</tt> value SHALL be included in the response.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">D</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c407458b-ce97-061e-b1c8-94d2963e74fc">The value of the <tt>minDuration</tt> and <tt>maxDuration</tt> parameters SHALL be number of seconds.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">E</td><td class="recommend" style="vertical-align:top;">
+    <p id="_3b988bdc-b9e0-a436-e9b5-6c26037b5bc9">For running jobs, the duration SHALL be computed at runtime as the time the operation was invoked minus the value of the <tt>started</tt> parameter  (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>).</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">F</td><td class="recommend" style="vertical-align:top;">
+    <p id="_f5447ef1-0002-9c45-d97a-f1cf31cb30b3">For completed jobs, the duration SHALL be computed as the value of the <tt>finished</tt> parameter minus the value of the <tt>started</tt> parameter  (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>).</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">G</td><td class="recommend" style="vertical-align:top;">
+    <p id="_ed78d8c1-ed3e-d82a-16a4-de910783b308">Jobs for which runtime statistics are not included in the <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">status information</a> or are incomplete for computing the duration of the job SHALL be omitted from the response.</p>
+    </td></tr></tbody></table>
+  condition: |-
+    <ol id="_71b67bd6-11af-3dca-c09f-fc379f65a713" type="1">
+    <li>
+    <p id="_45e77789-973a-fbae-e98b-94cc34893031">If the <tt>status</tt> parameter is not specified then only jobs that are running (status: <tt>running</tt>) or have completed execution (<tt>successful</tt>, <tt>failed</tt> or <tt>dismissed</tt>) SHALL be considered for inclusion in the response.</p>
+    </li>
+    <li>
+    <p id="_e582331c-559e-badd-6d71-57f327552cad">If the <tt>status</tt> parameter is specified, then only jobs with the specified status SHALL be considered for inclusion in the response.</p>
+    </li>
+    </ol>
+  statement: ''
+  parts:
+  - <p id="_8ec6b881-8ae5-cd07-6569-f29d179eee5e">If only the <tt>minDuration</tt> parameter is specified with the operation, only jobs with the appropriate status and a duration of at least the specified <tt>minDuration</tt> value SHALL be included in the response.</p>
+  - <p id="_6d528fcc-8c4f-5528-fd22-6ce5f8954ec0">If only the <tt>maxDuration</tt> parameter is specified with the operation, only jobs with the appropriate status and a duration of no longer than the specified <tt>maxDuration</tt> value SHALL be included in the response.</p>
+  - <p id="_96ee161d-cab2-3099-9b33-881ae6d3d584">If both the <tt>minDuration</tt> and <tt>maxDuration</tt> parameters are specified with the operation, only jobs with the appropriate status and a duration of at least the specified <tt>minDuration</tt> value and no longer than the specified <tt>maxDuration</tt> value SHALL be included in the response.</p>
+  - <p id="_c407458b-ce97-061e-b1c8-94d2963e74fc">The value of the <tt>minDuration</tt> and <tt>maxDuration</tt> parameters SHALL be number of seconds.</p>
+  - '<p id="_3b988bdc-b9e0-a436-e9b5-6c26037b5bc9">For running jobs, the duration SHALL be computed at runtime as the time the operation was invoked minus the value of the <tt>started</tt> parameter  (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>).</p>'
+  - '<p id="_f5447ef1-0002-9c45-d97a-f1cf31cb30b3">For completed jobs, the duration SHALL be computed as the value of the <tt>finished</tt> parameter minus the value of the <tt>started</tt> parameter  (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>).</p>'
+  - <p id="_ed78d8c1-ed3e-d82a-16a4-de910783b308">Jobs for which runtime statistics are not included in the <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">status information</a> or are incomplete for computing the duration of the job SHALL be omitted from the response.</p>
+- id: job-list/limit-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/limit-definition
+  type: requirement
+  source-anchor: req_job-list_limit-definition
+  source-label: Requirement 76
+  source-uri: /req/job-list/limit-definition
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_limit-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 76</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/limit-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_ec5cb070-9d01-ca7b-0184-dbfd3cf85b67">The operation SHALL support a parameter <tt>limit</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_b5649a7f-df4d-d8de-198b-56bbadd35e40">name: limit<br/>in: query<br/>required: false<br/>schema:<br/>  type: integer<br/>  minimum: 1<br/>  maximum: 10000<br/>  default: 10</pre>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_ec5cb070-9d01-ca7b-0184-dbfd3cf85b67">The operation SHALL support a parameter <tt>limit</tt> with the following characteristics (using an OpenAPI Specification 3.0 fragment):</p>
+    <pre class="prettyprint" id="_b5649a7f-df4d-d8de-198b-56bbadd35e40">name: limit<br/>in: query<br/>required: false<br/>schema:<br/>  type: integer<br/>  minimum: 1<br/>  maximum: 10000<br/>  default: 10</pre>
+- id: job-list/limit-default-minimum-maximum
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/per/job-list/limit-default-minimum-maximum
+  type: permission
+  source-anchor: per_job-list_limit-default-minimum-maximum
+  source-label: Permission 8
+  source-uri: /per/job-list/limit-default-minimum-maximum
+  source-table-html: |-
+    <table class="recommend" id="per_job-list_limit-default-minimum-maximum" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Permission 8</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/per/job-list/limit-default-minimum-maximum</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_63670b5c-9e74-86d3-d914-ad94ac0ab8f9">The values for <tt>minimum</tt>, <tt>maximum</tt> and <tt>default</tt> in requirement <tt>/req/job-list/limit-definition</tt> are only examples and MAY be changed.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_63670b5c-9e74-86d3-d914-ad94ac0ab8f9">The values for <tt>minimum</tt>, <tt>maximum</tt> and <tt>default</tt> in requirement <tt>/req/job-list/limit-definition</tt> are only examples and MAY be changed.</p>
+- id: job-list/limit-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/limit-response
+  type: requirement
+  source-anchor: req_job-list_limit-response
+  source-label: Requirement 77
+  source-uri: /req/job-list/limit-response
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_limit-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 77</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/limit-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_2a248be6-fcb1-23c0-a6c9-5f83430eba8b">The response SHALL not contain more jobs than specified by the optional <tt>limit</tt> parameter.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">B</td><td class="recommend" style="vertical-align:top;">
+    <p id="_9fff76d4-9573-59a8-71b6-b22ed15b375f">If the API definition specifies a maximum value for <tt>limit</tt> parameter, the response SHALL not contain more jobs than this maximum value.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_2a248be6-fcb1-23c0-a6c9-5f83430eba8b">The response SHALL not contain more jobs than specified by the optional <tt>limit</tt> parameter.</p>
+  - <p id="_9fff76d4-9573-59a8-71b6-b22ed15b375f">If the API definition specifies a maximum value for <tt>limit</tt> parameter, the response SHALL not contain more jobs than this maximum value.</p>
+- id: job-list/limit-response--published-permission-9
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/per/job-list/limit-response
+  type: permission
+  source-anchor: per_job-list_limit-response
+  source-label: Permission 9
+  source-uri: /per/job-list/limit-response
+  source-table-html: |-
+    <table class="recommend" id="per_job-list_limit-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Permission 9</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/per/job-list/limit-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_1c536927-1ab2-0e6c-4369-f0a0b957dcf1">The server MAY return fewer jobs than requested (but not more).</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - <p id="_1c536927-1ab2-0e6c-4369-f0a0b957dcf1">The server MAY return fewer jobs than requested (but not more).</p>
+- id: job-list/job-list-success
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/job-list-success
+  type: requirement
+  source-anchor: req_core_process-list-success
+  source-label: Requirement 78
+  source-uri: /req/job-list/job-list-success
+  source-table-html: |-
+    <table class="recommend" id="req_core_process-list-success" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 78</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/job-list-success</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_607756fd-7c68-942f-c5f4-ce687f5c02a0">A successful execution of the operation SHALL be reported as a
+    response with a HTTP status code 200.
+    The content of that response SHALL be based upon the OpenAPI
+    3.0 schema <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml">jobList.yaml</a>.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_607756fd-7c68-942f-c5f4-ce687f5c02a0">A successful execution of the operation SHALL be reported as a
+    response with a HTTP status code 200.
+    The content of that response SHALL be based upon the OpenAPI
+    3.0 schema <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml">jobList.yaml</a>.</p>
+- id: job-list/links
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list/links
+  type: requirement
+  source-anchor: req_job-list_links
+  source-label: Requirement 79
+  source-uri: /req/job-list/links
+  source-table-html: |-
+    <table class="recommend" id="req_job-list_links" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 79</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/job-list/links</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;"><p id="_d81fa3b8-b8ca-c538-3643-db957cdc7872">A <tt>200</tt>-response SHALL include the following links:</p>
+    <ul id="_d7c478d3-69f1-ec64-e3f4-2611e3ffc016">
+    <li>
+    <p id="_e4e9e2ca-bfb3-b169-5a9e-9315b286e39b">a link to this response document (relation: <tt>self</tt>),</p>
+    </li>
+    <li>
+    <p id="_027e7616-6ffa-301f-e663-c705d97f5419">a link to the response document in every other media type supported by the service (relation: <tt>alternate</tt>).</p>
+    </li>
+    </ul></td></tr></tbody></table>
+  statement: ''
+  parts:
+  - |-
+    <p id="_d81fa3b8-b8ca-c538-3643-db957cdc7872">A <tt>200</tt>-response SHALL include the following links:</p>
+    <ul id="_d7c478d3-69f1-ec64-e3f4-2611e3ffc016">
+    <li>
+    <p id="_e4e9e2ca-bfb3-b169-5a9e-9315b286e39b">a link to this response document (relation: <tt>self</tt>),</p>
+    </li>
+    <li>
+    <p id="_027e7616-6ffa-301f-e663-c705d97f5419">a link to the response document in every other media type supported by the service (relation: <tt>alternate</tt>).</p>
+    </li>
+    </ul>
+- id: job-list/prev
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/per/job-list/prev
+  type: permission
+  source-anchor: per_job-list_prev
+  source-label: Permission 10
+  source-uri: /per/job-list/prev
+  source-table-html: |-
+    <table class="recommend" id="per_job-list_prev" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Permission 10</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/per/job-list/prev</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_6fc5efd5-2753-5185-7b4b-bd021dff1072">A response to dereferencing a next page link (relation: <tt>next</tt>) MAY include a previous page link (relation: <tt>prev</tt>) to the resource that included the next page link (relation: <tt>next</tt>).</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_6fc5efd5-2753-5185-7b4b-bd021dff1072">A response to dereferencing a next page link (relation: <tt>next</tt>) MAY include a previous page link (relation: <tt>prev</tt>) to the resource that included the next page link (relation: <tt>next</tt>).</p>'
+abstract-tests:
+- id: job-list/job-list-op
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/job-list-op
+  source-anchor: ats_job-list_job-list-op
+  source-label: Abstract test A.64
+  source-uri: /conf/job-list/job-list-op
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_job-list-op" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.64</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/job-list-op</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_job-list-op">/req/job-list/job-list-op</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_d6c96c99-ef23-5be6-f7a5-e24ab79e2463">Validate that information about jobs can be retrieved from the expected location.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_dfd6807d-d287-9843-d4d3-f3addbb81be4">Issue an HTTP GET request to the URL /jobs.</p>
+    </li>
+    <li>
+    <p id="_664e2d7e-34b0-68fa-8a2a-c941fa0098c9">Validate the contents of the returned document using test <a href="#ats_job-list_job-list-success">/conf/job-list/job-list-success</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_d6c96c99-ef23-5be6-f7a5-e24ab79e2463">Validate that information about jobs can be retrieved from the expected location.</p>
+  requirement:
+  - ref: /req/job-list/job-list-op
+    text: <a href="#req_job-list_job-list-op">/req/job-list/job-list-op</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_dfd6807d-d287-9843-d4d3-f3addbb81be4">Issue an HTTP GET request to the URL /jobs.</p>
+    </li>
+    <li>
+    <p id="_664e2d7e-34b0-68fa-8a2a-c941fa0098c9">Validate the contents of the returned document using test <a href="#ats_job-list_job-list-success">/conf/job-list/job-list-success</a>.</p>
+    </li>
+    </ol>
+- id: job-list/type-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/type-definition
+  source-anchor: ats_job-list_type-definition
+  source-label: Abstract test A.65
+  source-uri: /conf/job-list/type-definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_type-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.65</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/type-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_type-definition">/req/job-list/type-definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_cfbdcaa3-3c0a-80d4-d3bb-7063f30ac66c">Validate that the <tt>type</tt> query parameter is constructed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_7e8fecbd-dbfc-2b70-c8e8-48a195beef6c">Verify that the <tt>type</tt> query parameter complies with its definition in requirement <a href="#req_job-list_type-definition">/req/job-list/type-definition</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_cfbdcaa3-3c0a-80d4-d3bb-7063f30ac66c">Validate that the <tt>type</tt> query parameter is constructed correctly.</p>
+  requirement:
+  - ref: /req/job-list/type-definition
+    text: <a href="#req_job-list_type-definition">/req/job-list/type-definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_7e8fecbd-dbfc-2b70-c8e8-48a195beef6c">Verify that the <tt>type</tt> query parameter complies with its definition in requirement <a href="#req_job-list_type-definition">/req/job-list/type-definition</a>.</p>
+    </li>
+    </ol>
+- id: job-list/processID-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/processID-definition
+  source-anchor: ats_job-list_processID-definition
+  source-label: Abstract test A.66
+  source-uri: /conf/job-list/processID-definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_processID-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.66</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/processID-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_processID-definition">/req/job-list/processID-definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c736c8c1-6075-c6ca-460c-913591c2b872">Validate that the <tt>processID</tt> query parameter is constructed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_e829f3f8-35b4-1ca4-89eb-b7c6bd15b06a">Verify that the <tt>processID</tt> query parameter complies with its definition in requirement <a href="#req_job-list_processID-definition">/req/job-list/processID-definition</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_c736c8c1-6075-c6ca-460c-913591c2b872">Validate that the <tt>processID</tt> query parameter is constructed correctly.</p>
+  requirement:
+  - ref: /req/job-list/processID-definition
+    text: <a href="#req_job-list_processID-definition">/req/job-list/processID-definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_e829f3f8-35b4-1ca4-89eb-b7c6bd15b06a">Verify that the <tt>processID</tt> query parameter complies with its definition in requirement <a href="#req_job-list_processID-definition">/req/job-list/processID-definition</a>.</p>
+    </li>
+    </ol>
+- id: job-list/status-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/status-definition
+  source-anchor: ats_job-list_status-definition
+  source-label: Abstract test A.67
+  source-uri: /conf/job-list/status-definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_status-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.67</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/status-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_status-definition">/req/job-list/status-definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_741dad42-eb12-cb08-f633-02db14bb72a0">Validate that the <tt>status</tt> query parameter is constructed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_2727cdc6-4fe3-d9cb-ef34-1b1ded85b971">Verify that the <tt>status</tt> query parameter complies with its definition in requirement <a href="#req_job-list_status-definition">/req/job-list/status-definition</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_741dad42-eb12-cb08-f633-02db14bb72a0">Validate that the <tt>status</tt> query parameter is constructed correctly.</p>
+  requirement:
+  - ref: /req/job-list/status-definition
+    text: <a href="#req_job-list_status-definition">/req/job-list/status-definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_2727cdc6-4fe3-d9cb-ef34-1b1ded85b971">Verify that the <tt>status</tt> query parameter complies with its definition in requirement <a href="#req_job-list_status-definition">/req/job-list/status-definition</a>.</p>
+    </li>
+    </ol>
+- id: job-list/datetime-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/datetime-definition
+  source-anchor: ats_job-list_datetime-definition
+  source-label: Abstract test A.68
+  source-uri: /conf/job-list/datetime-definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_datetime-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.68</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/datetime-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_datetime-definition">/req/job-list/datetime-definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_eb7ae999-5647-8f4b-f8a6-cb6d0670a730">Validate that the <tt>datetime</tt> query parameter is constructed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_0f38d707-b22f-3073-47e0-d5b1cefab76d">Verify that the <tt>datetime</tt> query parameter complies with its definition in requirement <a href="#req_job-list_datetime-definition">/req/job-list/datetime-definition</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_eb7ae999-5647-8f4b-f8a6-cb6d0670a730">Validate that the <tt>datetime</tt> query parameter is constructed correctly.</p>
+  requirement:
+  - ref: /req/job-list/datetime-definition
+    text: <a href="#req_job-list_datetime-definition">/req/job-list/datetime-definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_0f38d707-b22f-3073-47e0-d5b1cefab76d">Verify that the <tt>datetime</tt> query parameter complies with its definition in requirement <a href="#req_job-list_datetime-definition">/req/job-list/datetime-definition</a>.</p>
+    </li>
+    </ol>
+- id: job-list/duration-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/duration-definition
+  source-anchor: ats_job-list_duration-definition
+  source-label: Abstract test A.69
+  source-uri: /conf/job-list/duration-definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_duration-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.69</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/duration-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_duration-definition">/req/job-list/duration-definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_a9668629-6ea1-9884-0778-6af234df3387">Validate that the <tt>minDuration</tt> and <tt>maxDuration</tt> query parameter are constructed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_fc544c12-801e-bed9-90e6-b8584e60e964">Verify that the <tt>minDuration</tt> query parameter complies with its definition in requirement <a href="#req_job-list_duration-definition">/req/job-list/duration-definition, A</a>.</p>
+    </li>
+    <li>
+    <p id="_e495a850-8a6e-8289-be18-2c8920e5ad91">Verify that the <tt>maxDuration</tt> query parameter complies with its definition in requirement <a href="#req_job-list_duration-definition">/req/job-list/duration-definition, B</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_a9668629-6ea1-9884-0778-6af234df3387">Validate that the <tt>minDuration</tt> and <tt>maxDuration</tt> query parameter are constructed correctly.</p>
+  requirement:
+  - ref: /req/job-list/duration-definition
+    text: <a href="#req_job-list_duration-definition">/req/job-list/duration-definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_fc544c12-801e-bed9-90e6-b8584e60e964">Verify that the <tt>minDuration</tt> query parameter complies with its definition in requirement <a href="#req_job-list_duration-definition">/req/job-list/duration-definition, A</a>.</p>
+    </li>
+    <li>
+    <p id="_e495a850-8a6e-8289-be18-2c8920e5ad91">Verify that the <tt>maxDuration</tt> query parameter complies with its definition in requirement <a href="#req_job-list_duration-definition">/req/job-list/duration-definition, B</a>.</p>
+    </li>
+    </ol>
+- id: job-list/limit-definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/limit-definition
+  source-anchor: ats_job-list_limit-definition
+  source-label: Abstract test A.70
+  source-uri: /conf/job-list/limit-definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_limit-definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.70</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/limit-definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_limit-definition">/req/job-list/limit-definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_43619c85-9eab-ebf4-7d1e-a2728307af7b">Validate that the <tt>limit</tt> query parameter is constructed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li><p id="_c451857b-07d9-22b6-e9f8-4b8ff2257b0c">Verify that the <tt>limit</tt> query parameter complies with its definition in requirement <a href="#req_job-list_limit-definition">/req/job-list/limit-definition</a>.</p>
+    <p id="_de373a4b-d4e2-1e74-b98c-2e097053a853">Note that the API can define different values for “minimum”, “maximum” and “default”.</p></li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_43619c85-9eab-ebf4-7d1e-a2728307af7b">Validate that the <tt>limit</tt> query parameter is constructed correctly.</p>
+  requirement:
+  - ref: /req/job-list/limit-definition
+    text: <a href="#req_job-list_limit-definition">/req/job-list/limit-definition</a>
+  method: |-
+    <ol type="1">
+    <li><p id="_c451857b-07d9-22b6-e9f8-4b8ff2257b0c">Verify that the <tt>limit</tt> query parameter complies with its definition in requirement <a href="#req_job-list_limit-definition">/req/job-list/limit-definition</a>.</p>
+    <p id="_de373a4b-d4e2-1e74-b98c-2e097053a853">Note that the API can define different values for “minimum”, “maximum” and “default”.</p></li>
+    </ol>
+- id: job-list/job-list-success
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/job-list-success
+  source-anchor: ats_job-list_job-list-success
+  source-label: Abstract test A.71
+  source-uri: /conf/job-list/job-list-success
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_job-list-success" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.71</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/job-list-success</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_job-list-success">/req/job-list/job-list-success</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_a251a043-a1b9-436f-7e32-0dbf013126bc">Validate that the job list content complies with the required structure and contents.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_12101446-69ff-f04d-c310-f2b0c76fd3bc">Validate that a document was returned with an HTTP status code of 200.</p>
+    </li>
+    <li>
+    <p id="_b9e1fef6-c0b4-7052-bd4f-2cb2c9f89f60">Validate the job list content for all supported media types using the resources and tests identified in <a href="#job-list-schema">Table A.10</a></p>
+    </li>
+    </ol>
+    </td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_3a4c16b9-3dc0-f899-edf8-3656ac412341">A job list may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p></td></tr></tbody></table>
+  purpose: <p id="_a251a043-a1b9-436f-7e32-0dbf013126bc">Validate that the job list content complies with the required structure and contents.</p>
+  requirement:
+  - ref: /req/job-list/job-list-success
+    text: <a href="#req_job-list_job-list-success">/req/job-list/job-list-success</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_12101446-69ff-f04d-c310-f2b0c76fd3bc">Validate that a document was returned with an HTTP status code of 200.</p>
+    </li>
+    <li>
+    <p id="_b9e1fef6-c0b4-7052-bd4f-2cb2c9f89f60">Validate the job list content for all supported media types using the resources and tests identified in <a href="#job-list-schema">Table A.10</a></p>
+    </li>
+    </ol>
+
+    <p id="_3a4c16b9-3dc0-f899-edf8-3656ac412341">A job list may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>
+- id: job-list/links
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/links
+  source-anchor: ats_job-list_links
+  source-label: Abstract test A.72
+  source-uri: /conf/job-list/links
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_links" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.72</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/links</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_links">/req/job-list/links</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_ab68a8ec-d435-9a44-f2fc-b0b096a21b35">Validate that the proper links are included in a response.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_ac050192-93e3-7b89-7fb2-f31de0c0f383">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a>.</p>
+    </li>
+    <li>
+    <p id="_95a97d15-6d31-8009-bedb-38b5bddb3380">Verify that the <tt>links</tt> section of the response contains a link with <tt>rel=self</tt>.</p>
+    </li>
+    <li>
+    <p id="_4e26976f-848b-0d1b-9c33-57a9f9aa29a0">Verify that the <tt>links</tt> section of the response contains a link with <tt>rel=alternate</tt> for each response representation the service claims to support in its <a href="#sc_conformance">conformance document</a>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_ab68a8ec-d435-9a44-f2fc-b0b096a21b35">Validate that the proper links are included in a response.</p>
+  requirement:
+  - ref: /req/job-list/links
+    text: <a href="#req_job-list_links">/req/job-list/links</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_ac050192-93e3-7b89-7fb2-f31de0c0f383">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a>.</p>
+    </li>
+    <li>
+    <p id="_95a97d15-6d31-8009-bedb-38b5bddb3380">Verify that the <tt>links</tt> section of the response contains a link with <tt>rel=self</tt>.</p>
+    </li>
+    <li>
+    <p id="_4e26976f-848b-0d1b-9c33-57a9f9aa29a0">Verify that the <tt>links</tt> section of the response contains a link with <tt>rel=alternate</tt> for each response representation the service claims to support in its <a href="#sc_conformance">conformance document</a>.</p>
+    </li>
+    </ol>
+- id: job-list/type-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/type-response
+  source-anchor: ats_job-list_type-response
+  source-label: Abstract test A.73
+  source-uri: /conf/job-list/type-response
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_type-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.73</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/type-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_type-response">/req/job-list/type-response</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_421ad108-e019-b981-afdf-90d76ac16ecc">Validate that the <tt>type</tt> query parameter is processed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_2bae9690-58cc-9741-6dc8-aa11ba5a47dd">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>type</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_4e1cecb3-30c0-34b0-d4aa-3fc9db20b509">Inspect the value of the <tt>type</tt> property for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_a93ac0ca-20c8-b6c6-8178-21e5fc5686ef">Verify that that value of the <tt>type</tt> property matches one of the values specified for the <tt>type</tt> query parameter.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_421ad108-e019-b981-afdf-90d76ac16ecc">Validate that the <tt>type</tt> query parameter is processed correctly.</p>
+  requirement:
+  - ref: /req/job-list/type-response
+    text: <a href="#req_job-list_type-response">/req/job-list/type-response</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_2bae9690-58cc-9741-6dc8-aa11ba5a47dd">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>type</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_4e1cecb3-30c0-34b0-d4aa-3fc9db20b509">Inspect the value of the <tt>type</tt> property for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_a93ac0ca-20c8-b6c6-8178-21e5fc5686ef">Verify that that value of the <tt>type</tt> property matches one of the values specified for the <tt>type</tt> query parameter.</p>
+    </li>
+    </ol>
+- id: job-list/processID-mandatory
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/processID-mandatory
+  source-anchor: ats_job-list_processid-mandatory
+  source-label: Abstract test A.74
+  source-uri: /conf/job-list/processID-mandatory
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_processid-mandatory" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.74</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/processID-mandatory</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_processID-mandatory">/req/job-list/processID-mandatory</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c2d83f26-308b-9a07-731f-5c6342b6444e">Validate that the <tt>processID</tt> property is present in every job.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_cb372a8b-d14b-aa1a-ff47-f7b084db6ac9">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a>.</p>
+    </li>
+    <li>
+    <p id="_f8698159-0b1f-af48-ee47-be6f71dc6a5e">Verify that each job includes a <tt>processID</tt> property.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_c2d83f26-308b-9a07-731f-5c6342b6444e">Validate that the <tt>processID</tt> property is present in every job.</p>
+  requirement:
+  - ref: /req/job-list/processID-mandatory
+    text: <a href="#req_job-list_processID-mandatory">/req/job-list/processID-mandatory</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_cb372a8b-d14b-aa1a-ff47-f7b084db6ac9">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a>.</p>
+    </li>
+    <li>
+    <p id="_f8698159-0b1f-af48-ee47-be6f71dc6a5e">Verify that each job includes a <tt>processID</tt> property.</p>
+    </li>
+    </ol>
+- id: job-list/processID-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/processID-response
+  source-anchor: ats_job-list_processid-response
+  source-label: Abstract test A.75
+  source-uri: /conf/job-list/processID-response
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_processid-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.75</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/processID-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_processid-response">/req/job-list/processID-response</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_c5dfa1ac-cb05-77c4-4ddd-1acd8177473f">Validate that the <tt>processID</tt> query parameter is processed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_97f2fde4-feca-2f76-11e3-8d8c9e06a78b">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>processID</tt> parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_af96a9b8-75f6-0014-688c-e2ca826a38ef">Inspect the value of the <tt>processID</tt> property for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_37e0cd2b-6345-0723-9cb0-9061f719b93d">Verify that that value of the <tt>processID</tt> property matches one of the values specified for the <tt>processID</tt> query parameter.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_c5dfa1ac-cb05-77c4-4ddd-1acd8177473f">Validate that the <tt>processID</tt> query parameter is processed correctly.</p>
+  requirement:
+  - ref: /req/job-list/processID-response
+    text: <a href="#req_job-list_processid-response">/req/job-list/processID-response</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_97f2fde4-feca-2f76-11e3-8d8c9e06a78b">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>processID</tt> parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_af96a9b8-75f6-0014-688c-e2ca826a38ef">Inspect the value of the <tt>processID</tt> property for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_37e0cd2b-6345-0723-9cb0-9061f719b93d">Verify that that value of the <tt>processID</tt> property matches one of the values specified for the <tt>processID</tt> query parameter.</p>
+    </li>
+    </ol>
+- id: job-list/status-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/status-response
+  source-anchor: ats_job-list_status-response
+  source-label: Abstract test A.76
+  source-uri: /conf/job-list/status-response
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_status-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.76</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/status-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_status-response">/req/job-list/status-response</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_ffb4fd01-0619-0224-0a8b-a71f6ba89032">Validate that the <tt>status</tt> query parameter is processed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_0458c9b8-531d-487b-6221-7cfdf103238f">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>status</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_b2b6e241-a21f-fc14-9488-332c8a5fe5d6">Inspect the value of the <tt>status</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_f2e7a432-906a-41fe-1d77-2a7bcbdf9f0f">Verify that the value of the <tt>status</tt> property matches one of the values specified for the <tt>status</tt> query parameter.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_ffb4fd01-0619-0224-0a8b-a71f6ba89032">Validate that the <tt>status</tt> query parameter is processed correctly.</p>
+  requirement:
+  - ref: /req/job-list/status-response
+    text: <a href="#req_job-list_status-response">/req/job-list/status-response</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_0458c9b8-531d-487b-6221-7cfdf103238f">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>status</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_b2b6e241-a21f-fc14-9488-332c8a5fe5d6">Inspect the value of the <tt>status</tt> property (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_f2e7a432-906a-41fe-1d77-2a7bcbdf9f0f">Verify that the value of the <tt>status</tt> property matches one of the values specified for the <tt>status</tt> query parameter.</p>
+    </li>
+    </ol>
+- id: job-list/datetime-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/datetime-response
+  source-anchor: ats_job-list_datetime-response
+  source-label: Abstract test A.77
+  source-uri: /conf/job-list/datetime-response
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_datetime-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.77</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/datetime-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_datetime-response">/req/job-list/datetime-response</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_391c5d68-6858-940b-7ae1-7b991bb13519">Validate that the <tt>datetime</tt> query parameter is processed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_9eb0e32f-bab5-ca07-09c6-d5b648b21652">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>datetime</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_b2024713-e0ff-129e-1539-f488fb8f3271">Inspect the value of the <tt>created</tt> (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) property for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_c81d459a-be79-7435-452e-c251d81adbfd">Verify that the value of the <tt>created</tt> temporally intersects with the value specified for the <tt>datetime</tt> query parameter.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_391c5d68-6858-940b-7ae1-7b991bb13519">Validate that the <tt>datetime</tt> query parameter is processed correctly.</p>
+  requirement:
+  - ref: /req/job-list/datetime-response
+    text: <a href="#req_job-list_datetime-response">/req/job-list/datetime-response</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_9eb0e32f-bab5-ca07-09c6-d5b648b21652">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>datetime</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_b2024713-e0ff-129e-1539-f488fb8f3271">Inspect the value of the <tt>created</tt> (see: <a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>) property for each job listed in the response.</p>
+    </li>
+    <li>
+    <p id="_c81d459a-be79-7435-452e-c251d81adbfd">Verify that the value of the <tt>created</tt> temporally intersects with the value specified for the <tt>datetime</tt> query parameter.</p>
+    </li>
+    </ol>
+- id: job-list/duration-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/duration-response
+  source-anchor: ats_job-list_duration-response
+  source-label: Abstract test A.78
+  source-uri: /conf/job-list/duration-response
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_duration-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.78</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/duration-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_duration-response">/req/job-list/duration-response</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_8ec7ed1c-e030-67d3-5dbf-3bfed00b9b97">Validate that the <tt>minDuration</tt> and <tt>maxDuration</tt> query parameter are processed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_b2e67e12-99ed-8a21-15d1-e02461c4582a">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>minDuration</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_1f5459a2-5f2c-3b42-37aa-22e6026c3ec1">Compute the duration of each job listed in the response document as per requirements <a href="#req_job-list_duration-response">/req/job-list/status-response, E or F</a> depending on the current status of the job.</p>
+    </li>
+    <li>
+    <p id="_3bdb72b8-dc2e-7b36-fca0-02145a8077be">Verify that the computed duration of each job listed in the response is at least as long as the specified value of the <tt>minDuration</tt> query parameter.</p>
+    </li>
+    <li>
+    <p id="_bd997129-01a7-64e8-ea81-d90d72f3bbb7">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>maxDuration</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_134f0a6d-8949-cbc6-67d6-a869167839f9">Compute the duration of each job listed in the response document as per requirements <a href="#req_job-list_duration-response">/req/job-list/status-response, E or F</a> depending on the current status of the job.</p>
+    </li>
+    <li>
+    <p id="_350fe503-652c-546c-002b-9109461cacaf">Verify that the computed duration of each job listed in the response is no longer than the specified value of the <tt>maxDuration</tt> query parameter.</p>
+    </li>
+    <li>
+    <p id="_ff8f926e-afa8-796b-6a78-6f390cbea77b">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>minDuration</tt> and <tt>maxDuration</tt> query parameters to the request.</p>
+    </li>
+    <li>
+    <p id="_c8ca7fd4-29e3-f3d6-7e8e-ddca9a23eae3">Compute the duration of each job listed in the response document as per requirements <a href="#req_job-list_duration-response">/req/job-list/status-response, E or F</a> depending on the current status of the job.</p>
+    </li>
+    <li>
+    <p id="_5fa1e5e3-c791-f5d8-9b8b-2555df378b62">Verify that the computed duration of each job listed in the response is at least as long as the specified value of the <tt>minDuration</tt> query parameter AND no longer than the value of the  <tt>maxDuration</tt> query parameter.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_8ec7ed1c-e030-67d3-5dbf-3bfed00b9b97">Validate that the <tt>minDuration</tt> and <tt>maxDuration</tt> query parameter are processed correctly.</p>
+  requirement:
+  - ref: /req/job-list/duration-response
+    text: <a href="#req_job-list_duration-response">/req/job-list/duration-response</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_b2e67e12-99ed-8a21-15d1-e02461c4582a">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>minDuration</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_1f5459a2-5f2c-3b42-37aa-22e6026c3ec1">Compute the duration of each job listed in the response document as per requirements <a href="#req_job-list_duration-response">/req/job-list/status-response, E or F</a> depending on the current status of the job.</p>
+    </li>
+    <li>
+    <p id="_3bdb72b8-dc2e-7b36-fca0-02145a8077be">Verify that the computed duration of each job listed in the response is at least as long as the specified value of the <tt>minDuration</tt> query parameter.</p>
+    </li>
+    <li>
+    <p id="_bd997129-01a7-64e8-ea81-d90d72f3bbb7">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>maxDuration</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_134f0a6d-8949-cbc6-67d6-a869167839f9">Compute the duration of each job listed in the response document as per requirements <a href="#req_job-list_duration-response">/req/job-list/status-response, E or F</a> depending on the current status of the job.</p>
+    </li>
+    <li>
+    <p id="_350fe503-652c-546c-002b-9109461cacaf">Verify that the computed duration of each job listed in the response is no longer than the specified value of the <tt>maxDuration</tt> query parameter.</p>
+    </li>
+    <li>
+    <p id="_ff8f926e-afa8-796b-6a78-6f390cbea77b">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>minDuration</tt> and <tt>maxDuration</tt> query parameters to the request.</p>
+    </li>
+    <li>
+    <p id="_c8ca7fd4-29e3-f3d6-7e8e-ddca9a23eae3">Compute the duration of each job listed in the response document as per requirements <a href="#req_job-list_duration-response">/req/job-list/status-response, E or F</a> depending on the current status of the job.</p>
+    </li>
+    <li>
+    <p id="_5fa1e5e3-c791-f5d8-9b8b-2555df378b62">Verify that the computed duration of each job listed in the response is at least as long as the specified value of the <tt>minDuration</tt> query parameter AND no longer than the value of the  <tt>maxDuration</tt> query parameter.</p>
+    </li>
+    </ol>
+- id: job-list/limit-response
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list/limit-response
+  source-anchor: ats_job-list_limit-response
+  source-label: Abstract test A.79
+  source-uri: /conf/job-list/limit-response
+  source-table-html: |-
+    <table class="recommendtest" id="ats_job-list_limit-response" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.79</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/job-list/limit-response</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_job-list_limit-response">/req/job-list/limit-response</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_5137f9e2-8589-6d6b-b223-06e5575e299f">Validate that the <tt>limit</tt> query parameter is processed correctly.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_84d5c898-686e-b79a-a4ba-2d8d3ebdf871">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>limit</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_c61c9485-f354-60ec-8640-8bbc44537729">Count the number of jobs listed in the response.</p>
+    </li>
+    <li>
+    <p id="_b930c548-e3e3-928e-b94f-9dc782859dcd">Verify that this count is not greater than the value specified by the <tt>limit</tt> parameter.</p>
+    </li>
+    <li>
+    <p id="_a32a5150-14db-c284-4d9a-8585d84194ad">If the API definition specifies a maximum value for <tt>limit</tt> parameter, verify that the count does not exceed this maximum value.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_5137f9e2-8589-6d6b-b223-06e5575e299f">Validate that the <tt>limit</tt> query parameter is processed correctly.</p>
+  requirement:
+  - ref: /req/job-list/limit-response
+    text: <a href="#req_job-list_limit-response">/req/job-list/limit-response</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_84d5c898-686e-b79a-a4ba-2d8d3ebdf871">Get a list of jobs as per test <a href="#ats_job-list_job-list-op">/conf/job-list/job-list-op</a> and append the <tt>limit</tt> query parameter to the request.</p>
+    </li>
+    <li>
+    <p id="_c61c9485-f354-60ec-8640-8bbc44537729">Count the number of jobs listed in the response.</p>
+    </li>
+    <li>
+    <p id="_b930c548-e3e3-928e-b94f-9dc782859dcd">Verify that this count is not greater than the value specified by the <tt>limit</tt> parameter.</p>
+    </li>
+    <li>
+    <p id="_a32a5150-14db-c284-4d9a-8585d84194ad">If the API definition specifies a maximum value for <tt>limit</tt> parameter, verify that the count does not exceed this maximum value.</p>
+    </li>
+    </ol>
+published-statements:
+- id: job-list/job-list-landing-page
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/job-list/job-list-landing-page
+  type: recommendation
+  source-anchor: rec_job-list_job-list-landing-page
+  source-label: Recommendation 20
+  source-uri: /rec/job-list/job-list-landing-page
+  source-table-html: <table class="recommend" id="rec_job-list_job-list-landing-page" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 20</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/job-list/job-list-landing-page</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_2bbf308b-166f-de0f-50bb-a7433ec69f05">A link to the following resource SHOULD be added to the API landing page:</p><p id="_6bb7b407-33e7-be6a-6203-f300afc846b8">/jobs (relation type ‘http://www.opengis.net/def/rel/ogc/1.0/job-list’)</p></td></tr></tbody></table>
+  statement: <p id="_2bbf308b-166f-de0f-50bb-a7433ec69f05">A link to the following resource SHOULD be added to the API landing page:</p><p id="_6bb7b407-33e7-be6a-6203-f300afc846b8">/jobs (relation type ‘http://www.opengis.net/def/rel/ogc/1.0/job-list’)</p>
+- id: job-list/next-1
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/job-list/next-1
+  type: recommendation
+  source-anchor: rec_job-list_next-1
+  source-label: Recommendation 21
+  source-uri: /rec/job-list/next-1
+  source-table-html: |-
+    <table class="recommend" id="rec_job-list_next-1" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 21</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/job-list/next-1</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_2887b2f4-1189-25ee-cd3f-7f7c956879b3">A <tt>200</tt>-response SHOULD include a link to the next page (relation: <tt>next</tt>) of jobs, if more jobs have been selected than returned in the response.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_2887b2f4-1189-25ee-cd3f-7f7c956879b3">A <tt>200</tt>-response SHOULD include a link to the next page (relation: <tt>next</tt>) of jobs, if more jobs have been selected than returned in the response.</p>'
+- id: job-list/next-2
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/job-list/next-2
+  type: recommendation
+  source-anchor: rec_job-list_next-2
+  source-label: Recommendation 22
+  source-uri: /rec/job-list/next-2
+  source-table-html: |-
+    <table class="recommend" id="rec_job-list_next-2" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 22</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/job-list/next-2</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_939e1795-d69a-8dbf-76ba-ce19535f8985">Dereferencing a next page link (relation: <tt>next</tt>) SHOULD return additional jobs from the set of selected jobs that have not yet been returned.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_939e1795-d69a-8dbf-76ba-ce19535f8985">Dereferencing a next page link (relation: <tt>next</tt>) SHOULD return additional jobs from the set of selected jobs that have not yet been returned.</p>'
+- id: job-list/next-3
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/rec/job-list/next-3
+  type: recommendation
+  source-anchor: rec_job-list_next-3
+  source-label: Recommendation 23
+  source-uri: /rec/job-list/next-3
+  source-table-html: |-
+    <table class="recommend" id="rec_job-list_next-3" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Recommendation 23</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/rec/job-list/next-3</p></td></tr><tr><td class="recommend" style="vertical-align:top;">A</td><td class="recommend" style="vertical-align:top;">
+    <p id="_8880aa08-9382-0115-ed43-ce6b243f0822">The number of jobs in a response to dereferencing a next page link (relation: <tt>next</tt>) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: <tt>next</tt>), if there are more jobs in the selection that have not yet been returned.</p>
+    </td></tr></tbody></table>
+  statement: ''
+  parts:
+  - '<p id="_8880aa08-9382-0115-ed43-ce6b243f0822">The number of jobs in a response to dereferencing a next page link (relation: <tt>next</tt>) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: <tt>next</tt>), if there are more jobs in the selection that have not yet been returned.</p>'

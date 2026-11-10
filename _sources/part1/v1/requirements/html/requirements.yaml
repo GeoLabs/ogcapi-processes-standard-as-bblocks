@@ -1,0 +1,165 @@
+class-id: html
+title: Requirement Class “HTML”
+standardization-target: Web API
+depends-on:
+- uri: '#rc_core'
+  title: OGC API — Processes Core
+- uri: http://www.opengis.net/spec/ogcapi_common/1.0/req/html
+  title: API — Common HTML
+- uri: '#w3c-html5'
+  title: W3C HTML 5
+source:
+  source-anchor: rc_html
+  source-label: Requirements class 4
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/html
+  source-table-html: |-
+    <table class="recommendclass" id="rc_html" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirements class 4</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/html">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/html</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Obligation</td><td class="recommend" style="vertical-align:top;">requirement</td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">OGC API — Processes Core</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="http://www.opengis.net/spec/ogcapi_common/1.0/req/html">API — Common HTML</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#w3c-html5">W3C HTML 5</a>
+    </td></tr></tbody></table>
+conformance-class:
+  title: html
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
+  subject: |-
+    <table><tbody><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#ats_core">Conformance Class “Core”</a>
+    </td></tr>
+    <tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+  source-anchor: ats_html
+  source-label: Conformance class A.4
+  source-uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
+  source-table-html: |-
+    <table class="recommendclass" id="ats_html" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Conformance class A.4</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>
+    <a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss</a>
+    </p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirements class</td><td class="recommend" style="vertical-align:top;">
+    <a href="#rc_core">Requirements Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Dependency</td><td class="recommend" style="vertical-align:top;">
+    <a href="#ats_core">Conformance Class “Core”</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Target type</td><td class="recommend" style="vertical-align:top;">Web API</td></tr></tbody></table>
+requirements:
+- id: html/definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/html/definition
+  type: requirement
+  source-anchor: req_html_definition
+  source-label: Requirement 56
+  source-uri: /req/html/definition
+  source-table-html: |-
+    <table class="recommend" id="req_html_definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 56</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/html/definition</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_094e51ad-1172-8964-16e7-8cac4633794f">Every <tt>200</tt>-response of an operation of the server
+    SHALL support the media type <tt>text/html</tt>.</p></td></tr></tbody></table>
+  statement: |-
+    <p id="_094e51ad-1172-8964-16e7-8cac4633794f">Every <tt>200</tt>-response of an operation of the server
+    SHALL support the media type <tt>text/html</tt>.</p>
+- id: html/content
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/html/content
+  type: requirement
+  source-anchor: req_html_content
+  source-label: Requirement 57
+  source-uri: /req/html/content
+  source-table-html: |-
+    <table class="recommend" id="req_html_content" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTitle">Requirement 57</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/req/html/content</p></td></tr><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p id="_b5d7fc9d-49ab-ccf9-f20e-4e4bd3816710">Every <tt>200</tt>-response of the server with the media type “text/html” SHALL be a
+    <a href="#w3c-html5">W3C HTML 5</a> document that includes the following
+    information in the HTML body:</p><ul id="_1af6c1cc-e3d3-5f80-ab56-21396e5941a1">
+    <li>
+    <p id="_4bb5d365-58d3-8bb8-1bb3-048b857da361">all information identified in the schemas of the
+    <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Object</a>
+    in the HTML <tt>&lt;body/&gt;</tt>, and</p>
+    </li>
+    <li>
+    <p id="_fe849fe6-f129-5819-5981-39aa6e812b4e">all links in HTML <tt>&lt;a/&gt;</tt> elements in the HTML <tt>&lt;body/&gt;</tt>.</p>
+    </li>
+    </ul></td></tr></tbody></table>
+  statement: |-
+    <p id="_b5d7fc9d-49ab-ccf9-f20e-4e4bd3816710">Every <tt>200</tt>-response of the server with the media type “text/html” SHALL be a
+    <a href="#w3c-html5">W3C HTML 5</a> document that includes the following
+    information in the HTML body:</p><ul id="_1af6c1cc-e3d3-5f80-ab56-21396e5941a1">
+    <li>
+    <p id="_4bb5d365-58d3-8bb8-1bb3-048b857da361">all information identified in the schemas of the
+    <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Object</a>
+    in the HTML <tt>&lt;body/&gt;</tt>, and</p>
+    </li>
+    <li>
+    <p id="_fe849fe6-f129-5819-5981-39aa6e812b4e">all links in HTML <tt>&lt;a/&gt;</tt> elements in the HTML <tt>&lt;body/&gt;</tt>.</p>
+    </li>
+    </ul>
+abstract-tests:
+- id: html/content
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html/content
+  source-anchor: ats_html_content
+  source-label: Abstract test A.56
+  source-uri: /conf/html/content
+  source-table-html: |-
+    <table class="recommendtest" id="ats_html_content" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.56</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/html/content</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_html_content">/req/html/content</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_3a17845a-e7d0-325e-1082-a60b8b958d1b">Verify the content of an HTML document given an input document and schema.</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;"><ol type="1">
+    <li>
+    <p id="_414d7270-89c8-4b5a-2131-ac0b8c0eff2f">Validate that the document is an <a href="#w3c-html5">W3C HTML 5</a> document</p>
+    </li>
+    <li><p id="_dfedc9ad-8aa2-1d1b-7ea0-14f2dce5c40d">Manually inspect the document and verify that the HTML body contains:</p>
+    <ol type="a">
+    <li>
+    <p id="_b3f1330f-701a-e24a-c7c3-1285341c80ba">all information in the schemas of the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Object</a> in the HTML <tt>&lt;body/&gt;</tt></p>
+    </li>
+    <li>
+    <p id="_413f8f04-e041-2177-882b-9f8170a307d0">all links in HTML <tt>&lt;a/&gt;</tt> elements in the HTML <tt>&lt;body/&gt;</tt>.</p>
+    </li>
+    </ol>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_3a17845a-e7d0-325e-1082-a60b8b958d1b">Verify the content of an HTML document given an input document and schema.</p>
+  requirement:
+  - ref: /req/html/content
+    text: <a href="#req_html_content">/req/html/content</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_414d7270-89c8-4b5a-2131-ac0b8c0eff2f">Validate that the document is an <a href="#w3c-html5">W3C HTML 5</a> document</p>
+    </li>
+    <li><p id="_dfedc9ad-8aa2-1d1b-7ea0-14f2dce5c40d">Manually inspect the document and verify that the HTML body contains:</p>
+    <ol type="a">
+    <li>
+    <p id="_b3f1330f-701a-e24a-c7c3-1285341c80ba">all information in the schemas of the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Object</a> in the HTML <tt>&lt;body/&gt;</tt></p>
+    </li>
+    <li>
+    <p id="_413f8f04-e041-2177-882b-9f8170a307d0">all links in HTML <tt>&lt;a/&gt;</tt> elements in the HTML <tt>&lt;body/&gt;</tt>.</p>
+    </li>
+    </ol>
+    </li>
+    </ol>
+- id: html/definition
+  uri: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html/definition
+  source-anchor: ats_html_definition
+  source-label: Abstract test A.57
+  source-uri: /conf/html/definition
+  source-table-html: |-
+    <table class="recommendtest" id="ats_html_definition" style="border-collapse:collapse;border-spacing:0;"><thead><tr><th class="recommend" colspan="2" scope="colgroup" style="vertical-align:top;"><p class="RecommendationTestTitle">Abstract test A.57</p></th></tr></thead><tbody><tr><td class="recommend" colspan="2" style="vertical-align:top;"><p>/conf/html/definition</p></td></tr><tr><td class="recommend" style="vertical-align:top;">Requirement</td><td class="recommend" style="vertical-align:top;">
+    <a href="#req_html_definition">/req/html/definition</a>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test purpose</td><td class="recommend" style="vertical-align:top;">
+    <p id="_39d5c599-477b-05a7-d5de-86c08e1943a9">Verify support for HTML</p>
+    </td></tr><tr><td class="recommend" style="vertical-align:top;">Test method</td><td class="recommend" style="vertical-align:top;">
+    <ol type="1">
+    <li>
+    <p id="_815e3906-463a-3967-9661-8ab6c67dcf60">Verify that every <tt>200</tt> response of every operation of the API where HTML was requested is of media type <tt>text/html</tt>.</p>
+    </li>
+    </ol>
+    </td></tr></tbody></table>
+  purpose: <p id="_39d5c599-477b-05a7-d5de-86c08e1943a9">Verify support for HTML</p>
+  requirement:
+  - ref: /req/html/definition
+    text: <a href="#req_html_definition">/req/html/definition</a>
+  method: |-
+    <ol type="1">
+    <li>
+    <p id="_815e3906-463a-3967-9661-8ab6c67dcf60">Verify that every <tt>200</tt> response of every operation of the API where HTML was requested is of media type <tt>text/html</tt>.</p>
+    </li>
+    </ol>
