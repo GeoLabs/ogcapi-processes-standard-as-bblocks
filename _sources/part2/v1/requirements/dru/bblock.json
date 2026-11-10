@@ -1,0 +1,26 @@
+{
+  "name": "Deploy, Replace, Undeploy",
+  "abstract": "Core requirements class for OGC API — Processes Part 2 (DRAFT). Specifies the fundamental operations a server must support to dynamically deploy, replace, undeploy processes, and retrieve the last application package used to deploy or replace a process: POST /processes, PUT /processes/{processID}, DELETE /processes/{processID}, and GET /processes/{processID}/package.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-03T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "1.0.0",
+  "clause-index": 6,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part1.v1.schemas.processSummary",
+    "ogc.api.processes.part2.v1.schemas.staticIndicator",
+    "ogc.api.processes.part1.v1.schemas.exception"
+  ],
+  "tags": ["ogcapi-processes", "standard", "requirements-class", "draft"],
+  "resources": [
+    { "ref": "requirements.yaml", "role": "requirements", "format": "application/yaml" }
+  ]
+}

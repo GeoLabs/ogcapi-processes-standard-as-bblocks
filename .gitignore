@@ -3,3 +3,9 @@ build-local/
 bblocks-config-local.yml
 bblocks-config-local.yaml
 .volumes
+
+# Local generator checkouts and observed scratch files (not build outputs).
+/bblocks-specgen/
+/bblocks-specgen-new/
+/.DS_Store
+/log

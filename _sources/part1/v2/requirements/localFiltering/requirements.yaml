@@ -1,0 +1,52 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/local-filtering
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: local-filtering
+title: "Requirements Class ‘Local Filtering’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-v2-requirements-core"
+  title: "/req/core"
+- uri: "#bb-ogc-api-processes-part1-v2-requirements-collectioninput"
+  title: "/req/collection-input"
+- uri: "#bb-ogc-api-processes-part1-v2-requirements-remotecollections"
+  title: "/req/remote-collections"
+conformance-class:
+  title: "Local Filtering"
+requirements:
+- id: "local-filtering"
+  description: |-
+    To support the local filtering of data accessed from a [collection](#sec-4.1.1) before providing the data as [inputs to a process](#sec-7.12.2.3):
+  parts:
+  - |-
+      The server SHALL support local filtering of input data, retrieved from a [value source server](#sec-4.1.22), based on the filtering parameters:
+
+      - filter, filterCrs, filterLang
+      - bbox, bboxCrs
+      - datetime
+      - subset, subsetCrs
+      - geometry, geometryCrs
+      - limit
+      - ids
+      - q
+      - assets
+      - crs
+
+      defined in the [“collectionValue.yaml”](#collection-value-schema) schema.
+abstract-tests:
+- id: "collection-input/local-filtering"
+  requirement: "/req/collection-input/local-filtering"
+  purpose: |-
+    Verify that the server correctly processes local-filtering elements in a collection input specification.
+  method: |-
+    1. Obtain a process description for one or more processes offered by a server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. Compose [execute requests](#execute-request-body) that include the identified inputs and using a supported [data access API](#sec-4.1.10) (see test: [/conf/collection-input/collection-access](#ats-collection-input-collection-access) to identify supported [data access APIs](#sec-4.1.10)).
+    4. For each execute request, inspect the [value source server(s)](#sec-4.1.22) and identify query capabilities that are not supported by those remote servers (e.g. CQL2 filtering).
+    5. Include the identified unsupported filtering elements in the execute request (e.g. a CQL filter) as per the [“collectionValue.yaml”](#collection-value-schema) schema thus forcing the test server to perform the requested filtering locally.
+    6. Verify that the execute request completes successfully.

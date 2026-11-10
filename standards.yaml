@@ -2,7 +2,7 @@ standards:
 
   - id: part1
     # Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09)
-    prefix: ogc.api.processes.part1
+    prefix: ogc.api.processes.part1.v2.
     title: "OGC API - Processes - Part 1: Core"
     doc-number: 18-062r3
     type: Standard
@@ -65,65 +65,65 @@ standards:
     preface:
       - auto: abstract
       - auto: keywords
-      - bblock: ogc.api.processes.part1.clauses.preface
-      - bblock: ogc.api.processes.part1.clauses.securityConsiderations
-      - bblock: ogc.api.processes.part1.clauses.submittingOrganizations
-      - bblock: ogc.api.processes.part1.clauses.submitters
-      - bblock: ogc.api.processes.part1.clauses.acknowledgements
+      - bblock: ogc.api.processes.part1.v2.clauses.preface
+      - bblock: ogc.api.processes.part1.v2.clauses.securityConsiderations
+      - bblock: ogc.api.processes.part1.v2.clauses.submittingOrganizations
+      - bblock: ogc.api.processes.part1.v2.clauses.submitters
+      - bblock: ogc.api.processes.part1.v2.clauses.acknowledgements
 
     clauses:
-      - bblock: ogc.api.processes.part1.clauses.scope
-      - bblock: ogc.api.processes.part1.clauses.conformance
-      - bblock: ogc.api.processes.part1.clauses.references
+      - bblock: ogc.api.processes.part1.v2.clauses.scope
+      - bblock: ogc.api.processes.part1.v2.clauses.conformance
+      - bblock: ogc.api.processes.part1.v2.clauses.references
         title: Normative references
-      - bblock: ogc.api.processes.part1.clauses.terms
+      - bblock: ogc.api.processes.part1.v2.clauses.terms
         title: Terms, definitions and abbreviated terms
-      - bblock: ogc.api.processes.part1.clauses.conventions
-      - bblock: ogc.api.processes.part1.clauses.overview
-      - bblock: ogc.api.processes.part1.requirements.core
+      - bblock: ogc.api.processes.part1.v2.clauses.conventions
+      - bblock: ogc.api.processes.part1.v2.clauses.overview
+      - bblock: ogc.api.processes.part1.v2.requirements.core
         title: Requirements Class “Core”
-      - bblock: ogc.api.processes.part1.clauses.collections
+      - bblock: ogc.api.processes.part1.v2.clauses.collections
         subclauses:
-          - bblock: ogc.api.processes.part1.requirements.collectionInput
+          - bblock: ogc.api.processes.part1.v2.requirements.collectionInput
             title: REQUIREMENTS CLASS “COLLECTION INPUT”
-          - bblock: ogc.api.processes.part1.requirements.remoteCollections
+          - bblock: ogc.api.processes.part1.v2.requirements.remoteCollections
             title: REQUIREMENTS CLASS “REMOTE COLLECTIONS”
-          - bblock: ogc.api.processes.part1.requirements.collectionOutput
+          - bblock: ogc.api.processes.part1.v2.requirements.collectionOutput
             title: REQUIREMENTS CLASS “COLLECTION OUTPUT”
-          - bblock: ogc.api.processes.part1.requirements.localFiltering
+          - bblock: ogc.api.processes.part1.v2.requirements.localFiltering
             title: REQUIREMENTS CLASS “LOCAL FILTERING”
-      - bblock: ogc.api.processes.part1.requirements.ogcProcessDescription
+      - bblock: ogc.api.processes.part1.v2.requirements.ogcProcessDescription
         title: Requirements Class “OGC Process Description”
-      - bblock: ogc.api.processes.part1.clauses.encodings
+      - bblock: ogc.api.processes.part1.v2.clauses.encodings
         subclauses:
-          - bblock: ogc.api.processes.part1.requirements.json
+          - bblock: ogc.api.processes.part1.v2.requirements.json
             title: Requirement Class “JSON”
-          - bblock: ogc.api.processes.part1.requirements.html
+          - bblock: ogc.api.processes.part1.v2.requirements.html
             title: Requirement Class “HTML”
-      - bblock: ogc.api.processes.part1.clauses.openapi
+      - bblock: ogc.api.processes.part1.v2.clauses.openapi
         subclauses:
-          - bblock: ogc.api.processes.part1.requirements.oas
+          - bblock: ogc.api.processes.part1.v2.requirements.oas
             title: Requirements Class “OpenAPI Specification”
-          - bblock: ogc.api.processes.part1.requirements.oas30
+          - bblock: ogc.api.processes.part1.v2.requirements.oas30
             title: Requirements Class “OpenAPI Specification 3.0”
-          - bblock: ogc.api.processes.part1.requirements.oas31
+          - bblock: ogc.api.processes.part1.v2.requirements.oas31
             title: Requirements Class “OpenAPI Specification 3.1”
-      - bblock: ogc.api.processes.part1.requirements.jobList
+      - bblock: ogc.api.processes.part1.v2.requirements.jobList
         title: Requirements Class “Job list”
-      - bblock: ogc.api.processes.part1.requirements.callback
+      - bblock: ogc.api.processes.part1.v2.requirements.callback
         title: Requirements Class “Callback”
-      - bblock: ogc.api.processes.part1.requirements.dismiss
+      - bblock: ogc.api.processes.part1.v2.requirements.dismiss
         title: Requirements Class “Dismiss”
-      - bblock: ogc.api.processes.part1.requirements.kvpExecute
+      - bblock: ogc.api.processes.part1.v2.requirements.kvpExecute
         title: Requirements Class “KVP-encoded Execute”
-      - bblock: ogc.api.processes.part1.clauses.mediaTypes
-      - bblock: ogc.api.processes.part1.requirements.queryParamProfile
+      - bblock: ogc.api.processes.part1.v2.clauses.mediaTypes
+      - bblock: ogc.api.processes.part1.v2.requirements.queryParamProfile
         title: Requirements Class “Profile query parameter”
-      - bblock: ogc.api.processes.part1.clauses.additionalBuildingBlocks
+      - bblock: ogc.api.processes.part1.v2.clauses.additionalBuildingBlocks
       - auto: annex-a
-        bblock: ogc.api.processes.part1.annexes.ats
-      - bblock: ogc.api.processes.part1.annexes.revisionHistory
-      - bblock: ogc.api.processes.part1.annexes.bibliography
+        bblock: ogc.api.processes.part1.v2.annexes.ats
+      - bblock: ogc.api.processes.part1.v2.annexes.revisionHistory
+      - bblock: ogc.api.processes.part1.v2.annexes.bibliography
         numbered: false
 
     boilerplate:
@@ -159,7 +159,7 @@ standards:
 
   - id: part2
     # Source of truth: OGC 20-044 draft, https://docs.ogc.org/DRAFTS/20-044.html (retrieved 2026-11-05)
-    prefix: ogc.api.processes.part2
+    prefix: ogc.api.processes.part2.v1.
     title: "OGC API - Processes - Part 2: Deploy, Replace, Undeploy"
     doc-number: "20-044"
     type: Standard
@@ -230,32 +230,32 @@ standards:
     preface:
       - auto: abstract
       - auto: keywords
-      - bblock: ogc.api.processes.part2.clauses.securityConsiderations
-      - bblock: ogc.api.processes.part2.clauses.submittingOrganizations
-      - bblock: ogc.api.processes.part2.clauses.submitters
+      - bblock: ogc.api.processes.part2.v1.clauses.securityConsiderations
+      - bblock: ogc.api.processes.part2.v1.clauses.submittingOrganizations
+      - bblock: ogc.api.processes.part2.v1.clauses.submitters
 
     clauses:
-      - bblock: ogc.api.processes.part2.clauses.scope
-      - bblock: ogc.api.processes.part2.clauses.conformance
-      - bblock: ogc.api.processes.part2.clauses.references
+      - bblock: ogc.api.processes.part2.v1.clauses.scope
+      - bblock: ogc.api.processes.part2.v1.clauses.conformance
+      - bblock: ogc.api.processes.part2.v1.clauses.references
         title: Normative references
-      - bblock: ogc.api.processes.part2.clauses.terms
+      - bblock: ogc.api.processes.part2.v1.clauses.terms
         title: Terms, definitions and abbreviated terms
-      - bblock: ogc.api.processes.part2.clauses.conventions
-      - bblock: ogc.api.processes.part2.requirements.dru
+      - bblock: ogc.api.processes.part2.v1.clauses.conventions
+      - bblock: ogc.api.processes.part2.v1.requirements.dru
         title: Requirements Class “Deploy, Replace, Undeploy (DRU)”
-      - bblock: ogc.api.processes.part2.requirements.ogcapppkg
+      - bblock: ogc.api.processes.part2.v1.requirements.ogcapppkg
         title: Requirements Class “OGC Application Package”
-      - bblock: ogc.api.processes.part2.requirements.docker
+      - bblock: ogc.api.processes.part2.v1.requirements.docker
         title: Requirements Class “Docker”
-      - bblock: ogc.api.processes.part2.requirements.cwl
+      - bblock: ogc.api.processes.part2.v1.requirements.cwl
         title: Requirements Class “CWL”
-      - bblock: ogc.api.processes.part2.clauses.openapi
-      - bblock: ogc.api.processes.part2.clauses.mediaTypes
+      - bblock: ogc.api.processes.part2.v1.clauses.openapi
+      - bblock: ogc.api.processes.part2.v1.clauses.mediaTypes
       - auto: annex-a
-        bblock: ogc.api.processes.part2.annexes.ats
-      - bblock: ogc.api.processes.part2.annexes.revisionHistory
-      - bblock: ogc.api.processes.part2.annexes.bibliography
+        bblock: ogc.api.processes.part2.v1.annexes.ats
+      - bblock: ogc.api.processes.part2.v1.annexes.revisionHistory
+      - bblock: ogc.api.processes.part2.v1.annexes.bibliography
         numbered: false
 
     boilerplate:

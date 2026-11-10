@@ -2,6 +2,9 @@ name: Validate Building Blocks PR
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 # Read-only validation: runs postprocessing against the PR to catch things
 # like broken bblock dependencies before merge, but never commits, deploys,
 # or pushes anything - see process-bblocks.yml for the workflow that does.
@@ -14,3 +17,8 @@ jobs:
   pr-check:
     name: Validate PR
     uses: opengeospatial/bblocks-postprocess/.github/workflows/pr-check.yml@master
+    # The reusable workflow sets fail_on_error=true, enable_sparql=false and
+    # deploy_viewer=false internally; these are not workflow_call inputs.
+    # Installing/running the configured plugin is intentional (see README).
+    with:
+      skip_permissions: 'true'

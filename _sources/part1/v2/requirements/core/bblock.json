@@ -1,0 +1,40 @@
+{
+  "name": "Core",
+  "abstract": "Core requirements class for OGC API — Processes Part 1. Specifies the fundamental operations a server must support: landing page, conformance declaration, process list, process description, process execution, job status, and job results.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-05-21T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0.0",
+  "clause-index": 7,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part1.v2.paths.ProcessList",
+    "ogc.api.processes.part1.v2.schemas.processList",
+    "ogc.api.processes.part1.v2.schemas.processSummary",
+    "ogc.api.processes.part1.v2.paths.ProcessDescription",
+    "ogc.api.processes.part1.v2.paths.Execution",
+    "ogc.api.processes.part1.v2.paths.Job",
+    "ogc.api.processes.part1.v2.paths.JobResult",
+    "ogc.api.processes.part1.v2.paths.LandingPage",
+    "ogc.api.processes.part1.v2.paths.Conformance"
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class"
+  ],
+  "resources": [
+    {
+      "ref": "requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ]
+}

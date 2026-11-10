@@ -1,0 +1,29 @@
+# NOTE: 'id' and 'method' are proposed extensions to the tests.yaml format.
+# They are not present in the current tests.schema.yaml
+# (bblocks-postprocess-action/ogc/bblocks/schemas/tests.schema.yaml),
+# which only defines 'ref', 'require-fail', and 'output-filename'.
+#
+# Gap 1 — 'id': a logical identifier for the test entry, enabling tested-by in
+# requirements.yaml to reference tests by id rather than by filename. The standard
+# generator must support both styles: filename references (e.g. "process-list-success.json")
+# and id references (e.g. "process-list-success"). Resolution order: try id match first,
+# then fall back to filename match.
+#
+# Gap 2 — 'method': explicit ATS test method text. When absent, the generator infers the
+# method from the file extension (.json → "Validate JSON document against schema via
+# JSON Schema validator"; .ttl → "Validate RDF graph against SHACL shapes"). When present,
+# the explicit text is used verbatim in the generated ATS entry.
+
+- id: process-list-success
+  ref: tests/process-list-success.json
+  method: >
+    Issue an HTTP GET request to the path `/processes`. Validate that the response has
+    HTTP status code 200 and that the response body is a valid JSON document conforming
+    to the processList schema (ogc.api.processes.part1.v2.schemas.processList).
+
+- id: process-list-no-links-fail
+  ref: tests/process-list-no-links-fail.json
+  require-fail: true
+  method: >
+    Validate that a processList response body without the required `links` property
+    fails conformance with the processList schema. The validator SHALL report an error.

@@ -1,0 +1,4 @@
+# Test-harness integration only: the Core fixtures are process-list responses.
+# dependsOn is documentation metadata; it does not select a validation schema.
+# Reuse the official schema without adding or weakening any constraints.
+$ref: bblocks://ogc.api.processes.part1.v2.schemas.processList

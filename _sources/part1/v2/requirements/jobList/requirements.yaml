@@ -1,0 +1,315 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/job-list
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: job-list
+title: "Requirements Class ‘Job List’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-v2-requirements-core"
+  title: "/req/core"
+conformance-class:
+  title: "Job List"
+requirements:
+- id: "job-list/access-control-job-list"
+  type: "recommendation"
+  statement: |-
+    Servers implementing the conformance class ‘Job List’ SHOULD have an access control in place for the `/jobs` endpoint to prevent misuse of job identifiers.
+- id: "job-list/job-list-op"
+  statement: "The server SHALL support the HTTP GET operation at the path `/jobs`."
+- id: "job-list/job-list-landing-page"
+  type: "recommendation"
+  statement: |-
+    A link to the following resource SHOULD be added to the API landing page:
+
+    /jobs (relation type ‘[https://www.opengis.net/def/rel/ogc/1.0/job-list](https://www.opengis.net/def/rel/ogc/1.0/job-list)‘)
+- id: "job-list/type-definition"
+  statement: |-
+    The operation SHALL support a parameter `type` with the following characteristics (using an OpenAPI Specification fragment):
+
+    ```yaml
+    name: type
+    in: query
+    required: false
+    schema:
+      type: array
+      items:
+        type: string
+    ```
+- id: "job-list/type-response"
+  parts:
+  - |-
+      If the parameter is provided and its value is `process` then only jobs created by an OGC processes API SHALL be included in the response.
+  - "If the parameter is omitted, then all jobs SHALL be included in the response."
+- id: "job-list/processID-mandatory"
+  statement: |-
+    If the server supports this conformance class, the optional `processID` property in the [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml) schema SHALL be mandatory.
+- id: "job-list/processID-definition"
+  statement: |-
+    The operation SHALL support a parameter `processID` with the following characteristics (using an OpenAPI Specification fragment):
+
+    ```yaml
+    name: processID
+    in: query
+    required: false
+    schema:
+      type: array
+      items:
+        type: string
+    ```
+- id: "job-list/processid-response"
+  statement: |-
+    If the `processID` parameter is specified with the operation, only jobs that have a value for the `processID` property (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml)) that matches one of the values specified for the `processID` parameter SHALL be included in the response.
+- id: "job-list/status-definition"
+  statement: |-
+    The operation SHALL support a parameter `status` with the following characteristics (using an OpenAPI Specification fragment):
+
+    ```yaml
+    name: status
+    in: query
+    required: false
+    schema:
+      type: array
+      items:
+        type: string
+    ```
+- id: "job-list/status-response"
+  statement: |-
+    If the `status` parameter is specified with the operation, only jobs that have a value for the `status` property (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml)) that matches one of the specified values of the `status` parameter SHALL be included in the response.
+- id: "job-list/datetime-definition"
+  parts:
+  - |-
+      The operation SHALL support a parameter `datetime` with the following characteristics (using an OpenAPI Specification fragment):
+
+      ```yaml
+      name: datetime
+      in: query
+      required: false
+      schema:
+        type: string
+      ```
+  - |-
+      The value of the `datetime` parameter is either a date-time value or a time interval. The `datetime` parameter value SHALL conform to the following syntax (using [ABNF](https://tools.ietf.org/html/rfc2234)):
+
+      ```
+      interval-closed     = date-time "/" date-time
+      interval-open-start = [".."] "/" date-time
+      interval-open-end   = date-time "/" [".."]
+      interval            = interval-closed / interval-open-start / interval-open-end
+      datetime            = date-time / interval
+      ```
+  - |-
+      The syntax of `date-time` is specified by [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
+  - |-
+      Open ranges in time intervals at the start or end are specified by using a double-dot (`..`) or an empty string for the start/end.
+- id: "job-list/datetime-response"
+  statement: |-
+    If the `datetime` parameter is specified with the operation, only jobs that have a value for the `created` property (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml) that intersects the temporal information in the `datetime` parameter SHALL be included in the response.
+- id: "job-list/duration-definition"
+  parts:
+  - |-
+      The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification fragment):
+
+      ```yaml
+      name: minDuration
+      in: query
+      required: false
+      schema:
+        type: integer
+      ```
+  - |-
+      The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification fragment):
+
+      ```yaml
+      name: maxDuration
+      in: query
+      required: false
+      schema:
+        type: integer
+      ```
+- id: "job-list/duration-response"
+  parts:
+  - |-
+      If the `status` parameter is **not** specified then only jobs that are running (status: `running`) or have completed execution (`successful`, `failed` or `dismissed`) SHALL be considered for inclusion in the response.
+  - |-
+      If the `status` parameter **is** specified, then only jobs with the specified status SHALL be considered for inclusion in the response.
+  - |-
+      If only the `minDuration` parameter is specified with the operation, only jobs with the appropriate status and a duration of at least the specified `minDuration` value SHALL be included in the response.
+  - |-
+      If only the `maxDuration` parameter is specified with the operation, only jobs with the appropriate status and a duration of no longer than the specified `maxDuration` value SHALL be included in the response.
+  - |-
+      If both the `minDuration` and `maxDuration` parameters are specified with the operation, only jobs with the appropriate status and a duration of at least the specified `minDuration` value and no longer than the specified `maxDuration` value SHALL be included in the response.
+  - "The value of the `minDuration` and `maxDuration` parameters SHALL be number of seconds."
+  - |-
+      For running jobs, the duration SHALL be computed at runtime as the time the operation was invoked minus the value of the `started` parameter (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml)).
+  - |-
+      For completed jobs, the duration SHALL be computed as the value of the `finished` parameter minus the value of the `started` parameter (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml)).
+  - |-
+      Jobs for which runtime statistics are not included in the [status information](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml) or are incomplete for computing the duration of the job SHALL be omitted from the response.
+- id: "job-list/limit-definition"
+  statement: |-
+    The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification fragment):
+
+    ```yaml
+    name: limit
+    in: query
+    required: false
+    schema:
+      type: integer
+      minimum: 1
+      maximum: 10000
+      default: 10
+    ```
+- id: "job-list/limit-default-minimum-maximum"
+  type: "permission"
+  statement: |-
+    The values for `minimum`, `maximum` and `default` in requirement `/req/job-list/limit-definition` are only examples and MAY be changed.
+- id: "job-list/limit-response"
+  parts:
+  - |-
+      The response SHALL not contain more jobs than specified by the optional `limit` parameter.
+  - |-
+      If the API definition specifies a maximum value for `limit` parameter, the response SHALL not contain more jobs than this maximum value.
+- id: "job-list/limit-response"
+  type: "permission"
+  statement: "The server MAY return fewer jobs than requested (but not more)."
+- id: "job-list/job-list-success"
+  parts:
+  - |-
+      A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+  - |-
+      The content of that response SHALL be based upon the OpenAPI 3.0 schema [jobList.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/jobList.yaml).
+- id: "job-list/links"
+  statement: |-
+    A `200`-response SHALL include the following links:
+
+    - A link to this response document (relation: `self`),
+    - A link to the response document in every other media type supported by the service (relation: `alternate`).
+- id: "job-list/next-1"
+  type: "recommendation"
+  statement: |-
+    If more jobs have been selected than returned in the response, a `200`-response SHOULD include a link to the next page (relation: `next`) of jobs.
+- id: "job-list/next-2"
+  type: "recommendation"
+  statement: |-
+    Dereferencing a next page link (relation: `next`) SHOULD return additional jobs from the set of selected jobs that have not yet been returned.
+- id: "job-list/next-3"
+  type: "recommendation"
+  statement: |-
+    If there are more jobs in the selection that have not yet been returned, the number of jobs in a response to dereferencing a next page link (relation: `next`) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: `next`).
+- id: "job-list/prev"
+  type: "permission"
+  statement: |-
+    A response to dereferencing a next page link (relation: `next`) MAY include a previous page link (relation: `prev`) to the resource that included the next page link (relation: `next`).
+abstract-tests:
+- id: "job-list/job-list-op"
+  requirement: "/req/job-list/job-list-op"
+  purpose: "Validate that information about jobs can be retrieved from the expected location."
+  method: |-
+    1. Issue an HTTP GET request to the URL /jobs.
+    2. Validate the contents of the returned document using test [/conf/job-list/job-list-success](#ats-job-list-job-list-success).
+- id: "job-list/type-definition"
+  requirement: "/req/job-list/type-definition"
+  purpose: "Validate that the `type` query parameter is constructed correctly."
+  method: |-
+    Verify that the `type` query parameter complies with its definition in requirement [/req/job-list/type-definition](#req-job-list-type-definition).
+- id: "job-list/type-response"
+  requirement: "/req/job-list/type-response"
+  purpose: "Validate that the `type` query parameter is processed correctly."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `type` query parameter to the request.
+    2. Inspect the value of the `type` property for each job listed in the response.
+    3. Verify that that value of the `type` property matches one of the values specified for the `type` query parameter.
+- id: "job-list/processID-mandatory"
+  requirement: "/req/job-list/processID-mandatory"
+  purpose: "Validate that the `processID` property is present in every job."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op).
+    2. Verify that each job includes a `processID` property.
+- id: "job-list/processID-definition"
+  requirement: "/req/job-list/processID-definition"
+  purpose: "Validate that the `processID` query parameter is constructed correctly."
+  method: |-
+    Verify that the `processID` query parameter complies with its definition in requirement [/req/job-list/processID-definition](#req-job-list-processID-definition).
+- id: "job-list/processID-response"
+  requirement: "/req/job-list/processID-response"
+  purpose: "Validate that the `processID` query parameter is processed correctly."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `processID` parameter to the request.
+    2. Inspect the value of the `processID` property for each job listed in the response.
+    3. Verify that that value of the `processID` property matches one of the values specified for the `processID` query parameter.
+- id: "job-list/status-definition"
+  requirement: "/req/job-list/status-definition"
+  purpose: "Validate that the `status` query parameter is constructed correctly."
+  method: |-
+    Verify that the `status` query parameter complies with its definition in requirement [/req/job-list/status-definition](#req-job-list-status-definition).
+- id: "job-list/status-response"
+  requirement: "/req/job-list/status-response"
+  purpose: "Validate that the `status` query parameter is processed correctly."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `status` query parameter to the request.
+    2. Inspect the value of the `status` property (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml)) for each job listed in the response.
+    3. Verify that the value of the `status` property matches one of the values specified for the `status` query parameter.
+- id: "job-list/datetime-definition"
+  requirement: "/req/job-list/datetime-definition"
+  purpose: "Validate that the `datetime` query parameter is constructed correctly."
+  method: |-
+    Verify that the `datetime` query parameter complies with its definition in requirement [/req/job-list/datetime-definition](#req-job-list-datetime-definition).
+- id: "job-list/datetime-response"
+  requirement: "/req/job-list/datetime-response"
+  purpose: "Validate that the `datetime` query parameter is processed correctly."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `datetime` query parameter to the request.
+    2. Inspect the value of the `created` (see: [statusInfo.yaml](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml)) property for each job listed in the response.
+    3. Verify that the value of the `created` temporally intersects with the value specified for the `datetime` query parameter.
+- id: "job-list/duration-definition"
+  requirement: "/req/job-list/duration-definition"
+  purpose: |-
+    Validate that the `minDuration` and `maxDuration` query parameter are constructed correctly.
+  method: |-
+    1. Verify that the `minDuration` query parameter complies with its definition in requirement [/req/job-list/duration-definition, A](#req-job-list-duration-definition).
+    2. Verify that the `maxDuration` query parameter complies with its definition in requirement [/req/job-list/duration-definition, B](#req-job-list-duration-definition).
+- id: "job-list/duration-response"
+  requirement: "/req/job-list/duration-response"
+  purpose: |-
+    Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `minDuration` query parameter to the request.
+    2. Compute the duration of each job listed in the response document as per requirements [/req/job-list/status-response, E or F](#req-job-list-duration-response) depending on the current status of the job.
+    3. Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter.
+    4. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `maxDuration` query parameter to the request.
+    5. Compute the duration of each job listed in the response document as per requirements [/req/job-list/status-response, E or F](#req-job-list-duration-response) depending on the current status of the job.
+    6. Verify that the computed duration of each job listed in the response is no longer than the specified value of the `maxDuration` query parameter.
+    7. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `minDuration` and `maxDuration` query parameters to the request.
+    8. Compute the duration of each job listed in the response document as per requirements [/req/job-list/status-response, E or F](#req-job-list-duration-response) depending on the current status of the job.
+    9. Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter AND no longer than the value of the `maxDuration` query parameter.
+- id: "job-list/limit-definition"
+  requirement: "/req/job-list/limit-definition"
+  purpose: "Validate that the `limit` query parameter is constructed correctly."
+  method: |-
+    Verify that the `limit` query parameter complies with its definition in requirement [/req/job-list/limit-definition](#req-job-list-limit-definition).
+- id: "job-list/limit-response"
+  requirement: "/req/job-list/limit-response"
+  purpose: "Validate that the `limit` query parameter is processed correctly."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op) and append the `limit` query parameter to the request.
+    2. Count the number of jobs listed in the response.
+    3. Verify that this count is not greater than the value specified by the `limit` parameter.
+    4. If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
+- id: "job-list/links"
+  requirement: "/req/job-list/links"
+  purpose: "Validate that the proper links are included in a response."
+  method: |-
+    1. Get a list of jobs as per test [/conf/job-list/job-list-op](#ats-job-list-job-list-op).
+    2. Verify that the `links` section of the response contains a link with `rel=self`.
+    3. Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its [conformance document](#sec-2).
+- id: "job-list/job-list-success"
+  requirement: "/req/job-list/job-list-success"
+  purpose: "Validate that the job list content complies with the required structure and contents."
+  method: |-
+    1. Validate that a document was returned with an HTTP status code of 200.
+    2. Validate the job list content for all supported media types using the resources and tests identified in [Table A.11](#job-list-schema)

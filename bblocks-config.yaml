@@ -17,11 +17,23 @@ description: |
   New `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.
 
 # Prefix prepended to the path of the building blocks.
-# Path _sources/part1/requirements/core/ → identifier ogc.api.processes.part1.requirements.core
-# Path _sources/part2/requirements/dru/ → identifier ogc.api.processes.part2.requirements.dru
+# Part and standard version are independent namespace segments.
+# _sources/part1/v2/requirements/core/ → ogc.api.processes.part1.v2.requirements.core
+# _sources/part2/v1/requirements/dru/ → ogc.api.processes.part2.v1.requirements.dru
 identifier-prefix: ogc.api.processes.
 
 imports:
   - default
   - https://geolabs.github.io/bblocks-ogcapi-processes/build/register.json
   - https://geolabs.github.io/bblock-ogcapi-processes-part2/build/register.json
+
+# Automatic standards generation; feature/update snapshot tracked in
+# https://github.com/ogcincubator/bblocks-specgen/pull/2
+plugins:
+  build:
+    - classes: [standard_gen.plugin.SpecgenBuildPlugin]
+      pip: ['bblocks-specgen @ git+https://github.com/JFarduino/bblocks-specgen@c8b79dc91bca45a592f0eca66fd1df12c39da970']
+      url: https://github.com/JFarduino/bblocks-specgen
+      config:
+        standards-file: standards.yaml
+        build-dir: build/standards

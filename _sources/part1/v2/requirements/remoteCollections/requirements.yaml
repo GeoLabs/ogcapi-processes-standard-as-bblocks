@@ -1,0 +1,54 @@
+# Source of truth: OGC 18-062r3 draft, https://docs.ogc.org/DRAFTS/18-062r3.html (retrieved 2026-11-09).
+# Text transcribed from the draft; regenerate the document with bblocks-specgen.
+#
+# Requirements class https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections
+# Statements are placed in description.md (or in another clause) with
+# <!-- requirement|recommendation|permission: <id> --> markers; abstract tests
+# are laid out by the Annex A block (part1/annexes/ats).
+
+class-id: remote-collections
+title: "Requirements Class ‘Remote Collections’"
+standardization-target: "Web API"
+depends-on:
+- uri: "#bb-ogc-api-processes-part1-v2-requirements-collectioninput"
+  title: "/req/collection-input"
+conformance-class:
+  title: "Remote Collections"
+requirements:
+- id: "remote-collections/referencing"
+  statement: |-
+    For referencing a [remote collection](#sec-4.1.20) as a source of [input values to a process](#sec-7.12.2.3):
+  parts:
+  - |-
+      The server SHALL support inputs in an [execute requests](#execute-request-body) that contain the `collection` parameter.
+  - |-
+      The value of the `collection` parameter SHALL be a URI identifying a [remote collection](#sec-4.1.20) from which [process input values](#sec-7.12.2.3) are retrieved.
+  - |-
+      The URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the [process description](#sec-7.11) and other factors, which supported [data access mechanisms](#sec-4.1.10) should be employed to retrieved input values from the [collection](#sec-4.1.20).
+- id: "remote-collections/access"
+  description: |-
+    For referencing a [remote collection](#sec-4.1.20) as a source of [input values to a process](#sec-7.12.2.3):
+  parts:
+  - |-
+      The server SHALL support accessing [remote collections](#sec-4.1.20) using at least one supported [OGC API data access mechanism](#sec-4.1.10).
+  - |-
+      The server SHALL, in the [process description](#sec-9) and for each relevant input, indicate which [OGC data access API(s)](#sec-4.1.10) can be used to retrieved input values for that input from the [collection](#sec-4.1.9).
+abstract-tests:
+- id: "remote-collections/access"
+  requirement: "/req/remote-collections/access"
+  purpose: |-
+    Verify that the server supports the [OGC data access APIs](#sec-4.1.10) that it advertises for accessing input data from remote collections.
+  method: |-
+    1. Obtain a process description for one or more processes offered by the server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. For each of the identified inputs verify that the server supports the the specified [OGC data access API(s)](#sec-4.1.10) by inspecting the server’s conformance document obtained from the `/conformance` endpoint.
+- id: "remote-collections/referencing"
+  requirement: "/req/remote-collections/referencing"
+  purpose: |-
+    Verify that the server correctly processes input data retrieved from remote collections using a supported [data access API](#sec-4.1.10).
+  method: |-
+    1. Obtain a process description for one or more processes offered by a server as per test [/conf/core/process-description-op](#ats-core-process-description-op).
+    2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test [/conf/ogc-process-description/data-access-apis](#ats-ogc-process-description-data-access-apis)).
+    3. Compose [execute requests](#execute-request-body) that includes the identified inputs and using a supported [data access API](#sec-4.1.10) (see test: [/conf/remote-collections/access](#ats-remote-collections-access) to identify supported [data access APIs](#sec-4.1.10)).
+    4. Use the `collection` parameter in the [execute request](#execute-request-body), as defined in [“collectionValue.yaml”](#collection-value-schema), to reference remote collections from which input values will be retrieved.
+    5. Verify that the execute request completes successfully.

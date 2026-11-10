@@ -1,0 +1,32 @@
+{
+  "name": "JSON",
+  "abstract": "Requirements class for JSON encoding. Requires that all supported API endpoints respond with application/json when requested.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-05-21T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0.0",
+  "clause-index": 11,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part1.v2.requirements.core"
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class"
+  ],
+  "resources": [
+    {
+      "ref": "requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ]
+}

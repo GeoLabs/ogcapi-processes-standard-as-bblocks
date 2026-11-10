@@ -1,0 +1,32 @@
+{
+  "name": "CWL",
+  "abstract": "Conformance class for OGC API — Processes Part 2 (DRAFT). Enables support for the Common Workflow Language (CWL) as a process description encoding, either embedded in an OGC Application Package or sent directly as the deploy/replace request body.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-04T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "1.0.0",
+  "clause-index": 9,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    },
+    {
+      "title": "Common Workflow Language v1.2",
+      "link": "https://www.commonwl.org/v1.2/"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part2.v1.requirements.dru",
+    "ogc.api.processes.part2.v1.requirements.ogcapppkg",
+    "ogc.api.processes.part2.v1.schemas.executionUnitBase",
+    "ogc.api.processes.part1.v1.schemas.exception",
+    "ogc.api.processes.part1.v1.schemas.link"
+  ],
+  "tags": ["ogcapi-processes", "standard", "requirements-class", "draft"],
+  "resources": [
+    { "ref": "requirements.yaml", "role": "requirements", "format": "application/yaml" }
+  ]
+}
