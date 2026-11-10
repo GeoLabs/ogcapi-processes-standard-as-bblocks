@@ -1,0 +1,35 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.v2.clauses.additionalBuildingBlocks",
+  "name": "Additional API Building Blocks",
+  "abstract": "Additional API building blocks of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): alternative process descriptions and paths.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "clause",
+  "version": "2.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
+  "dateOfLastChange": "2026-11-10",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/clauses/additionalBuildingBlocks/",
+  "validationPassed": true,
+  "description": "The core requirements classes of the OGC API-Processes Standard are designed for the following workflow:\n\n1. Access the list of available processes;\n2. Access the description of a specific process;\n3. Create an execute JSON request (based on the description) and send it to the server via the HTTP POST method;\n4. Process the status info and/or results.\n\nThis workflow is useful for generic clients that are implemented against the JSON schemas and paths specified in this Standard. Generic clients can communicate with any server implementing the OGC API\u2009\u2014\u2009Processes Standard. However, there may be limitations regarding the handling of input and output formats.\n\nThe approach described above requires implementers of clients to have knowledge about the standard.\n\nThis Standard uses the OpenAPI specification to define the JSON schemas and OpenAPI MAY also be used to describe the physical implementation of the API (see [Clause 7.3](#sec-7.3)). A variety of tools for automatic code generation exist for the OpenAPI specification. This makes it very easy for client and server implementers to work with APIs defined using OpenAPI. However, as the OGC API\u2009\u2014\u2009Processes Standard defines several JSON schemas and leaves the concrete data types for input and outputs open, the automatic code generation cannot be used to its full extent. To cope with this and thus make the implementation of clients / servers easier for those that are not familiar with OGC (API) Standards, additional alternatives to the [process description](#sec-7.11) and the paths to processes and jobs are permitted.\n\nThe following permissions do not affect the mandatory core requirements.\n\n<!-- permission: core/alternative-process-description -->\n\nThe alternative-process-description permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint using the OpenAPI specification directly (see this [example](#example-alternative-process-description)).\n\n<!-- permission: core/alternative-process-paths -->\n\nThe alternative-process-paths permission allows server implementations to specify alternative paths to processes and jobs.\n\nAn example of an OpenAPI document making use of these building blocks is shown in the following:\n\n<div id=\"example-alternative-process-description\"></div>\n\n```yaml\nopenapi: 3.0.2\ninfo:\n  title: Alternative OGC API - Processes\n  description: This is an alternative OGC API - Processes\n  contact:\n    email: you@your-company.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\n  version: 1.0.0\npaths:\n  /buffer:\n    post:\n      summary: execute buffer process\n      operationId: executeBuffer\n      requestBody:\n        description: buffer inputs\n        content:\n          application/json:\n            schema:\n              $ref: '#/components/schemas/bufferExecute'\n      responses:\n        \"200\":\n          description: buffer created\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/bufferResult'\n        \"400\":\n          description: invalid input\ncomponents:\n  schemas:\n    bufferExecute:\n      required:\n        - data\n        - width\n      type: object\n      properties:\n        data:\n          maxItems: 10\n          minItems: 1\n          type: array\n          description: this is possible to provide the abstract in here\n          items:\n            oneOf:\n              - type: string\n                format: application/geo+json\n              - type: string\n                format: application/gml+xml\n        width:\n          maximum: 100\n          minimum: 1\n          type: integer\n          default: 20\n    bufferResult:\n      type: object\n      properties:\n        outputs:\n          type: array\n          items:\n            oneOf:\n              - type: string\n                format: application/geo+json\n              - type: string\n                format: application/gml+xml\n```\n\n**Listing 78**\n\nThe goals of these additional API building blocks are:\n\n- Enabling a more seamless integration of this API with other OGC API standards and\n- Enabling the use of tools to auto-generate clients / servers from the API description.\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/v2/clauses/additionalBuildingBlocks"
+}

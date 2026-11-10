@@ -1,0 +1,36 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.v1.clauses.mediaTypes",
+  "name": "Media Types",
+  "abstract": "Media types clause for OGC API \u2014 Processes Part 2: Deploy, Replace, Undeploy (DRAFT).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-05T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0.0",
+  "clause-index": 11,
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
+  "dateOfLastChange": "2026-11-10",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/v1/clauses/mediaTypes/",
+  "validationPassed": true,
+  "description": "See [OGC 18-062r2](#OAProc-1), Clause 13.\n\nAdditional JSON media types that would typically be used in a server that supports JSON are:\n\n- `application/ogcapppkg+json`\n- `application/cwl+json`\n\nAdditional CWL media types that would typically be used in a server that supports CWL are:\n\n- `application/cwl`\n- `application/cwl+yaml`\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/v1/clauses/mediaTypes"
+}

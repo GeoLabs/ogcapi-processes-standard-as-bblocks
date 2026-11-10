@@ -1,9 +1,0 @@
-{
-  "@context": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/annotated/api/processes/part2/schemas/ogcapppkg/context.jsonld",
-  "processDescription": {
-    "process": {
-      "id": "ndvi",
-      "version": "1.0.0"
-    }
-  }
-}

@@ -1,0 +1,54 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.v2.requirements.json",
+  "name": "JSON",
+  "abstract": "Requirements class for JSON encoding. Requires that all supported API endpoints respond with application/json when requested.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-05-21T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0.0",
+  "clause-index": 11,
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "dependsOn": [
+    "ogc.api.processes.part1.v2.requirements.core"
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/json/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
+  "dateOfLastChange": "2026-11-10",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/json/",
+  "testResources": [
+    {
+      "id": "json-content-type",
+      "method": "Issue an HTTP GET request to each of the following paths: `/`, `/conformance`, `/processes`, `/processes/{processID}`, `/jobs/{jobID}`. Validate that each response includes `Content-Type: application/json` (or a subtype thereof) when the request carries `Accept: application/json`.\n",
+      "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/json/tests/json-content-type.json"
+    }
+  ],
+  "validationPassed": true,
+  "testOutputs": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks/blob/master/build/tests/api/processes/part1/v2/requirements/json/",
+  "description": "This section defines the JSON Requirements Class.\n\n<!-- requirements-class -->\n\n<!-- requirement: json/definition -->\n\n**NOTE:** Responses from the execution endpoint [`/processes/{processID}/execution`](#sec-7.12) may or may not generate JSON depending on the process being executed, the [negotiated execution mode](#sec-7.12.2.2), the negotiated response format (specified using the [HTTP Accept](https://www.rfc-editor.org/rfc/rfc2616#section-14.1) header or the [`f`](#req-kvp-execute-f-definition) query parameter) and the [number of requested outputs](#req-core-process-execute-sync-many-json).\n\n<!-- permission: json/media-types -->\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/v2/requirements/json"
+}

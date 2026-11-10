@@ -1,0 +1,62 @@
+{
+  "title": "Validation report for ogc.api.processes.part1.v2.requirements.json - JSON",
+  "bblockName": "JSON",
+  "bblockId": "ogc.api.processes.part1.v2.requirements.json",
+  "generated": "2026-11-10T18:36:34.881918+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part1/v2/requirements/json/tests/json-content-type.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/json/tests/json-content-type.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using json-content-type.json from test resources"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/part1/v2/requirements/json/tests/json-content-type.json",
+        "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/json/tests/json-content-type.json",
+        "language": "json"
+      },
+      "result": true,
+      "hasWarnings": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using json-content-type.json from test resources"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

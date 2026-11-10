@@ -1,0 +1,49 @@
+
+# Revision History (Clause)
+
+`ogc.api.processes.part2.v1.annexes.revisionHistory` *v1.0.0*
+
+Revision history of OGC API — Processes Part 2: Deploy, Replace, Undeploy (DRAFT).
+
+[*Status*](http://www.opengis.net/def/status): Under development
+
+## Description
+
+**Table — Revision history**
+
+| Date | Release | Editor | Primary clauses modified | Description |
+|---|---|---|---|---|
+| 2020-05-19 | None | Panagiotis (Peter) A. Vretanos | all | Initial check in of draft transactions extension. |
+| 2020-06-23 | None | Panagiotis (Peter) A. Vretanos | all | Add initial draft of an example Open API document |
+| 2021-10-18 | None | Panagiotis (Peter) A. Vretanos | all | Rename transaction directory to deploy_replace_undeploy. |
+| 2022-10-04 | None | Gérald Fenoy | all | Use relative path to exception and problem+json |
+| 2022-10-05 | None | Gérald Fenoy | all | Update the Deploy, Replace, Undeploy extension |
+| 2022-12-12 | None | Gérald Fenoy | all | Change the status code to be returned (immutable) |
+| 2023-02-20 | None | Panagiotis (Peter) A. Vretanos | all | Realign abstract test with requirements. |
+| 2023-05-30 | None | Gérald Fenoy | all | Update status code and schema. |
+| 2023-10-16 | None | Gérald Fenoy | all | Add content to the Abstract Test Suite |
+| 2023-11-28 | None | Gérald Fenoy | all | Update test for validating support of a given HTTP method |
+| 2023-12-06 | None | Gérald Fenoy | all | Abstract Test Suite Updates |
+| 2023-12-07 | None | Gérald Fenoy | all | Fix mixed status code and value in security consideration |
+| 2023-12-08 | None | Gérald Fenoy | all | Add requirements for managing docker image as execution unit |
+| 2024-04-26 | None | Gérald Fenoy | all | Add section for retrieving formal description of a mutable process |
+| 2026-04-08 | None | Francis Charette-Migneault | all | Update format rendering of code snippets |
+| 2026-04-13 | None | Francis Charette-Migneault | all | Fix req/rec/per definitions format and references. |
+| 2026-04-14 | None | Francis Charette-Migneault | Replace | Add more explicit details about replacement conditions and body expectations. |
+| 2026-04-16 | None | Francis Charette-Migneault | Replace | Fix missing req/rec/per document references in sections. |
+| 2026-05-27 | None | Francis Charette-Migneault | all | Replace HTTP by HTTPS for requirement/conformance class references. |
+| 2026-05-27 | None | Francis Charette-Migneault | CWL | Add multiple clarifications to CWL media-type and their operations. |
+| 2026-05-27 | None | Francis Charette-Migneault | CWL | Add CWL multipart deployment details and guidance. |
+| 2026-05-27 | None | Francis Charette-Migneault | AST | Fix invalid AST reference to requirement for ‘unsupported media type’. |
+
+## Sources
+
+* [OGC API - Processes - Part 2: Deploy, Replace, Undeploy](https://docs.ogc.org/DRAFTS/20-044.html)
+
+# For developers
+
+The source code for this Building Block can be found in the following repository:
+
+* URL: [https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks](https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks)
+* Path: `_sources/part2/v1/annexes/revisionHistory`
+

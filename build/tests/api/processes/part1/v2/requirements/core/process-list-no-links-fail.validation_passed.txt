@@ -1,0 +1,34 @@
+Validation report for ogc.api.processes.part1.v2.requirements.core - Core
+Generated 2026-11-10T18:36:34.871705+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using process-list-no-links-fail.json from test resources
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'links' is a required property
+
+Failed validating 'required' in schema:
+    {'type': 'object',
+     'required': ['processes', 'links'],
+     'properties': {'processes': {'type': 'array',
+                                  'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/part1/v2/schemas/processSummary/schema.yaml'}},
+                    'links': {'type': 'array',
+                              'items': {'$ref': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/part1/v2/schemas/link/schema.yaml'}}},
+     'x-bblocks-metadata': {'itemIdentifier': 'ogc.api.processes.part1.v2.schemas.processList',
+                            'register': 'https://geolabs.github.io/bblocks-ogcapi-processes/build/register.json',
+                            'version': '2.0',
+                            'dateOfLastChange': '2026-11-10'}}
+
+On instance:
+    {'processes': [{'id': 'EchoProcess',
+                    'title': 'EchoProcess',
+                    'version': '1.0.0',
+                    'jobControlOptions': ['sync-execute']}]}
+=== End JSON Schema ===
+

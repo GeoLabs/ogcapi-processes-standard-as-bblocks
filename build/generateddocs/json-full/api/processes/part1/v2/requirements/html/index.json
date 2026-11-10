@@ -1,0 +1,43 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.v2.requirements.html",
+  "name": "HTML",
+  "abstract": "Requirements class \u201cHTML\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3): HTML encoding of the API responses.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0",
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/html/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
+  "dateOfLastChange": "2026-11-10",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/html/",
+  "validationPassed": true,
+  "description": "This section defines the HTML Requirements Class.\n\n<!-- requirements-class -->\n\n<!-- requirement: html/definition -->\n\n**NOTE:** Responses from the execution endpoint [`/processes/{processID}/execution`](#sec-7.12) may or may not generate HTML depending on the process being executed, the [negotiated execution mode](#sec-7.12.2.2), the negotiated response format (specified using the [HTTP Accept](https://www.rfc-editor.org/rfc/rfc2616#section-14.1) header or the [`f`](#req-kvp-execute-f-definition) query parameter) and the [number of requested outputs](#req-core-process-execute-sync-many-json).\n\n<!-- permission: html/media-types -->\n\n<!-- requirement: html/content -->\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/v2/requirements/html"
+}

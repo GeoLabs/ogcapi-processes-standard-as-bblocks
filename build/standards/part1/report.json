@@ -1,0 +1,250 @@
+{
+  "standard": "part1",
+  "blocks": [
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.preface",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.securityConsiderations",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.submittingOrganizations",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.submitters",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.acknowledgements",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.scope",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.conformance",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.references",
+      "itemClass": "references",
+      "role": "references",
+      "reason": "itemClass 'references'",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.terms",
+      "itemClass": "terms",
+      "role": "terms",
+      "reason": "itemClass 'terms'",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.conventions",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.overview",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.core",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.collections",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.collectionInput",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.remoteCollections",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.collectionOutput",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.localFiltering",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.ogcProcessDescription",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.encodings",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.json",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.html",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.openapi",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.oas",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.oas30",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.oas31",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.jobList",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.callback",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.dismiss",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.kvpExecute",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.mediaTypes",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.requirements.queryParamProfile",
+      "itemClass": "requirements-class",
+      "role": "requirements-class",
+      "reason": "requirements.yaml found",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.clauses.additionalBuildingBlocks",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.annexes.revisionHistory",
+      "itemClass": "clause",
+      "role": "prose",
+      "reason": "no requirements.yaml",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.annexes.bibliography",
+      "itemClass": "references",
+      "role": "references",
+      "reason": "itemClass 'references'",
+      "loaded": true
+    },
+    {
+      "bblock": "ogc.api.processes.part1.v2.annexes.ats",
+      "itemClass": "clause",
+      "role": "annex-a",
+      "reason": "used by {auto: annex-a}",
+      "loaded": true
+    }
+  ]
+}

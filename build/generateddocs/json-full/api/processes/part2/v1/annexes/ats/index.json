@@ -1,0 +1,35 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part2.v1.annexes.ats",
+  "name": "Abstract Test Suite",
+  "abstract": "Annex A (normative) of OGC API \u2014 Processes Part 2: Deploy, Replace, Undeploy (DRAFT): introduction and layout of the conformance classes and abstract tests.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-05T00:00:00Z",
+  "itemClass": "clause",
+  "version": "1.0.0",
+  "normative": true,
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+      "link": "https://docs.ogc.org/DRAFTS/20-044.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "clause",
+    "draft"
+  ],
+  "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
+  "dateOfLastChange": "2026-11-10",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part2/v1/annexes/ats/",
+  "validationPassed": true,
+  "description": "# Introduction\n\nOGC Web Application Programming Interfaces (APIs) are not Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web API. Therefore, an API endpoint may expose resources in addition to those defined by the standard. A test engine must be able to traverse an implementation of the API, identify and validate test points, and ignore resource paths which are not to be tested.\n\nThe Web API under test can require authorization. Any Executable Test Suite implementing this test suite should implement the following security schemes supported by OpenAPI 3.0: HTTP Authorization schemes \u201cbasic\u201d and \u201cbearer\u201d, API keys, and OAuth2 flow \u201cauthorizationCode\u201d.\n\nThe following requirements apply for a server implementing the OGC API \u2014 Processes \u2014 Part 2: Deploy, Replace, Undeploy under test:\n\n<!-- abstract-test: dru/mutable-process -->\n\nIn case both an [OGC Application Package](bblocks://ogc.api.processes.part2.v1.requirements.ogcapppkg) and [CWL](bblocks://ogc.api.processes.part2.v1.requirements.cwl) conformance classes are supported, the following requirement applies for a server implementing the OGC API \u2014 Processes \u2014 Part 2: Deploy, Replace, Undeploy being tested:\n\n<!-- abstract-test: dru/test-process -->\n\n# Conformance Class Deploy, Replace, Undeploy\n\n<!-- conformance-class: ogc.api.processes.part2.v1.requirements.dru -->\n\n## Immutable processes\n\n<!-- abstract-test: dru/static-indicator -->\n\n## Deploy operation\n\n<!-- abstract-test: dru/deploy-post-op -->\n\n<!-- abstract-test: dru/deploy-content-type -->\n\n<!-- abstract-test: dru/deploy-unsupported-media-type -->\n\n## Replace operation\n\n<!-- abstract-test: dru/replace-put-op -->\n\n<!-- abstract-test: dru/replace-content-type -->\n\n## Undeploy operation\n\n<!-- abstract-test: dru/undeploy-delete-op -->\n\n<!-- abstract-test: dru/undeploy-response -->\n\n<!-- abstract-test: dru/undeploy-response-immutable -->\n\n# Conformance Class OGC Application Package\n\n<!-- conformance-class: ogc.api.processes.part2.v1.requirements.ogcapppkg -->\n\n## Deploy operation\n\n<!-- abstract-test: ogcapppkg/deploy-body -->\n\n<!-- abstract-test: ogcapppkg/deploy-response -->\n\n<!-- abstract-test: ogcapppkg/deploy-response-success -->\n\n<!-- abstract-test: ogcapppkg/deploy-response-duplicate -->\n\n## Replace operation\n\n<!-- abstract-test: ogcapppkg/replace-body -->\n\n<!-- abstract-test: ogcapppkg/replace-response -->\n\n# Conformance Class Docker\n\n<!-- conformance-class: ogc.api.processes.part2.v1.requirements.docker -->\n\n## Deploy operation\n\n<!-- abstract-test: docker/deploy-body -->\n\n## Replace operation\n\n<!-- abstract-test: docker/replace-body -->\n\n# Conformance Class CWL\n\n<!-- conformance-class: ogc.api.processes.part2.v1.requirements.cwl -->\n\n## Deploy operation\n\n<!-- abstract-test: cwl/deploy-body -->\n\n## Replace operation\n\n<!-- abstract-test: cwl/replace-body -->\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part2/v1/annexes/ats"
+}

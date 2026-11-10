@@ -1,0 +1,43 @@
+
+
+{
+  "itemIdentifier": "ogc.api.processes.part1.v2.requirements.oas",
+  "name": "OpenAPI Specification",
+  "abstract": "Requirements class \u201cOpenAPI Specification\u201d of OGC API \u2014 Processes \u2014 Part 1: Core (DRAFT, OGC 18-062r3).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-09T00:00:00Z",
+  "itemClass": "requirements-class",
+  "version": "2.0",
+  "normative": true,
+  "standardization-target": "Web API",
+  "sources": [
+    {
+      "title": "OGC API - Processes - Part 1: Core",
+      "link": "https://docs.ogc.org/DRAFTS/18-062r3.html"
+    }
+  ],
+  "tags": [
+    "ogcapi-processes",
+    "standard",
+    "requirements-class",
+    "draft"
+  ],
+  "resources": [
+    {
+      "ref": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/oas/requirements.yaml",
+      "role": "requirements",
+      "format": "application/yaml"
+    }
+  ],
+  "shaclShapes": {},
+  "license": {
+    "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/LICENSE"
+  },
+  "dateOfLastChange": "2026-11-10",
+  "sourceFiles": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/_sources/part1/v2/requirements/oas/",
+  "validationPassed": true,
+  "description": "**NOTE:** The Open API Requirements Class is abstract. Implementations can only conform to the concrete requirements classes [OpenAPI Specification 3.0](#bb-ogc-api-processes-part1-v2-requirements-oas30) or [OpenAPI Specification 3.1](#bb-ogc-api-processes-part1-v2-requirements-oas31).\n\n# Basic requirements\n\nServers conforming to this requirements class define their API implementation instance as an OpenAPI Document. Note that this requirements class is not specific to a particular version of the OpenAPI specification. Requirements specific to a particular version are defined in separate, dependent requirements classes.\n\n<!-- requirements-class -->\n\n<!-- requirement: oas/definition -->\n\nThe requirements [/req/core/landingpage-success](#req-core-landingpage-success) and [/req/core/api-definition-success](#req-core-api-definition-success) in *Core* require that the API definition documents are referenced from the landing page.\n\nOpenAPI definitions can be created using different approaches. A typical example is the representation of the feature collections. One approach is to use a path parameter `collectionId,` i.e., the API definition has only a single path entry for all feature collections. Another approach is to explicitly define each feature collection in a separate path and without a path parameter, which supports specifying filter parameters or explicit feature schemas per feature collection. Both approaches are valid.\n\n<!-- requirement: oas/oas-impl -->\n\n# Complete definition\n\n<!-- requirement: oas/completeness -->\n\n**NOTE:** Servers that, for example, are access-controlled (see [Security](#sec-11.1.4)), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See [Clause 7.5.1](#sec-7.5.1).\n\nClients must be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors can occur in the transport layer outside of the server.\n\n# Exceptions\n\n<!-- requirement: oas/exceptions-codes -->\n\n**Example \u2014 An example exception response object definition**\n\n```yaml\ndescription: An error occurred.\ncontent:\n  application/json:\n    schema:\n      $ref: https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/common-core/exception.yaml\n  text/html:\n    schema:\n      type: string\n```\n\n# Security\n\n<!-- requirement: oas/security -->\n\nThe OpenAPI specification currently supports the following [security schemes](https://spec.openapis.org/oas/v3.0.3#security-scheme-object):\n\n- HTTP authentication,\n- an API key (either as a header or as a query parameter),\n- OAuth2\u2019s common flows (implicit, password, application and access code) as defined in RFC6749, and\n- OpenID Connect Discovery.\n",
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/GeoLabs/ogcapi-processes-standard-as-bblocks",
+  "gitPath": "_sources/part1/v2/requirements/oas"
+}
