@@ -18,6 +18,120 @@ New `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.
 
 ## Building Blocks
 
+### `ogc.api.processes.part1.v1.annexes.ats` — Abstract Test Suite
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.annexes.bibliography` — Bibliography
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.annexes.revisionHistory` — Revision history
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.abstract` — Abstract
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.additionalBuildingBlocks` — Additional API Building Blocks
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.conformance` — Conformance
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.conventions` — Conventions
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.encodingOverview` — Overview
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.encodings` — Requirements classes for encodings
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.keywords` — Keywords
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.mediaTypes` — Media Types
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.overview` — Overview
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.references` — Normative references
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.scope` — Scope
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.securityConsiderations` — Security Considerations
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.sourceFrontMatter` — Published source front matter and licence
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.submitters` — Submitters
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.submittingOrganizations` — Submitting Organizations
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.clauses.terms` — Terms, definitions and abbreviated terms
+
+**Type:** clause
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
 ### `ogc.api.processes.part1.v2.annexes.ats` — Abstract Test Suite
 
 **Type:** clause
@@ -306,6 +420,12 @@ Core requirements class for OGC API — Processes Part 2 (DRAFT). Specifies the 
 
 Conformance class for OGC API — Processes Part 2 (DRAFT). Defines the schema of an OGC Application Package document — a formal process description used to dynamically deploy or replace a process — and the media type (application/ogcapppkg+json) used to carry it in requests and responses.
 
+### `ogc.api.processes.part1.v1.requirements.core` — Requirements Class “Core”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
 ### `ogc.api.processes.part2.v1.requirements.cwl` — CWL
 
 **Type:** requirements-class
@@ -317,6 +437,48 @@ Conformance class for OGC API — Processes Part 2 (DRAFT). Enables support for 
 **Type:** requirements-class
 
 Conformance class for OGC API - Processes Part 2 (DRAFT). Defines requirements for Docker-based execution units in OGC Application Packages.
+
+### `ogc.api.processes.part1.v1.requirements.callback` — Requirements Class “Callback”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.requirements.dismiss` — Requirements Class “Dismiss”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.requirements.html` — Requirement Class “HTML”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.requirements.jobList` — Requirements Class “Job list”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.requirements.json` — Requirement Class “JSON”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.requirements.oas30` — Requirements Class “OpenAPI 3.0”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
+
+### `ogc.api.processes.part1.v1.requirements.ogcProcessDescription` — Requirements Class “OGC Process Description”
+
+**Type:** requirements-class
+
+Complete published section of OGC 18-062r2, 1.0.0; modified BB rendition, not an OGC-approved publication.
 
 ### `ogc.api.processes.part1.v2.requirements.core` — Core
 

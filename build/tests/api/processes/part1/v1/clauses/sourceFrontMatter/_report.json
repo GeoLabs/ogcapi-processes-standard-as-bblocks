@@ -1,0 +1,15 @@
+{
+  "title": "Validation report for ogc.api.processes.part1.v1.clauses.sourceFrontMatter - Published source front matter and licence",
+  "bblockName": "Published source front matter and licence",
+  "bblockId": "ogc.api.processes.part1.v1.clauses.sourceFrontMatter",
+  "generated": "2026-11-10T21:28:53.956964+00:00",
+  "result": true,
+  "items": [],
+  "globalErrors": {},
+  "hasWarnings": false,
+  "counts": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}
