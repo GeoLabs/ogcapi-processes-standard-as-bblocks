@@ -3,7 +3,7 @@
   "name": "OGC API - Processes (Standard as Building Blocks)",
   "abstract": "OGC API \u2014 Processes, authored as Building Blocks. This is a proof-of-concept demonstrating the\n\"OGC Standards as BBs\" methodology, where the standards document is generated from a set of\nBuilding Blocks rather than from AsciiDoc source. Covers Part 1: Core and Part 2: Deploy,\nReplace, Undeploy (the latter still a DRAFT standard, not yet adopted).\n",
   "description": "This repository contains the Building Blocks for OGC API \u2014 Processes Part 1: Core (OGC 18-062r3)\nand OGC API \u2014 Processes Part 2: Deploy, Replace, Undeploy (OGC 20-044, **DRAFT**, not yet\nadopted). It demonstrates the [OGC Standards as BBs](https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/ogc-standards-as-bblocks.md)\nproposal, where normative requirements, conformance tests, schemas, and prose are all co-located\nin a Building Block, and the standards document is generated from the BB set.\n\nNew BB types introduced: `requirements-class`, `clause`, `terms`, `references`.\nNew `bblock.json` fields: `clause-index`, `normative`, `standardization-target`.\n",
-  "modified": "2026-11-10T21:28:47.122460",
+  "modified": "2026-11-10T22:01:55.395384",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"2deb5c60331691186d997e4f6ae9aab18b548ce5",
@@ -3917,9 +3917,9 @@
     },
     {
       "id": "part1-v1",
-      "title": "OGC API - Processes - Part 1: Core (1.0.0, modified BB rendition)",
+      "title": "OGC API - Processes - Part 1: Core",
       "version": "1.0.0",
-      "status": "Approved",
+      "status": "Draft",
       "doc-number": "18-062r2",
       "path": "build/standards/part1-v1",
       "url": "https://geolabs.github.io/ogcapi-processes-standard-as-bblocks/build/standards/part1-v1/"

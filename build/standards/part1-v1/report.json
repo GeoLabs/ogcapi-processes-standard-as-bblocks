@@ -37,13 +37,6 @@
       "loaded": true
     },
     {
-      "bblock": "ogc.api.processes.part1.v1.clauses.sourceFrontMatter",
-      "itemClass": "clause",
-      "role": "prose",
-      "reason": "no requirements.yaml",
-      "loaded": true
-    },
-    {
       "bblock": "ogc.api.processes.part1.v1.clauses.scope",
       "itemClass": "clause",
       "role": "prose",
