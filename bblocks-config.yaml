@@ -27,13 +27,13 @@ imports:
   - https://geolabs.github.io/bblocks-ogcapi-processes/build/register.json
   - https://geolabs.github.io/bblock-ogcapi-processes-part2/build/register.json
 
-# Automatic standards generation; feature/update snapshot tracked in
-# https://github.com/ogcincubator/bblocks-specgen/pull/2
+# Automatic standards generation: bblocks-specgen pinned to the ogcincubator/bblocks-specgen commit
+# that merged https://github.com/ogcincubator/bblocks-specgen/pull/2 ('layout: ogc')
 plugins:
   build:
     - classes: [standard_gen.plugin.SpecgenBuildPlugin]
-      pip: ['bblocks-specgen @ git+https://github.com/JFarduino/bblocks-specgen@c8b79dc91bca45a592f0eca66fd1df12c39da970']
-      url: https://github.com/JFarduino/bblocks-specgen
+      pip: ['bblocks-specgen @ git+https://github.com/ogcincubator/bblocks-specgen@8fa4f2efd286a6b52f979ce6a78266485fbd831e']
+      url: https://github.com/ogcincubator/bblocks-specgen
       config:
         standards-file: standards.yaml
         build-dir: build/standards

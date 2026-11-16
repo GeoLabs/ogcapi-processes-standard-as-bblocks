@@ -39,10 +39,11 @@ The normal `bblocks-postprocess` build installs and invokes
 [bblocks-config.yaml](bblocks-config.yaml). No local generator checkout, editable
 installation or separate CLI generation step is required.
 
-- Package: `bblocks-specgen @ git+https://github.com/JFarduino/bblocks-specgen@c8b79dc91bca45a592f0eca66fd1df12c39da970`.
-- Maintainer context: this is a pinned snapshot of the `feature/update` branch
-	from [JFarduino/bblocks-specgen](https://github.com/JFarduino/bblocks-specgen),
-	proposed in [upstream PR #2](https://github.com/ogcincubator/bblocks-specgen/pull/2).
+- Package: `bblocks-specgen @ git+https://github.com/ogcincubator/bblocks-specgen@8fa4f2efd286a6b52f979ce6a78266485fbd831e`.
+- Maintainer context: this pins the commit of
+	[ogcincubator/bblocks-specgen](https://github.com/ogcincubator/bblocks-specgen) that merged
+	[PR #2](https://github.com/ogcincubator/bblocks-specgen/pull/2) (`layout: ogc`). Its code is
+	identical to the `c8b79dc` snapshot of the JFarduino fork used before.
 	Update the SHA deliberately after review; do not silently substitute an old
 	local clone or a moving branch.
 - Postprocessor requirement: `bblocks-postprocess` **1.1.8 or later**, including
